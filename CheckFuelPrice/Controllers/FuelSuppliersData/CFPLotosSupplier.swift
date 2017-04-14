@@ -60,9 +60,7 @@ class CFPLotosSupplier : CFPFuelSupplierSuperClass {
                         for tr in link.css(CFPHtmlSection.CFPHTMLSecionTR.rawValue) {
                             var tagFuelName : CFPFuelTypes = .CFPFuelTypeNone
                             var currentTagFuelName = tagFuelName
-                            for td in tr.css(CFPHtmlSection.CFPHTMLSecionTD.rawValue) {
-                                log.error("TD Section: \(td.text!)")
-                                
+                            for td in tr.css(CFPHtmlSection.CFPHTMLSecionTD.rawValue) {                                
                                 tagFuelName = .CFPFuelTypeNone
                                 let foundTagName = td.text!
                                 if foundTagName.contains("95") {
