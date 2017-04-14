@@ -15,24 +15,27 @@ typealias SupplierParseDataCompletionClosure = (ParseDataStatus, [FuelPricesForT
 //! This struct represents prices for all types of fuel for the day
 struct FuelPricesForTheDay {
     
-    var date            : Date
-    var unleaded95Price : Double
-    var unleaded98Price : Double
-    var dieselPrice     : Double
-    var lpgPrice        : Double
+    // MARK: Constructors
+    init(date : Date) {
+        self.date = date
+    }
     
+    init() {
+        self.init(date: Date())
+    }
+    
+    // MARK: Properties
+    var date            : Date
+    var fuelTypesList   = [CFPFuelTypes : Double]()
+    
+    // MARK: Methods
     func getPrice(_ type : CFPFuelTypes) -> Double {
-        
-        switch type {
-        case CFPFuelTypes.CFPFuelTypeUnleaded95:
-            return self.unleaded95Price
-        case CFPFuelTypes.CFPFuelTypeUnleaded98:
-            return self.unleaded98Price
-        case CFPFuelTypes.CFPFuelTypeDiesel:
-            return self.dieselPrice
-        case CFPFuelTypes.CFPFuelTypeLPG:
-            return self.lpgPrice
+
+        guard fuelTypesList[type] != nil  else
+        {
+            return 0.0
         }
+        return fuelTypesList[type]!;
     }
     
     func getAllPrices() -> FuelPricesForTheDay {
@@ -40,7 +43,7 @@ struct FuelPricesForTheDay {
     }
 }
 
-protocol CFPFuelSupplierPrototype {
+protocol CFPFuelSupplierProtocol {
     
     var fuelSupplierName : String {get}
     
@@ -51,7 +54,7 @@ protocol CFPFuelSupplierPrototype {
     
 }
 
-class CFPFuelSupplierSuperClass: CFPFuelSupplierPrototype  {
+class CFPFuelSupplierSuperClass: CFPFuelSupplierProtocol  {
 
     var fuelSupplierName: String = ""
 

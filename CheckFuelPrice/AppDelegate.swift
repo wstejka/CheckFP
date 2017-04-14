@@ -9,7 +9,6 @@
 import UIKit
 import SwiftyBeaver
 
-
 // MARK: public constants
 let log = SwiftyBeaver.self
 

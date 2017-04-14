@@ -12,9 +12,11 @@ import Foundation
 
 enum CFPFuelTypes : Int {
     
+    case CFPFuelTypeNone
     case CFPFuelTypeUnleaded95
     case CFPFuelTypeUnleaded98
     case CFPFuelTypeDiesel
+    case CFPFuelTypeDieselIZ40
     case CFPFuelTypeLPG
 }
 
@@ -28,6 +30,12 @@ enum CFPErrorTypes : Error {
     case CFPErrorTypeNoData
     case CFPErrorTypeBadResponseCode
     
+}
+
+enum CFPHtmlSection : String {
+    case CFPHTMLSecionTD = "td"
+    case CFPHTMLSecionTR = "tr"
+    case CFPHTMLSecionTH = "th"
 }
 
 extension CFPErrorTypes : CustomStringConvertible {
@@ -79,10 +87,3 @@ func invokeEnclosureOnError(_ completion : SupplierParseDataCompletionClosure?,
     completion!(status, [])
 }
 
-
-// Swift 3
-func synchronized<T>(_ lock: AnyObject, _ body: () throws -> T) rethrows -> T {
-    objc_sync_enter(lock)
-    defer { objc_sync_exit(lock) }
-    return try body()
-}

@@ -11,6 +11,7 @@
 		9E5C84301EA0CC5800C7DFA7 /* Kanna.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E5C84311EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */; };
 		9E5C84321EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */; };
 		9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA2031F1EA0BDBB00F18A3A /* AppDelegate.swift */; };
 		9EA203221EA0BDBB00F18A3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA203211EA0BDBB00F18A3A /* ViewController.swift */; };
 		9EA203251EA0BDBB00F18A3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EA203231EA0BDBB00F18A3A /* Main.storyboard */; };
@@ -54,8 +55,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
-		9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = ../Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
+		9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSUtils.swift; sourceTree = "<group>"; };
 		9EA2031C1EA0BDBB00F18A3A /* CheckFuelPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckFuelPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA2031F1EA0BDBB00F18A3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EA203211EA0BDBB00F18A3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,11 +101,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9EA203131EA0BDBB00F18A3A = {
+		9E5C84341EA0CD4200C7DFA7 /* Carthage Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */,
 				9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */,
+			);
+			name = "Carthage Frameworks";
+			sourceTree = "<group>";
+		};
+		9E5C84351EA0CD7100C7DFA7 /* Poland */ = {
+			isa = PBXGroup;
+			children = (
+				9EA2034A1EA0BEBB00F18A3A /* CFPLotosSupplier.swift */,
+				9EA2034C1EA0BEBB00F18A3A /* CFPOrlenSupplier.swift */,
+			);
+			name = Poland;
+			sourceTree = "<group>";
+		};
+		9E5C84361EA0CD7700C7DFA7 /* Czech */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Czech;
+			sourceTree = "<group>";
+		};
+		9EA203131EA0BDBB00F18A3A = {
+			isa = PBXGroup;
+			children = (
 				9EA2031E1EA0BDBB00F18A3A /* CheckFuelPrice */,
 				9EA203331EA0BDBC00F18A3A /* CheckFuelPriceTests */,
 				9EA2031D1EA0BDBB00F18A3A /* Products */,
@@ -122,9 +147,10 @@
 		9EA2031E1EA0BDBB00F18A3A /* CheckFuelPrice */ = {
 			isa = PBXGroup;
 			children = (
+				9E5C84341EA0CD4200C7DFA7 /* Carthage Frameworks */,
+				9EA2033F1EA0BEA900F18A3A /* GlobalClassExtensions */,
 				9EA203551EA0BEF700F18A3A /* Internationalization */,
 				9EA203421EA0BEBB00F18A3A /* Controllers */,
-				9EA2033F1EA0BEA900F18A3A /* GlobalClassExtensions */,
 				9EA203541EA0BED400F18A3A /* Storyboards */,
 				9EA203561EA0BF0200F18A3A /* ViewControllers */,
 				9EA203571EA0BF3A00F18A3A /* AppDelegates */,
@@ -147,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				9EA203401EA0BEA900F18A3A /* String+Extension.swift */,
+				9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */,
 			);
 			path = GlobalClassExtensions;
 			sourceTree = "<group>";
@@ -175,8 +202,8 @@
 			children = (
 				9EA203491EA0BEBB00F18A3A /* CFPFuelSupplierPrototype.swift */,
 				9EA2034B1EA0BEBB00F18A3A /* CFPManagerUtils.swift */,
-				9EA2034A1EA0BEBB00F18A3A /* CFPLotosSupplier.swift */,
-				9EA2034C1EA0BEBB00F18A3A /* CFPOrlenSupplier.swift */,
+				9E5C84351EA0CD7100C7DFA7 /* Poland */,
+				9E5C84361EA0CD7700C7DFA7 /* Czech */,
 			);
 			path = FuelSuppliersData;
 			sourceTree = "<group>";
@@ -330,6 +357,7 @@
 				9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */,
 				9EA2034E1EA0BEBB00F18A3A /* CFPDownloadManager.swift in Sources */,
 				9EA2034F1EA0BEBB00F18A3A /* CFPDownloadUtils.swift in Sources */,
+				9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */,
 				9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */,
 				9EA2034D1EA0BEBB00F18A3A /* CFPManager.swift in Sources */,
 				9EA203511EA0BEBB00F18A3A /* CFPLotosSupplier.swift in Sources */,
@@ -486,7 +514,6 @@
 				DEVELOPMENT_TEAM = Y9H7EALLGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/CheckFuelPrice/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
@@ -505,7 +532,6 @@
 				DEVELOPMENT_TEAM = Y9H7EALLGQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/CheckFuelPrice/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
