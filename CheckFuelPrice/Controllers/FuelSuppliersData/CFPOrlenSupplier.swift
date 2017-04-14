@@ -13,7 +13,7 @@ class CFPOrlenSupplier : CFPFuelSupplierSuperClass {
     required init() {
         log.verbose("Enter")
         super.init()
-        self.fuelSupplierName = CFPSuppliersIDs.Orlen.rawValue
+        self.fuelSupplierName = CFPSuppliersID.orlen.rawValue
         self.webSites.append(URL(string: "http://www.orlen.pl/PL/DlaBiznesu/HurtoweCenyPaliw/Strony/default.aspx"))
     }
     

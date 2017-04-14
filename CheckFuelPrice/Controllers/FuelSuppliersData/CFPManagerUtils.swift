@@ -10,50 +10,50 @@ import Foundation
 
 // MARK: - Fuel types
 
-enum CFPFuelTypes : Int {
+enum CFPFuelType : Int {
     
-    case CFPFuelTypeNone
-    case CFPFuelTypeUnleaded95
-    case CFPFuelTypeUnleaded98
-    case CFPFuelTypeDiesel
-    case CFPFuelTypeDieselIZ40
-    case CFPFuelTypeLPG
+    case none
+    case unleaded95
+    case unleaded98
+    case diesel
+    case dieselIZ40
+    case lpg
 }
 
 // MARK: - Errors for exception throwing types
 
-enum CFPErrorTypes : Error {
-    case CFPErrorTypeUnknown
-    case CFPErrorTypeGeneral
-    case CFPErrorTypeMethodNotOverridden
-    case CFPErrorTypeDownloadFailed
-    case CFPErrorTypeNoData
-    case CFPErrorTypeBadResponseCode
+enum CFPErrorType : Error {
+    case unknown
+    case general
+    case methodNotOverridden
+    case downloadFailed
+    case noData
+    case badResponseCode
     
 }
 
 enum CFPHtmlSection : String {
-    case CFPHTMLSecionTD = "td"
-    case CFPHTMLSecionTR = "tr"
-    case CFPHTMLSecionTH = "th"
+    case td = "td"
+    case tr = "tr"
+    case th = "th"
 }
 
-extension CFPErrorTypes : CustomStringConvertible {
+extension CFPErrorType : CustomStringConvertible {
     
     var description: String {
         
         switch self {
-        case .CFPErrorTypeUnknown:
+        case .unknown:
             return "Unknown error."
-        case .CFPErrorTypeGeneral:
+        case .general:
             return "General error."
-        case .CFPErrorTypeMethodNotOverridden:
+        case .methodNotOverridden:
             return "This is an abstraction. This method must be overridden in subclass."
-        case .CFPErrorTypeDownloadFailed:
+        case .downloadFailed:
             return "Download failed"
-        case .CFPErrorTypeNoData:
+        case .noData:
             return "No data"
-        case .CFPErrorTypeBadResponseCode:
+        case .badResponseCode:
             return "Response code not equal 200"
         }
     }
@@ -61,18 +61,18 @@ extension CFPErrorTypes : CustomStringConvertible {
 
 // MARK: - Suppliers' identities
 
-enum CFPSuppliersIDs : String {
-    case None       = "NONE"
-    case Orlen      = "ORLEN"
-    case Lotos      = "LOTOS"
+enum CFPSuppliersID : String {
+    case none       = "NONE"
+    case orlen      = "ORLEN"
+    case lotos      = "LOTOS"
 }
 
 
 enum ParseDataStatus {
-    case PDSParseDataStatusSucceed
-    case PDSParseDataStatusBrokenData
-    case PDSParseDataStatusLackOfData
-    case PDSParseDataStatusUknownError
+    case succeed
+    case brokenData
+    case lackOfData
+    case uknownError
 }
 
 

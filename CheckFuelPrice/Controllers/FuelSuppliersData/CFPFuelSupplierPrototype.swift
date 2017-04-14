@@ -26,10 +26,10 @@ struct FuelPricesForTheDay {
     
     // MARK: Properties
     var date            : Date
-    var fuelTypesList   = [CFPFuelTypes : Double]()
+    var fuelTypesList   : [CFPFuelType : Double] = [:]
     
     // MARK: Methods
-    func getPrice(_ type : CFPFuelTypes) -> Double {
+    func getPrice(_ type : CFPFuelType) -> Double {
 
         guard fuelTypesList[type] != nil  else
         {
@@ -60,10 +60,10 @@ class CFPFuelSupplierSuperClass: CFPFuelSupplierProtocol  {
 
     //! MARK: - Download data section
     //! Every subclass needs to populate some webs sites URL here if it wants superclass downloads them
-    var webSites = [URL?]()
+    var webSites : [URL?] = []
     
     //! MARK: - Parsing data
-    var parseStatus = ParseDataStatus.PDSParseDataStatusSucceed
+    var parseStatus = ParseDataStatus.succeed
     var parseDataObjectsList : [FuelPricesForTheDay]?
     
     
@@ -78,8 +78,8 @@ class CFPFuelSupplierSuperClass: CFPFuelSupplierProtocol  {
     }
     
     func parse(_ url: URL, _ html: String, completion: @escaping SupplierParseDataCompletionClosure) throws {
-        log.error(CFPErrorTypes.CFPErrorTypeMethodNotOverridden.description)
-        throw CFPErrorTypes.CFPErrorTypeMethodNotOverridden
+        log.error(CFPErrorType.methodNotOverridden.description)
+        throw CFPErrorType.methodNotOverridden
     }
 
 }

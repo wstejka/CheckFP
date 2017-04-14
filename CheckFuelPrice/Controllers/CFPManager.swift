@@ -121,12 +121,12 @@ class CFPManager {
                                 do {
                                     // let's check data are not nil
                                     guard (data != nil) else {
-                                        throw CFPErrorTypes.CFPErrorTypeNoData
+                                        throw CFPErrorType.noData
                                     }
                                     // ... and then let's check respone status is 200
                                     let httpResponse = response as! HTTPURLResponse
                                     guard httpResponse.statusCode == 200 else {
-                                        throw CFPErrorTypes.CFPErrorTypeBadResponseCode
+                                        throw CFPErrorType.badResponseCode
                                     }
                                     
                                     // For convenience let's create new supplier's instance for parsing and saving actions
@@ -139,7 +139,7 @@ class CFPManager {
                                         
                                     })
                                 }
-                                catch let error as CFPErrorTypes {
+                                catch let error as CFPErrorType {
                                     log.error("Error captured: \(error.description)")
                                 }
                                 catch {

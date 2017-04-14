@@ -74,7 +74,7 @@
 		9EA203471EA0BEBB00F18A3A /* CFPDownloadUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPDownloadUtils.swift; sourceTree = "<group>"; };
 		9EA203491EA0BEBB00F18A3A /* CFPFuelSupplierPrototype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPFuelSupplierPrototype.swift; sourceTree = "<group>"; };
 		9EA2034A1EA0BEBB00F18A3A /* CFPLotosSupplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPLotosSupplier.swift; sourceTree = "<group>"; };
-		9EA2034B1EA0BEBB00F18A3A /* CFPManagerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPManagerUtils.swift; sourceTree = "<group>"; };
+		9EA2034B1EA0BEBB00F18A3A /* CFPManagerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFPManagerUtils.swift; path = FuelSuppliersData/CFPManagerUtils.swift; sourceTree = "<group>"; };
 		9EA2034C1EA0BEBB00F18A3A /* CFPOrlenSupplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPOrlenSupplier.swift; sourceTree = "<group>"; };
 		9EA2035D1EA0C11500F18A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EA2035F1EA0C12000F18A3A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -182,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				9EA203431EA0BEBB00F18A3A /* CFPManager.swift */,
+				9EA2034B1EA0BEBB00F18A3A /* CFPManagerUtils.swift */,
 				9EA203451EA0BEBB00F18A3A /* DownloadManager */,
 				9EA203481EA0BEBB00F18A3A /* FuelSuppliersData */,
 			);
@@ -201,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				9EA203491EA0BEBB00F18A3A /* CFPFuelSupplierPrototype.swift */,
-				9EA2034B1EA0BEBB00F18A3A /* CFPManagerUtils.swift */,
 				9E5C84351EA0CD7100C7DFA7 /* Poland */,
 				9E5C84361EA0CD7700C7DFA7 /* Czech */,
 			);
