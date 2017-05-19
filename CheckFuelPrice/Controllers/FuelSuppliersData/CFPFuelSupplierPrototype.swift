@@ -9,7 +9,7 @@
 import Foundation
 
 //! Let's define closures alias here for simplicity
-typealias SupplierParseDataCompletionClosure = (ParseDataStatus, [FuelPricesForTheDay]?) -> Swift.Void
+typealias SupplierParseDataCompletionClosure = (ParseDataStatus, [FuelPricesForTheDay]) -> Swift.Void
 
 
 //! This struct represents prices for all types of fuel for the day
@@ -64,7 +64,7 @@ class CFPFuelSupplierSuperClass: CFPFuelSupplierProtocol  {
     
     //! MARK: - Parsing data
     var parseStatus = ParseDataStatus.succeed
-    var parseDataObjectsList : [FuelPricesForTheDay]?
+    var parseDataObjectsList : [FuelPricesForTheDay] = []
     
     
     //! MARK: - Interface
@@ -82,6 +82,16 @@ class CFPFuelSupplierSuperClass: CFPFuelSupplierProtocol  {
         throw CFPErrorType.methodNotOverridden
     }
 
+//    func add(fuelPriceForTheDay : FuelPricesForTheDay) throws {
+//        
+//        if fuelPriceForTheDay.fuelTypesList.count == 0 {
+//            log.error("There are no data. Ignore!")
+//            self.parseStatus = .brokenData
+//            throw CFPErrorType.noData
+//        }
+//        self.parseDataObjectsList.append(fuelPriceForTheDay)
+//    }
+    
 }
 
 

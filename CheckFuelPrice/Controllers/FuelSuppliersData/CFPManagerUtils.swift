@@ -16,7 +16,8 @@ enum CFPFuelType : Int {
     case unleaded95
     case unleaded98
     case diesel
-    case dieselIZ40
+    case dieselIZ40     // Arktyczny or Z-40
+    case dieselHeating  //
     case lpg
 }
 

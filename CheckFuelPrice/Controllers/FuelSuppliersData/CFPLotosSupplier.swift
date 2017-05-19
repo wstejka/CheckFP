@@ -75,6 +75,9 @@ class CFPLotosSupplier : CFPFuelSupplierSuperClass {
                                 else if foundTagName.contains("40") {
                                     tagFuelName = .dieselIZ40
                                 }
+                                else if foundTagName.contains("napędowy") {
+                                    tagFuelName = .dieselHeating
+                                }
                                 
                                 if tagFuelName != .none {
                                     currentTagFuelName = tagFuelName
@@ -92,13 +95,7 @@ class CFPLotosSupplier : CFPFuelSupplierSuperClass {
                         }
                     }
                 }
-                if fuelPriceForTheDay.fuelTypesList.count == 0 {
-                    log.error("Were not able to parse data from web site!")
-                    self.parseStatus = .brokenData
-                    return
-                }
-                self.parseDataObjectsList?.append(fuelPriceForTheDay)
-                print("\(fuelPriceForTheDay)")
+                self.parseDataObjectsList.append(fuelPriceForTheDay)
             }
         }
     }

@@ -137,6 +137,9 @@ class CFPManager {
                                     try supplierForParsing.parse(url!, stringData!, completion: {
                                         (parsedDataStatus, fuelPricesForTheDayList) in
                                         
+                                        
+                                        log.verbose("\(parsedDataStatus as ParseDataStatus), \(fuelPricesForTheDayList)")
+                                        
                                     })
                                 }
                                 catch let error as CFPErrorType {
