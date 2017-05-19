@@ -10,9 +10,9 @@ target 'CheckFuelPrice' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
 
-  target 'CheckFuelPriceTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+#  target 'CheckFuelPriceTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
 
 end

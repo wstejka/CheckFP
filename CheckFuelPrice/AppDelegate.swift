@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyBeaver
+import Firebase
 
 // MARK: public constants
 let log = SwiftyBeaver.self
@@ -32,11 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         log.verbose("Enter")
         
+        // That's the workaround to not engage whole functionallity (especially UI part) in UT activities
         // Return if this is a unit test
         if let _ = NSClassFromString("XCTest") {
             log.verbose("========== UNIT TESTING ==============")
             return true
         }
+        
+        // === Configure Firebase ==== //
+        FIRApp.configure()
+        
         
         // We need to initiate CFPManager synchronically to obtain list of
         // all suppliers class before we do anything else ...
