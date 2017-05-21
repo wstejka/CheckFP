@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>426179248982-9v8r29jc85lfdb526a28a5rnmnup9hv3.apps.googleusercontent.com</string>
+	<string>384954283453-pafj9k1402kim7gieclg4kaeb1jclmrk.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.426179248982-9v8r29jc85lfdb526a28a5rnmnup9hv3</string>
+	<string>com.googleusercontent.apps.384954283453-pafj9k1402kim7gieclg4kaeb1jclmrk</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDHRrsZ-Ji2odY9fi4Y576mmJsSmw1TUVA</string>
+	<string>AIzaSyCS4JeaekiJjSh77aiIQBDyUtgcvwU8s8A</string>
 	<key>GCM_SENDER_ID</key>
-	<string>426179248982</string>
+	<string>384954283453</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.wstejka.CheckFuelPrice</string>
+	<string>com.wstejka.ios.CheckFuelPrice</string>
 	<key>PROJECT_ID</key>
-	<string>grocr-ddd20</string>
+	<string>checkfuelprice-d5d3d</string>
 	<key>STORAGE_BUCKET</key>
-	<string>grocr-ddd20.appspot.com</string>
+	<string>checkfuelprice-d5d3d.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:426179248982:ios:157008a4f831ae85</string>
+	<string>1:384954283453:ios:c26f0e6eab2adaa9</string>
 	<key>DATABASE_URL</key>
-	<string>https://grocr-ddd20.firebaseio.com</string>
+	<string>https://checkfuelprice-d5d3d.firebaseio.com</string>
 </dict>
 </plist>

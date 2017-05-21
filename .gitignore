@@ -6,6 +6,10 @@
 build/
 DerivedData/
 
+## Firebase
+.idea
+**/node_modules/*
+**/.firebaserc
 
 ## Various settings
 *.pbxuser
