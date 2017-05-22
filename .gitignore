@@ -11,6 +11,9 @@ DerivedData/
 **/node_modules/*
 **/.firebaserc
 
+## Python
+*.pyc
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
