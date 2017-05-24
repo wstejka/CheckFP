@@ -48,14 +48,14 @@ class FirebaseManager(object):
 	def  getDataFromNode(self, nodeName):
 		return self.db.child(nodeName).get(self.userIdToken)
 
+	def  removeNode(self, nodeName):
+		return self.db.child(nodeName).remove(self.userIdToken)
 
 if __name__ == "__main__":
    
-	firebaseManager = FirebaseManager("login", "password")
-	firebaseManager.updateDB("", "test", {"kot" : "domek"})
-
-	print firebaseManager.getDataFromNode("test").val()
-	# firebaseManager.updateDB({});
+	# firebaseManager.updateDB("", "test", {"kot" : "domek"})
+	# print firebaseManager.getDataFromNode("test").val()
+	firebaseManager.removeNode("instances")
 
 
 

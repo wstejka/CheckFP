@@ -42,17 +42,17 @@ parsersList = {ProducerType.lotos : lotosParser } #,
 firebaseManager = FirebaseManager(login, password)
 nodeName = "instances"
 
-print "Preparing environment data ...."
+print "Preparing of initial data ...."
 startTime = datetime.now()
-currentDataList = firebaseManager.getDataFromNode(nodeName)
-if currentDataList.val() == None:
-	currentDataListKeys = []
+# get current data for comparison
+currentInstanceDataList = firebaseManager.getDataFromNode(nodeName)
+if currentInstanceDataList.val() == None:
+	currentInstanceDataListKeys = []
 else:
-	currentDataListKeys = currentDataList.val().keys()
+	currentInstanceDataListKeys = currentInstanceDataList.val().keys()
 print "Data prepared in", str((datetime.now() - startTime).seconds), "seconds"
 
 # Let's get current data
-
 for producerId, parser in parsersList.iteritems():
 	try:
 		print parser.__name__, ":"
@@ -62,19 +62,21 @@ for producerId, parser in parsersList.iteritems():
 		
 		fuelComponentsList = parser.process(producerId)
 		print
-		print "\tpreparing data for save ..."
+		print "\tpreparing data to save ..."
 		startTime = datetime.now()
 
 
 		allDataDict = {}
+		fuelTypeSpecificDict = {}
 		for fuelComponent in fuelComponentsList:
 			dictKey = str(fuelComponent.producer) + "_" + str(fuelComponent.theDay) + "_" + str(fuelComponent.fuelType)
-			if dictKey not in currentDataListKeys:
+			if dictKey not in currentInstanceDataListKeys:
 				allDataDict[dictKey] = fuelComponent.serialize()
+
 
 		print "\tnumber of rows to update:", len(allDataDict)
 		if len(allDataDict) == 0:
-			print "\tData are up to date"
+			print "\tAll price data are up to date"
 			continue
 		print "\tsaving data in firebase DB ..."
 		startTime = datetime.now()
