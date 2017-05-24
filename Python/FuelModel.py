@@ -1,7 +1,8 @@
 #!/home/wstejka/virtualenv/firebase/bin/python
 from datetime import date
+from utils.utils import Utils
 
-class ProducerType:
+class ProducerType(Utils):
 	none, lotos, orlen = range(3)
 
 	@staticmethod
@@ -17,7 +18,7 @@ class ProducerType:
 			return "Incorrect TYPE"
 
 
-class FuelType:
+class FuelType(Utils):
 	none, unleaded95, unleaded98, diesel, dieselIZ40, dieselHeating, lpg = range(7)
 
 	@staticmethod
@@ -67,6 +68,7 @@ if __name__ == "__main__":
 	print dieselType
 	print FuelType.getFuelTypeName(dieselType)
 	print FuelType.getFuelTypeName("BadType")
+	print FuelType().types(["none"])
 
 	print "=============================="
 	producerType = ProducerType.lotos

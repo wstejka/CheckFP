@@ -40,16 +40,26 @@ parsersList = {ProducerType.lotos : lotosParser } #,
 			   # ProducerType.orlen : orlenParser}
 
 firebaseManager = FirebaseManager(login, password)
-nodeName = "instances"
 
 print "Preparing of initial data ...."
 startTime = datetime.now()
 # get current data for comparison
-currentInstanceDataList = firebaseManager.getDataFromNode(nodeName)
+## INSTANCES
+instancesNodeName = "instances"
+currentInstanceDataList = firebaseManager.getDataFromNode(instancesNodeName)
 if currentInstanceDataList.val() == None:
 	currentInstanceDataListKeys = []
 else:
 	currentInstanceDataListKeys = currentInstanceDataList.val().keys()
+
+## FUEL TYPE CATEGORY
+nodeName = "fuel_types"
+currentFuelTypesDataList = firebaseManager.getDataFromNode()
+if currentFuelTypesDataList.val() == None:
+	currentFuelTypesDataList = []
+else
+	currentFuelTypesDataList = currentFuelTypesDataList.val()
+
 print "Data prepared in", str((datetime.now() - startTime).seconds), "seconds"
 
 # Let's get current data
@@ -66,21 +76,21 @@ for producerId, parser in parsersList.iteritems():
 		startTime = datetime.now()
 
 
-		allDataDict = {}
+		newInstancesDataDict = {}
 		fuelTypeSpecificDict = {}
 		for fuelComponent in fuelComponentsList:
 			dictKey = str(fuelComponent.producer) + "_" + str(fuelComponent.theDay) + "_" + str(fuelComponent.fuelType)
 			if dictKey not in currentInstanceDataListKeys:
-				allDataDict[dictKey] = fuelComponent.serialize()
+				newInstancesDataDict[dictKey] = fuelComponent.serialize()
 
 
-		print "\tnumber of rows to update:", len(allDataDict)
+		print "\tnumber of rows to update:", len(newInstancesDataDict)
 		if len(allDataDict) == 0:
 			print "\tAll price data are up to date"
 			continue
 		print "\tsaving data in firebase DB ..."
 		startTime = datetime.now()
-		firebaseManager.updateDB("", nodeName, allDataDict)
+		firebaseManager.updateDB("", instancesNodeName, newInstancesDataDict)
 		print "\tdata saved in firebase DB in", str((datetime.now() - startTime).seconds), "seconds"
 
 	except Exception, e:
