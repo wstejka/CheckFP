@@ -51,7 +51,7 @@ class FirebaseManager(object):
 
 if __name__ == "__main__":
    
-	firebaseManager = FirebaseManager("wojciechaux@gmail.com", "Anna123$")
+	firebaseManager = FirebaseManager("login", "password")
 	firebaseManager.updateDB("", "test", {"kot" : "domek"})
 
 	print firebaseManager.getDataFromNode("test").val()
