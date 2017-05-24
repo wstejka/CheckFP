@@ -10,6 +10,7 @@ DerivedData/
 .idea
 **/node_modules/*
 **/.firebaserc
+TODO*
 
 ## Python
 *.pyc
