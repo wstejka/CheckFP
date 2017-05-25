@@ -50,7 +50,7 @@ class FuelPriceElement:
 	excise = 0.0
 	fee = 0.0
 	humanReadableDate = ""
-	producer = 0
+	producer = ProducerType.none
 
 
 	def serialize(self):
@@ -61,6 +61,9 @@ class FuelPriceElement:
 				"fee" : float(self.fee),
 				"humanReadableDate" : self.humanReadableDate,
 				"producer" : self.producer}
+
+	def key(self):
+		return str(self.producer) + "_" + str(self.theDay) + "_" + str(self.fuelType)
 
 
 if __name__ == "__main__":
@@ -76,6 +79,20 @@ if __name__ == "__main__":
 	print ProducerType.getProducer(producerType)
 	print ProducerType.getProducer(ProducerType.orlen)
 	print ProducerType.getProducer(22)
+
+	print "=============================="
+	elem = FuelPriceElement()
+	elem.theDay = 123456789
+	elem.fuelType = FuelType.unleaded98
+	elem.price = 3457.3
+	elem.excise = 129.0
+	elem.fee = 389.0
+	elem.humanReadableDate = "2017-03-15"
+	producer = ProducerType.lotos
+
+	print elem.serialize()
+	print elem.key()
+
 
 
 

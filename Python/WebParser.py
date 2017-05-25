@@ -54,7 +54,7 @@ def createFuelTypesNodeIfNeeded():
 # end def		
 
 def updateFuelTypesNode(newPricesList):
-	
+
 	nodeName = "fuel_types"
 	firebaseFuelTypesList = firebaseManager.get(nodeName)
 	if firebaseFuelTypesList.val() == None:
@@ -77,15 +77,13 @@ def updateFuelTypesNode(newPricesList):
 			currentLowestPrice = fuelType.currentLowestPrice
 		currentAveragePrice = (currentHighestPrice + currentLowestPrice) / 2
 
-		# print fuelType["id"], currentHighestPrice, currentLowestPrice, currentAveragePrice
 		keyNodePrefix = nodeName + "/" + str(fuelType["id"]) +"/"
 		currentFuelTypesPriceMatrix[keyNodePrefix + currentHighestPriceNode] = currentHighestPrice
 		currentFuelTypesPriceMatrix[keyNodePrefix + currentLowestPriceNode] = currentLowestPrice
 		# currentFuelTypesPriceMatrix[keyNodePrefix + currentAveragePriceNode] = currentAveragePrice
 
-		print fuelType
-	# for fuelPrice in newPricesList[0:4]:
-	# 	print fuelPrice
+	for fuelPrice in newPricesList[0:4]:
+		print fuelPrice.
 
 	print currentFuelTypesPriceMatrix
 
@@ -125,10 +123,12 @@ def updateInstancesNodeIfNeeded():
 			startTime = datetime.now()
 
 			newInstancesDataDict = {}
+			newPriceElementsList = []
 			for fuelPriceElement in fuelPriceElementsList:
-				dictKey = str(fuelPriceElement.producer) + "_" + str(fuelPriceElement.theDay) + "_" + str(fuelPriceElement.fuelType)
+				dictKey = fuelPriceElement.key()
 				if dictKey not in currentInstanceDataListKeys:
 					newInstancesDataDict[dictKey] = fuelPriceElement.serialize()
+					newPriceElementsList.append(fuelPriceElement)
 
 
 			print "\tnumber of rows to update:", len(newInstancesDataDict)
@@ -139,13 +139,13 @@ def updateInstancesNodeIfNeeded():
 			startTime = datetime.now()
 			# firebaseManager.set("", instancesNodeName, newInstancesDataDict)
 			print "\tdata saved in firebase DB in", str((datetime.now() - startTime).seconds), "second(s)"
-			updateFuelTypesNode(newInstancesDataDict)
 
 		except Exception, e:
 			print "++++++++++++++++ ERROR ++++++++++++++++"
 			print e
 			print "+++++++++++++++++++++++++++++++++++++++"
 			continue
+		updateFuelTypesNode(newPriceElementsList)
 
 
 ##################################################
