@@ -9,7 +9,7 @@ import sys, getopt, os
 from datetime import datetime
 
 
-def createFuelTypesNodeIfNeeded(firebaseManager):
+def createFuelTypesNodeIfNeeded():
 	nodeName = "fuel_types"
 	preDefinedValues = FuelType().types(["none"]).iteritems()
 
@@ -46,15 +46,53 @@ def createFuelTypesNodeIfNeeded(firebaseManager):
 
 	numberOfMissingTypeKeys = len(missingTypeKeys)
 	if numberOfMissingTypeKeys > 0:
-		print "\tAdding", numberOfMissingTypeKeys ,"missing fuel types to the", nodeName
+		print "\tAdding", numberOfMissingTypeKeys , "missing fuel types to the", nodeName
 		firebaseManager.update(missingTypeKeys)
 	else:
 		print "\t" + nodeName, "node is up to date"
 
 # end def		
 
+def updateFuelTypesNode(newPricesList):
+	nodeName = "fuel_types"
+	firebaseFuelTypesList = firebaseManager.get(nodeName)
+	if firebaseFuelTypesList.val() == None:
+		return False
+	
+	currentHighestPriceNode = "currentHighestPrice"
+	currentLowestPriceNode = "currentLowestPrice"
+	currentAveragePriceNode = "currentAveragePrice"
+	currentFuelTypesPriceMatrix = {}
+	for fuelType in firebaseFuelTypesList.val():
 
-def updateInstancesNodeIfNeeded(firebaseManager):
+		if fuelType == None:
+			continue
+
+		currentHighestPrice = 0.0
+		currentLowestPrice = 0.0
+		if currentHighestPriceNode in fuelType:
+			currentHighestPrice = fuelType.currentHighestPrice
+		if currentLowestPriceNode in fuelType:
+			currentLowestPrice = fuelType.currentLowestPrice
+		currentAveragePrice = (currentHighestPrice + currentLowestPrice) / 2
+
+		# print fuelType["id"], currentHighestPrice, currentLowestPrice, currentAveragePrice
+		keyNodePrefix = nodeName + "/" + str(fuelType["id"]) +"/"
+		currentFuelTypesPriceMatrix[keyNodePrefix + currentHighestPriceNode] = currentHighestPrice
+		currentFuelTypesPriceMatrix[keyNodePrefix + currentLowestPriceNode] = currentLowestPrice
+		# currentFuelTypesPriceMatrix[keyNodePrefix + currentAveragePriceNode] = currentAveragePrice
+
+	for fuelPrice in newPricesList[0:4]:
+		print fuelPrice
+
+	print currentFuelTypesPriceMatrix
+
+	# end for
+		
+
+
+
+def updateInstancesNodeIfNeeded():
 
 
 	print "Preparing initial data ...."
@@ -84,7 +122,6 @@ def updateInstancesNodeIfNeeded(firebaseManager):
 			print "\tpreparing data to save ..."
 			startTime = datetime.now()
 
-
 			newInstancesDataDict = {}
 			for fuelComponent in fuelComponentsList:
 				dictKey = str(fuelComponent.producer) + "_" + str(fuelComponent.theDay) + "_" + str(fuelComponent.fuelType)
@@ -98,8 +135,9 @@ def updateInstancesNodeIfNeeded(firebaseManager):
 				continue
 			print "\tsaving prices data in firebase DB ..."
 			startTime = datetime.now()
-			firebaseManager.set("", instancesNodeName, newInstancesDataDict)
+			# firebaseManager.set("", instancesNodeName, newInstancesDataDict)
 			print "\tdata saved in firebase DB in", str((datetime.now() - startTime).seconds), "second(s)"
+			updateFuelTypesNode(newInstancesDataDict)
 
 		except Exception, e:
 			print "++++++++++++++++ ERROR ++++++++++++++++"
@@ -112,9 +150,12 @@ def updateInstancesNodeIfNeeded(firebaseManager):
 ##################################################
 #################### MAIN ########################
 ##################################################
+
+# Public variables
 fileName = os.path.basename(sys.argv[0])
 login = ""
 password = ""
+
 
 ########### Obtain login and password from param list #################
 usage =  fileName + " -l <login> -p <password>\n"
@@ -146,12 +187,13 @@ parsersList = {ProducerType.lotos : lotosParser } #,
 ##################  AUTHENTICATION ######################
 print "Connecting to firebase ...."
 startTime = datetime.now()
+# Handler to firebaseManager object
 firebaseManager = FirebaseManager(login, password)
 print "Connected in", str((datetime.now() - startTime).seconds), "seconds"
 
 ######################  STEP 1 ##########################
-createFuelTypesNodeIfNeeded(firebaseManager)
+# createFuelTypesNodeIfNeeded()
 
 ######################  STEP 2 ##########################
-updateInstancesNodeIfNeeded(firebaseManager)
+updateInstancesNodeIfNeeded()
 

@@ -26,8 +26,6 @@ class Utils:
 		return types
 
 
-
-
 class Test(Utils):
 	cat = "tst"
 	dog = "cEsadasd"
