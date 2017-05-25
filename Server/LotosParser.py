@@ -6,11 +6,11 @@ from lxml import html, etree
 import requests
 
 # Dict of web pages which are a source for scraping
-webPagesList = { fuelModel.FuelType.unleaded95: "http://www.lotos.pl/145/type,oil_95/poznaj_lotos/dla_biznesu/hurtowe_ceny_paliw/archiwum_cen_paliw",
-				fuelModel.FuelType.unleaded98: "http://www.lotos.pl/145/type,oil_98/poznaj_lotos/dla_biznesu/hurtowe_ceny_paliw/archiwum_cen_paliw",
-				fuelModel.FuelType.diesel: "http://www.lotos.pl/145/type,oil_eurodiesel/poznaj_lotos/dla_biznesu/hurtowe_ceny_paliw/archiwum_cen_paliw",
-				fuelModel.FuelType.dieselIZ40: "http://www.lotos.pl/145/type,oil_Iz_40/poznaj_lotos/dla_biznesu/hurtowe_ceny_paliw/archiwum_cen_paliw",
-				fuelModel.FuelType.dieselHeating: "http://www.lotos.pl/145/type,oil_rgterm/poznaj_lotos/dla_biznesu/hurtowe_ceny_paliw/archiwum_cen_paliw", 
+webPagesList = { fuelModel.Fuel.unleaded95: "http://www.lotos.pl/145/type,oil_95/poznaj_lotos/dla_biznesu/hurtowe_ceny_paliw/archiwum_cen_paliw",
+				fuelModel.Fuel.unleaded98: "http://www.lotos.pl/145/type,oil_98/poznaj_lotos/dla_biznesu/hurtowe_ceny_paliw/archiwum_cen_paliw",
+				fuelModel.Fuel.diesel: "http://www.lotos.pl/145/type,oil_eurodiesel/poznaj_lotos/dla_biznesu/hurtowe_ceny_paliw/archiwum_cen_paliw",
+				fuelModel.Fuel.dieselIZ40: "http://www.lotos.pl/145/type,oil_Iz_40/poznaj_lotos/dla_biznesu/hurtowe_ceny_paliw/archiwum_cen_paliw",
+				fuelModel.Fuel.dieselHeating: "http://www.lotos.pl/145/type,oil_rgterm/poznaj_lotos/dla_biznesu/hurtowe_ceny_paliw/archiwum_cen_paliw", 
 				}
 
 
@@ -21,7 +21,7 @@ def process(producerId):
 	for fuelType, webPage in webPagesList.iteritems():
 
 		identation = "\t"
-		print identation, "downloading data for ", fuelModel.FuelType.getFuelTypeName(fuelType)
+		print identation, "downloading data for ", fuelModel.Fuel.get(fuelType)
 		webPageContent = requests.get(webPage)
 
 		print identation, "parsing html ..."

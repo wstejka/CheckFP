@@ -4,38 +4,38 @@
 import OrlenParser as orlenParser
 import LotosParser as lotosParser
 from Firebase import FirebaseManager
-from FuelModel import ProducerType, FuelType, FuelPriceElement
+from FuelModel import Producer, Fuel, FuelPriceElement
 import sys, getopt, os
 from datetime import datetime
 
 
-def createFuelTypesNodeIfNeeded():
+def createFuelsNodeIfNeeded():
 	nodeName = "fuel_types"
-	preDefinedValues = FuelType().types(["none"]).iteritems()
+	preDefinedValues = Fuel().types(["none"]).iteritems()
 
 	currentTypes = {}
-	firebaseFuelTypesList = firebaseManager.get(nodeName)
+	firebaseFuelsList = firebaseManager.get(nodeName)
 
-	if firebaseFuelTypesList.val() == None:
-		firebaseFuelTypesListKeys = [{}]
+	if firebaseFuelsList.val() == None:
+		firebaseFuelsListKeys = [{}]
 	else:
-		firebaseFuelTypesListKeys = firebaseFuelTypesList.val()
+		firebaseFuelsListKeys = firebaseFuelsList.val()
 
 	# Check if all predefined values are already on the list		
 	# If not, add the missing ones ...
 	missingTypeKeys = {}
 	for keyName, key in preDefinedValues:		
 		found = False
-		for firebaseFuelTypesKey in firebaseFuelTypesListKeys:
+		for firebaseFuelsKey in firebaseFuelsListKeys:
 			
-			if firebaseFuelTypesKey == None or \
-				'id' not in firebaseFuelTypesKey:
+			if firebaseFuelsKey == None or \
+				'id' not in firebaseFuelsKey:
 				continue
-			if key == firebaseFuelTypesKey['id']:
+			if key == firebaseFuelsKey['id']:
 				found = True
 				break
 
-			# print key, firebaseFuelTypesKey
+			# print key, firebaseFuelsKey
 
 		if found == False:
 			print "\t", keyName, "(" + str(key) + ")" + " is not on the list. Let's add it ..."
@@ -53,11 +53,11 @@ def createFuelTypesNodeIfNeeded():
 
 # end def		
 
-def updateFuelTypesNode(newPricesList):
+def updateFuelsNode(newPricesList):
 
 	nodeName = "fuel_types"
-	firebaseFuelTypesList = firebaseManager.get(nodeName)
-	if firebaseFuelTypesList.val() == None:
+	firebaseFuelsList = firebaseManager.get(nodeName)
+	if firebaseFuelsList.val() == None:
 		return False
 	
 	currentHighestPriceNode = "currentHighestPrice"
@@ -66,8 +66,8 @@ def updateFuelTypesNode(newPricesList):
 	currentLowestPriceRefNode = "currentLowestPriceReference"
 	currentAveragePriceNode = "currentAveragePrice"
 	timestamp = "timestamp"
-	currentFuelTypesPriceMatrix = {}
-	for fuelType in firebaseFuelTypesList.val():
+	currentFuelsPriceMatrix = {}
+	for fuelType in firebaseFuelsList.val():
 
 		if fuelType == None:
 			continue
@@ -86,9 +86,9 @@ def updateFuelTypesNode(newPricesList):
 			currentPriceTimestamp = fuelType[timestamp]
 
 		keyNodePrefix = nodeName + "/" + str(fuelType["id"]) +"/"
-		currentFuelTypesPriceMatrix[keyNodePrefix + currentHighestPriceNode] = currentHighestPrice
-		currentFuelTypesPriceMatrix[keyNodePrefix + currentLowestPriceNode] = currentLowestPrice
-		currentFuelTypesPriceMatrix[keyNodePrefix + timestamp] = currentPriceTimestamp
+		currentFuelsPriceMatrix[keyNodePrefix + currentHighestPriceNode] = currentHighestPrice
+		currentFuelsPriceMatrix[keyNodePrefix + currentLowestPriceNode] = currentLowestPrice
+		currentFuelsPriceMatrix[keyNodePrefix + timestamp] = currentPriceTimestamp
 
 	isUpdate = False
 	for fuelPrice in newPricesList[:]:
@@ -100,29 +100,29 @@ def updateFuelTypesNode(newPricesList):
 		highestPriceReferenceRefKey = nodeName + "/" +str(fuelPrice.fuelType) + "/" + currentHighestPriceRefNode 
 		lowestPriceReferenceRefKey = nodeName + "/" +str(fuelPrice.fuelType) + "/" + currentLowestPriceRefNode 
 
-		# print currentFuelTypesPriceMatrix[highestPriceRefKey], ":", currentFuelTypesPriceMatrix[lowestPriceRefKey], ":", fuelPrice.price, ":", fuelPrice.timestamp
+		# print currentFuelsPriceMatrix[highestPriceRefKey], ":", currentFuelsPriceMatrix[lowestPriceRefKey], ":", fuelPrice.price, ":", fuelPrice.timestamp
 		# print timestamp, fuelPrice.timestamp, ":", type(fuelPrice.timestamp), ":", str(int(timestamp) < int(fuelPrice.timestamp))
 
-		if currentFuelTypesPriceMatrix[timestampRefKey] < fuelPrice.timestamp:
-			currentFuelTypesPriceMatrix[timestampRefKey] = fuelPrice.timestamp
+		if currentFuelsPriceMatrix[timestampRefKey] < fuelPrice.timestamp:
+			currentFuelsPriceMatrix[timestampRefKey] = fuelPrice.timestamp
 
-			if currentFuelTypesPriceMatrix[highestPriceRefKey] == 0 or \
-				currentFuelTypesPriceMatrix[highestPriceRefKey] < fuelPrice.price:
+			if currentFuelsPriceMatrix[highestPriceRefKey] == 0 or \
+				currentFuelsPriceMatrix[highestPriceRefKey] < fuelPrice.price:
 				isUpdate = True
-				currentFuelTypesPriceMatrix[highestPriceRefKey] = fuelPrice.price
-				currentFuelTypesPriceMatrix[highestPriceReferenceRefKey] = fuelPrice.key()
+				currentFuelsPriceMatrix[highestPriceRefKey] = fuelPrice.price
+				currentFuelsPriceMatrix[highestPriceReferenceRefKey] = fuelPrice.key()
 
-			if currentFuelTypesPriceMatrix[lowestPriceRefKey] == 0 or \
-				currentFuelTypesPriceMatrix[lowestPriceRefKey] > fuelPrice.price:
+			if currentFuelsPriceMatrix[lowestPriceRefKey] == 0 or \
+				currentFuelsPriceMatrix[lowestPriceRefKey] > fuelPrice.price:
 				isUpdate = True
-				currentFuelTypesPriceMatrix[lowestPriceRefKey] = fuelPrice.price
-				currentFuelTypesPriceMatrix[lowestPriceReferenceRefKey] = fuelPrice.key()
+				currentFuelsPriceMatrix[lowestPriceRefKey] = fuelPrice.price
+				currentFuelsPriceMatrix[lowestPriceReferenceRefKey] = fuelPrice.key()
 	# end for
 
 	if isUpdate:
 		print "\tsaving", nodeName , "data in firebase DB ..."
 		startTime = datetime.now()
-		firebaseManager.update(currentFuelTypesPriceMatrix)
+		firebaseManager.update(currentFuelsPriceMatrix)
 		print "\tdata saved in firebase DB in", str((datetime.now() - startTime).seconds), "second(s)"
 	else:
 		print "\tall data in", nodeName ,"node are up to date"
@@ -183,7 +183,7 @@ def updateInstancesNodeIfNeeded():
 			print e
 			print "+++++++++++++++++++++++++++++++++++++++"
 			continue
-		updateFuelTypesNode(newPriceElementsList)
+		updateFuelsNode(newPriceElementsList)
 
 
 ##################################################
@@ -220,8 +220,8 @@ if login == "" or password == "" :
 	exit(1)
 
 # Let's define list of parsers
-parsersList = {ProducerType.lotos : lotosParser } #, 
-			   # ProducerType.orlen : orlenParser}
+parsersList = {Producer.lotos : lotosParser } #, 
+			   # Producer.orlen : orlenParser}
 
 ##################  AUTHENTICATION ######################
 print "Connecting to firebase ...."
@@ -231,7 +231,7 @@ firebaseManager = FirebaseManager(login, password)
 print "Connected in", str((datetime.now() - startTime).seconds), "seconds"
 
 ######################  STEP 1 ##########################
-createFuelTypesNodeIfNeeded()
+createFuelsNodeIfNeeded()
 
 ######################  STEP 2 ##########################
 updateInstancesNodeIfNeeded()
