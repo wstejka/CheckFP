@@ -42,16 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // === Configure Firebase ==== //
         FIRApp.configure()
-        
-        
-        // We need to initiate CFPManager synchronically to obtain list of
-        // all suppliers class before we do anything else ...
-        // This task takes few milliseconds so can be done first on main queue
-        // NOTE: It could be done in one step but I separate it for clearness ...
-        let cfpManager = CFPManager.instance()
-        // Provision data async to not block UI
-        cfpManager.provisionData()
-        
+                
         return true
     }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		683701C73BA4A0486C1A60FC /* Pods_CheckFuelPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C127908F94873D904B7546 /* Pods_CheckFuelPrice.framework */; };
+		9E51D9BB1ED7216300C22246 /* FuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E51D9BA1ED7216300C22246 /* FuelTableViewCell.swift */; };
 		9E5C842F1EA0CC5800C7DFA7 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */; };
 		9E5C84301EA0CC5800C7DFA7 /* Kanna.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E5C84311EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */; };
@@ -20,13 +21,6 @@
 		9EA2032A1EA0BDBC00F18A3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EA203281EA0BDBC00F18A3A /* LaunchScreen.storyboard */; };
 		9EA203351EA0BDBC00F18A3A /* CheckFuelPriceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA203341EA0BDBC00F18A3A /* CheckFuelPriceTests.swift */; };
 		9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA203401EA0BEA900F18A3A /* String+Extension.swift */; };
-		9EA2034D1EA0BEBB00F18A3A /* CFPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA203431EA0BEBB00F18A3A /* CFPManager.swift */; };
-		9EA2034E1EA0BEBB00F18A3A /* CFPDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA203461EA0BEBB00F18A3A /* CFPDownloadManager.swift */; };
-		9EA2034F1EA0BEBB00F18A3A /* CFPDownloadUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA203471EA0BEBB00F18A3A /* CFPDownloadUtils.swift */; };
-		9EA203501EA0BEBB00F18A3A /* CFPFuelSupplierPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA203491EA0BEBB00F18A3A /* CFPFuelSupplierPrototype.swift */; };
-		9EA203511EA0BEBB00F18A3A /* CFPLotosSupplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA2034A1EA0BEBB00F18A3A /* CFPLotosSupplier.swift */; };
-		9EA203521EA0BEBB00F18A3A /* CFPManagerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA2034B1EA0BEBB00F18A3A /* CFPManagerUtils.swift */; };
-		9EA203531EA0BEBB00F18A3A /* CFPOrlenSupplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA2034C1EA0BEBB00F18A3A /* CFPOrlenSupplier.swift */; };
 		9EA2035C1EA0C11500F18A3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EA2035E1EA0C11500F18A3A /* Localizable.strings */; };
 		9EAC4BC01ECF0FA000F7B81B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -59,6 +53,7 @@
 /* Begin PBXFileReference section */
 		04414666A6D9E4D293DC2378 /* Pods-CheckFuelPrice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.release.xcconfig"; sourceTree = "<group>"; };
 		923F842851A1FB42D95FC7BA /* Pods-CheckFuelPrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.debug.xcconfig"; sourceTree = "<group>"; };
+		9E51D9BA1ED7216300C22246 /* FuelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTableViewCell.swift; sourceTree = "<group>"; };
 		9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = ../Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
 		9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSUtils.swift; sourceTree = "<group>"; };
@@ -73,13 +68,6 @@
 		9EA203341EA0BDBC00F18A3A /* CheckFuelPriceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFuelPriceTests.swift; sourceTree = "<group>"; };
 		9EA203361EA0BDBC00F18A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EA203401EA0BEA900F18A3A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		9EA203431EA0BEBB00F18A3A /* CFPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPManager.swift; sourceTree = "<group>"; };
-		9EA203461EA0BEBB00F18A3A /* CFPDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPDownloadManager.swift; sourceTree = "<group>"; };
-		9EA203471EA0BEBB00F18A3A /* CFPDownloadUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPDownloadUtils.swift; sourceTree = "<group>"; };
-		9EA203491EA0BEBB00F18A3A /* CFPFuelSupplierPrototype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPFuelSupplierPrototype.swift; sourceTree = "<group>"; };
-		9EA2034A1EA0BEBB00F18A3A /* CFPLotosSupplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPLotosSupplier.swift; sourceTree = "<group>"; };
-		9EA2034B1EA0BEBB00F18A3A /* CFPManagerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFPManagerUtils.swift; path = FuelSuppliersData/CFPManagerUtils.swift; sourceTree = "<group>"; };
-		9EA2034C1EA0BEBB00F18A3A /* CFPOrlenSupplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPOrlenSupplier.swift; sourceTree = "<group>"; };
 		9EA2035D1EA0C11500F18A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EA2035F1EA0C12000F18A3A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EA203601EA0C13A00F18A3A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -118,6 +106,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9E51D9B81ED71B0A00C22246 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9EA203231EA0BDBB00F18A3A /* Main.storyboard */,
+				9EA203211EA0BDBB00F18A3A /* ViewController.swift */,
+				9E51D9BA1ED7216300C22246 /* FuelTableViewCell.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		9E51D9B91ED71B1E00C22246 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9EA203281EA0BDBC00F18A3A /* LaunchScreen.storyboard */,
+			);
+			name = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		9E51D9BC1ED7249400C22246 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9E5C84341EA0CD4200C7DFA7 /* Carthage Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,22 +138,6 @@
 				9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */,
 			);
 			name = "Carthage Frameworks";
-			sourceTree = "<group>";
-		};
-		9E5C84351EA0CD7100C7DFA7 /* Poland */ = {
-			isa = PBXGroup;
-			children = (
-				9EA2034A1EA0BEBB00F18A3A /* CFPLotosSupplier.swift */,
-				9EA2034C1EA0BEBB00F18A3A /* CFPOrlenSupplier.swift */,
-			);
-			name = Poland;
-			sourceTree = "<group>";
-		};
-		9E5C84361EA0CD7700C7DFA7 /* Czech */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Czech;
 			sourceTree = "<group>";
 		};
 		9EA203131EA0BDBB00F18A3A = {
@@ -170,9 +167,8 @@
 				9EA2033F1EA0BEA900F18A3A /* GlobalClassExtensions */,
 				9EA203551EA0BEF700F18A3A /* Internationalization */,
 				9EA203421EA0BEBB00F18A3A /* Controllers */,
-				9EAC4BBE1ECF0E1800F7B81B /* Model */,
+				9E51D9BC1ED7249400C22246 /* Model */,
 				9EA203541EA0BED400F18A3A /* Storyboards */,
-				9EA203561EA0BF0200F18A3A /* ViewControllers */,
 				9EA203571EA0BF3A00F18A3A /* AppDelegates */,
 				9EA203261EA0BDBC00F18A3A /* Assets.xcassets */,
 				9EA2032B1EA0BDBC00F18A3A /* Info.plist */,
@@ -201,38 +197,15 @@
 		9EA203421EA0BEBB00F18A3A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9EA203431EA0BEBB00F18A3A /* CFPManager.swift */,
-				9EA2034B1EA0BEBB00F18A3A /* CFPManagerUtils.swift */,
-				9EA203451EA0BEBB00F18A3A /* DownloadManager */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		9EA203451EA0BEBB00F18A3A /* DownloadManager */ = {
-			isa = PBXGroup;
-			children = (
-				9EA203461EA0BEBB00F18A3A /* CFPDownloadManager.swift */,
-				9EA203471EA0BEBB00F18A3A /* CFPDownloadUtils.swift */,
-			);
-			path = DownloadManager;
-			sourceTree = "<group>";
-		};
-		9EA203481EA0BEBB00F18A3A /* FuelSuppliersData */ = {
-			isa = PBXGroup;
-			children = (
-				9EA203491EA0BEBB00F18A3A /* CFPFuelSupplierPrototype.swift */,
-				9E5C84351EA0CD7100C7DFA7 /* Poland */,
-				9E5C84361EA0CD7700C7DFA7 /* Czech */,
-			);
-			name = FuelSuppliersData;
-			path = Controllers/FuelSuppliersData;
 			sourceTree = "<group>";
 		};
 		9EA203541EA0BED400F18A3A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				9EA203281EA0BDBC00F18A3A /* LaunchScreen.storyboard */,
-				9EA203231EA0BDBB00F18A3A /* Main.storyboard */,
+				9E51D9B91ED71B1E00C22246 /* LaunchScreen */,
+				9E51D9B81ED71B0A00C22246 /* Main */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -245,14 +218,6 @@
 			path = Internationalization;
 			sourceTree = "<group>";
 		};
-		9EA203561EA0BF0200F18A3A /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				9EA203211EA0BDBB00F18A3A /* ViewController.swift */,
-			);
-			name = ViewControllers;
-			sourceTree = "<group>";
-		};
 		9EA203571EA0BF3A00F18A3A /* AppDelegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,14 +225,6 @@
 				9EA2031F1EA0BDBB00F18A3A /* AppDelegate.swift */,
 			);
 			name = AppDelegates;
-			sourceTree = "<group>";
-		};
-		9EAC4BBE1ECF0E1800F7B81B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9EA203481EA0BEBB00F18A3A /* FuelSuppliersData */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		A4D06E65C563EB57E3212E37 /* Pods */ = {
@@ -440,17 +397,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EA203531EA0BEBB00F18A3A /* CFPOrlenSupplier.swift in Sources */,
-				9EA203521EA0BEBB00F18A3A /* CFPManagerUtils.swift in Sources */,
 				9EA203221EA0BDBB00F18A3A /* ViewController.swift in Sources */,
-				9EA203501EA0BEBB00F18A3A /* CFPFuelSupplierPrototype.swift in Sources */,
+				9E51D9BB1ED7216300C22246 /* FuelTableViewCell.swift in Sources */,
 				9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */,
-				9EA2034E1EA0BEBB00F18A3A /* CFPDownloadManager.swift in Sources */,
-				9EA2034F1EA0BEBB00F18A3A /* CFPDownloadUtils.swift in Sources */,
 				9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */,
 				9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */,
-				9EA2034D1EA0BEBB00F18A3A /* CFPManager.swift in Sources */,
-				9EA203511EA0BEBB00F18A3A /* CFPLotosSupplier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
