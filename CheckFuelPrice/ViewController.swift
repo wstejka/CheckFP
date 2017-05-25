@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.fuelTableView.dataSource = self
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		683701C73BA4A0486C1A60FC /* Pods_CheckFuelPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C127908F94873D904B7546 /* Pods_CheckFuelPrice.framework */; };
+		9E4A1F5B1ED773210044F3DD /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F5A1ED773210044F3DD /* FuelType.swift */; };
 		9E51D9BB1ED7216300C22246 /* FuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E51D9BA1ED7216300C22246 /* FuelTableViewCell.swift */; };
 		9E5C842F1EA0CC5800C7DFA7 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */; };
 		9E5C84301EA0CC5800C7DFA7 /* Kanna.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -23,6 +23,7 @@
 		9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA203401EA0BEA900F18A3A /* String+Extension.swift */; };
 		9EA2035C1EA0C11500F18A3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EA2035E1EA0C11500F18A3A /* Localizable.strings */; };
 		9EAC4BC01ECF0FA000F7B81B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */; };
+		D18E1728AB6C0C65ECC47628 /* Pods_CheckFuelPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FDA4F736424C282B0BB13B /* Pods_CheckFuelPrice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +52,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		04414666A6D9E4D293DC2378 /* Pods-CheckFuelPrice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.release.xcconfig"; sourceTree = "<group>"; };
-		923F842851A1FB42D95FC7BA /* Pods-CheckFuelPrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.debug.xcconfig"; sourceTree = "<group>"; };
+		37FDA4F736424C282B0BB13B /* Pods_CheckFuelPrice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckFuelPrice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F946C05CD007F6243D65606 /* Pods-CheckFuelPrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.debug.xcconfig"; sourceTree = "<group>"; };
+		9E4A1F5A1ED773210044F3DD /* FuelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelType.swift; sourceTree = "<group>"; };
+		9E4A1F601ED775760044F3DD /* CheckFuelPrice-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CheckFuelPrice-Bridging-Header.h"; sourceTree = "<group>"; };
 		9E51D9BA1ED7216300C22246 /* FuelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTableViewCell.swift; sourceTree = "<group>"; };
 		9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = ../Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
 		9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
@@ -72,8 +75,7 @@
 		9EA2035F1EA0C12000F18A3A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EA203601EA0C13A00F18A3A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B94283156307A7F78BF47572 /* Pods_CheckFuelPriceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckFuelPriceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5C127908F94873D904B7546 /* Pods_CheckFuelPrice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckFuelPrice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF1DBEF75401F0FDC4F8B1DB /* Pods-CheckFuelPrice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +85,7 @@
 			files = (
 				9E5C842F1EA0CC5800C7DFA7 /* Kanna.framework in Frameworks */,
 				9E5C84311EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Frameworks */,
-				683701C73BA4A0486C1A60FC /* Pods_CheckFuelPrice.framework in Frameworks */,
+				D18E1728AB6C0C65ECC47628 /* Pods_CheckFuelPrice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,13 +99,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		617BC764676732359AB78F27 /* Frameworks */ = {
+		183079A0F438299B8078558C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C5C127908F94873D904B7546 /* Pods_CheckFuelPrice.framework */,
-				B94283156307A7F78BF47572 /* Pods_CheckFuelPriceTests.framework */,
+				8F946C05CD007F6243D65606 /* Pods-CheckFuelPrice.debug.xcconfig */,
+				FF1DBEF75401F0FDC4F8B1DB /* Pods-CheckFuelPrice.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E4A1F611ED775880044F3DD /* Suuporting files */ = {
+			isa = PBXGroup;
+			children = (
+				9EA2032B1EA0BDBC00F18A3A /* Info.plist */,
+				9E4A1F601ED775760044F3DD /* CheckFuelPrice-Bridging-Header.h */,
+			);
+			name = "Suuporting files";
 			sourceTree = "<group>";
 		};
 		9E51D9B81ED71B0A00C22246 /* Main */ = {
@@ -127,6 +138,7 @@
 		9E51D9BC1ED7249400C22246 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9E4A1F5A1ED773210044F3DD /* FuelType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -146,8 +158,8 @@
 				9EA2031E1EA0BDBB00F18A3A /* CheckFuelPrice */,
 				9EA203331EA0BDBC00F18A3A /* CheckFuelPriceTests */,
 				9EA2031D1EA0BDBB00F18A3A /* Products */,
-				A4D06E65C563EB57E3212E37 /* Pods */,
-				617BC764676732359AB78F27 /* Frameworks */,
+				183079A0F438299B8078558C /* Pods */,
+				A6AEF3500C8307DE7A3ABB81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,10 +180,10 @@
 				9EA203551EA0BEF700F18A3A /* Internationalization */,
 				9EA203421EA0BEBB00F18A3A /* Controllers */,
 				9E51D9BC1ED7249400C22246 /* Model */,
-				9EA203541EA0BED400F18A3A /* Storyboards */,
+				9EA203541EA0BED400F18A3A /* Layout */,
 				9EA203571EA0BF3A00F18A3A /* AppDelegates */,
 				9EA203261EA0BDBC00F18A3A /* Assets.xcassets */,
-				9EA2032B1EA0BDBC00F18A3A /* Info.plist */,
+				9E4A1F611ED775880044F3DD /* Suuporting files */,
 			);
 			path = CheckFuelPrice;
 			sourceTree = "<group>";
@@ -201,13 +213,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		9EA203541EA0BED400F18A3A /* Storyboards */ = {
+		9EA203541EA0BED400F18A3A /* Layout */ = {
 			isa = PBXGroup;
 			children = (
 				9E51D9B91ED71B1E00C22246 /* LaunchScreen */,
 				9E51D9B81ED71B0A00C22246 /* Main */,
 			);
-			name = Storyboards;
+			name = Layout;
 			sourceTree = "<group>";
 		};
 		9EA203551EA0BEF700F18A3A /* Internationalization */ = {
@@ -227,13 +239,12 @@
 			name = AppDelegates;
 			sourceTree = "<group>";
 		};
-		A4D06E65C563EB57E3212E37 /* Pods */ = {
+		A6AEF3500C8307DE7A3ABB81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				923F842851A1FB42D95FC7BA /* Pods-CheckFuelPrice.debug.xcconfig */,
-				04414666A6D9E4D293DC2378 /* Pods-CheckFuelPrice.release.xcconfig */,
+				37FDA4F736424C282B0BB13B /* Pods_CheckFuelPrice.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,13 +254,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EA203391EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "CheckFuelPrice" */;
 			buildPhases = (
-				63D7AA1C8C8794F3C52CA97A /* [CP] Check Pods Manifest.lock */,
+				F1070182D677C2A439CC6546 /* [CP] Check Pods Manifest.lock */,
 				9EA203181EA0BDBB00F18A3A /* Sources */,
 				9EA203191EA0BDBB00F18A3A /* Frameworks */,
 				9EA2031A1EA0BDBB00F18A3A /* Resources */,
 				9E5C84331EA0CC5800C7DFA7 /* Embed Frameworks */,
-				C8FF9519FF369F2812657ED0 /* [CP] Embed Pods Frameworks */,
-				47A5DF95DFC94CBCFC488A81 /* [CP] Copy Pods Resources */,
+				605A275EA21D76D79EA78F84 /* [CP] Embed Pods Frameworks */,
+				92CAE1A431714AC6396D8CCA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,6 +302,7 @@
 					9EA2031B1EA0BDBB00F18A3A = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 49Y3335455;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					9EA2032F1EA0BDBC00F18A3A = {
@@ -345,37 +357,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		47A5DF95DFC94CBCFC488A81 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		63D7AA1C8C8794F3C52CA97A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C8FF9519FF369F2812657ED0 /* [CP] Embed Pods Frameworks */ = {
+		605A275EA21D76D79EA78F84 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -390,6 +372,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		92CAE1A431714AC6396D8CCA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1070182D677C2A439CC6546 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -402,6 +414,7 @@
 				9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */,
 				9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */,
 				9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */,
+				9E4A1F5B1ED773210044F3DD /* FuelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,9 +563,10 @@
 		};
 		9EA2033A1EA0BDBC00F18A3A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 923F842851A1FB42D95FC7BA /* Pods-CheckFuelPrice.debug.xcconfig */;
+			baseConfigurationReference = 8F946C05CD007F6243D65606 /* Pods-CheckFuelPrice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 49Y3335455;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -562,21 +576,33 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
 				);
 				INFOPLIST_FILE = CheckFuelPrice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wstejka.ios.CheckFuelPrice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CheckFuelPrice/CheckFuelPrice-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		9EA2033B1EA0BDBC00F18A3A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04414666A6D9E4D293DC2378 /* Pods-CheckFuelPrice.release.xcconfig */;
+			baseConfigurationReference = FF1DBEF75401F0FDC4F8B1DB /* Pods-CheckFuelPrice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 49Y3335455;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -586,12 +612,22 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
 				);
 				INFOPLIST_FILE = CheckFuelPrice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wstejka.ios.CheckFuelPrice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CheckFuelPrice/CheckFuelPrice-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -48,7 +48,7 @@ struct FuelStruct {
         self.producer = producer
     }
     
-//    init(snapshot: FIRDataSnapshot) {
+//    init(snapshot: DataSnapshot) {
 //    }
 
 }
