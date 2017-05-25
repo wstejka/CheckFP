@@ -17,7 +17,7 @@ webPagesList = { fuelModel.FuelType.unleaded95: "http://www.lotos.pl/145/type,oi
 def process(producerId):
 
 
-	fuelComponentsList = []
+	fuelPriceElementsList = []
 	for fuelType, webPage in webPagesList.iteritems():
 
 		identation = "\t"
@@ -60,18 +60,18 @@ def process(producerId):
 			# end for
 			if price > 0 :
 				key = dateTime.strftime("%s")
-				fuelComponent = fuelModel.FuelComponent()
-				fuelComponent.theDay = key
-				fuelComponent.fuelType = fuelType
-				fuelComponent.price = price
-				fuelComponent.excise = excise
-				fuelComponent.fee = fee
-				fuelComponent.humanReadableDate = humanReadableDate
-				fuelComponent.producer = producerId
+				fuelPriceElement = fuelModel.FuelPriceElement()
+				fuelPriceElement.theDay = key
+				fuelPriceElement.fuelType = fuelType
+				fuelPriceElement.price = price
+				fuelPriceElement.excise = excise
+				fuelPriceElement.fee = fee
+				fuelPriceElement.humanReadableDate = humanReadableDate
+				fuelPriceElement.producer = producerId
 			
-				fuelComponentsList.append(fuelComponent)
+				fuelPriceElementsList.append(fuelPriceElement)
 
-	return fuelComponentsList
+	return fuelPriceElementsList
 
 if __name__ == "__main__":
 	process(1)

@@ -42,7 +42,7 @@ class FuelType(Utils):
 			return "Incorrect TYPE"
 
 
-class FuelComponent:
+class FuelPriceElement:
 
 	theDay = date.today()
 	fuelType = FuelType.none

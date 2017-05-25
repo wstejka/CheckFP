@@ -4,7 +4,7 @@
 import OrlenParser as orlenParser
 import LotosParser as lotosParser
 from Firebase import FirebaseManager
-from FuelModel import ProducerType, FuelType, FuelComponent
+from FuelModel import ProducerType, FuelType, FuelPriceElement
 import sys, getopt, os
 from datetime import datetime
 
@@ -54,6 +54,7 @@ def createFuelTypesNodeIfNeeded():
 # end def		
 
 def updateFuelTypesNode(newPricesList):
+	
 	nodeName = "fuel_types"
 	firebaseFuelTypesList = firebaseManager.get(nodeName)
 	if firebaseFuelTypesList.val() == None:
@@ -82,8 +83,9 @@ def updateFuelTypesNode(newPricesList):
 		currentFuelTypesPriceMatrix[keyNodePrefix + currentLowestPriceNode] = currentLowestPrice
 		# currentFuelTypesPriceMatrix[keyNodePrefix + currentAveragePriceNode] = currentAveragePrice
 
-	for fuelPrice in newPricesList[0:4]:
-		print fuelPrice
+		print fuelType
+	# for fuelPrice in newPricesList[0:4]:
+	# 	print fuelPrice
 
 	print currentFuelTypesPriceMatrix
 
@@ -113,20 +115,20 @@ def updateInstancesNodeIfNeeded():
 	for producerId, parser in parsersList.iteritems():
 		try:
 			print parser.__name__, ":"
-			# data: {1 : [FuelModel.FuelComponent, ..., FuelModel.FuelComponent]}
+			# data: {1 : [FuelModel.FuelPriceElement, ..., FuelModel.FuelPriceElement]}
 			#		...
-			# 	    {N : [FuelModel.FuelComponent, ..., FuelModel.FuelComponent]}
+			# 	    {N : [FuelModel.FuelPriceElement, ..., FuelModel.FuelPriceElement]}
 			
-			fuelComponentsList = parser.process(producerId)
+			fuelPriceElementsList = parser.process(producerId)
 			print
 			print "\tpreparing data to save ..."
 			startTime = datetime.now()
 
 			newInstancesDataDict = {}
-			for fuelComponent in fuelComponentsList:
-				dictKey = str(fuelComponent.producer) + "_" + str(fuelComponent.theDay) + "_" + str(fuelComponent.fuelType)
+			for fuelPriceElement in fuelPriceElementsList:
+				dictKey = str(fuelPriceElement.producer) + "_" + str(fuelPriceElement.theDay) + "_" + str(fuelPriceElement.fuelType)
 				if dictKey not in currentInstanceDataListKeys:
-					newInstancesDataDict[dictKey] = fuelComponent.serialize()
+					newInstancesDataDict[dictKey] = fuelPriceElement.serialize()
 
 
 			print "\tnumber of rows to update:", len(newInstancesDataDict)
@@ -196,4 +198,8 @@ print "Connected in", str((datetime.now() - startTime).seconds), "seconds"
 
 ######################  STEP 2 ##########################
 updateInstancesNodeIfNeeded()
+
+
+# if __name__ == "__main__":
+# 	pass
 
