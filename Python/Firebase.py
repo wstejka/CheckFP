@@ -39,23 +39,30 @@ class FirebaseManager(object):
 		# Get a reference to the database service
 		self.db = firebase.database()
 
-	def updateDB(self, nodeName, dictKey, dictData):
+	def set(self, nodeName, dictKey, dictData):
 		
 		# companies = db.child("companies").get()
 		# print self.userIdToken
 		self.db.child(nodeName).child(dictKey).set(dictData, self.userIdToken)
 
-	def  getDataFromNode(self, nodeName):
-		return self.db.child(nodeName).get(self.userIdToken)
+	def  get(self, nodeName, shallow=None):
+		if shallow == True:
+			return self.db.child(nodeName).shallow().get(self.userIdToken)
+		else:
+			return self.db.child(nodeName).get(self.userIdToken)
 
-	def  removeNode(self, nodeName):
+	def  remove(self, nodeName):
 		return self.db.child(nodeName).remove(self.userIdToken)
+
+	def  update(self, data):
+		return self.db.update(data, self.userIdToken)
 
 if __name__ == "__main__":
    
-	# firebaseManager.updateDB("", "test", {"kot" : "domek"})
-	# print firebaseManager.getDataFromNode("test").val()
-	firebaseManager.removeNode("instances")
+	# firebaseManager.("", "test", {"kot" : "domek"})
+	# print firebaseManager.get("test").val()
+	# print firebaseManager.userIdToken
+	firebaseManager.remove("instances")
 
 
 
