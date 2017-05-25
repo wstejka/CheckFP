@@ -62,7 +62,10 @@ def updateFuelTypesNode(newPricesList):
 	
 	currentHighestPriceNode = "currentHighestPrice"
 	currentLowestPriceNode = "currentLowestPrice"
+	currentHighestPriceRefNode = "currentHighestPriceReference"
+	currentLowestPriceRefNode = "currentLowestPriceReference"
 	currentAveragePriceNode = "currentAveragePrice"
+	timestamp = "timestamp"
 	currentFuelTypesPriceMatrix = {}
 	for fuelType in firebaseFuelTypesList.val():
 
@@ -71,29 +74,64 @@ def updateFuelTypesNode(newPricesList):
 
 		currentHighestPrice = 0.0
 		currentLowestPrice = 0.0
+		currentPriceTimestamp = 0
+		currentHighestPriceReference = ""
+		currentLowestPriceReference = ""
+
 		if currentHighestPriceNode in fuelType:
-			currentHighestPrice = fuelType.currentHighestPrice
+			currentHighestPrice = fuelType[currentHighestPriceNode]
 		if currentLowestPriceNode in fuelType:
-			currentLowestPrice = fuelType.currentLowestPrice
-		currentAveragePrice = (currentHighestPrice + currentLowestPrice) / 2
+			currentLowestPrice = fuelType[currentLowestPriceNode]
+		if timestamp in fuelType:
+			currentPriceTimestamp = fuelType[timestamp]
 
 		keyNodePrefix = nodeName + "/" + str(fuelType["id"]) +"/"
 		currentFuelTypesPriceMatrix[keyNodePrefix + currentHighestPriceNode] = currentHighestPrice
 		currentFuelTypesPriceMatrix[keyNodePrefix + currentLowestPriceNode] = currentLowestPrice
-		# currentFuelTypesPriceMatrix[keyNodePrefix + currentAveragePriceNode] = currentAveragePrice
+		currentFuelTypesPriceMatrix[keyNodePrefix + timestamp] = currentPriceTimestamp
 
-	for fuelPrice in newPricesList[0:4]:
-		print fuelPrice.
+	isUpdate = False
+	for fuelPrice in newPricesList[:]:
+		key = fuelPrice.key()
 
-	print currentFuelTypesPriceMatrix
+		highestPriceRefKey = nodeName + "/" +str(fuelPrice.fuelType) + "/" + currentHighestPriceNode 
+		lowestPriceRefKey = nodeName + "/" +str(fuelPrice.fuelType) + "/" + currentLowestPriceNode 
+		timestampRefKey = nodeName + "/" +str(fuelPrice.fuelType) + "/" + timestamp
+		highestPriceReferenceRefKey = nodeName + "/" +str(fuelPrice.fuelType) + "/" + currentHighestPriceRefNode 
+		lowestPriceReferenceRefKey = nodeName + "/" +str(fuelPrice.fuelType) + "/" + currentLowestPriceRefNode 
 
+		# print currentFuelTypesPriceMatrix[highestPriceRefKey], ":", currentFuelTypesPriceMatrix[lowestPriceRefKey], ":", fuelPrice.price, ":", fuelPrice.timestamp
+		# print timestamp, fuelPrice.timestamp, ":", type(fuelPrice.timestamp), ":", str(int(timestamp) < int(fuelPrice.timestamp))
+
+		if currentFuelTypesPriceMatrix[timestampRefKey] < fuelPrice.timestamp:
+			currentFuelTypesPriceMatrix[timestampRefKey] = fuelPrice.timestamp
+
+			if currentFuelTypesPriceMatrix[highestPriceRefKey] == 0 or \
+				currentFuelTypesPriceMatrix[highestPriceRefKey] < fuelPrice.price:
+				isUpdate = True
+				currentFuelTypesPriceMatrix[highestPriceRefKey] = fuelPrice.price
+				currentFuelTypesPriceMatrix[highestPriceReferenceRefKey] = fuelPrice.key()
+
+			if currentFuelTypesPriceMatrix[lowestPriceRefKey] == 0 or \
+				currentFuelTypesPriceMatrix[lowestPriceRefKey] > fuelPrice.price:
+				isUpdate = True
+				currentFuelTypesPriceMatrix[lowestPriceRefKey] = fuelPrice.price
+				currentFuelTypesPriceMatrix[lowestPriceReferenceRefKey] = fuelPrice.key()
 	# end for
-		
+
+	if isUpdate:
+		print "\tsaving", nodeName , "data in firebase DB ..."
+		startTime = datetime.now()
+		firebaseManager.update(currentFuelTypesPriceMatrix)
+		print "\tdata saved in firebase DB in", str((datetime.now() - startTime).seconds), "second(s)"
+	else:
+		print "\tall data in", nodeName ,"node are up to date"
+
+
 
 
 
 def updateInstancesNodeIfNeeded():
-
 
 	print "Preparing initial data ...."
 	startTime = datetime.now()
@@ -137,7 +175,7 @@ def updateInstancesNodeIfNeeded():
 				continue
 			print "\tsaving prices data in firebase DB ..."
 			startTime = datetime.now()
-			# firebaseManager.set("", instancesNodeName, newInstancesDataDict)
+			firebaseManager.set("", instancesNodeName, newInstancesDataDict)
 			print "\tdata saved in firebase DB in", str((datetime.now() - startTime).seconds), "second(s)"
 
 		except Exception, e:
@@ -148,7 +186,6 @@ def updateInstancesNodeIfNeeded():
 		updateFuelTypesNode(newPriceElementsList)
 
 
-##################################################
 ##################################################
 #################### MAIN ########################
 ##################################################
@@ -194,12 +231,22 @@ firebaseManager = FirebaseManager(login, password)
 print "Connected in", str((datetime.now() - startTime).seconds), "seconds"
 
 ######################  STEP 1 ##########################
-# createFuelTypesNodeIfNeeded()
+createFuelTypesNodeIfNeeded()
 
 ######################  STEP 2 ##########################
 updateInstancesNodeIfNeeded()
 
 
-# if __name__ == "__main__":
-# 	pass
+
+
+
+
+
+
+
+
+
+
+
+
 

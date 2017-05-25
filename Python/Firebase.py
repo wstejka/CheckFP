@@ -62,7 +62,9 @@ if __name__ == "__main__":
 	# firebaseManager.("", "test", {"kot" : "domek"})
 	# print firebaseManager.get("test").val()
 	# print firebaseManager.userIdToken
-	firebaseManager.remove("instances")
+	# firebaseManager.remove("instances")
+
+	print firebaseManager.get("instances/1_1495663200_2").val()
 
 
 

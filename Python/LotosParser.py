@@ -59,9 +59,9 @@ def process(producerId):
 				iteration += 1		
 			# end for
 			if price > 0 :
-				key = dateTime.strftime("%s")
+				timestamp = dateTime.strftime("%s")
 				fuelPriceElement = fuelModel.FuelPriceElement()
-				fuelPriceElement.theDay = key
+				fuelPriceElement.timestamp = int(timestamp)
 				fuelPriceElement.fuelType = fuelType
 				fuelPriceElement.price = price
 				fuelPriceElement.excise = excise

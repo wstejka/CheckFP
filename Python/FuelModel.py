@@ -44,7 +44,7 @@ class FuelType(Utils):
 
 class FuelPriceElement:
 
-	theDay = date.today()
+	timestamp = 0
 	fuelType = FuelType.none
 	price = 0.0
 	excise = 0.0
@@ -54,7 +54,7 @@ class FuelPriceElement:
 
 
 	def serialize(self):
-		return {"theDay" : self.theDay,
+		return {"timestamp" : self.timestamp,
 				"fuelType" : self.fuelType,
 				"price" : float(self.price),
 				"excise" : float(self.excise),
@@ -63,7 +63,7 @@ class FuelPriceElement:
 				"producer" : self.producer}
 
 	def key(self):
-		return str(self.producer) + "_" + str(self.theDay) + "_" + str(self.fuelType)
+		return str(self.producer) + "_" + str(self.timestamp) + "_" + str(self.fuelType)
 
 
 if __name__ == "__main__":
@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
 	print "=============================="
 	elem = FuelPriceElement()
-	elem.theDay = 123456789
+	elem.timestamp = 123456789
 	elem.fuelType = FuelType.unleaded98
 	elem.price = 3457.3
 	elem.excise = 129.0
