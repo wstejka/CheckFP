@@ -9,47 +9,52 @@ import sys, getopt, os
 from datetime import datetime
 
 
-def createFuelsNodeIfNeeded():
-	nodeName = "fuel_types"
-	preDefinedValues = Fuel().types(["none"]).iteritems()
+def initiateOrUpdateModelNodesInFirebaseDB():
+	"""This method initiates pre-defined models with "id" and "name" values.
+	It also checks data consistency and does an update if needed.
+	As a source are taken model objects e.g. Fuel or Producer."""
+	
+	nodeLists = {"producers" : Producer(), "fuel_types" : Fuel()}
 
-	currentTypes = {}
-	firebaseFuelsList = firebaseManager.get(nodeName)
+	for nodeName, instance in nodeLists.iteritems():
+		print "\tChecking \"" + nodeName + "\" node data consistency ..."
+		preDefinedValues = instance.types(["none"]).iteritems()
+		firebaseObjectsList = firebaseManager.get(nodeName)
 
-	if firebaseFuelsList.val() == None:
-		firebaseFuelsListKeys = [{}]
-	else:
-		firebaseFuelsListKeys = firebaseFuelsList.val()
+		if firebaseObjectsList.val() == None:
+			firebaseObjectsListKeys = [{}]
+		else:
+			firebaseObjectsListKeys = firebaseObjectsList.val()
 
-	# Check if all predefined values are already on the list		
-	# If not, add the missing ones ...
-	missingTypeKeys = {}
-	for keyName, key in preDefinedValues:		
-		found = False
-		for firebaseFuelsKey in firebaseFuelsListKeys:
-			
-			if firebaseFuelsKey == None or \
-				'id' not in firebaseFuelsKey:
-				continue
-			if key == firebaseFuelsKey['id']:
-				found = True
-				break
+		# Check if all predefined values are already on the list		
+		# If not, add the missing ones ...
+		missingTypeKeys = {}
+		for keyName, key in preDefinedValues:		
+			found = False
+			for firebaseObjectKey in firebaseObjectsListKeys:
+				
+				if firebaseObjectKey == None or \
+					'id' not in firebaseObjectKey:
+					continue
+				if key == firebaseObjectKey['id']:
+					found = True
+					break
 
-			# print key, firebaseFuelsKey
+				# print key, firebaseFuelsKey
 
-		if found == False:
-			print "\t", keyName, "(" + str(key) + ")" + " is not on the list. Let's add it ..."
-			# [{1 : {"name" : "unleadeed95", "lastUpdate" : 123456789, "id" : 1, ...},
-			# 	2 : {"name" : "unleadeed98", "lastUpdate" : 123456789, "id" : 2, ...}, ...}]
-			missingTypeKeys[nodeName + "/" + str(key)] = {"id" : key, 
-														  "name" : keyName}
+			if found == False:
+				print "\t", keyName, "(" + str(key) + ")" + " is not on the list. Let's add it ..."
+				# [{1 : {"name" : "name1", "id" : 1},
+				# 	2 : {"name" : "name2", "id" : 2]
+				missingTypeKeys[nodeName + "/" + str(key)] = {"id" : key, 
+															  "name" : keyName}
 
-	numberOfMissingTypeKeys = len(missingTypeKeys)
-	if numberOfMissingTypeKeys > 0:
-		print "\tAdding", numberOfMissingTypeKeys , "missing fuel types to the", nodeName
-		firebaseManager.update(missingTypeKeys)
-	else:
-		print "\t" + nodeName, "node is up to date"
+		numberOfMissingTypeKeys = len(missingTypeKeys)
+		if numberOfMissingTypeKeys > 0:
+			print "\tAdding", numberOfMissingTypeKeys , "missing fuel types to the", nodeName
+			firebaseManager.update(missingTypeKeys)
+		else:
+			print "\t" + nodeName, "node is up to date"		
 
 # end def		
 
@@ -239,7 +244,8 @@ firebaseManager = FirebaseManager(login, password)
 print "Connected in", str((datetime.now() - startTime).seconds), "seconds"
 
 ######################  STEP 1 ##########################
-createFuelsNodeIfNeeded()
+###########  UPDATE MODEL TABLES IF NEEDED  #############
+initiateOrUpdateModelNodesInFirebaseDB()
 
 ######################  STEP 2 ##########################
 updateInstancesNodeIfNeeded()
