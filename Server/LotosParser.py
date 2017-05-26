@@ -18,9 +18,9 @@ def process(producerId):
 
 
 	fuelPriceElementsList = []
+	identation = "\t"
 	for fuelType, webPage in webPagesList.iteritems():
 
-		identation = "\t"
 		print identation, "downloading data for:", fuelModel.Fuel().getKeyByValue(fuelType)[1]
 		webPageContent = requests.get(webPage)
 
