@@ -5,42 +5,8 @@ from utils.utils import Utils
 class Producer(Utils):
 	none, lotos, orlen = range(3)
 
-	@staticmethod
-	def get(producerId):
-
-		if producerId == Producer.none:
-			return "none"
-		elif producerId == Producer.lotos:
-			return "Lotos"			
-		elif producerId == Producer.orlen:
-			return "Orlen"			
-		else:
-			return "Incorrect TYPE"
-
-
 class Fuel(Utils):
 	none, unleaded95, unleaded98, diesel, dieselIZ40, dieselHeating, lpg = range(7)
-
-	@staticmethod
-	def get(fuelType):
-
-		if fuelType == Fuel.none:
-			return "none"
-		elif fuelType == Fuel.unleaded95:
-			return "unleaded95"			
-		elif fuelType == Fuel.unleaded98:
-			return "unleaded98"
-		elif fuelType == Fuel.diesel:
-			return "diesel"
-		elif fuelType == Fuel.dieselIZ40:
-			return "dieselIZ40"
-		elif fuelType == Fuel.dieselHeating:
-			return "dieselHeating"
-		elif fuelType == Fuel.lpg:
-			return "lpg"
-		else:
-			return "Incorrect TYPE"
-
 
 class FuelPriceElement:
 
@@ -69,16 +35,16 @@ class FuelPriceElement:
 if __name__ == "__main__":
 	dieselType = Fuel.diesel
 	print dieselType
-	print Fuel.get(dieselType)
-	print Fuel.get("BadType")
-	print Fuel().types(["none"])
+	print Fuel().getKeyByValue(dieselType)
+	print Fuel().getKeyByValue("BadType")
+	print Fuel().properties(["none"])
 
 	print "=============================="
 	producerType = Producer.lotos
 	print producerType
-	print Producer.get(producerType)
-	print Producer.get(Producer.orlen)
-	print Producer.get(22)
+	print Producer().getKeyByValue(producerType)
+	print Producer().getKeyByValue(Producer.orlen)
+	print Producer().getKeyByValue(22)
 
 	print "=============================="
 	elem = FuelPriceElement()

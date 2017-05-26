@@ -18,7 +18,7 @@ def initiateOrUpdateModelNodesInFirebaseDB():
 
 	for nodeName, instance in nodeLists.iteritems():
 		print "\tChecking \"" + nodeName + "\" node data consistency ..."
-		preDefinedValues = instance.types(["none"]).iteritems()
+		preDefinedValues = instance.properties(["none"]).iteritems()
 		firebaseObjectsList = firebaseManager.get(nodeName)
 
 		if firebaseObjectsList.val() == None:
@@ -162,6 +162,7 @@ def updateInstancesNodeIfNeeded():
 	# Let's get current data
 	for producerId, parser in parsersList.iteritems():
 		try:
+			print
 			print parser.__name__, ":"
 			# data: {1 : [FuelModel.FuelPriceElement, ..., FuelModel.FuelPriceElement]}
 			#		...
@@ -180,14 +181,19 @@ def updateInstancesNodeIfNeeded():
 					newInstancesDataDict[instancesNodeName + "/" + dictKey] = fuelPriceElement.serialize()
 					newPriceElementsList.append(fuelPriceElement)
 
-
-			print "\tnumber of rows to update:", len(newInstancesDataDict)
-			if len(newInstancesDataDict) == 0:
+			numberOfNewInstances = len(newInstancesDataDict)
+			print "\tnumber of rows to update:", numberOfNewInstances
+			if numberOfNewInstances == 0:
 				print "\tall prices data are up to date"
 				continue
 			print "\tsaving prices data in firebase DB ..."
+
+			if numberOfNewInstances > 10:
+				numberOfNewInstances = 10
+			for position in range(0, numberOfNewInstances):
+				print newPriceElementsList[position].serialize()
+
 			startTime = datetime.now()
-			print newInstancesDataDict
 			firebaseManager.update(newInstancesDataDict)
 			print "\tdata saved in firebase DB in", str((datetime.now() - startTime).seconds), "second(s)"
 
@@ -205,42 +211,16 @@ def updateInstancesNodeIfNeeded():
 
 # Public variables
 fileName = os.path.basename(sys.argv[0])
-login = ""
-password = ""
-
-
-########### Obtain login and password from param list #################
-usage =  fileName + " -l <login> -p <password>\n"
-try:
-	opts, args = getopt.getopt(sys.argv[1:],"hl:p:",["login=","password="])
-except getopt.GetoptError:
-	print usage
-	sys.exit(2)
-
-for opt, arg in opts:
-	if opt == '-h':
-		print usage
-		sys.exit()
-	elif opt in ("-l", "--login"):
-		login = arg
-	elif opt in ("-p", "--password"):
-		password = arg
-
-# check if login and password are not empty
-if login == "" or password == "" :
-	print "Lack of authentication data ..."
-	print usage
-	exit(1)
 
 # Let's define list of parsers
-parsersList = {Producer.lotos : lotosParser } #, 
-			   # Producer.orlen : orlenParser}
+parsersList = {Producer.orlen : orlenParser,
+				Producer.lotos : lotosParser}
 
 ##################  AUTHENTICATION ######################
 print "Connecting to firebase ...."
 startTime = datetime.now()
 # Handler to firebaseManager object
-firebaseManager = FirebaseManager(login, password)
+firebaseManager = FirebaseManager()
 print "Connected in", str((datetime.now() - startTime).seconds), "seconds"
 
 ######################  STEP 1 ##########################
@@ -249,8 +229,6 @@ initiateOrUpdateModelNodesInFirebaseDB()
 
 ######################  STEP 2 ##########################
 updateInstancesNodeIfNeeded()
-
-
 
 
 

@@ -1,6 +1,6 @@
 #!/home/wstejka/virtualenv/firebase/bin/python
 import pyrebase
-import sys, getopt
+import sys, getopt, os
 
 config = {
   "apiKey": "AIzaSyB5gJnV0cCayzgD5sZHhUCGovrJiPlozcU",
@@ -9,7 +9,9 @@ config = {
   "storageBucket": "gs://checkfuelprice-d5d3d.appspot.com"
 }
 
-credentials="./credentials"
+directory = os.path.dirname(sys.argv[0])
+credentials = directory + "/credentials"
+print credentials
 
 # IMPORTANT REMARK: 
 # Due to security reason credentials are kept in separate file which is called "credentials"
@@ -78,7 +80,7 @@ class FirebaseManager(object):
 
 if __name__ == "__main__":
 	firebaseManager = FirebaseManager()
-	# firebaseManager.remove("instances")
+	firebaseManager.remove("instances")
 
 
 
