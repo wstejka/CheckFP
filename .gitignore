@@ -15,7 +15,9 @@ TODO*
 ## Python
 *.pyc
 ## scratchpad for testing
-test.py
+Server/test.py
+## ignore my credential file due to security reason
+Server/credentials
 
 ## Various settings
 *.pbxuser

@@ -9,6 +9,11 @@ config = {
   "storageBucket": "gs://checkfuelprice-d5d3d.appspot.com"
 }
 
+credentials="./credentials"
+
+# IMPORTANT REMARK: 
+# Due to security reason credentials are kept in separate file which is called "credentials"
+# Information should be stored there in format: "login|password"
 class FirebaseManager(object):
 	"""docstring for FirebaseManager"""
 
@@ -20,8 +25,12 @@ class FirebaseManager(object):
 
 	def __init__(self, login=None, password=None):
 
-		self.login = login
-		self.password = password
+		if not login or not password:
+			self.login, self.password = self.getCredentials()
+		else:
+			self.login = login
+			self.password = password
+
 		firebase = pyrebase.initialize_app(config)
 
 		###### AUTHENTICATION ############
@@ -38,6 +47,16 @@ class FirebaseManager(object):
 		######## DATABASE #####################
 		# Get a reference to the database service
 		self.db = firebase.database()
+
+	def getCredentials(self):
+
+		f = open(credentials, "r")
+		stringWithCredentials = f.read().strip("\n")
+		f.close()
+		credentialPair = stringWithCredentials.split("|")
+		if len(credentialPair) != 2:
+			return ["", ""]
+		return credentialPair
 
 	def set(self, nodeName, dictKey, dictData):
 		
@@ -58,16 +77,8 @@ class FirebaseManager(object):
 		return self.db.update(data, self.userIdToken)
 
 if __name__ == "__main__":
-   
-	# firebaseManager.("", "test", {"kot" : "domek"})
-	# print firebaseManager.get("test").val()
-	# print firebaseManager.userIdToken
-	firebaseManager = FirebaseManager("wojciechaux@gmail.com", "Test12#")
-	firebaseManager.remove("instances")
-
-	# print firebaseManager.get("instances/1_1495663200_2").val()
-
-
+	firebaseManager = FirebaseManager()
+	# firebaseManager.remove("instances")
 
 
 
