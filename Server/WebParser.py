@@ -100,11 +100,18 @@ def updateFuelsNode(newPricesList):
 		highestPriceReferenceRefKey = nodeName + "/" +str(fuelPrice.fuelType) + "/" + currentHighestPriceRefNode 
 		lowestPriceReferenceRefKey = nodeName + "/" +str(fuelPrice.fuelType) + "/" + currentLowestPriceRefNode 
 
-		# print currentFuelsPriceMatrix[highestPriceRefKey], ":", currentFuelsPriceMatrix[lowestPriceRefKey], ":", fuelPrice.price, ":", fuelPrice.timestamp
-		# print timestamp, fuelPrice.timestamp, ":", type(fuelPrice.timestamp), ":", str(int(timestamp) < int(fuelPrice.timestamp))
-
+		# If the timestamp is later than current there is needed to update all data
 		if currentFuelsPriceMatrix[timestampRefKey] < fuelPrice.timestamp:
 			currentFuelsPriceMatrix[timestampRefKey] = fuelPrice.timestamp
+			currentFuelsPriceMatrix[highestPriceRefKey] = fuelPrice.price
+			currentFuelsPriceMatrix[highestPriceReferenceRefKey] = fuelPrice.key()
+			currentFuelsPriceMatrix[lowestPriceRefKey] = fuelPrice.price
+			currentFuelsPriceMatrix[lowestPriceReferenceRefKey] = fuelPrice.key()
+			isUpdate = True
+										
+		# If the timestamp is equal to current there is needed to compare values
+		# and do update if needed
+		elif currentFuelsPriceMatrix[timestampRefKey] == fuelPrice.timestamp:
 
 			if currentFuelsPriceMatrix[highestPriceRefKey] == 0 or \
 				currentFuelsPriceMatrix[highestPriceRefKey] < fuelPrice.price:
@@ -175,6 +182,7 @@ def updateInstancesNodeIfNeeded():
 				continue
 			print "\tsaving prices data in firebase DB ..."
 			startTime = datetime.now()
+			print newInstancesDataDict
 			firebaseManager.set("", instancesNodeName, newInstancesDataDict)
 			print "\tdata saved in firebase DB in", str((datetime.now() - startTime).seconds), "second(s)"
 
