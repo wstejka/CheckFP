@@ -172,7 +172,7 @@ def updateInstancesNodeIfNeeded():
 			for fuelPriceElement in fuelPriceElementsList:
 				dictKey = fuelPriceElement.key()
 				if dictKey not in currentInstanceDataListKeys:
-					newInstancesDataDict[dictKey] = fuelPriceElement.serialize()
+					newInstancesDataDict[instancesNodeName + "/" + dictKey] = fuelPriceElement.serialize()
 					newPriceElementsList.append(fuelPriceElement)
 
 
@@ -183,15 +183,15 @@ def updateInstancesNodeIfNeeded():
 			print "\tsaving prices data in firebase DB ..."
 			startTime = datetime.now()
 			print newInstancesDataDict
-			firebaseManager.set("", instancesNodeName, newInstancesDataDict)
+			firebaseManager.update(newInstancesDataDict)
 			print "\tdata saved in firebase DB in", str((datetime.now() - startTime).seconds), "second(s)"
 
+			updateFuelsNode(newPriceElementsList)
 		except Exception, e:
 			print "++++++++++++++++ ERROR ++++++++++++++++"
 			print e
 			print "+++++++++++++++++++++++++++++++++++++++"
 			continue
-		updateFuelsNode(newPriceElementsList)
 
 
 ##################################################
