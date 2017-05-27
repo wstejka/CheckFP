@@ -59,7 +59,8 @@ def process(producerId):
 						dateTime = datetime.strptime(value, '%d-%m-%Y')					
 					elif iteration == 1:
 						# remove escape code for non-breaking spaces and comma
-						price = float(value.replace('\xc2\xa0','').replace(',','.'))
+						price = float(value.replace('\xc2\xa0','').replace(',',''))
+						print value, price
 					# end if
 					else:
 						break
