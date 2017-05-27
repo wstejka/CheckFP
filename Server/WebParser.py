@@ -149,7 +149,7 @@ def updateInstancesNodeIfNeeded():
 	startTime = datetime.now()
 	# get current data for comparison
 	## INSTANCES
-	instancesNodeName = "instances"
+	instancesNodeName = "fuel_price_items"
 	currentInstanceDataList = firebaseManager.get(instancesNodeName)
 	if currentInstanceDataList.val() == None:
 		currentInstanceDataListKeys = []
