@@ -60,7 +60,6 @@ def process(producerId):
 					elif iteration == 1:
 						# remove escape code for non-breaking spaces and comma
 						price = float(value.replace('\xc2\xa0','').replace(',',''))
-						print value, price
 					# end if
 					else:
 						break
