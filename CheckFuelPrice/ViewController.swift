@@ -70,13 +70,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         customViewCell.highestPriceDescription.text = LabelDescription.highestPriceLabel.rawValue.localized(withDefaultValue: "")
         customViewCell.lowestPriceDescription.text = LabelDescription.lowestPriceLabel.rawValue.localized(withDefaultValue: "")
         
-        
+        // Values
         let objectHandler = self.items[indexPath.row]
         customViewCell.highestPriceValue.text = String(objectHandler.currentHighestPrice)
         customViewCell.lowestPriceValue.text = String(objectHandler.currentLowestPrice)
         customViewCell.fuelName.text = objectHandler.name.localized(withDefaultValue: "")
         customViewCell.date.text = Double(objectHandler.timestamp).timestampToString()
         customViewCell.accessoryType = .detailButton
+        // Image logo
+        let imageName = "logo_" + objectHandler.name;
+        
+        if let image = UIImage(named: imageName) {
+            customViewCell.logoImageView.image = image
+//            customViewCell.logoImageView.contentMode = .scaleAspectFit
+            customViewCell.logoImageView.layer.cornerRadius = 10
+            customViewCell.logoImageView.clipsToBounds = true
+        }
+        else
+        {
+            customViewCell.logoImageView.image = nil
+        }
         
         return customViewCell
     }
