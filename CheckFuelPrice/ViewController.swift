@@ -13,6 +13,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     // MARK: - constants
     let customTableViewCellName = "FuelTableViewCellId"
+    var items : [FuelType] = []
+    var ref : DatabaseReference? = nil
+    enum LabelDescription : String {
+        case highestPriceLabel = "highestPriceLabel"
+        case lowestPriceLabel = "lowestPriceLabel"
+    }
+    
     
     // MARK: - properties
     
@@ -22,9 +29,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.fuelTableView.dataSource = self
         
+        self.fuelTableView.dataSource = self
+        self.ref = Database.database().reference(withPath: "fuel_types")
+        
+        ref!.observe(.value, with: { snapshot in
+            log.verbose("observe \(snapshot.childrenCount)")
+            var newItems: [FuelType] = []
+            
+            for item in snapshot.children {
+                guard let fuelType = FuelType(snapshot: item as! DataSnapshot) else {
+                    continue
+                }
+                newItems.append(fuelType)
+            }
+            
+            self.items = newItems
+            self.fuelTableView.reloadData()
+        })
         
     }
 
@@ -36,7 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - UITableView Delegate methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,6 +66,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let customViewCell = self.fuelTableView.dequeueReusableCell(withIdentifier: self.customTableViewCellName) as? FuelTableViewCell else {
             return UITableViewCell()
         }
+        // Headings
+        customViewCell.highestPriceDescription.text = LabelDescription.highestPriceLabel.rawValue.localized(withDefaultValue: "")
+        customViewCell.lowestPriceDescription.text = LabelDescription.lowestPriceLabel.rawValue.localized(withDefaultValue: "")
+        
+        
+        let objectHandler = self.items[indexPath.row]
+        customViewCell.highestPriceValue.text = String(objectHandler.currentHighestPrice)
+        customViewCell.lowestPriceValue.text = String(objectHandler.currentLowestPrice)
+        customViewCell.fuelName.text = objectHandler.name.localized(withDefaultValue: "")
+        customViewCell.date.text = Double(objectHandler.timestamp).timestampToString()
+        customViewCell.accessoryType = .detailButton
         
         return customViewCell
     }

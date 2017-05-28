@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E4A1F5B1ED773210044F3DD /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F5A1ED773210044F3DD /* FuelType.swift */; };
+		9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */; };
+		9E4A1F661ED9DEAA0044F3DD /* CFPEnumerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F651ED9DEAA0044F3DD /* CFPEnumerators.swift */; };
+		9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F671ED9E34C0044F3DD /* FuelType.swift */; };
+		9E4A1F711EDB19370044F3DD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F701EDB19370044F3DD /* Utils.swift */; };
+		9E4A1F731EDB22D90044F3DD /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F721EDB22D90044F3DD /* Double+Extension.swift */; };
 		9E51D9BB1ED7216300C22246 /* FuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E51D9BA1ED7216300C22246 /* FuelTableViewCell.swift */; };
 		9E5C842F1EA0CC5800C7DFA7 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */; };
 		9E5C84301EA0CC5800C7DFA7 /* Kanna.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -54,8 +58,12 @@
 /* Begin PBXFileReference section */
 		37FDA4F736424C282B0BB13B /* Pods_CheckFuelPrice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckFuelPrice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F946C05CD007F6243D65606 /* Pods-CheckFuelPrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.debug.xcconfig"; sourceTree = "<group>"; };
-		9E4A1F5A1ED773210044F3DD /* FuelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelType.swift; sourceTree = "<group>"; };
+		9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPriceItem.swift; sourceTree = "<group>"; };
 		9E4A1F601ED775760044F3DD /* CheckFuelPrice-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CheckFuelPrice-Bridging-Header.h"; sourceTree = "<group>"; };
+		9E4A1F651ED9DEAA0044F3DD /* CFPEnumerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPEnumerators.swift; sourceTree = "<group>"; };
+		9E4A1F671ED9E34C0044F3DD /* FuelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelType.swift; sourceTree = "<group>"; };
+		9E4A1F701EDB19370044F3DD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9E4A1F721EDB22D90044F3DD /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		9E51D9BA1ED7216300C22246 /* FuelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTableViewCell.swift; sourceTree = "<group>"; };
 		9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = ../Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
 		9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
@@ -108,13 +116,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		9E4A1F611ED775880044F3DD /* Suuporting files */ = {
+		9E4A1F611ED775880044F3DD /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				9EA2033F1EA0BEA900F18A3A /* GlobalClassExtensions */,
+				9E5C84341EA0CD4200C7DFA7 /* Carthage Frameworks */,
 				9EA2032B1EA0BDBC00F18A3A /* Info.plist */,
 				9E4A1F601ED775760044F3DD /* CheckFuelPrice-Bridging-Header.h */,
 			);
-			name = "Suuporting files";
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		9E4A1F6F1EDB19370044F3DD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9E4A1F701EDB19370044F3DD /* Utils.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		9E51D9B81ED71B0A00C22246 /* Main */ = {
@@ -138,7 +156,9 @@
 		9E51D9BC1ED7249400C22246 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9E4A1F5A1ED773210044F3DD /* FuelType.swift */,
+				9E4A1F651ED9DEAA0044F3DD /* CFPEnumerators.swift */,
+				9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */,
+				9E4A1F671ED9E34C0044F3DD /* FuelType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,15 +195,13 @@
 		9EA2031E1EA0BDBB00F18A3A /* CheckFuelPrice */ = {
 			isa = PBXGroup;
 			children = (
-				9E5C84341EA0CD4200C7DFA7 /* Carthage Frameworks */,
-				9EA2033F1EA0BEA900F18A3A /* GlobalClassExtensions */,
+				9E4A1F611ED775880044F3DD /* Supporting files */,
 				9EA203551EA0BEF700F18A3A /* Internationalization */,
-				9EA203421EA0BEBB00F18A3A /* Controllers */,
+				9E4A1F6F1EDB19370044F3DD /* Controllers */,
 				9E51D9BC1ED7249400C22246 /* Model */,
 				9EA203541EA0BED400F18A3A /* Layout */,
 				9EA203571EA0BF3A00F18A3A /* AppDelegates */,
 				9EA203261EA0BDBC00F18A3A /* Assets.xcassets */,
-				9E4A1F611ED775880044F3DD /* Suuporting files */,
 			);
 			path = CheckFuelPrice;
 			sourceTree = "<group>";
@@ -201,16 +219,10 @@
 			isa = PBXGroup;
 			children = (
 				9EA203401EA0BEA900F18A3A /* String+Extension.swift */,
+				9E4A1F721EDB22D90044F3DD /* Double+Extension.swift */,
 				9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */,
 			);
 			path = GlobalClassExtensions;
-			sourceTree = "<group>";
-		};
-		9EA203421EA0BEBB00F18A3A /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		9EA203541EA0BED400F18A3A /* Layout */ = {
@@ -411,10 +423,14 @@
 			files = (
 				9EA203221EA0BDBB00F18A3A /* ViewController.swift in Sources */,
 				9E51D9BB1ED7216300C22246 /* FuelTableViewCell.swift in Sources */,
+				9E4A1F711EDB19370044F3DD /* Utils.swift in Sources */,
 				9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */,
+				9E4A1F661ED9DEAA0044F3DD /* CFPEnumerators.swift in Sources */,
 				9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */,
 				9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */,
-				9E4A1F5B1ED773210044F3DD /* FuelType.swift in Sources */,
+				9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */,
+				9E4A1F731EDB22D90044F3DD /* Double+Extension.swift in Sources */,
+				9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

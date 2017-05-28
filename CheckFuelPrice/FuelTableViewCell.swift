@@ -17,6 +17,8 @@ class FuelTableViewCell: UITableViewCell {
     @IBOutlet weak var highestPriceValue: UILabel!
     @IBOutlet weak var lowestPriceDescription: UILabel!
     @IBOutlet weak var lowestPriceValue: UILabel!
+    @IBOutlet weak var fuelName: UILabel!
+    @IBOutlet weak var date: UILabel!
     
     // MARK: - UITableViewCell Lifecycle
     override func awakeFromNib() {

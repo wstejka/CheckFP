@@ -80,7 +80,7 @@ class FirebaseManager(object):
 
 if __name__ == "__main__":
 	firebaseManager = FirebaseManager()
-	firebaseManager.remove("fuel_price_items")
+	firebaseManager.remove("instances")
 
 
 

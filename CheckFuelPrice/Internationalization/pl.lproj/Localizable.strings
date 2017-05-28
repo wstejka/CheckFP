@@ -6,4 +6,12 @@
  Copyright © 2017 Wojciech Stejka. All rights reserved.
  */
 
-HeadingOnStart = "Witaj!";
+unleaded95 = "Bezołowiowa 95";
+unleaded98 = "Bezołowiowa 98";
+diesel = "Diesel";
+dieselIZ40 = "Diesel Premium";
+dieselHeating = "Diesel opałowy";
+lpg = "Lpg";
+
+highestPriceLabel = "najwyższa cena";
+lowestPriceLabel = "najniższa cena";
