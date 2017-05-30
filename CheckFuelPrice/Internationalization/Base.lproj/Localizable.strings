@@ -6,6 +6,7 @@
  Copyright © 2017 Wojciech Stejka. All rights reserved.
  */
 
+AppHeading = "Current Fuel Prices";
 unleaded95 = "Unleaded 95";
 unleaded98 = "Unleaded 98";
 diesel = "Diesel";
@@ -15,3 +16,4 @@ lpg = "Lpg gas";
 
 highestPriceLabel = "highest price";
 lowestPriceLabel = "lowest price";
+

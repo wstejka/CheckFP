@@ -42,7 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // === Configure Firebase ==== //
         FirebaseApp.configure()
-        Database.database().isPersistenceEnabled = true
+        // TODO: enable persistence once the app will be finished
+        Database.database() //.isPersistenceEnabled = true
                 
         return true
     }

@@ -14,39 +14,51 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - constants
     let customTableViewCellName = "FuelTableViewCellId"
     var items : [FuelType] = []
-    var ref : DatabaseReference? = nil
-    enum LabelDescription : String {
+    var refFuelTypes : DatabaseReference? = nil
+    var refProducers : DatabaseReference? = nil
+    enum LabelDescriptions : String {
         case highestPriceLabel = "highestPriceLabel"
         case lowestPriceLabel = "lowestPriceLabel"
+        case headingLabel = "AppHeading"
     }
     
     
     // MARK: - properties
     
     @IBOutlet weak var fuelTableView: UITableView!
+    @IBOutlet weak var tableHeading: UILabel!
     
     // MARK: - UIViewController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.fuelTableView.dataSource = self
-        self.ref = Database.database().reference(withPath: "fuel_types")
         
-        ref!.observe(.value, with: { snapshot in
-            log.verbose("observe \(snapshot.childrenCount)")
-            var newItems: [FuelType] = []
-            
-            for item in snapshot.children {
-                guard let fuelType = FuelType(snapshot: item as! DataSnapshot) else {
-                    continue
+        self.fuelTableView.dataSource = self
+        self.fuelTableView.delegate = self
+        
+        self.refFuelTypes = Database.database().reference(withPath: "fuel_types")
+        self.tableHeading.text = LabelDescriptions.headingLabel.rawValue.localized(withDefaultValue: "")
+        
+        DispatchQueue.global().async {
+//            self.refFuelTypes!.queryOrdered(byChild: "currentHighestPrice").observe(.value, with: { snapshot in
+            self.refFuelTypes!.observe(.value, with: { snapshot in
+                log.verbose("Observe: \(self.refFuelTypes!.description()) \(snapshot.childrenCount)")
+                var newItems: [FuelType] = []
+                
+                for item in snapshot.children {
+                    guard let fuelType = FuelType(snapshot: item as! DataSnapshot) else {
+                        continue
+                    }
+                    newItems.append(fuelType)
                 }
-                newItems.append(fuelType)
-            }
-            
-            self.items = newItems
-            self.fuelTableView.reloadData()
-        })
+                
+                self.items = newItems
+                self.fuelTableView.reloadData()
+            })
+        }
+        
+        log.verbose("After")
         
     }
 
@@ -67,8 +79,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return UITableViewCell()
         }
         // Headings
-        customViewCell.highestPriceDescription.text = LabelDescription.highestPriceLabel.rawValue.localized(withDefaultValue: "")
-        customViewCell.lowestPriceDescription.text = LabelDescription.lowestPriceLabel.rawValue.localized(withDefaultValue: "")
+        customViewCell.highestPriceDescription.text = LabelDescriptions.highestPriceLabel.rawValue.localized(withDefaultValue: "")
+        customViewCell.lowestPriceDescription.text = LabelDescriptions.lowestPriceLabel.rawValue.localized(withDefaultValue: "")
         
         // Values
         let objectHandler = self.items[indexPath.row]
@@ -76,7 +88,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         customViewCell.lowestPriceValue.text = String(objectHandler.currentLowestPrice)
         customViewCell.fuelName.text = objectHandler.name.localized(withDefaultValue: "")
         customViewCell.date.text = Double(objectHandler.timestamp).timestampToString()
-        customViewCell.accessoryType = .detailButton
+        customViewCell.accessoryType = .disclosureIndicator
         // Image logo
         let imageName = "logo_" + objectHandler.name;
         
@@ -92,6 +104,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         return customViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        log.verbose("Cell tapped at index: \(indexPath.row)")
+        
+        
+        
     }
 
 
