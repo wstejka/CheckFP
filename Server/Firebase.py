@@ -9,6 +9,13 @@ config = {
   "storageBucket": "gs://checkfuelprice-d5d3d.appspot.com"
 }
 
+config2 = {
+  "apiKey": "AIzaSyAqEAN1PMOMeKQWWox2LECz-CoeyP7pu6I",
+  "authDomain": "grocr-ddd20.firebaseapp.com",
+  "databaseURL": "https://grocr-ddd20.firebaseio.com",
+  "storageBucket": "gs://grocr-ddd20.appspot.com"
+}
+
 directory = os.path.dirname(sys.argv[0])
 credentials = directory + "/credentials"
 print credentials
@@ -80,7 +87,33 @@ class FirebaseManager(object):
 
 if __name__ == "__main__":
 	firebaseManager = FirebaseManager()
-	firebaseManager.remove("instances")
+	print firebaseManager.db
+	lastTimestamp = 2482966000
+	values = firebaseManager.db.child("fuel_price_items").order_by_child("P_FT_T").start_at("2_").end_at("2_2_" + str(lastTimestamp)).limit_to_last(10).get().val() #order_by_child("timestamp").get() #order_by_key().get().val() # order_by_child("height").limit_to_first(5).get()
+	for item in reversed(values.values()):
+		# print item
+		print  item["producer"], item["fuelType"], item["humanReadableDate"], item["timestamp"]
+
+	print "========="
+
+	values = firebaseManager.db.child("fuel_price_items").order_by_child("P_FT_T").start_at("2_").end_at("2_2_" + str(lastTimestamp)).limit_to_last(5).get().val() #order_by_child("timestamp").get() #order_by_key().get().val() # order_by_child("height").limit_to_first(5).get()
+	for item in reversed(values.values()):
+		# print item
+		print  item["producer"], item["fuelType"], item["humanReadableDate"], item["timestamp"]
+		if (lastTimestamp > item["timestamp"]):
+			lastTimestamp = item["timestamp"]
+
+	print "========="
+	values = firebaseManager.db.child("fuel_price_items").order_by_child("P_FT_T").start_at("2_").end_at("2_2_" + str(lastTimestamp - 1)).limit_to_last(5).get().val() #order_by_child("timestamp").get() #order_by_key().get().val() # order_by_child("height").limit_to_first(5).get()
+	for item in reversed(values.values()):
+		print  item["producer"], item["fuelType"], item["humanReadableDate"], item["timestamp"]
+
+
+
+	# firebaseManager.remove("fuel_price_items")
+	# firebaseManager.db.child("fuel_types").order_by_child("id").get() #.order_by_child("timestamp").get() #.limit_to_first(5).get()
+
+
 
 
 

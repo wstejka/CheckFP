@@ -58,7 +58,8 @@ def initiateOrUpdateModelNodesInFirebaseDB():
 
 # end def		
 
-def updateFuelsNode(newPricesList):
+# fuel_type
+def updateFuelTypesNode(newPricesList):
 
 	nodeName = "fuel_types"
 	firebaseFuelsList = firebaseManager.get(nodeName)
@@ -142,8 +143,8 @@ def updateFuelsNode(newPricesList):
 
 
 
-
-def updateInstancesNodeIfNeeded():
+# fuel_price_instances
+def updateFuelPriceInstancesNodeIfNeeded():
 
 	print "Preparing initial data ...."
 	startTime = datetime.now()
@@ -197,7 +198,7 @@ def updateInstancesNodeIfNeeded():
 			firebaseManager.update(newInstancesDataDict)
 			print "\tdata saved in firebase DB in", str((datetime.now() - startTime).seconds), "second(s)"
 
-			updateFuelsNode(newPriceElementsList)
+			updateFuelTypesNode(newPriceElementsList)
 		except Exception, e:
 			print "++++++++++++++++ ERROR ++++++++++++++++"
 			print e
@@ -228,7 +229,7 @@ print "Connected in", str((datetime.now() - startTime).seconds), "seconds"
 initiateOrUpdateModelNodesInFirebaseDB()
 
 ######################  STEP 2 ##########################
-updateInstancesNodeIfNeeded()
+updateFuelPriceInstancesNodeIfNeeded()
 
 
 
