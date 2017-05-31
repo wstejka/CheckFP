@@ -37,6 +37,7 @@ extension String {
     var length : Int{
         return self.characters.count
     }
+    // string[] -> 'character'
     subscript (i: Int) -> String {
         return self[Range(i ..< i + 1)]
     }

@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-1288" y="-419"/>
         </scene>
-        <!--FirstTab-->
+        <!--FuelInfoTab-->
         <scene sceneID="kLJ-g8-YhO">
             <objects>
-                <viewControllerPlaceholder storyboardName="FirstTab" id="YbY-7v-Njt" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="FuelInfoTab" id="YbY-7v-Njt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="8P0-07-9Lo"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ex-ee-mFD" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Cui-mn-Nus">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Fuel-->
+        <scene sceneID="DBQ-Rd-RYR">
+            <objects>
+                <navigationController id="Cui-mn-Nus" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Fuel" image="Gas Station Logo" id="KGy-qN-i2n"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9vn-YN-wqS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zXf-HX-HLo" kind="relationship" relationship="rootViewController" id="hS8-KT-yR6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wCi-lO-B9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-302" y="-673"/>
+        </scene>
+        <!--Fuel Info View Controller-->
+        <scene sceneID="jl5-4O-RDK">
+            <objects>
+                <viewController id="zXf-HX-HLo" customClass="FuelInfoViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hLP-vJ-hFh"/>
+                        <viewControllerLayoutGuide type="bottom" id="zPE-s2-eQR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W62-Ds-1Ws">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="156" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jfo-Td-3ce">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoTopTableViewCell" rowHeight="400" id="8VU-mD-myH" customClass="FuelInfoTopTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="400"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="8VU-mD-myH" id="Ggm-nD-WM3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="399.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adu-78-ZW0">
+                                                    <rect key="frame" x="8" y="0.0" width="180" height="141"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="height" multiplier="1:0.6" constant="-55" id="wIw-oh-p9F"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ily-To-CbJ">
+                                                    <rect key="frame" x="215" y="0.0" width="152" height="131"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPz-eC-XbK">
+                                                    <rect key="frame" x="8" y="185" width="180" height="177"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgv-xL-iun">
+                                                    <rect key="frame" x="223" y="185" width="144" height="139"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hgv-xL-iun" firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="width" constant="-36" id="0mh-VJ-xXY"/>
+                                                <constraint firstItem="BPz-eC-XbK" firstAttribute="top" secondItem="Adu-78-ZW0" secondAttribute="bottom" constant="44" id="1sa-IO-D9G"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ily-To-CbJ" secondAttribute="trailing" constant="8" id="C6W-o3-3MD"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ily-To-CbJ" secondAttribute="trailing" constant="8" id="E5q-bn-3W9"/>
+                                                <constraint firstAttribute="trailing" secondItem="hgv-xL-iun" secondAttribute="trailing" constant="8" id="EkP-mF-2cw"/>
+                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="height" secondItem="Adu-78-ZW0" secondAttribute="height" constant="-10" id="JP3-52-UwR"/>
+                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="top" secondItem="Ggm-nD-WM3" secondAttribute="top" id="M5B-6V-BNz"/>
+                                                <constraint firstAttribute="bottom" secondItem="BPz-eC-XbK" secondAttribute="bottom" constant="8" id="N4E-q3-EQF"/>
+                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="width" constant="-28" id="Rmp-u3-MxV"/>
+                                                <constraint firstItem="BPz-eC-XbK" firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="width" id="YeB-zg-vEz"/>
+                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="top" secondItem="Ggm-nD-WM3" secondAttribute="top" id="dmy-oO-XVl"/>
+                                                <constraint firstAttribute="bottom" secondItem="hgv-xL-iun" secondAttribute="bottom" constant="8" id="hG6-Lo-eQ7"/>
+                                                <constraint firstItem="BPz-eC-XbK" firstAttribute="height" secondItem="Adu-78-ZW0" secondAttribute="height" constant="36" id="iiN-iS-VDq"/>
+                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="width" secondItem="Ggm-nD-WM3" secondAttribute="width" multiplier="0.46" constant="7.5" id="iuI-7x-tzk"/>
+                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="leading" secondItem="Ggm-nD-WM3" secondAttribute="leading" constant="8" id="iwW-RI-lYk"/>
+                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="top" secondItem="Ggm-nD-WM3" secondAttribute="top" id="jSu-C9-aaU"/>
+                                                <constraint firstItem="hgv-xL-iun" firstAttribute="height" secondItem="Adu-78-ZW0" secondAttribute="height" constant="-2" id="oBm-vP-oF9"/>
+                                                <constraint firstItem="BPz-eC-XbK" firstAttribute="leading" secondItem="Ggm-nD-WM3" secondAttribute="leading" constant="8" id="w3b-ht-q9l"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bottomLeftImage" destination="BPz-eC-XbK" id="Puz-4d-pbU"/>
+                                            <outlet property="bottomRightImage" destination="hgv-xL-iun" id="oam-Ba-bhF"/>
+                                            <outlet property="topLeftImage" destination="Adu-78-ZW0" id="fIX-5z-4jc"/>
+                                            <outlet property="topRightImage" destination="Ily-To-CbJ" id="Wqi-AZ-YAj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="156" id="ShI-kq-ir5">
+                                        <rect key="frame" x="0.0" y="428" width="375" height="156"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ShI-kq-ir5" id="YIk-Bx-fTe">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="155.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="156" id="i09-2k-NOI">
+                                        <rect key="frame" x="0.0" y="584" width="375" height="156"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i09-2k-NOI" id="OaC-P2-qwo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="155.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jfo-Td-3ce" firstAttribute="leading" secondItem="W62-Ds-1Ws" secondAttribute="leading" id="96g-4T-avo"/>
+                            <constraint firstAttribute="trailing" secondItem="jfo-Td-3ce" secondAttribute="trailing" id="IPL-Mp-cuu"/>
+                            <constraint firstItem="zPE-s2-eQR" firstAttribute="top" secondItem="jfo-Td-3ce" secondAttribute="bottom" id="df6-V3-PoO"/>
+                            <constraint firstItem="jfo-Td-3ce" firstAttribute="top" secondItem="hLP-vJ-hFh" secondAttribute="bottom" id="qo0-lX-Apq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="63z-AY-jQH">
+                        <barButtonItem key="rightBarButtonItem" image="male" id="Qho-E0-Q2r"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dataTableView" destination="jfo-Td-3ce" id="GQt-nP-Ci3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J8q-4f-VJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="-673.31334332833592"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Gas Station Logo" width="22" height="22"/>
+        <image name="male" width="22" height="22"/>
+    </resources>
+</document>
