@@ -45,70 +45,52 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoTopTableViewCell" rowHeight="400" id="8VU-mD-myH" customClass="FuelInfoTopTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="400"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoTopTableViewCell" rowHeight="194" id="8VU-mD-myH" customClass="FuelInfoTopTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="194"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="8VU-mD-myH" id="Ggm-nD-WM3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="399.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8VU-mD-myH" id="Ggm-nD-WM3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="193.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adu-78-ZW0">
-                                                    <rect key="frame" x="8" y="0.0" width="180" height="141"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Adu-78-ZW0">
+                                                    <rect key="frame" x="8" y="0.0" width="176.5" height="176.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="height" multiplier="1:0.6" constant="-55" id="wIw-oh-p9F"/>
+                                                        <constraint firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="height" id="Aow-Jg-SBZ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ily-To-CbJ">
-                                                    <rect key="frame" x="215" y="0.0" width="152" height="131"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPz-eC-XbK">
-                                                    <rect key="frame" x="8" y="185" width="180" height="177"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgv-xL-iun">
-                                                    <rect key="frame" x="223" y="185" width="144" height="139"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ily-To-CbJ">
+                                                    <rect key="frame" x="190.5" y="0.0" width="176.5" height="176.5"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="hgv-xL-iun" firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="width" constant="-36" id="0mh-VJ-xXY"/>
-                                                <constraint firstItem="BPz-eC-XbK" firstAttribute="top" secondItem="Adu-78-ZW0" secondAttribute="bottom" constant="44" id="1sa-IO-D9G"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ily-To-CbJ" secondAttribute="trailing" constant="8" id="C6W-o3-3MD"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ily-To-CbJ" secondAttribute="trailing" constant="8" id="E5q-bn-3W9"/>
-                                                <constraint firstAttribute="trailing" secondItem="hgv-xL-iun" secondAttribute="trailing" constant="8" id="EkP-mF-2cw"/>
-                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="height" secondItem="Adu-78-ZW0" secondAttribute="height" constant="-10" id="JP3-52-UwR"/>
-                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="top" secondItem="Ggm-nD-WM3" secondAttribute="top" id="M5B-6V-BNz"/>
-                                                <constraint firstAttribute="bottom" secondItem="BPz-eC-XbK" secondAttribute="bottom" constant="8" id="N4E-q3-EQF"/>
-                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="width" constant="-28" id="Rmp-u3-MxV"/>
-                                                <constraint firstItem="BPz-eC-XbK" firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="width" id="YeB-zg-vEz"/>
-                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="top" secondItem="Ggm-nD-WM3" secondAttribute="top" id="dmy-oO-XVl"/>
-                                                <constraint firstAttribute="bottom" secondItem="hgv-xL-iun" secondAttribute="bottom" constant="8" id="hG6-Lo-eQ7"/>
-                                                <constraint firstItem="BPz-eC-XbK" firstAttribute="height" secondItem="Adu-78-ZW0" secondAttribute="height" constant="36" id="iiN-iS-VDq"/>
-                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="width" secondItem="Ggm-nD-WM3" secondAttribute="width" multiplier="0.46" constant="7.5" id="iuI-7x-tzk"/>
-                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="leading" secondItem="Ggm-nD-WM3" secondAttribute="leading" constant="8" id="iwW-RI-lYk"/>
-                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="top" secondItem="Ggm-nD-WM3" secondAttribute="top" id="jSu-C9-aaU"/>
-                                                <constraint firstItem="hgv-xL-iun" firstAttribute="height" secondItem="Adu-78-ZW0" secondAttribute="height" constant="-2" id="oBm-vP-oF9"/>
-                                                <constraint firstItem="BPz-eC-XbK" firstAttribute="leading" secondItem="Ggm-nD-WM3" secondAttribute="leading" constant="8" id="w3b-ht-q9l"/>
+                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="width" id="2sY-bc-Dwn"/>
+                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="top" secondItem="Ggm-nD-WM3" secondAttribute="top" id="3tl-KU-s5a"/>
+                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="leading" secondItem="Ggm-nD-WM3" secondAttribute="leading" constant="8" id="8Ij-56-atI"/>
+                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="width" secondItem="Ggm-nD-WM3" secondAttribute="width" multiplier="0.47" id="G3a-Ra-2NU"/>
+                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="height" secondItem="Adu-78-ZW0" secondAttribute="height" id="GsA-e9-Eqi"/>
+                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="width" secondItem="Ggm-nD-WM3" secondAttribute="height" multiplier="176:193" id="SVI-1R-JT3"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ily-To-CbJ" secondAttribute="trailing" constant="8" id="paa-uY-PDV"/>
+                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="top" secondItem="Ggm-nD-WM3" secondAttribute="top" id="vEK-Pw-t9O"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="bottomLeftImage" destination="BPz-eC-XbK" id="Puz-4d-pbU"/>
-                                            <outlet property="bottomRightImage" destination="hgv-xL-iun" id="oam-Ba-bhF"/>
                                             <outlet property="topLeftImage" destination="Adu-78-ZW0" id="fIX-5z-4jc"/>
                                             <outlet property="topRightImage" destination="Ily-To-CbJ" id="Wqi-AZ-YAj"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="156" id="ShI-kq-ir5">
-                                        <rect key="frame" x="0.0" y="428" width="375" height="156"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="ShI-kq-ir5">
+                                        <rect key="frame" x="0.0" y="222" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ShI-kq-ir5" id="YIk-Bx-fTe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="155.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="156" id="i09-2k-NOI">
-                                        <rect key="frame" x="0.0" y="584" width="375" height="156"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="i09-2k-NOI">
+                                        <rect key="frame" x="0.0" y="284" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i09-2k-NOI" id="OaC-P2-qwo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="155.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

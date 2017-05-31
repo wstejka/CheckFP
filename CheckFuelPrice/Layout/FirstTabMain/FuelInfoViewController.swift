@@ -11,10 +11,12 @@ import UIKit
 // MARK: - UITableView source methods
 extension FuelInfoViewController: UITableViewDataSource {
     
-    // MARK: - UITableView Delegate methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        log.verbose("Enter 1")
+        
         return predefinedNumberOfTableRow
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -23,13 +25,15 @@ extension FuelInfoViewController: UITableViewDataSource {
             guard let fuelInfoTopCell = self.dataTableView.dequeueReusableCell(withIdentifier: "FuelInfoTopTableViewCell", for: indexPath) as? FuelInfoTopTableViewCell else {
                 return UITableViewCell()
             }
-            fuelInfoTopCell.topLeftImage.image = UIImage(named: "Gas Station")
-            fuelInfoTopCell.topRightImage.image = UIImage(named: "PieChart")
-            fuelInfoTopCell.bottomLeftImage.image = UIImage(named: "PieChart")
-            fuelInfoTopCell.bottomRightImage.image = UIImage(named: "Gas Station")
+            let imageList = [fuelInfoTopCell.topLeftImage, fuelInfoTopCell.topRightImage,
+                             fuelInfoTopCell.bottomLeftImage, fuelInfoTopCell.bottomRightImage]
             
-            fuelInfoTopCell.topLeftImage.layer.cornerRadius = 10
-            fuelInfoTopCell.topLeftImage.clipsToBounds = true
+            fuelInfoTopCell.topLeftImage.image = UIImage(named: "DataPrices")
+            fuelInfoTopCell.topRightImage.image = UIImage(named: "Settings")
+            for imageView in imageList {
+                imageView?.layer.cornerRadius = 20
+                imageView?.clipsToBounds = true
+            }
             
 
             return fuelInfoTopCell
@@ -41,6 +45,7 @@ extension FuelInfoViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableView Delegate methods
 extension FuelInfoViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {

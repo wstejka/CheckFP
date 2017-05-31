@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Settings2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "FuelStation640x480.jpeg",
       "scale" : "2x"
     },
     {
