@@ -16,7 +16,8 @@ class FuelInfoTopTableViewCell: UITableViewCell {
     @IBOutlet weak var topRightImage: UIImageView!
     @IBOutlet weak var bottomLeftImage: UIImageView!
     @IBOutlet weak var bottomRightImage: UIImageView!
-
+    @IBOutlet weak var fuelPriceLabel: UILabel!
+    @IBOutlet weak var settingsLabel: UILabel!
 
 
 }

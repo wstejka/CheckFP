@@ -20,29 +20,65 @@ extension FuelInfoViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == customCellId.fuelInfoTop.rawValue {
+        if indexPath.row == customCellId.fuelTopRow.rawValue {
 
-            guard let fuelInfoTopCell = self.dataTableView.dequeueReusableCell(withIdentifier: "FuelInfoTopTableViewCell", for: indexPath) as? FuelInfoTopTableViewCell else {
+            guard let fuelInfoTopCell = self.dataTableView.dequeueReusableCell(withIdentifier: "FuelInfoTopTableViewCell",
+                                                                               for: indexPath) as? FuelInfoTopTableViewCell else {
                 return UITableViewCell()
             }
+            
+            fuelInfoTopCell.settingsLabel.text = "settings".localized(withDefaultValue: "")
+            fuelInfoTopCell.fuelPriceLabel.text = "currentFuelPrices".localized(withDefaultValue: "")
+            
+            
             let imageList = [fuelInfoTopCell.topLeftImage, fuelInfoTopCell.topRightImage,
                              fuelInfoTopCell.bottomLeftImage, fuelInfoTopCell.bottomRightImage]
             
-            fuelInfoTopCell.topLeftImage.image = UIImage(named: "DataPrices")
-            fuelInfoTopCell.topRightImage.image = UIImage(named: "Settings")
+            // Top Left image
+            fuelInfoTopCell.topLeftImage.image = UIImage(named: fuelImages.currentPrices.rawValue)
+            // Configure tap gesture for first image
+            let topLeftImageGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                       action: #selector(topLeftImageTapped))
+            fuelInfoTopCell.topLeftImage.isUserInteractionEnabled = true
+            fuelInfoTopCell.topLeftImage.addGestureRecognizer(topLeftImageGestureRecognizer)
+            
+            
+            // Top Right image
+            fuelInfoTopCell.topRightImage.image = UIImage(named: fuelImages.settings.rawValue)
+            // Configure tap gesture for first image
+            let topRightImageGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                       action: #selector(topRightImageTapped))
+            fuelInfoTopCell.topRightImage.isUserInteractionEnabled = true
+            fuelInfoTopCell.topRightImage.addGestureRecognizer(topRightImageGestureRecognizer)
+
+            
+            // Configure all images properties
             for imageView in imageList {
                 imageView?.layer.cornerRadius = 20
                 imageView?.clipsToBounds = true
             }
-            
 
             return fuelInfoTopCell
         }
         else {
-            return UITableViewCell()
+            let cell = UITableViewCell()
+            cell.accessoryType = .disclosureIndicator
+            return cell
         }
         
     }
+    
+    func topLeftImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
+        log.verbose("Enter")
+        performSegue(withIdentifier: "FuelPricesSegue", sender: nil)
+    }
+
+    func topRightImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
+        log.verbose("Enter")
+        performSegue(withIdentifier: "SettingsSegue", sender: nil)
+
+    }
+
 }
 
 // MARK: - UITableView Delegate methods
@@ -50,7 +86,7 @@ extension FuelInfoViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         log.verbose("Enter: \(indexPath.row)")
-        if indexPath.row == customCellId.fuelInfoTop.rawValue {
+        if indexPath.row == customCellId.fuelTopRow.rawValue {
             return false
         }
         return true
@@ -64,11 +100,15 @@ class FuelInfoViewController: UIViewController {
     // MARK: - constants
     let predefinedNumberOfTableRow =  customCellId.elementsCount
     enum customCellId : Int {
-        case fuelInfoTop = 0
+        case fuelTopRow = 0
         case fuelInfoMiddle
         case fuelInfoBottom
     }
     
+    enum fuelImages :String {
+        case currentPrices = "FuelPump"
+        case settings = "Settings2"
+    }
     // MARK: - properties
     @IBOutlet weak var dataTableView: UITableView!
     

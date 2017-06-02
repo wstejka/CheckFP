@@ -16,3 +16,6 @@ lpg = "Lpg";
 
 highestPriceLabel = "najwyższa cena";
 lowestPriceLabel = "najniższa cena";
+
+currentFuelPrices = "Aktualne ceny";
+settings = "Ustawienia";
