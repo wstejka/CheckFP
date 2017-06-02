@@ -13,7 +13,6 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.navigationController?.tabBarItem.title = "2nd tab"
     }
 
     override func didReceiveMemoryWarning() {
