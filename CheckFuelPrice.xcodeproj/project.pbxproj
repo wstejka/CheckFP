@@ -26,6 +26,8 @@
 		9E5C84321EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */; };
 		9E9E7F201EE157370006414D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */; };
+		9E9E7F231EE16DC00006414D /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F221EE16DC00006414D /* StatisticsViewController.swift */; };
+		9E9E7F251EE171CB0006414D /* GenericNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */; };
 		9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA2031F1EA0BDBB00F18A3A /* AppDelegate.swift */; };
 		9EA203251EA0BDBB00F18A3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EA203231EA0BDBB00F18A3A /* Main.storyboard */; };
 		9EA203271EA0BDBC00F18A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EA203261EA0BDBC00F18A3A /* Assets.xcassets */; };
@@ -83,6 +85,8 @@
 		9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSUtils.swift; sourceTree = "<group>"; };
 		9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		9E9E7F221EE16DC00006414D /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericNavigationController.swift; sourceTree = "<group>"; };
 		9EA2031C1EA0BDBB00F18A3A /* CheckFuelPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckFuelPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA2031F1EA0BDBB00F18A3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EA203241EA0BDBB00F18A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */,
+				9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 		9E9E7F211EE15ED70006414D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9E9E7F221EE16DC00006414D /* StatisticsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -548,7 +554,9 @@
 				9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */,
 				9E4A1F731EDB22D90044F3DD /* Double+Extension.swift in Sources */,
 				9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */,
+				9E9E7F251EE171CB0006414D /* GenericNavigationController.swift in Sources */,
 				9E4A1F981EDEFF240044F3DD /* Enum+Extensions.swift in Sources */,
+				9E9E7F231EE16DC00006414D /* StatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,3 +19,6 @@ lowestPriceLabel = "najniższa cena";
 
 currentFuelPrices = "Aktualne ceny";
 settings = "Ustawienia";
+
+mainTab1Name = "Dane";
+mainTab2Name = "Statystyki";

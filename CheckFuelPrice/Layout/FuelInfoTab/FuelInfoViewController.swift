@@ -12,7 +12,7 @@ import UIKit
 extension FuelInfoViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        log.verbose("Enter 1")
+        log.verbose("Enter")
         
         return predefinedNumberOfTableRow
     }
@@ -125,7 +125,10 @@ class FuelInfoViewController: UIViewController {
         self.dataTableView.rowHeight = UITableViewAutomaticDimension
         self.dataTableView.estimatedRowHeight = 200
         
-//        self.navigationController?.tabBarItem.title = "Test"
+        log.verbose("YYY1: \(self)")
+        log.verbose("YYY2: \(self.navigationController.self)")
+        log.verbose("YYY3: \(self.navigationController?.tabBarItem.self)")
+        
     }
     
     override func didReceiveMemoryWarning() {

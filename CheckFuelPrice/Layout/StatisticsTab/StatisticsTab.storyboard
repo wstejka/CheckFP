@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Statistics View Controller-->
         <scene sceneID="aMf-Za-s0E">
             <objects>
-                <viewController id="aOs-a9-TNf" sceneMemberID="viewController">
+                <viewController id="aOs-a9-TNf" customClass="StatisticsViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mUs-yx-gbF"/>
                         <viewControllerLayoutGuide type="bottom" id="CRH-Hz-xIX"/>
@@ -31,7 +31,7 @@
         <!--Statistics-->
         <scene sceneID="LV2-Hy-cCn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RbX-kS-xpZ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RbX-kS-xpZ" customClass="GenericNavigationController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Statistics" image="Bar Chart" id="bT0-N6-hbs"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

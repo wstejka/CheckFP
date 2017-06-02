@@ -38,8 +38,9 @@ extension String {
         return self.characters.count
     }
     // string[] -> 'character'
-    subscript (i: Int) -> String {
-        return self[Range(i ..< i + 1)]
+    subscript (i: Int) -> String? {
+        
+        return ((i < self.length) ? self[Range(i ..< i + 1)] : nil)
     }
     subscript (r: Range<Int>) -> String {
         let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)),
