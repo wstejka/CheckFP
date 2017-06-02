@@ -12,9 +12,6 @@ class GenericNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        log.verbose("ZZZ: \(self)")
     }
 
     override func didReceiveMemoryWarning() {

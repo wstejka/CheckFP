@@ -18,6 +18,7 @@ highestPriceLabel = "highest price";
 lowestPriceLabel = "lowest price";
 
 currentFuelPrices = "Fuel Prices";
+statistics = "Statistics";
 settings = "Settings";
 
 mainTab1Name = "Data";

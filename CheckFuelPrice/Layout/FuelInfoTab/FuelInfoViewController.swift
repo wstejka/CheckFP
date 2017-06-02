@@ -27,8 +27,8 @@ extension FuelInfoViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            fuelInfoTopCell.leftImageDescriptionLabel.text = "settings".localized(withDefaultValue: "")
-            fuelInfoTopCell.rightImageDescriptionLabel.text = "currentFuelPrices".localized(withDefaultValue: "")
+            fuelInfoTopCell.leftImageDescriptionLabel.text = "currentFuelPrices".localized(withDefaultValue: "")
+            fuelInfoTopCell.rightImageDescriptionLabel.text = "statistics".localized(withDefaultValue: "")
             
             
             let imageList = [fuelInfoTopCell.leftImage, fuelInfoTopCell.rightImage]
@@ -106,7 +106,7 @@ class FuelInfoViewController: UIViewController {
     
     enum fuelImages :String {
         case currentPrices = "FuelPump"
-        case settings = "Settings2"
+        case settings = "Statistics"
     }
     // MARK: - properties
     @IBOutlet weak var dataTableView: UITableView!
