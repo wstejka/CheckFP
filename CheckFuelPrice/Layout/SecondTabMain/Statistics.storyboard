@@ -28,11 +28,11 @@
             </objects>
             <point key="canvasLocation" x="604" y="-18.440779610194905"/>
         </scene>
-        <!--Prices-->
+        <!--Statistics-->
         <scene sceneID="LV2-Hy-cCn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RbX-kS-xpZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Prices" image="Bar Chart" id="bT0-N6-hbs"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="Bar Chart" id="bT0-N6-hbs"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nur-P4-RNu">

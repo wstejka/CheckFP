@@ -125,6 +125,7 @@ class FuelInfoViewController: UIViewController {
         self.dataTableView.rowHeight = UITableViewAutomaticDimension
         self.dataTableView.estimatedRowHeight = 200
         
+        self.navigationController?.tabBarItem.title = "Test"
     }
     
     override func didReceiveMemoryWarning() {

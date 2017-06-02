@@ -13,7 +13,7 @@
 		9E4A1F711EDB19370044F3DD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F701EDB19370044F3DD /* Utils.swift */; };
 		9E4A1F731EDB22D90044F3DD /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F721EDB22D90044F3DD /* Double+Extension.swift */; };
 		9E4A1F8C1EDDF45D0044F3DD /* FuelInfoTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4A1F8B1EDDF45D0044F3DD /* FuelInfoTab.storyboard */; };
-		9E4A1F8E1EDDF48F0044F3DD /* SecondTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4A1F8D1EDDF48F0044F3DD /* SecondTab.storyboard */; };
+		9E4A1F8E1EDDF48F0044F3DD /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4A1F8D1EDDF48F0044F3DD /* Statistics.storyboard */; };
 		9E4A1F921EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F911EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift */; };
 		9E4A1F941EDE0DC70044F3DD /* FuelInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F931EDE0DC70044F3DD /* FuelInfoViewController.swift */; };
 		9E4A1F981EDEFF240044F3DD /* Enum+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F971EDEFF240044F3DD /* Enum+Extensions.swift */; };
@@ -72,7 +72,7 @@
 		9E4A1F701EDB19370044F3DD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9E4A1F721EDB22D90044F3DD /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		9E4A1F8B1EDDF45D0044F3DD /* FuelInfoTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FuelInfoTab.storyboard; sourceTree = "<group>"; };
-		9E4A1F8D1EDDF48F0044F3DD /* SecondTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SecondTab.storyboard; sourceTree = "<group>"; };
+		9E4A1F8D1EDDF48F0044F3DD /* Statistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
 		9E4A1F911EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelInfoTopTableViewCell.swift; sourceTree = "<group>"; };
 		9E4A1F931EDE0DC70044F3DD /* FuelInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelInfoViewController.swift; sourceTree = "<group>"; };
 		9E4A1F971EDEFF240044F3DD /* Enum+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enum+Extensions.swift"; sourceTree = "<group>"; };
@@ -178,7 +178,8 @@
 		9E4A1F881EDDF3070044F3DD /* SecondTabMain */ = {
 			isa = PBXGroup;
 			children = (
-				9E4A1F8D1EDDF48F0044F3DD /* SecondTab.storyboard */,
+				9E4A1F8D1EDDF48F0044F3DD /* Statistics.storyboard */,
+				9E9E7F211EE15ED70006414D /* Controllers */,
 			);
 			name = SecondTabMain;
 			path = Layout/SecondTabMain;
@@ -268,6 +269,13 @@
 				9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */,
 			);
 			name = "Carthage Frameworks";
+			sourceTree = "<group>";
+		};
+		9E9E7F211EE15ED70006414D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		9EA203131EA0BDBB00F18A3A = {
@@ -462,7 +470,7 @@
 				9E4A1F8C1EDDF45D0044F3DD /* FuelInfoTab.storyboard in Resources */,
 				9EA203271EA0BDBC00F18A3A /* Assets.xcassets in Resources */,
 				9EA203251EA0BDBB00F18A3A /* Main.storyboard in Resources */,
-				9E4A1F8E1EDDF48F0044F3DD /* SecondTab.storyboard in Resources */,
+				9E4A1F8E1EDDF48F0044F3DD /* Statistics.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
