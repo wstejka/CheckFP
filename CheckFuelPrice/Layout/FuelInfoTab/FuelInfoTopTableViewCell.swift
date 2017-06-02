@@ -12,12 +12,10 @@ class FuelInfoTopTableViewCell: UITableViewCell {
 
     
     // MARK: - properties
-    @IBOutlet weak var topLeftImage: UIImageView!
-    @IBOutlet weak var topRightImage: UIImageView!
-    @IBOutlet weak var bottomLeftImage: UIImageView!
-    @IBOutlet weak var bottomRightImage: UIImageView!
-    @IBOutlet weak var fuelPriceLabel: UILabel!
-    @IBOutlet weak var settingsLabel: UILabel!
+    @IBOutlet weak var leftImage: UIImageView!
+    @IBOutlet weak var rightImage: UIImageView!
+    @IBOutlet weak var leftImageDescriptionLabel: UILabel!
+    @IBOutlet weak var rightImageDescriptionLabel: UILabel!
 
 
 }

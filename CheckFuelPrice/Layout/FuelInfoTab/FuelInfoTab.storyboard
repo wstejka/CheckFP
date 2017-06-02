@@ -68,7 +68,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCG-Wk-PU1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCG-Wk-PU1">
                                                     <rect key="frame" x="198" y="143" width="161" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -93,25 +93,64 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="fuelPriceLabel" destination="iXC-gu-bnK" id="szy-Xx-wfK"/>
-                                            <outlet property="settingsLabel" destination="jCG-Wk-PU1" id="hng-5m-8LN"/>
-                                            <outlet property="topLeftImage" destination="Adu-78-ZW0" id="fIX-5z-4jc"/>
-                                            <outlet property="topRightImage" destination="Ily-To-CbJ" id="Wqi-AZ-YAj"/>
+                                            <outlet property="leftImage" destination="Adu-78-ZW0" id="riP-uZ-C7T"/>
+                                            <outlet property="leftImageDescriptionLabel" destination="iXC-gu-bnK" id="hDr-zY-zPH"/>
+                                            <outlet property="rightImage" destination="Ily-To-CbJ" id="ceP-5O-7JG"/>
+                                            <outlet property="rightImageDescriptionLabel" destination="jCG-Wk-PU1" id="Drn-Q8-Unz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoSecondTableViewCell" rowHeight="134" id="ShI-kq-ir5">
-                                        <rect key="frame" x="0.0" y="229" width="375" height="134"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoSettingsTableViewCell" rowHeight="201" id="yQP-3E-tgo" customClass="FuelInfoTopTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="229" width="375" height="201"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ShI-kq-ir5" id="YIk-Bx-fTe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yQP-3E-tgo" id="7ed-kJ-syf">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vfH-Kz-a6N">
+                                                    <rect key="frame" x="8" y="0.0" width="176.5" height="176.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="vfH-Kz-a6N" secondAttribute="height" id="WyV-53-NaX"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jId-oW-tN3">
+                                                    <rect key="frame" x="190.5" y="0.0" width="176.5" height="176.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QF8-lq-wU0">
+                                                    <rect key="frame" x="14" y="143" width="163" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orderings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwU-KZ-VKm">
+                                                    <rect key="frame" x="198" y="143" width="161" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QF8-lq-wU0" firstAttribute="top" secondItem="vfH-Kz-a6N" secondAttribute="bottom" constant="-33.5" id="AdS-Yl-umQ"/>
+                                                <constraint firstItem="jId-oW-tN3" firstAttribute="leading" secondItem="QF8-lq-wU0" secondAttribute="trailing" constant="13.5" id="HSS-Xt-soE"/>
+                                                <constraint firstItem="vfH-Kz-a6N" firstAttribute="leading" secondItem="7ed-kJ-syf" secondAttribute="leading" constant="8" id="Kd3-kG-jb1"/>
+                                                <constraint firstItem="QF8-lq-wU0" firstAttribute="leading" secondItem="7ed-kJ-syf" secondAttribute="leadingMargin" constant="6" id="LpH-Rn-uj3"/>
+                                                <constraint firstItem="jId-oW-tN3" firstAttribute="top" secondItem="7ed-kJ-syf" secondAttribute="top" id="M1k-Gf-75O"/>
+                                                <constraint firstItem="nwU-KZ-VKm" firstAttribute="leading" secondItem="vfH-Kz-a6N" secondAttribute="trailing" constant="13.5" id="NXC-5Q-ZLb"/>
+                                                <constraint firstItem="vfH-Kz-a6N" firstAttribute="top" secondItem="7ed-kJ-syf" secondAttribute="top" id="OVk-nT-tdQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="jId-oW-tN3" secondAttribute="trailing" constant="8" id="RJu-8w-KXH"/>
+                                                <constraint firstItem="nwU-KZ-VKm" firstAttribute="top" secondItem="jId-oW-tN3" secondAttribute="bottom" constant="-33.5" id="UAJ-6t-hWg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nwU-KZ-VKm" secondAttribute="trailing" constant="8" id="amQ-II-dBV"/>
+                                                <constraint firstItem="vfH-Kz-a6N" firstAttribute="width" secondItem="7ed-kJ-syf" secondAttribute="width" multiplier="0.47" id="e0b-7B-Qp2"/>
+                                                <constraint firstItem="vfH-Kz-a6N" firstAttribute="width" secondItem="7ed-kJ-syf" secondAttribute="height" multiplier="22:25" id="fEA-Go-uMF"/>
+                                                <constraint firstItem="jId-oW-tN3" firstAttribute="height" secondItem="vfH-Kz-a6N" secondAttribute="height" id="q8U-vZ-kYg"/>
+                                                <constraint firstItem="jId-oW-tN3" firstAttribute="width" secondItem="vfH-Kz-a6N" secondAttribute="width" id="yKs-2c-sTx"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoThirdTableViewCell" rowHeight="66" id="i09-2k-NOI">
-                                        <rect key="frame" x="0.0" y="363" width="375" height="66"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoThirdCell" rowHeight="201" id="yIY-Bf-Rnf" customClass="FuelInfoTopTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="430" width="375" height="201"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i09-2k-NOI" id="OaC-P2-qwo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yIY-Bf-Rnf" id="mM9-nw-dg3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

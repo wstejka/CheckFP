@@ -47,24 +47,5 @@
             </objects>
             <point key="canvasLocation" x="-314" y="-295"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="TMa-mQ-EFd">
-            <objects>
-                <viewController id="5Jk-1i-5gl" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dNP-hz-gsv"/>
-                        <viewControllerLayoutGuide type="bottom" id="tmY-iT-k0a"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DXK-w6-pJU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ROZ-b5-X6E"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dry-Wd-T47" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-345" y="92"/>
-        </scene>
     </scenes>
 </document>
