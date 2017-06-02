@@ -27,25 +27,25 @@
             </objects>
             <point key="canvasLocation" x="-1288" y="-419"/>
         </scene>
-        <!--FuelInfoTab-->
+        <!--FuelInfoTabView-->
         <scene sceneID="kLJ-g8-YhO">
             <objects>
-                <viewControllerPlaceholder storyboardName="FuelInfoTab" id="YbY-7v-Njt" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="FuelInfoTabView" id="YbY-7v-Njt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="8P0-07-9Lo"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ex-ee-mFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-302" y="-673"/>
+            <point key="canvasLocation" x="-303" y="-534"/>
         </scene>
-        <!--SecondTab-->
+        <!--StatisticsTabView-->
         <scene sceneID="X8j-MI-4M5">
             <objects>
-                <viewControllerPlaceholder storyboardName="SecondTab" id="8eg-AK-gJd" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="StatisticsTabView" id="8eg-AK-gJd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="ehx-qt-Eaq"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdJ-aS-fAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-302" y="-291"/>
+            <point key="canvasLocation" x="-314" y="-295"/>
         </scene>
     </scenes>
 </document>
