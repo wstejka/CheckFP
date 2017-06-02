@@ -27,20 +27,20 @@
             </objects>
             <point key="canvasLocation" x="-1288" y="-419"/>
         </scene>
-        <!--FuelInfoTabView-->
+        <!--FuelInfoTab-->
         <scene sceneID="kLJ-g8-YhO">
             <objects>
-                <viewControllerPlaceholder storyboardName="FuelInfoTabView" id="YbY-7v-Njt" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="FuelInfoTab" id="YbY-7v-Njt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="8P0-07-9Lo"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ex-ee-mFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-303" y="-534"/>
         </scene>
-        <!--StatisticsTabView-->
+        <!--StatisticsTab-->
         <scene sceneID="X8j-MI-4M5">
             <objects>
-                <viewControllerPlaceholder storyboardName="StatisticsTabView" id="8eg-AK-gJd" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="StatisticsTab" id="8eg-AK-gJd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="ehx-qt-Eaq"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdJ-aS-fAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
