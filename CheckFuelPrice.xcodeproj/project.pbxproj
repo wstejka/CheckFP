@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E1C038B1EE2B7B30023BCED /* FuelPrices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1C038A1EE2B7B30023BCED /* FuelPrices.storyboard */; };
+		9E1C038F1EE2B8140023BCED /* FuelPricesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C038E1EE2B8140023BCED /* FuelPricesViewController.swift */; };
+		9E1C03931EE2BAC40023BCED /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1C03921EE2BAC40023BCED /* Statistics.storyboard */; };
+		9E1C03971EE2BB130023BCED /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C03961EE2BB130023BCED /* StatisticsViewController.swift */; };
+		9E1C039C1EE2BCD30023BCED /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1C039B1EE2BCD30023BCED /* Orders.storyboard */; };
+		9E1C039F1EE2BD020023BCED /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C039E1EE2BD020023BCED /* OrdersViewController.swift */; };
 		9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */; };
 		9E4A1F661ED9DEAA0044F3DD /* CFPEnumerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F651ED9DEAA0044F3DD /* CFPEnumerators.swift */; };
 		9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F671ED9E34C0044F3DD /* FuelType.swift */; };
@@ -26,7 +32,7 @@
 		9E5C84321EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */; };
 		9E9E7F201EE157370006414D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */; };
-		9E9E7F231EE16DC00006414D /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F221EE16DC00006414D /* StatisticsViewController.swift */; };
+		9E9E7F231EE16DC00006414D /* StatisticsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F221EE16DC00006414D /* StatisticsTabViewController.swift */; };
 		9E9E7F251EE171CB0006414D /* GenericNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */; };
 		9E9E7F271EE1A7AA0006414D /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E9E7F261EE1A7AA0006414D /* CustomCell.xib */; };
 		9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA2031F1EA0BDBB00F18A3A /* AppDelegate.swift */; };
@@ -68,6 +74,12 @@
 /* Begin PBXFileReference section */
 		37FDA4F736424C282B0BB13B /* Pods_CheckFuelPrice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckFuelPrice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F946C05CD007F6243D65606 /* Pods-CheckFuelPrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.debug.xcconfig"; sourceTree = "<group>"; };
+		9E1C038A1EE2B7B30023BCED /* FuelPrices.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FuelPrices.storyboard; sourceTree = "<group>"; };
+		9E1C038E1EE2B8140023BCED /* FuelPricesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPricesViewController.swift; sourceTree = "<group>"; };
+		9E1C03921EE2BAC40023BCED /* Statistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Statistics.storyboard; path = CheckFuelPrice/Layout/Statistics/Statistics.storyboard; sourceTree = SOURCE_ROOT; };
+		9E1C03961EE2BB130023BCED /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		9E1C039B1EE2BCD30023BCED /* Orders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
+		9E1C039E1EE2BD020023BCED /* OrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPriceItem.swift; sourceTree = "<group>"; };
 		9E4A1F601ED775760044F3DD /* CheckFuelPrice-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CheckFuelPrice-Bridging-Header.h"; sourceTree = "<group>"; };
 		9E4A1F651ED9DEAA0044F3DD /* CFPEnumerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPEnumerators.swift; sourceTree = "<group>"; };
@@ -86,7 +98,7 @@
 		9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSUtils.swift; sourceTree = "<group>"; };
 		9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
-		9E9E7F221EE16DC00006414D /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		9E9E7F221EE16DC00006414D /* StatisticsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTabViewController.swift; sourceTree = "<group>"; };
 		9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericNavigationController.swift; sourceTree = "<group>"; };
 		9E9E7F261EE1A7AA0006414D /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		9EA2031C1EA0BDBB00F18A3A /* CheckFuelPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckFuelPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +146,88 @@
 				FF1DBEF75401F0FDC4F8B1DB /* Pods-CheckFuelPrice.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E1C03891EE2B7B30023BCED /* FuelPrices */ = {
+			isa = PBXGroup;
+			children = (
+				9E1C038A1EE2B7B30023BCED /* FuelPrices.storyboard */,
+				9E1C038C1EE2B7E20023BCED /* Controllers */,
+				9E1C038D1EE2B7EE0023BCED /* Views */,
+			);
+			name = FuelPrices;
+			path = Layout/FuelPrices;
+			sourceTree = "<group>";
+		};
+		9E1C038C1EE2B7E20023BCED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9E1C038E1EE2B8140023BCED /* FuelPricesViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9E1C038D1EE2B7EE0023BCED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9E1C03901EE2BA160023BCED /* MainTab1 */ = {
+			isa = PBXGroup;
+			children = (
+				9E4A1F871EDDF3070044F3DD /* FuelInfoTab */,
+				9E1C03891EE2B7B30023BCED /* FuelPrices */,
+				9E1C03911EE2BA9F0023BCED /* Statistics */,
+				9E4A1FB41EE0939D0044F3DD /* Settings */,
+				9E1C039A1EE2BCD30023BCED /* Orders */,
+			);
+			name = MainTab1;
+			sourceTree = "<group>";
+		};
+		9E1C03911EE2BA9F0023BCED /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				9E1C03921EE2BAC40023BCED /* Statistics.storyboard */,
+				9E1C03941EE2BAE40023BCED /* Controllers */,
+				9E1C03951EE2BAEC0023BCED /* Views */,
+			);
+			name = Statistics;
+			path = Layout/Statistics;
+			sourceTree = "<group>";
+		};
+		9E1C03941EE2BAE40023BCED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9E1C03961EE2BB130023BCED /* StatisticsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9E1C03951EE2BAEC0023BCED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9E1C039A1EE2BCD30023BCED /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				9E1C039B1EE2BCD30023BCED /* Orders.storyboard */,
+				9E1C039D1EE2BCDF0023BCED /* Controllers */,
+			);
+			name = Orders;
+			path = Layout/Orders;
+			sourceTree = "<group>";
+		};
+		9E1C039D1EE2BCDF0023BCED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9E1C039E1EE2BD020023BCED /* OrdersViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		9E4A1F611ED775880044F3DD /* Supporting files */ = {
@@ -213,8 +307,8 @@
 			isa = PBXGroup;
 			children = (
 				9E4A1FBA1EE0AAEC0044F3DD /* Settings.storyboard */,
-				9E4A1FB61EE093AF0044F3DD /* Views */,
 				9E4A1FB51EE093A80044F3DD /* Controllers */,
+				9E4A1FB61EE093AF0044F3DD /* Views */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -282,7 +376,7 @@
 		9E9E7F211EE15ED70006414D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9E9E7F221EE16DC00006414D /* StatisticsViewController.swift */,
+				9E9E7F221EE16DC00006414D /* StatisticsTabViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -344,11 +438,10 @@
 		9EA203541EA0BED400F18A3A /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				9E4A1FB91EE0AA060044F3DD /* UserProfile */,
-				9E4A1FB41EE0939D0044F3DD /* Settings */,
-				9E4A1F871EDDF3070044F3DD /* FuelInfoTab */,
-				9E4A1F881EDDF3070044F3DD /* StatisticsTab */,
 				9E51D9B81ED71B0A00C22246 /* Main */,
+				9E4A1FB91EE0AA060044F3DD /* UserProfile */,
+				9E1C03901EE2BA160023BCED /* MainTab1 */,
+				9E4A1F881EDDF3070044F3DD /* StatisticsTab */,
 				9E51D9B91ED71B1E00C22246 /* LaunchScreen */,
 			);
 			name = Layout;
@@ -474,8 +567,11 @@
 				9E9E7F271EE1A7AA0006414D /* CustomCell.xib in Resources */,
 				9EA2032A1EA0BDBC00F18A3A /* LaunchScreen.storyboard in Resources */,
 				9EA2035C1EA0C11500F18A3A /* Localizable.strings in Resources */,
+				9E1C03931EE2BAC40023BCED /* Statistics.storyboard in Resources */,
 				9EAC4BC01ECF0FA000F7B81B /* GoogleService-Info.plist in Resources */,
+				9E1C038B1EE2B7B30023BCED /* FuelPrices.storyboard in Resources */,
 				9E4A1FBD1EE0AC550044F3DD /* UserProfile.storyboard in Resources */,
+				9E1C039C1EE2BCD30023BCED /* Orders.storyboard in Resources */,
 				9E4A1FBB1EE0AAEC0044F3DD /* Settings.storyboard in Resources */,
 				9E4A1F8C1EDDF45D0044F3DD /* FuelInfoTab.storyboard in Resources */,
 				9EA203271EA0BDBC00F18A3A /* Assets.xcassets in Resources */,
@@ -553,14 +649,17 @@
 				9E4A1F661ED9DEAA0044F3DD /* CFPEnumerators.swift in Sources */,
 				9E4A1F941EDE0DC70044F3DD /* FuelInfoViewController.swift in Sources */,
 				9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */,
+				9E1C03971EE2BB130023BCED /* StatisticsViewController.swift in Sources */,
 				9E9E7F201EE157370006414D /* MainTabBarViewController.swift in Sources */,
 				9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */,
 				9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */,
+				9E1C038F1EE2B8140023BCED /* FuelPricesViewController.swift in Sources */,
 				9E4A1F731EDB22D90044F3DD /* Double+Extension.swift in Sources */,
+				9E1C039F1EE2BD020023BCED /* OrdersViewController.swift in Sources */,
 				9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */,
 				9E9E7F251EE171CB0006414D /* GenericNavigationController.swift in Sources */,
 				9E4A1F981EDEFF240044F3DD /* Enum+Extensions.swift in Sources */,
-				9E9E7F231EE16DC00006414D /* StatisticsViewController.swift in Sources */,
+				9E9E7F231EE16DC00006414D /* StatisticsTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,29 +18,54 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Src-LD-xtg">
-                    <rect key="frame" x="8" y="0.0" width="217" height="217"/>
+                    <rect key="frame" x="8" y="8" width="217" height="217"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Src-LD-xtg" secondAttribute="height" id="1kx-ih-ant"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VWd-kG-PMb">
-                    <rect key="frame" x="237" y="0.0" width="217" height="217"/>
+                    <rect key="frame" x="237" y="8" width="217" height="217"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="VWd-kG-PMb" secondAttribute="height" id="4Jh-tB-BpH"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBr-KK-ebE">
+                    <rect key="frame" x="20" y="194" width="192" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7t-qQ-dp5">
+                    <rect key="frame" x="244" y="194" width="210" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="M7t-qQ-dp5" secondAttribute="trailing" constant="8" id="606-lJ-ICl"/>
+                <constraint firstItem="UBr-KK-ebE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="90w-4x-pKL"/>
                 <constraint firstAttribute="trailing" secondItem="VWd-kG-PMb" secondAttribute="trailing" constant="8" id="A6h-7N-ADf"/>
-                <constraint firstItem="VWd-kG-PMb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Go1-8q-xbi"/>
-                <constraint firstItem="Src-LD-xtg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YZR-vo-Rcm"/>
+                <constraint firstItem="VWd-kG-PMb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Go1-8q-xbi"/>
+                <constraint firstItem="Src-LD-xtg" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="217:233" id="JTK-NA-BxC"/>
+                <constraint firstItem="M7t-qQ-dp5" firstAttribute="top" secondItem="VWd-kG-PMb" secondAttribute="bottom" constant="-31" id="JgV-GN-x7G"/>
+                <constraint firstItem="VWd-kG-PMb" firstAttribute="leading" secondItem="UBr-KK-ebE" secondAttribute="trailing" constant="25" id="W6X-81-XZh"/>
+                <constraint firstItem="Src-LD-xtg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="YZR-vo-Rcm"/>
                 <constraint firstItem="VWd-kG-PMb" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.47" id="eoc-Sw-pyn"/>
+                <constraint firstItem="M7t-qQ-dp5" firstAttribute="leading" secondItem="Src-LD-xtg" secondAttribute="trailing" constant="19" id="mdl-P2-fBo"/>
                 <constraint firstItem="Src-LD-xtg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="qXu-vy-nhI"/>
+                <constraint firstItem="UBr-KK-ebE" firstAttribute="top" secondItem="Src-LD-xtg" secondAttribute="bottom" constant="-31" id="wCg-EB-yuK"/>
                 <constraint firstItem="Src-LD-xtg" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.47" id="xcF-qU-8Fh"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="leftImage" destination="Src-LD-xtg" id="LQC-No-u9K"/>
+                <outlet property="leftImageDescriptionLabel" destination="UBr-KK-ebE" id="Ltd-CZ-fi0"/>
+                <outlet property="rightImage" destination="VWd-kG-PMb" id="qKc-HN-10V"/>
+                <outlet property="rightImageDescriptionLabel" destination="M7t-qQ-dp5" id="Lcm-ia-a8r"/>
+            </connections>
             <point key="canvasLocation" x="36" y="-214.5"/>
         </view>
     </objects>

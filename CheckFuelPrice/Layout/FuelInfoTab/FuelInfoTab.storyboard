@@ -6,9 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +30,7 @@
         <!--Fuel Info View Controller-->
         <scene sceneID="jl5-4O-RDK">
             <objects>
-                <viewController id="zXf-HX-HLo" customClass="FuelInfoViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zXf-HX-HLo" customClass="FuelInfoViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hLP-vJ-hFh"/>
                         <viewControllerLayoutGuide type="bottom" id="zPE-s2-eQR"/>
@@ -46,111 +43,27 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoTopTableViewCell" rowHeight="201" id="8VU-mD-myH" customClass="FuelInfoTopTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="201"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoTopTableViewCell" rowHeight="88" id="8VU-mD-myH">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8VU-mD-myH" id="Ggm-nD-WM3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Adu-78-ZW0">
-                                                    <rect key="frame" x="8" y="0.0" width="176.5" height="176.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="height" id="Aow-Jg-SBZ"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ily-To-CbJ">
-                                                    <rect key="frame" x="190.5" y="0.0" width="176.5" height="176.5"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aktualne Ceny Paliw" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXC-gu-bnK">
-                                                    <rect key="frame" x="14" y="143" width="163" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCG-Wk-PU1">
-                                                    <rect key="frame" x="198" y="143" width="161" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="jCG-Wk-PU1" firstAttribute="leading" secondItem="Adu-78-ZW0" secondAttribute="trailing" constant="13.5" id="0Zl-xu-SAy"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="jCG-Wk-PU1" secondAttribute="trailing" constant="8" id="0lm-q9-ECD"/>
-                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="width" secondItem="Adu-78-ZW0" secondAttribute="width" id="2sY-bc-Dwn"/>
-                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="top" secondItem="Ggm-nD-WM3" secondAttribute="top" id="3tl-KU-s5a"/>
-                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="leading" secondItem="Ggm-nD-WM3" secondAttribute="leading" constant="8" id="8Ij-56-atI"/>
-                                                <constraint firstItem="jCG-Wk-PU1" firstAttribute="top" secondItem="Ily-To-CbJ" secondAttribute="bottom" constant="-33.5" id="F7u-1x-ndM"/>
-                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="width" secondItem="Ggm-nD-WM3" secondAttribute="width" multiplier="0.47" id="G3a-Ra-2NU"/>
-                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="height" secondItem="Adu-78-ZW0" secondAttribute="height" id="GsA-e9-Eqi"/>
-                                                <constraint firstItem="iXC-gu-bnK" firstAttribute="top" secondItem="Adu-78-ZW0" secondAttribute="bottom" constant="-33.5" id="O9M-Cs-17a"/>
-                                                <constraint firstItem="Adu-78-ZW0" firstAttribute="width" secondItem="Ggm-nD-WM3" secondAttribute="height" multiplier="22:25" id="THq-3V-2HL"/>
-                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="leading" secondItem="iXC-gu-bnK" secondAttribute="trailing" constant="13.5" id="g06-fC-WyL"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ily-To-CbJ" secondAttribute="trailing" constant="8" id="paa-uY-PDV"/>
-                                                <constraint firstItem="iXC-gu-bnK" firstAttribute="leading" secondItem="Ggm-nD-WM3" secondAttribute="leadingMargin" constant="6" id="v6z-Cc-eVv"/>
-                                                <constraint firstItem="Ily-To-CbJ" firstAttribute="top" secondItem="Ggm-nD-WM3" secondAttribute="top" id="vEK-Pw-t9O"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="leftImage" destination="Adu-78-ZW0" id="riP-uZ-C7T"/>
-                                            <outlet property="leftImageDescriptionLabel" destination="iXC-gu-bnK" id="hDr-zY-zPH"/>
-                                            <outlet property="rightImage" destination="Ily-To-CbJ" id="ceP-5O-7JG"/>
-                                            <outlet property="rightImageDescriptionLabel" destination="jCG-Wk-PU1" id="Drn-Q8-Unz"/>
-                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoSettingsTableViewCell" rowHeight="201" id="yQP-3E-tgo" customClass="FuelInfoTopTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="229" width="375" height="201"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoSettingsTableViewCell" rowHeight="87" id="yQP-3E-tgo">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yQP-3E-tgo" id="7ed-kJ-syf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="86.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vfH-Kz-a6N">
-                                                    <rect key="frame" x="8" y="0.0" width="176.5" height="176.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="vfH-Kz-a6N" secondAttribute="height" id="WyV-53-NaX"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jId-oW-tN3">
-                                                    <rect key="frame" x="190.5" y="0.0" width="176.5" height="176.5"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QF8-lq-wU0">
-                                                    <rect key="frame" x="14" y="143" width="163" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orderings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwU-KZ-VKm">
-                                                    <rect key="frame" x="198" y="143" width="161" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="QF8-lq-wU0" firstAttribute="top" secondItem="vfH-Kz-a6N" secondAttribute="bottom" constant="-33.5" id="AdS-Yl-umQ"/>
-                                                <constraint firstItem="jId-oW-tN3" firstAttribute="leading" secondItem="QF8-lq-wU0" secondAttribute="trailing" constant="13.5" id="HSS-Xt-soE"/>
-                                                <constraint firstItem="vfH-Kz-a6N" firstAttribute="leading" secondItem="7ed-kJ-syf" secondAttribute="leading" constant="8" id="Kd3-kG-jb1"/>
-                                                <constraint firstItem="QF8-lq-wU0" firstAttribute="leading" secondItem="7ed-kJ-syf" secondAttribute="leadingMargin" constant="6" id="LpH-Rn-uj3"/>
-                                                <constraint firstItem="jId-oW-tN3" firstAttribute="top" secondItem="7ed-kJ-syf" secondAttribute="top" id="M1k-Gf-75O"/>
-                                                <constraint firstItem="nwU-KZ-VKm" firstAttribute="leading" secondItem="vfH-Kz-a6N" secondAttribute="trailing" constant="13.5" id="NXC-5Q-ZLb"/>
-                                                <constraint firstItem="vfH-Kz-a6N" firstAttribute="top" secondItem="7ed-kJ-syf" secondAttribute="top" id="OVk-nT-tdQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="jId-oW-tN3" secondAttribute="trailing" constant="8" id="RJu-8w-KXH"/>
-                                                <constraint firstItem="nwU-KZ-VKm" firstAttribute="top" secondItem="jId-oW-tN3" secondAttribute="bottom" constant="-33.5" id="UAJ-6t-hWg"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="nwU-KZ-VKm" secondAttribute="trailing" constant="8" id="amQ-II-dBV"/>
-                                                <constraint firstItem="vfH-Kz-a6N" firstAttribute="width" secondItem="7ed-kJ-syf" secondAttribute="width" multiplier="0.47" id="e0b-7B-Qp2"/>
-                                                <constraint firstItem="vfH-Kz-a6N" firstAttribute="width" secondItem="7ed-kJ-syf" secondAttribute="height" multiplier="22:25" id="fEA-Go-uMF"/>
-                                                <constraint firstItem="jId-oW-tN3" firstAttribute="height" secondItem="vfH-Kz-a6N" secondAttribute="height" id="q8U-vZ-kYg"/>
-                                                <constraint firstItem="jId-oW-tN3" firstAttribute="width" secondItem="vfH-Kz-a6N" secondAttribute="width" id="yKs-2c-sTx"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoThirdCell" rowHeight="201" id="yIY-Bf-Rnf" customClass="FuelInfoTopTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="430" width="375" height="201"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoThirdCell" rowHeight="69" id="yIY-Bf-Rnf">
+                                        <rect key="frame" x="0.0" y="203" width="375" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yIY-Bf-Rnf" id="mM9-nw-dg3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -175,31 +88,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dataTableView" destination="jfo-Td-3ce" id="GQt-nP-Ci3"/>
-                        <segue destination="0hx-e8-FJz" kind="show" identifier="FuelPricesSegue" id="mbN-wj-Rvj"/>
+                        <segue destination="4g6-64-THd" kind="show" identifier="FuelPricesSegue" id="mbN-wj-Rvj"/>
                         <segue destination="gUT-fI-jpj" kind="show" identifier="SettingsSegue" id="yDc-N4-fjk"/>
+                        <segue destination="uf1-UH-F9f" kind="show" identifier="StatisticsSegue" id="rGl-6n-85r"/>
+                        <segue destination="ajL-PY-BU9" kind="show" identifier="OrdersSegue" id="kwU-nV-fu9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8q-4f-VJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="789.60000000000002" y="-686.80659670164926"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tnY-TP-ko9">
-            <objects>
-                <viewController id="0hx-e8-FJz" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1ak-2F-DC1"/>
-                        <viewControllerLayoutGuide type="bottom" id="3yw-V0-dfM"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5b9-3g-kiA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ERO-Bd-jTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1969" y="-163"/>
         </scene>
         <!--UserProfile-->
         <scene sceneID="uVH-ZL-08T">
@@ -207,7 +104,7 @@
                 <viewControllerPlaceholder storyboardName="UserProfile" id="jZS-h5-a2a" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bd-FZ-pis" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1937" y="-855"/>
+            <point key="canvasLocation" x="1356" y="-1046"/>
         </scene>
         <!--Settings-->
         <scene sceneID="iE3-dp-JPS">
@@ -215,7 +112,31 @@
                 <viewControllerPlaceholder storyboardName="Settings" id="gUT-fI-jpj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaV-cc-6cD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1937" y="-673"/>
+            <point key="canvasLocation" x="1918" y="-712"/>
+        </scene>
+        <!--FuelPrices-->
+        <scene sceneID="8VG-4p-iMK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FuelPrices" id="4g6-64-THd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJe-BJ-vjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928" y="-969"/>
+        </scene>
+        <!--Statistics-->
+        <scene sceneID="fQ9-4R-NAh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Statistics" id="uf1-UH-F9f" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Hm-yw-b6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1923" y="-767"/>
+        </scene>
+        <!--Orders-->
+        <scene sceneID="AZX-2D-C3e">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Orders" id="ajL-PY-BU9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lV-zD-UjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1910" y="-923"/>
         </scene>
     </scenes>
     <resources>

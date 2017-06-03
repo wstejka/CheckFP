@@ -17,7 +17,8 @@ lpg = "Lpg gas";
 highestPriceLabel = "highest price";
 lowestPriceLabel = "lowest price";
 
-currentFuelPrices = "Fuel Prices";
+currentFuelPrices = "Fuel prices";
+orders = "My orders";
 statistics = "Statistics";
 settings = "Settings";
 

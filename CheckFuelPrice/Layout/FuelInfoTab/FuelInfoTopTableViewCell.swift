@@ -17,5 +17,8 @@ class FuelInfoTopTableViewCell: UITableViewCell {
     @IBOutlet weak var leftImageDescriptionLabel: UILabel!
     @IBOutlet weak var rightImageDescriptionLabel: UILabel!
 
+    override func awakeFromNib() {
+        log.verbose("Enter")
+    }
 
 }
