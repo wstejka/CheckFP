@@ -106,7 +106,7 @@ extension FuelInfoViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         log.verbose("Enter: \(indexPath.row)")
-        if indexPath.row == CustomCellId.fuelDataRow.rawValue {
+        if indexPath.row < CustomCellId.fuelBottomRow.rawValue {
             return false
         }
         return true
@@ -117,7 +117,7 @@ extension FuelInfoViewController: UITableViewDelegate {
 class FuelInfoViewController: UIViewController {
 
 
-    // MARK: - constants
+    // MARK: - Constants
     let predefinedNumberOfTableRow =  CustomCellId.elementsCount
     enum CustomCellId : Int {
         case fuelDataRow = 0
@@ -176,7 +176,7 @@ class FuelInfoViewController: UIViewController {
     }()
     
     
-    // MARK: - properties
+    // MARK: - Properties
     @IBOutlet weak var dataTableView: UITableView!
     
     
@@ -198,12 +198,23 @@ class FuelInfoViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        deselectHighlightedRow()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-
+    // MARK: - Methods
+    
+    func deselectHighlightedRow() {
+        if let lastSelectedRow = self.dataTableView.indexPathForSelectedRow {
+            self.dataTableView.deselectRow(at: lastSelectedRow, animated: false)
+        }
+        
+    }
     
     // MARK: - Actions
     
