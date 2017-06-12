@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Charts
 
 extension FuelPricesViewController: UITableViewDelegate {
+    
+    
     
 }
 
@@ -53,47 +56,62 @@ class FuelPricesViewController: UIViewController {
     let customTableViewCellName = "FuelPricesTableViewCell"
     var items : [FuelType] = []
     var refFuelTypes : DatabaseReference? = nil
-    var refProducers : DatabaseReference? = nil
+    let nodeName = "fuel_types"
     
     enum LabelDescriptions : String {
         case highestPriceLabel = "highestPriceLabel"
         case lowestPriceLabel = "lowestPriceLabel"
-        case headingLabel = "AppHeading"
     }
+    var observerHandle : DatabaseHandle = 0
     
     // MARK: - properties
     @IBOutlet weak var tableView: UITableView!
     
     
     override func viewDidLoad() {
+        log.verbose("Enter: \(self)")
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Set controller as a source and delegate for table
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        self.refFuelTypes = Database.database().reference(withPath: "fuel_types")
-
+        // Configure reference to firebase node
+        self.refFuelTypes = Database.database().reference(withPath: nodeName)
         DispatchQueue.global().async {
-            self.refFuelTypes!.observe(.value, with: { snapshot in
-                log.verbose("Observe: \(self.refFuelTypes!.description()) \(snapshot.childrenCount)")
+            // to avoid retain cycle let's pass weak reference to self
+            self.observerHandle = self.refFuelTypes!.observe(.value, with: { [weak self] snapshot in
+                guard let selfweak = self else {
+                    return
+                }
+                
+                log.verbose("Observe: \(selfweak.refFuelTypes!.description()) \(snapshot.childrenCount)")
                 var newItems: [FuelType] = []
                 
                 for item in snapshot.children {
                     guard let fuelType = FuelType(snapshot: item as! DataSnapshot) else {
                         continue
                     }
+                    // ignore fuel types with zero/uninitialized value
+                    if fuelType.currentHighestPrice == 0.0 {
+                        continue
+                    }
                     newItems.append(fuelType)
                 }
                 
-                self.items = newItems
-                self.tableView.reloadData()
+                selfweak.items = newItems
+                selfweak.tableView.reloadData()
             })
         }
-        
-        log.verbose("After")
-        
     }
-
+    
+    deinit {
+        log.verbose("Enter")
+        if (self.refFuelTypes != nil) && (self.observerHandle > 0) {
+            // remove observer
+            self.refFuelTypes!.removeObserver(withHandle: self.observerHandle)
+            log.verbose("Observer for node \(nodeName) removed")
+        }
+    }
 
 }
