@@ -112,7 +112,7 @@
                 <viewControllerPlaceholder storyboardName="Settings" id="gUT-fI-jpj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaV-cc-6cD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1918" y="-712"/>
+            <point key="canvasLocation" x="1922" y="-570"/>
         </scene>
         <!--FuelPrices-->
         <scene sceneID="8VG-4p-iMK">
@@ -120,7 +120,7 @@
                 <viewControllerPlaceholder storyboardName="FuelPrices" id="4g6-64-THd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJe-BJ-vjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="-969"/>
+            <point key="canvasLocation" x="1933" y="-892"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="fQ9-4R-NAh">
@@ -128,7 +128,7 @@
                 <viewControllerPlaceholder storyboardName="Statistics" id="uf1-UH-F9f" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Hm-yw-b6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1923" y="-767"/>
+            <point key="canvasLocation" x="1928" y="-631"/>
         </scene>
         <!--Orders-->
         <scene sceneID="AZX-2D-C3e">
@@ -136,7 +136,7 @@
                 <viewControllerPlaceholder storyboardName="Orders" id="ajL-PY-BU9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lV-zD-UjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1910" y="-923"/>
+            <point key="canvasLocation" x="1946" y="-834"/>
         </scene>
     </scenes>
     <resources>

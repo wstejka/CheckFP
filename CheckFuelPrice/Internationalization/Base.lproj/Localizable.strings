@@ -24,3 +24,7 @@ settings = "Settings";
 
 mainTab1Name = "Data";
 mainTab2Name = "Statistics";
+
+weekly = "Weekly";
+monthly = "Monthly";
+annually = "Annually";

@@ -19,7 +19,7 @@ class MainTabBarViewController: UITabBarController {
         var counter = 0
         for viewController in self.viewControllers! {
 
-            // Ensure index os not out of range
+            // Ensure index is not out of range
             if counter >= mainTabNamesList.count {
                 log.error("Index out of range. Add missing values or remove view controler")
                 break

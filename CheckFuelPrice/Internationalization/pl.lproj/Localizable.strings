@@ -22,6 +22,9 @@ orders = "Moje zamówienia";
 statistics = "Statystyki";
 settings = "Ustawienia";
 
-
 mainTab1Name = "Dane";
 mainTab2Name = "Statystyki";
+
+weekly = "Tygodniowy";
+monthly = "Miesięczny";
+annually = "Roczny";

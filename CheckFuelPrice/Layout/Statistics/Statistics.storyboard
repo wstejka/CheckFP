@@ -7,33 +7,37 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Statistics View Controller-->
+        <!--Statistics Page View Controller-->
         <scene sceneID="M8M-tF-z5w">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QFw-vz-ZVS" customClass="StatisticsViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
-                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QFw-vz-ZVS" customClass="StatisticsPageViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="NMS-lD-ynK" kind="show" id="ls7-tG-wcL"/>
+                        <segue destination="nAf-sF-b7c" kind="show" id="xsI-3L-GLf"/>
+                    </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aun-tX-zJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2350" y="-966"/>
+            <point key="canvasLocation" x="1730" y="-984"/>
         </scene>
-        <!--View Controller-->
+        <!--Statistics Table View Controller-->
         <scene sceneID="hRF-ol-fap">
             <objects>
-                <viewController storyboardIdentifier="TableStatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nAf-sF-b7c" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableStatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nAf-sF-b7c" customClass="StatisticsTableViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="McG-AI-eFQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rk5-Iy-XzA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gEn-a7-2HZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="580"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wry-75-aVU">
-                                <rect key="frame" x="263" y="571" width="42" height="21"/>
+                                <rect key="frame" x="263" y="484" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -48,22 +52,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovw-I9-as4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="-488"/>
+            <point key="canvasLocation" x="2496" y="-648"/>
         </scene>
-        <!--View Controller-->
+        <!--Statistics Graph View Controller-->
         <scene sceneID="cKF-Pa-VxK">
             <objects>
-                <viewController storyboardIdentifier="GraphStatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NMS-lD-ynK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GraphStatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NMS-lD-ynK" customClass="StatisticsGraphViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UYz-cx-Dkn"/>
                         <viewControllerLayoutGuide type="bottom" id="omb-6A-6kg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ung-Kb-iPT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="580"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5R-Rw-t4A">
-                                <rect key="frame" x="277" y="601" width="48" height="21"/>
+                                <rect key="frame" x="277" y="514" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -78,12 +82,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4q-cE-g8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="-1159"/>
+            <point key="canvasLocation" x="2496" y="-1296"/>
         </scene>
-        <!--View Controller-->
+        <!--Statistics View Controller-->
         <scene sceneID="1uw-Ql-Vur">
             <objects>
-                <viewController id="uC4-TI-MHN" sceneMemberID="viewController">
+                <viewController id="uC4-TI-MHN" customClass="StatisticsViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BFr-nb-xZG"/>
                         <viewControllerLayoutGuide type="bottom" id="F9j-9K-MTl"/>
@@ -93,24 +97,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Bxc-Uw-FKO">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="87" width="375" height="580"/>
                                 <connections>
                                     <segue destination="QFw-vz-ZVS" kind="embed" id="CCh-aC-dxm"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFS-0b-4wx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="66.5"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KrY-VE-xv8">
+                                        <rect key="frame" x="68" y="19" width="238" height="29"/>
+                                        <segments>
+                                            <segment title="Weekly"/>
+                                            <segment title="Monthly"/>
+                                            <segment title="Annually"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="timeRangesSegmentsChanged:" destination="uC4-TI-MHN" eventType="valueChanged" id="84u-ex-2aN"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="KrY-VE-xv8" firstAttribute="centerY" secondItem="sFS-0b-4wx" secondAttribute="centerY" id="RNh-re-4Zx"/>
+                                    <constraint firstItem="KrY-VE-xv8" firstAttribute="leading" secondItem="sFS-0b-4wx" secondAttribute="leadingMargin" constant="60" id="hWR-CW-itO"/>
+                                    <constraint firstItem="KrY-VE-xv8" firstAttribute="centerX" secondItem="sFS-0b-4wx" secondAttribute="centerX" id="lXJ-CR-wIh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="F9j-9K-MTl" firstAttribute="top" secondItem="Bxc-Uw-FKO" secondAttribute="bottom" id="2MA-aD-z0g"/>
-                            <constraint firstItem="Bxc-Uw-FKO" firstAttribute="top" secondItem="BFr-nb-xZG" secondAttribute="bottom" id="T0b-TQ-g0j"/>
+                            <constraint firstItem="sFS-0b-4wx" firstAttribute="top" secondItem="BFr-nb-xZG" secondAttribute="bottom" id="QQZ-Lq-DYf"/>
                             <constraint firstItem="Bxc-Uw-FKO" firstAttribute="leading" secondItem="KT9-fr-uFZ" secondAttribute="leading" id="Ttq-wi-PCr"/>
+                            <constraint firstItem="sFS-0b-4wx" firstAttribute="height" secondItem="KT9-fr-uFZ" secondAttribute="height" multiplier="1:10" id="dfv-zz-TgG"/>
                             <constraint firstAttribute="trailing" secondItem="Bxc-Uw-FKO" secondAttribute="trailing" id="dih-DP-tVY"/>
+                            <constraint firstAttribute="trailing" secondItem="sFS-0b-4wx" secondAttribute="trailing" id="hDO-He-yWx"/>
+                            <constraint firstItem="Bxc-Uw-FKO" firstAttribute="top" secondItem="sFS-0b-4wx" secondAttribute="bottom" id="paN-di-CwK"/>
+                            <constraint firstItem="sFS-0b-4wx" firstAttribute="leading" secondItem="KT9-fr-uFZ" secondAttribute="leading" id="xfx-bX-Xfh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timeRangesSegments" destination="KrY-VE-xv8" id="wxz-wC-ZlO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7F-2O-AIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1569" y="-967"/>
+            <point key="canvasLocation" x="855" y="-1023"/>
         </scene>
     </scenes>
 </document>
