@@ -46,6 +46,10 @@ extension FuelPricesViewController: UITableViewDataSource {
             fuelPriceCell.fuelImage.image = nil
         }
         
+//        // Now let's create generic UIAlertController
+//        let alertController = UIAlertController(title: "Options", message: "Select your choice", preferredStyle: UIAlertControllerStyle.actionSheet)
+////        let alertActionStatistics = UIAlertAction(title: "", style: <#T##UIAlertActionStyle#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
+        
         return fuelPriceCell
     }
 }
@@ -56,7 +60,6 @@ class FuelPricesViewController: UIViewController {
     let customTableViewCellName = "FuelPricesTableViewCell"
     var items : [FuelType] = []
     var refFuelTypes : DatabaseReference? = nil
-    let nodeName = "fuel_types"
     
     enum LabelDescriptions : String {
         case highestPriceLabel = "highestPriceLabel"
@@ -68,16 +71,17 @@ class FuelPricesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         log.verbose("Enter: \(self)")
         super.viewDidLoad()
 
-        // Set controller as a source and delegate for table
+        // Set controller up as a source and delegate for table
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
         // Configure reference to firebase node
-        self.refFuelTypes = Database.database().reference(withPath: nodeName)
+        self.refFuelTypes = Database.database().reference(withPath: FirebaseNode.fuelType.rawValue)
         DispatchQueue.global().async {
             // to avoid retain cycle let's pass weak reference to self
             self.observerHandle = self.refFuelTypes!.observe(.value, with: { [weak self] snapshot in
@@ -110,8 +114,23 @@ class FuelPricesViewController: UIViewController {
         if (self.refFuelTypes != nil) && (self.observerHandle > 0) {
             // remove observer
             self.refFuelTypes!.removeObserver(withHandle: self.observerHandle)
-            log.verbose("Observer for node \(nodeName) removed")
+            log.verbose("Observer for node \(FirebaseNode.fuelType.rawValue) removed")
         }
     }
+    
+    // MARK: - Other methods
+    
+    func getAlertAction(title: String, style : UIAlertActionStyle) -> UIAlertAction {
+        
+        log.verbose("Creating alert action with title: \(title)")
+        let alertAction = UIAlertAction(title: title, style: style) { uiAlertAction in
+            
+            
+            
+            
+        }
+        return alertAction
+    }
+    
 
 }

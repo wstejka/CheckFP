@@ -80,23 +80,23 @@ extension FuelInfoViewController: UITableViewDataSource {
     
     func currentFuelPricesImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
-        performSegue(withIdentifier: "FuelPricesSegue", sender: nil)
+        performSegue(withIdentifier: ViewSegue.FuelPricesSegue.rawValue, sender: nil)
     }
 
     func OrdersImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
-        performSegue(withIdentifier: "OrdersSegue", sender: nil)
+        performSegue(withIdentifier: ViewSegue.OrdersSegue.rawValue, sender: nil)
 
     }
     
     func statisticsImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
-        performSegue(withIdentifier: "StatisticsSegue", sender: nil)
+        performSegue(withIdentifier: ViewSegue.StatisticsSegue.rawValue, sender: nil)
     }
 
     func settingsImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
-        performSegue(withIdentifier: "SettingsSegue", sender: nil)
+        performSegue(withIdentifier: ViewSegue.SettingsSegue.rawValue, sender: nil)
     }
 
 }
@@ -126,10 +126,10 @@ class FuelInfoViewController: UIViewController {
     }
     
     enum FuelImages :String {
-        case currentPrices = "FuelPump"
-        case orders = "Orders"
-        case statistics = "Statistics"
-        case settings = "Settings2"
+        case currentPrices  = "FuelPump"
+        case orders         = "Orders"
+        case statistics     = "Statistics"
+        case settings       = "Settings2"
     }
     
     enum ImagePosition {
@@ -141,6 +141,13 @@ class FuelInfoViewController: UIViewController {
         case image
         case description
         case selector
+    }
+    
+    enum ViewSegue : String {
+        case FuelPricesSegue    = "FuelPricesSegue"
+        case OrdersSegue        = "OrdersSegue"
+        case StatisticsSegue    = "StatisticsSegue"
+        case SettingsSegue      = "SettingsSegue"
     }
     
     let fuelInfoTableCellIdentifier = "fuelInfoTableCellIdentifier"

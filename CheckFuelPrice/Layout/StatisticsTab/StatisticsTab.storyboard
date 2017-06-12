@@ -12,7 +12,7 @@
         <!--Statistics Tab View Controller-->
         <scene sceneID="aMf-Za-s0E">
             <objects>
-                <viewController id="aOs-a9-TNf" customClass="StatisticsTabViewController" sceneMemberID="viewController">
+                <viewController id="aOs-a9-TNf" customClass="StatisticsTabViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mUs-yx-gbF"/>
                         <viewControllerLayoutGuide type="bottom" id="CRH-Hz-xIX"/>
