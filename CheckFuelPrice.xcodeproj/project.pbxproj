@@ -217,8 +217,8 @@
 		9E1C03941EE2BAE40023BCED /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9E1C03961EE2BB130023BCED /* StatisticsPageViewController.swift */,
 				9E634E8C1EEEFF08008AA6AD /* StatisticsViewController.swift */,
+				9E1C03961EE2BB130023BCED /* StatisticsPageViewController.swift */,
 				9E634E8E1EEF0430008AA6AD /* StatisticsGraphViewController.swift */,
 				9E634E901EEF044D008AA6AD /* StatisticsTableViewController.swift */,
 			);

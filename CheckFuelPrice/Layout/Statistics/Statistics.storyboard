@@ -14,7 +14,7 @@
         <!--Statistics Page View Controller-->
         <scene sceneID="M8M-tF-z5w">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QFw-vz-ZVS" customClass="StatisticsPageViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="StatisticsPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="max" id="QFw-vz-ZVS" customClass="StatisticsPageViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="NMS-lD-ynK" kind="show" id="ls7-tG-wcL"/>
                         <segue destination="nAf-sF-b7c" kind="show" id="xsI-3L-GLf"/>
@@ -22,7 +22,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aun-tX-zJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1730" y="-984"/>
+            <point key="canvasLocation" x="1668" y="-1023"/>
         </scene>
         <!--Statistics Table View Controller-->
         <scene sceneID="hRF-ol-fap">
@@ -33,11 +33,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Rk5-Iy-XzA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gEn-a7-2HZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="580"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wry-75-aVU">
-                                <rect key="frame" x="263" y="484" width="42" height="21"/>
+                                <rect key="frame" x="263" y="571" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,11 +63,11 @@
                         <viewControllerLayoutGuide type="bottom" id="omb-6A-6kg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ung-Kb-iPT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="580"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5R-Rw-t4A">
-                                <rect key="frame" x="277" y="514" width="48" height="21"/>
+                                <rect key="frame" x="277" y="601" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -97,10 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Bxc-Uw-FKO">
-                                <rect key="frame" x="0.0" y="87" width="375" height="580"/>
-                                <connections>
-                                    <segue destination="QFw-vz-ZVS" kind="embed" id="CCh-aC-dxm"/>
-                                </connections>
+                                <rect key="frame" x="0.0" y="87" width="375" height="531"/>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFS-0b-4wx">
                                 <rect key="frame" x="0.0" y="20" width="375" height="66.5"/>
@@ -137,7 +134,9 @@
                             <constraint firstItem="sFS-0b-4wx" firstAttribute="leading" secondItem="KT9-fr-uFZ" secondAttribute="leading" id="xfx-bX-Xfh"/>
                         </constraints>
                     </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="containerView" destination="Bxc-Uw-FKO" id="ncR-FE-HRL"/>
                         <outlet property="timeRangesSegments" destination="KrY-VE-xv8" id="wxz-wC-ZlO"/>
                     </connections>
                 </viewController>

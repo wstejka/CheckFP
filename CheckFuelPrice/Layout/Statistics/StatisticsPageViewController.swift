@@ -110,12 +110,17 @@ class StatisticsPageViewController: UIPageViewController {
         let pageControlAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [StatisticsPageViewController.self])
         pageControlAppearance.pageIndicatorTintColor = UIColor.lightGray
         pageControlAppearance.currentPageIndicatorTintColor = UIColor.black
-        
+                
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    // Added for debugging purpose
+    deinit {
+        log.verbose("")
     }
 
 }

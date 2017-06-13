@@ -21,5 +21,9 @@ class StatisticsGraphViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Added for debugging purpose
+    deinit {
+        log.verbose("")
+    }
 
 }
