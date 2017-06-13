@@ -16,6 +16,7 @@
 		9E1C03A11EE4447F0023BCED /* FuelPricesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C03A01EE4447F0023BCED /* FuelPricesTableViewCell.swift */; };
 		9E1C03A31EED4FCC0023BCED /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1C03A21EED4FCC0023BCED /* Charts.framework */; };
 		9E1C03A41EED4FF70023BCED /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1C03A21EED4FCC0023BCED /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E4A034C1EEFF7350016AB46 /* StatisticsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034B1EEFF7350016AB46 /* StatisticsUtils.swift */; };
 		9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */; };
 		9E4A1F661ED9DEAA0044F3DD /* CFPEnumerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F651ED9DEAA0044F3DD /* CFPEnumerators.swift */; };
 		9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F671ED9E34C0044F3DD /* FuelType.swift */; };
@@ -90,6 +91,7 @@
 		9E1C039E1EE2BD020023BCED /* OrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		9E1C03A01EE4447F0023BCED /* FuelPricesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPricesTableViewCell.swift; sourceTree = "<group>"; };
 		9E1C03A21EED4FCC0023BCED /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = ../Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		9E4A034B1EEFF7350016AB46 /* StatisticsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsUtils.swift; sourceTree = "<group>"; };
 		9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPriceItem.swift; sourceTree = "<group>"; };
 		9E4A1F601ED775760044F3DD /* CheckFuelPrice-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CheckFuelPrice-Bridging-Header.h"; sourceTree = "<group>"; };
 		9E4A1F651ED9DEAA0044F3DD /* CFPEnumerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPEnumerators.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				9E1C03921EE2BAC40023BCED /* Statistics.storyboard */,
+				9E4A034B1EEFF7350016AB46 /* StatisticsUtils.swift */,
 				9E1C03941EE2BAE40023BCED /* Controllers */,
 				9E1C03951EE2BAEC0023BCED /* Views */,
 			);
@@ -684,6 +687,7 @@
 				9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */,
 				9E1C03971EE2BB130023BCED /* StatisticsPageViewController.swift in Sources */,
 				9E9E7F201EE157370006414D /* MainTabBarViewController.swift in Sources */,
+				9E4A034C1EEFF7350016AB46 /* StatisticsUtils.swift in Sources */,
 				9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */,
 				9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */,
 				9E1C038F1EE2B8140023BCED /* FuelPricesViewController.swift in Sources */,

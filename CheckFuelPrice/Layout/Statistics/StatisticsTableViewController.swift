@@ -8,7 +8,15 @@
 
 import UIKit
 
-class StatisticsTableViewController: UIViewController {
+class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol {
+    
+    var segment: UISegmentedControl? {
+        
+        didSet {
+            log.verbose("")
+        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

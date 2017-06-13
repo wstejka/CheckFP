@@ -8,6 +8,11 @@
 
 import UIKit
 
+// Let's create generic to force existence of segment value
+protocol StatisticsGenericProtocol {
+    
+    var segment: UISegmentedControl? { get set }
+}
 
 // MARK: - UIPageViewController lifecycle
 extension StatisticsPageViewController : UIPageViewControllerDataSource {
@@ -64,6 +69,12 @@ extension StatisticsPageViewController : StatisticsViewControllerDelegate {
     
     func selected(segment: UISegmentedControl) {
         log.verbose("entered")
+        
+        for viewController in self.orderedViewControllers {
+        
+            var controller = viewController as? StatisticsGenericProtocol
+            controller?.segment = segment
+        }
     }
 }
 

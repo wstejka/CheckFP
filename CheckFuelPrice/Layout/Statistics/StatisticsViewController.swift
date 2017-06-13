@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 protocol StatisticsViewControllerDelegate {
     
     func selected(segment : UISegmentedControl)
@@ -17,12 +19,7 @@ class StatisticsViewController: UIViewController {
     
     
     // MARK: - constants
-    enum TimeRanges : String {
-        case weekly = "weekly"
-        case monthly = "monthly"
-        case annually = "annually"
-        
-    }
+
     
     // MARK: - properties
     @IBOutlet weak var timeRangesSegments: UISegmentedControl!
@@ -40,7 +37,7 @@ class StatisticsViewController: UIViewController {
 
 
         // initiate segments with localized names
-        for range in iterateEnum(StatisticsViewController.TimeRanges.self) {
+        for range in iterateEnum(TimeRanges.self) {
             
             self.timeRangesSegments.setTitle(range.rawValue.localized(withDefaultValue: ""),
                                              forSegmentAt: range.hashValue)
@@ -56,6 +53,7 @@ class StatisticsViewController: UIViewController {
         self.addViewControllerTo(container: statisticsPageVC)
         // Set Page View Controller as a delegate of this class
         self.delegate = statisticsPageVC
+        self.delegate?.selected(segment: timeRangesSegments)
     
     }
 
@@ -75,7 +73,7 @@ class StatisticsViewController: UIViewController {
         log.verbose("selected index: \(sender.selectedSegmentIndex)")
         delegate?.selected(segment: sender)
     }
-        
+    
     // MARK: - Methods
     
     //! Adding given View Controller to container view programmatically

@@ -8,13 +8,21 @@
 
 import UIKit
 
-class StatisticsGraphViewController: UIViewController {
+class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol {
+
+    var segment: UISegmentedControl? {
+        
+        didSet {
+            log.verbose("")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         log.verbose("entered")
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

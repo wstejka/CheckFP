@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uC4-TI-MHN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uC4-TI-MHN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,10 +14,10 @@
         <!--Statistics Page View Controller-->
         <scene sceneID="M8M-tF-z5w">
             <objects>
-                <pageViewController storyboardIdentifier="StatisticsPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="max" id="QFw-vz-ZVS" customClass="StatisticsPageViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="StatisticsPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QFw-vz-ZVS" customClass="StatisticsPageViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="NMS-lD-ynK" kind="show" id="ls7-tG-wcL"/>
-                        <segue destination="nAf-sF-b7c" kind="show" id="xsI-3L-GLf"/>
+                        <segue destination="NMS-lD-ynK" kind="show" identifier="StatisticsGraphSegue" id="ls7-tG-wcL"/>
+                        <segue destination="nAf-sF-b7c" kind="show" identifier="StatisticsTableSegue" id="xsI-3L-GLf"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aun-tX-zJm" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyBeaver
 import Firebase
+import Charts
 
 // MARK: public constants
 let log = SwiftyBeaver.self
