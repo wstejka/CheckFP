@@ -10,8 +10,17 @@ import Foundation
 
 
 enum TimeRanges : String {
-    case weekly = "weekly"
-    case monthly = "monthly"
-    case annually = "annually"
-    
+    case weekly     = "weekly"
+    case monthly    = "monthly"
+    case annually   = "annually"
+}
+
+
+enum FuelName : String {
+    case unleaded95     = "unleaded95"
+    case unleaded98     = "unleaded98"
+    case diesel         = "diesel"
+    case dieselIZ40     = "dieselIZ40"
+    case dieselHeating  = "dieselHeating"
+    case lpg            = "lpg"
 }

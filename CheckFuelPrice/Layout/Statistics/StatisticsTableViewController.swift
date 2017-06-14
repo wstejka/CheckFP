@@ -10,7 +10,7 @@ import UIKit
 
 class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol {
     
-    var segment: UISegmentedControl? {
+    var type: FuelName? {
         
         didSet {
             log.verbose("")

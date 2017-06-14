@@ -42,11 +42,7 @@ extension FuelPricesViewController: UITableViewDataSource {
         {
             fuelPriceCell.fuelImage.image = nil
         }
-        
-//        // Now let's create generic UIAlertController
-//        let alertController = UIAlertController(title: "Options", message: "Select your choice", preferredStyle: UIAlertControllerStyle.actionSheet)
-////        let alertActionStatistics = UIAlertAction(title: "", style: <#T##UIAlertActionStyle#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
-        
+          
         return fuelPriceCell
     }
 }
@@ -54,15 +50,16 @@ extension FuelPricesViewController: UITableViewDataSource {
 class FuelPricesViewController: UIViewController {
 
     // MARK: - constants
-    let customTableViewCellName = "FuelPricesTableViewCell"
+    // Firebase related variables
     var items : [FuelType] = []
     var refFuelTypes : DatabaseReference? = nil
+    var observerHandle : DatabaseHandle = 0
     
     enum LabelDescriptions : String {
         case highestPriceLabel = "highestPriceLabel"
         case lowestPriceLabel = "lowestPriceLabel"
     }
-    var observerHandle : DatabaseHandle = 0
+    let customTableViewCellName = "FuelPricesTableViewCell"
     
     // MARK: - properties
     @IBOutlet weak var tableView: UITableView!
@@ -121,9 +118,6 @@ class FuelPricesViewController: UIViewController {
         
         log.verbose("Creating alert action with title: \(title)")
         let alertAction = UIAlertAction(title: title, style: style) { uiAlertAction in
-            
-            
-            
             
         }
         return alertAction

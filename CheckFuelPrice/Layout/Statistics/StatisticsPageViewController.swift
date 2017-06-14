@@ -11,7 +11,7 @@ import UIKit
 // Let's create generic to force existence of segment value
 protocol StatisticsGenericProtocol {
     
-    var segment: UISegmentedControl? { get set }
+    var type: FuelName? { get set }
 }
 
 // MARK: - UIPageViewController lifecycle
@@ -66,16 +66,18 @@ extension StatisticsPageViewController : UIPageViewControllerDataSource {
 }
 
 extension StatisticsPageViewController : StatisticsViewControllerDelegate {
-    
-    func selected(segment: UISegmentedControl) {
+    func selectedFuel(type: FuelName) {
         log.verbose("entered")
         
+        // notifify all children about change
         for viewController in self.orderedViewControllers {
-        
+            
             var controller = viewController as? StatisticsGenericProtocol
-            controller?.segment = segment
+            controller?.type = type
         }
     }
+
+    
 }
 
 

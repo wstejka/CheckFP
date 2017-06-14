@@ -8,11 +8,6 @@
 
 class Utils {
 
-//    //! This method returns UIAlertAction object initiated with title and style
-//    func getAlertAction(title: String, style : UIAlertActionStyle, closure : @escaping ((UIAlertAction) -> Swift.Void)) -> UIAlertAction {
-//        
-//        let alertAction = UIAlertAction(title: title, style: UIAlertActionStyle.default, handler: closure)
-//        return alertAction
-//    }
+
     
 }

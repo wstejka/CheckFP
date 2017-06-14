@@ -35,7 +35,6 @@ struct FuelPriceItem {
     
     init(snapshot: DataSnapshot) {
         self.timestamp = Int(snapshot.key)!
-        print("===========")
         let snapshotValue = snapshot.value as! [String: AnyObject]
         
         timestamp = 12345678
