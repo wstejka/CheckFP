@@ -33,20 +33,31 @@ struct FuelPriceItem {
         self.reference = nil
     }
     
-    init(snapshot: DataSnapshot) {
-        self.timestamp = Int(snapshot.key)!
-        let snapshotValue = snapshot.value as! [String: AnyObject]
+    init?(snapshot: DataSnapshot) {
         
-        timestamp = 12345678
-        self.fuelType = .dieselHeating
-        self.price = 0.0
-        self.excise = 0.0
-        self.fee = 0.0
-        self.humanReadableDate = "2017-05-05"
-        self.producer = .lotos
-        
+        guard snapshot.key.length > 0 else {
+            return nil
+        }
+        guard let fuelPriceAttributes = snapshot.value as? [String : AnyObject] else {
+            return nil
+        }
+
+        self.timestamp = fuelPriceAttributes["timestamp"] as! Int
+        guard let fuelId = fuelPriceAttributes["fuelType"] as? Int else {
+            return nil
+        }
+        self.fuelType = Fuel(rawValue: fuelId)!
+        self.price = fuelPriceAttributes["price"] as! Double
+        self.excise = fuelPriceAttributes["excise"] as! Double
+        self.fee = fuelPriceAttributes["fee"] as! Double
+        self.humanReadableDate = fuelPriceAttributes["humanReadableDate"] as! String
+        guard let producerId = fuelPriceAttributes["producer"] as? Int else {
+            return nil
+        }
+        self.producer = Producer(rawValue: producerId)! 
         self.reference = snapshot.ref
-        print("\(snapshot.key), \(snapshotValue)")
+        
+        log.debug("\(snapshot.key), \(self)")
     }
 
 }

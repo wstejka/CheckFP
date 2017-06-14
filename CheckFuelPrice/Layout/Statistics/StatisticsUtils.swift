@@ -18,6 +18,7 @@ enum TimeRanges : String {
 // Important remark: DO NOT modify ordering of items as they must 
 //                   match the IDs ordering on firebase
 enum FuelName : String {
+    case none           = "none"
     case unleaded95     = "unleaded95"
     case unleaded98     = "unleaded98"
     case diesel         = "diesel"

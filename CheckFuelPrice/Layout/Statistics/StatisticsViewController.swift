@@ -27,7 +27,7 @@ extension StatisticsViewController: UICollectionViewDataSource {
         cell.imageView.image = UIImage(named: fuelType.name)
         cell.imageView.layer.cornerRadius = 10
         cell.imageView.clipsToBounds = true
-        if indexPath.row != selectedFuelName.hashValue {
+        if indexPath.row != (selectedFuelName.hashValue - 1) {
             cell.isSelected = false
         }
         
@@ -126,7 +126,7 @@ class StatisticsViewController: UIViewController {
         self.delegate = statisticsPageVC
         
         // Set default fuelName. It must be done after setting up delegation
-        self.selectedFuelName = FuelName.diesel
+        self.selectedFuelName = FuelName.unleaded95
 
     }
 

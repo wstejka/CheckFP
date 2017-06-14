@@ -9,5 +9,6 @@
 import UIKit
 
 enum FirebaseNode : String {
-    case fuelType = "fuel_types"
+    case fuelType       = "fuel_types"
+    case fuelPriceItem  = "fuel_price_items"
 }
