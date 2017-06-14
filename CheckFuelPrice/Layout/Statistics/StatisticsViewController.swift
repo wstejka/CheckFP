@@ -12,9 +12,10 @@ import UIKit
 
 protocol StatisticsViewControllerDelegate {
     
-    func selectedFuel(type : FuelName)
+    func selectedFuel(name : FuelName)
 }
 
+// MARK: - UICollectionViewDataSource lifecycle
 extension StatisticsViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -26,6 +27,9 @@ extension StatisticsViewController: UICollectionViewDataSource {
         cell.imageView.image = UIImage(named: fuelType.name)
         cell.imageView.layer.cornerRadius = 10
         cell.imageView.clipsToBounds = true
+        if indexPath.row != selectedFuelName.hashValue {
+            cell.isSelected = false
+        }
         
         return cell
     }
@@ -35,30 +39,21 @@ extension StatisticsViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate lifecycle
+
 extension StatisticsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        log.debug("entered: \(indexPath)")
         
-        guard let cell = collectionView.cellForItem(at: indexPath) as? StatisticsCollectionViewCell else {
-            log.error("Cannot find cell at index \(indexPath.row)")
+        let fuelType = items[indexPath.row]
+        guard let fuelName = FuelName(rawValue: fuelType.name) else {
             return
         }
-
-        cell.imageView.layer.borderColor = UIColor.gray.cgColor
-        cell.imageView.layer.borderWidth = 2.0
+        self.selectedFuelName = fuelName
+        collectionView.deselectAllItemsExcept(indexPath)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 
-        guard let cell = collectionView.cellForItem(at: indexPath) as? StatisticsCollectionViewCell else {
-            log.error("Cannot find cell at index \(indexPath.row)")
-            return
-        }
-        
-        cell.imageView.layer.borderColor = UIColor.white.cgColor
-        cell.imageView.layer.borderWidth = 0.0
-        
-    }
 }
 
 
@@ -69,15 +64,23 @@ class StatisticsViewController: UIViewController {
     var items : [FuelType] = []
     var refFuelTypes : DatabaseReference? = nil
     var observerHandle : DatabaseHandle = 0
+    let defaultSection = 0
+
+    // delegate
+    var delegate : StatisticsViewControllerDelegate?
+    
+    // selected fuel type
+    var selectedFuelName : FuelName = FuelName.unleaded95 {
+        
+        didSet {
+            delegate?.selectedFuel(name: selectedFuelName)
+        }
+    }
     
     // MARK: - properties
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    // delegate
-    var delegate : StatisticsViewControllerDelegate?
-    
-
     // MARK: - UIViewController Lifecycle
 
     override func viewDidLoad() {
@@ -111,7 +114,7 @@ class StatisticsViewController: UIViewController {
                     newItems.append(fuelType)
                 }
                 selfweak.items = newItems
-                selfweak.collectionView.reloadData()
+                selfweak.collectionView.reloadData()                
             })
         }
         
@@ -121,7 +124,10 @@ class StatisticsViewController: UIViewController {
         self.addViewControllerTo(container: statisticsPageVC)
         // Set Page View Controller as a delegate of this class
         self.delegate = statisticsPageVC
-    
+        
+        // Set default fuelName. It must be done after setting up delegation
+        self.selectedFuelName = FuelName.diesel
+
     }
 
     override func didReceiveMemoryWarning() {

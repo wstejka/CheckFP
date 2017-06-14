@@ -13,7 +13,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
     var type: FuelName? {
         
         didSet {
-            log.verbose("")
+            log.verbose("\(type?.rawValue ?? "")")
         }
     }
 

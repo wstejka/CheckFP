@@ -13,10 +13,9 @@ class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol
     var type: FuelName? {
         
         didSet {
-            log.verbose("")
+            log.verbose("\(type?.rawValue ?? "")")
         }
     }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()

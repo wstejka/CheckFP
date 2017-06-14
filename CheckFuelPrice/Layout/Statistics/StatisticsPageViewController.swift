@@ -66,7 +66,9 @@ extension StatisticsPageViewController : UIPageViewControllerDataSource {
 }
 
 extension StatisticsPageViewController : StatisticsViewControllerDelegate {
-    func selectedFuel(type: FuelName) {
+    
+    
+    func selectedFuel(name type: FuelName) {
         log.verbose("entered")
         
         // notifify all children about change
