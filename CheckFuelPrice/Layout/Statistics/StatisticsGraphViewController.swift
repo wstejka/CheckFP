@@ -9,34 +9,60 @@
 import UIKit
 import Charts
 
-class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol {
+class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol, ChartViewDelegate {
 
-    
-    @IBOutlet var testView: LineChartView!
-    
+    // MARK: - constants
     var type: FuelName? {
         
         didSet {
             log.verbose("\(type?.rawValue ?? "")")
         }
     }
+    var months: [String]!
 
+    
+    // MARK: - properties
+
+    @IBOutlet var barChartView: BarChartView!
+
+    
+    // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         log.verbose("entered")
-        testView.noDataText = "no data test message "
+        
+        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
+        self.setChart(dataPoints: months, values: unitsSold)
+//        self.title = "Line Chart 1";
+        
+
+        
+
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // Added for debugging purpose
     deinit {
         log.verbose("")
     }
 
+    
+    // MARK: - Methods
+    func setChart(dataPoints: [String], values: [Double]) {
+
+        var dataEntries: [BarChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
+        let chartData = BarChartData(dataSets: [chartDataSet]) //xVals: months, dataSet: chartDataSet)
+        barChartView.data = chartData
+        
+        
+    }
 }

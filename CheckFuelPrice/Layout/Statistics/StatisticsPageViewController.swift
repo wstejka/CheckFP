@@ -70,13 +70,8 @@ extension StatisticsPageViewController : StatisticsViewControllerDelegate {
     
     func selectedFuel(name type: FuelName) {
         log.verbose("entered")
-        
-        // notifify all children about change
-        for viewController in self.orderedViewControllers {
-            
-            var controller = viewController as? StatisticsGenericProtocol
-            controller?.type = type
-        }
+        self.type = type
+        self.requestData(for: type)
     }
 
     
@@ -89,6 +84,7 @@ class StatisticsPageViewController: UIPageViewController {
     // MARK: - constants
     let postfix = "StatViewController"
     let storyboardName = "Statistics"
+    var type = FuelName.unleaded95
     
     lazy var orderedViewControllers: [UIViewController] = {
         
@@ -97,12 +93,8 @@ class StatisticsPageViewController: UIPageViewController {
                 self.StatisticsPageViewControllerWith(sufix: "Table")]
     }()
     
-    private func StatisticsPageViewControllerWith(sufix: String) -> UIViewController {
-        
-        let viewControllerIdentity = "\(sufix)\(postfix)"
-        return UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: viewControllerIdentity)
-    }
-    
+    var items : [FuelPriceItem] = []
+    var refFuelPriceItems : DatabaseReference? = nil
     
     // MARK: - properties
     
@@ -136,6 +128,68 @@ class StatisticsPageViewController: UIPageViewController {
     // Added for debugging purpose
     deinit {
         log.verbose("")
+    }
+    
+    // MARK: - Methods
+    func requestData(for type: FuelName) {
+        
+        // Configure reference to firebase node
+        self.refFuelPriceItems = Database.database().reference(withPath: FirebaseNode.fuelPriceItem.rawValue)
+        DispatchQueue.global().async {
+            // Calculate current epoch timestamp
+            let timestamp = Int(Date().timeIntervalSince1970)
+            let lastMonthTimestamp = timestamp - (60 * 60 * 24 * 30)
+            
+            // to avoid retain cycle let's pass weak reference to self
+            let keyPrefix = String(describing: Producer.lotos.hashValue) + "_" + String(describing: type.hashValue)
+            let startingKey = keyPrefix + "_" + String(describing: lastMonthTimestamp)
+            let endingKey = keyPrefix + "_" + String(describing: timestamp)
+            
+            log.verbose("range keys \(startingKey) - \(endingKey)")
+            
+            // request using key: producent/fuel type/timestamp
+            self.refFuelPriceItems!.queryOrdered(byChild: "P_FT_T").queryStarting(atValue: startingKey).queryEnding(atValue: endingKey).observeSingleEvent(of: .value, with: { [weak self] snapshot in
+                
+                guard let selfweak = self else {
+                    return
+                }
+                // accept only last request. All previous ones ignore ...
+                if selfweak.type != type {
+                    log.error("There is newest request on the list. The \"\(type)\" will be ignored.")
+                    return
+                }
+
+                log.verbose("Observe: \(selfweak.refFuelPriceItems!.description()) \(snapshot.childrenCount)")
+                var newItems: [FuelPriceItem] = []
+                for item in snapshot.children {
+                    guard let fuelPriceItem = FuelPriceItem(snapshot: item as! DataSnapshot) else {
+                        log.verbose("Cannot parse data")
+                        continue
+                    }
+                    newItems.append(fuelPriceItem)
+                }
+                selfweak.items = newItems
+                selfweak.notifyAllChildrenAboutChange(type: type)
+                
+            })
+        }
+        
+    }
+    
+    
+    private func StatisticsPageViewControllerWith(sufix: String) -> UIViewController {
+        
+        let viewControllerIdentity = "\(sufix)\(postfix)"
+        return UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: viewControllerIdentity)
+    }
+
+    func notifyAllChildrenAboutChange(type: FuelName) {
+        // notify all children about change
+        for viewController in self.orderedViewControllers {
+            
+            var controller = viewController as? StatisticsGenericProtocol
+            controller?.type = type
+        }
     }
 
 }

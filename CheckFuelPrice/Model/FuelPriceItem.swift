@@ -57,7 +57,7 @@ struct FuelPriceItem {
         self.producer = Producer(rawValue: producerId)! 
         self.reference = snapshot.ref
         
-        log.debug("\(snapshot.key), \(self)")
+//        log.debug("\(snapshot.key), \(self)")
     }
 
 }
