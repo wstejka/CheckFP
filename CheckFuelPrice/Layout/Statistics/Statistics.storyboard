@@ -92,17 +92,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUU-uL-QND" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="20" width="375" height="561"/>
+                                <color key="backgroundColor" red="0.71829994360000005" green="1" blue="0.44464548079999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vUU-uL-QND" firstAttribute="leading" secondItem="ung-Kb-iPT" secondAttribute="leading" id="3NA-7s-ZhK"/>
                             <constraint firstItem="omb-6A-6kg" firstAttribute="top" secondItem="b5R-Rw-t4A" secondAttribute="bottom" constant="45" id="7Hu-i0-f0u"/>
+                            <constraint firstItem="vUU-uL-QND" firstAttribute="top" secondItem="UYz-cx-Dkn" secondAttribute="bottom" id="OIT-Cr-0Vf"/>
+                            <constraint firstAttribute="trailing" secondItem="vUU-uL-QND" secondAttribute="trailing" id="SL6-wU-YWb"/>
+                            <constraint firstItem="b5R-Rw-t4A" firstAttribute="top" secondItem="vUU-uL-QND" secondAttribute="bottom" constant="20" id="YvS-qh-Iq6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b5R-Rw-t4A" secondAttribute="trailing" constant="34" id="xNh-wa-uwA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="testView" destination="vUU-uL-QND" id="VMm-BR-rEA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4q-cE-g8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2496" y="-1296"/>
+            <point key="canvasLocation" x="2495.1999999999998" y="-1296.7016491754123"/>
         </scene>
         <!--Statistics View Controller-->
         <scene sceneID="1uw-Ql-Vur">

@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Charts
 
 class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol {
 
+    
+    @IBOutlet var testView: LineChartView!
+    
     var type: FuelName? {
         
         didSet {
@@ -21,6 +25,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
         super.viewDidLoad()
 
         log.verbose("entered")
+        testView.noDataText = "no data test message "
     }
     
 
