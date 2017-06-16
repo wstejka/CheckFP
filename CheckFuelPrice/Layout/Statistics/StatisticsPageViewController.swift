@@ -12,6 +12,7 @@ import UIKit
 protocol StatisticsGenericProtocol {
     
     var type: FuelName? { get set }
+    var fuelData : [FuelPriceItem]? { get set}
 }
 
 // MARK: - UIPageViewController lifecycle
@@ -173,7 +174,6 @@ class StatisticsPageViewController: UIPageViewController {
                 
             })
         }
-        
     }
     
     
@@ -188,7 +188,7 @@ class StatisticsPageViewController: UIPageViewController {
         for viewController in self.orderedViewControllers {
             
             var controller = viewController as? StatisticsGenericProtocol
-            controller?.type = type
+            controller?.fuelData = self.items
         }
     }
 

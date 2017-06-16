@@ -17,10 +17,16 @@ class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol
         
         didSet {
             log.verbose("\(type?.rawValue ?? "")")
-//            self.requestData(for: type!)
         }
     }
 
+    var fuelData: [FuelPriceItem]?  {
+        
+        didSet {
+            log.verbose("# of data \(fuelData?.count ?? 0)")
+        }
+    }
+    
 
     let defaultSection = 0
     

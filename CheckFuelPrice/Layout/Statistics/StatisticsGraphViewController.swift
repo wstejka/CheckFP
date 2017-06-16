@@ -18,8 +18,22 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
             log.verbose("\(type?.rawValue ?? "")")
         }
     }
-    var months: [String]!
-
+    var fuelData: [FuelPriceItem]?  {
+        
+        didSet {
+            log.verbose("# of data \(fuelData?.count ?? 0)")
+            
+            var dateList : [String] = []
+            var priceList : [Double] = []
+            
+            for item in fuelData! {
+                dateList.append(item.humanReadableDate)
+                priceList.append(item.price)
+            }
+            
+            self.setChart(dataPoints: dateList, values: priceList)
+        }
+    }
     
     // MARK: - properties
 
@@ -31,15 +45,8 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
         super.viewDidLoad()
 
         log.verbose("entered")
+        self.barChartView.noDataText = "downloadingData".localized(withDefaultValue: "")
         
-        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
-        self.setChart(dataPoints: months, values: unitsSold)
-//        self.title = "Line Chart 1";
-        
-
-        
-
     }
     
     
@@ -59,8 +66,8 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
-        let chartData = BarChartData(dataSets: [chartDataSet]) //xVals: months, dataSet: chartDataSet)
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "currentFuelPrice".localized(withDefaultValue: ""))
+        let chartData = BarChartData(dataSets: [chartDataSet])
         barChartView.data = chartData
         
         

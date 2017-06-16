@@ -18,6 +18,7 @@ highestPriceLabel = "najwyższa cena";
 lowestPriceLabel = "najniższa cena";
 
 currentFuelPrices = "Ceny paliw";
+currentFuelPrice = "aktualna cena paliwa";
 orders = "Moje zamówienia";
 statistics = "Statystyki";
 settings = "Ustawienia";
@@ -28,3 +29,5 @@ mainTab2Name = "Statystyki";
 weekly = "Tygodniowy";
 monthly = "Miesięczny";
 annually = "Roczny";
+
+downloadingData = "Pobieram dane ...";

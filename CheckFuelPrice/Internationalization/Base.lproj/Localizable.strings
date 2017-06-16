@@ -18,6 +18,7 @@ highestPriceLabel = "highest price";
 lowestPriceLabel = "lowest price";
 
 currentFuelPrices = "Fuel prices";
+currentFuelPrice = "current fuel price";
 orders = "My orders";
 statistics = "Statistics";
 settings = "Settings";
@@ -28,3 +29,5 @@ mainTab2Name = "Statistics";
 weekly = "Weekly";
 monthly = "Monthly";
 annually = "Annually";
+
+downloadingData = "Downloading data ...";
