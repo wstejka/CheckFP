@@ -12,3 +12,8 @@ enum FirebaseNode : String {
     case fuelType       = "fuel_types"
     case fuelPriceItem  = "fuel_price_items"
 }
+
+// TODO: This data need to be obtain from Firebase DB
+enum CountryVat : Double {
+    case poland = 23.0
+}

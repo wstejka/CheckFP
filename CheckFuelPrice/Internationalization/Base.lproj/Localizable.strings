@@ -20,6 +20,9 @@ lowestPriceLabel = "lowest price";
 currentFuelPrices = "Fuel prices";
 currentFuelPrice = "current fuel price";
 fuelPrice = "fuel price";
+withVat = "w/ VAT";
+timestamp = "timestamp";
+
 
 orders = "My orders";
 statistics = "Statistics";

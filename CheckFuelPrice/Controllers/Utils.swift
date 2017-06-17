@@ -12,14 +12,14 @@ class Utils {
     class func customActivityIndicatory(_ viewContainer: UIView, startAnimate:Bool? = true) -> UIActivityIndicatorView {
         let mainContainer: UIView = UIView(frame: viewContainer.frame)
         mainContainer.center = viewContainer.center
-        mainContainer.alpha = 0.5
+        mainContainer.alpha = 0.8
         mainContainer.tag = 789456123
         mainContainer.isUserInteractionEnabled = false
         
         let viewBackgroundLoading: UIView = UIView(frame: CGRect(x:0,y: 0,width: 60,height: 60))
         viewBackgroundLoading.center = viewContainer.center
         viewBackgroundLoading.backgroundColor = UIColor.gray
-        viewBackgroundLoading.alpha = 0.5
+        viewBackgroundLoading.alpha = 0.8
         viewBackgroundLoading.clipsToBounds = true
         viewBackgroundLoading.layer.cornerRadius = 10
         

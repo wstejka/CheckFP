@@ -25,12 +25,12 @@ extension StatisticsTableViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         fuelPriceCell.timestamp.text = self.dateList[indexPath.row]
-        fuelPriceCell.priceDescription.text = "price".localized(withDefaultValue: "")
-        fuelPriceCell.price.text = String(self.priceList[indexPath.row])
+        let priceValue = self.priceList[indexPath.row]
+        fuelPriceCell.price.text = String(priceValue)
+        fuelPriceCell.priceWithVat.text = String(priceValue * (1 + CountryVat.poland.rawValue/100))
         
         return fuelPriceCell
     }
-    
 }
 
 class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol {
@@ -55,7 +55,7 @@ class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol
             log.verbose("# of data \(fuelData?.count ?? 0)")
             dateList = []
             priceList = []
-            for item in fuelData! {
+            for item in fuelData!.reversed() {
                 self.dateList.append(item.humanReadableDate)
                 self.priceList.append(item.price)
             }
@@ -80,6 +80,18 @@ class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol
 
         log.verbose("entered")
         self.tableView.dataSource = self
+        
+        // Create table header view using the same tableCellView as for ordinary cell
+        let tableHeaderView = self.tableView.dequeueReusableCell(withIdentifier: customTableViewCellName) as? StatisticsTableViewCell
+        tableHeaderView?.backgroundColor = UIColor.lightGray
+        tableHeaderView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        tableHeaderView?.timestamp.text = "timestamp".localized(withDefaultValue: "").capitalizingFirstLetter()
+        let priceName = "fuelPrice".localized(withDefaultValue: "").capitalizingFirstLetter()
+        tableHeaderView?.price.text = priceName
+        tableHeaderView?.priceWithVat.text = priceName + " (" + "withVat".localized(withDefaultValue: "") + ")"
+
+        self.tableView.tableHeaderView = tableHeaderView
+        
         self.tableView.reloadData()
         
     }

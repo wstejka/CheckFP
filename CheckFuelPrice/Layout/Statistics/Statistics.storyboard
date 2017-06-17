@@ -47,35 +47,49 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bt-ls-SpQ">
-                                                    <rect key="frame" x="8" y="10" width="91" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bt-ls-SpQ">
+                                                    <rect key="frame" x="8" y="12" width="100" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="CtG-Ff-yWP"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49H-ua-8ro">
-                                                    <rect key="frame" x="139" y="10" width="120" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49H-ua-8ro">
+                                                    <rect key="frame" x="116" y="9" width="110" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Car-dN-0mA">
-                                                    <rect key="frame" x="283" y="10" width="64" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price (w/ Vat)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Car-dN-0mA">
+                                                    <rect key="frame" x="234" y="9" width="133" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="133" id="gVY-Ub-VXI"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Car-dN-0mA" firstAttribute="top" secondItem="0XB-pw-yKy" secondAttribute="topMargin" constant="2" id="34E-S5-kiB"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Car-dN-0mA" secondAttribute="trailing" constant="20" id="fiP-sR-ptW"/>
+                                                <constraint firstItem="2Bt-ls-SpQ" firstAttribute="centerY" secondItem="0XB-pw-yKy" secondAttribute="centerY" id="0eB-bz-eVM"/>
+                                                <constraint firstItem="Car-dN-0mA" firstAttribute="top" secondItem="0XB-pw-yKy" secondAttribute="topMargin" constant="1" id="34E-S5-kiB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Car-dN-0mA" secondAttribute="bottom" constant="1.5" id="GyQ-Lm-vah"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="2Bt-ls-SpQ" secondAttribute="leading" id="Kua-8c-38v"/>
+                                                <constraint firstItem="2Bt-ls-SpQ" firstAttribute="top" secondItem="0XB-pw-yKy" secondAttribute="topMargin" constant="4" id="NsD-AG-a0H"/>
+                                                <constraint firstItem="Car-dN-0mA" firstAttribute="centerY" secondItem="0XB-pw-yKy" secondAttribute="centerY" id="OzF-78-6re"/>
+                                                <constraint firstItem="49H-ua-8ro" firstAttribute="centerY" secondItem="0XB-pw-yKy" secondAttribute="centerY" id="Q8Z-F3-fst"/>
+                                                <constraint firstItem="Car-dN-0mA" firstAttribute="leading" secondItem="49H-ua-8ro" secondAttribute="trailing" constant="8" id="VxC-2U-2Kp"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="49H-ua-8ro" secondAttribute="bottom" constant="1.5" id="Wce-QR-HXq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Car-dN-0mA" secondAttribute="trailing" id="fiP-sR-ptW"/>
+                                                <constraint firstItem="49H-ua-8ro" firstAttribute="width" secondItem="Car-dN-0mA" secondAttribute="width" constant="-23" id="h3W-82-KfN"/>
+                                                <constraint firstItem="49H-ua-8ro" firstAttribute="top" secondItem="0XB-pw-yKy" secondAttribute="topMargin" constant="1" id="hRL-m5-mTR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="price" destination="Car-dN-0mA" id="7Wx-ZC-NJD"/>
-                                            <outlet property="priceDescription" destination="49H-ua-8ro" id="kME-or-qy4"/>
+                                            <outlet property="price" destination="49H-ua-8ro" id="ocg-vU-rVp"/>
+                                            <outlet property="priceWithVat" destination="Car-dN-0mA" id="cKE-Qo-ziR"/>
                                             <outlet property="timestamp" destination="2Bt-ls-SpQ" id="iZa-fh-NFf"/>
                                         </connections>
                                     </tableViewCell>
@@ -96,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovw-I9-as4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2494.5" y="-648.5"/>
+            <point key="canvasLocation" x="2493.5999999999999" y="-649.02548725637189"/>
         </scene>
         <!--Statistics Graph View Controller-->
         <scene sceneID="cKF-Pa-VxK">

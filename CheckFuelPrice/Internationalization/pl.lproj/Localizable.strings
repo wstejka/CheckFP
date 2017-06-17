@@ -17,9 +17,12 @@ lpg = "Lpg";
 highestPriceLabel = "najwyższa cena";
 lowestPriceLabel = "najniższa cena";
 
-currentFuelPrices = "Ceny paliw";
+currentFuelPrices = "ceny paliw";
 currentFuelPrice = "aktualna cena paliwa";
 fuelPrice = "cena paliwa";
+withVat = "z VAT";
+timestamp = "na dzień";
+
 
 orders = "Moje zamówienia";
 statistics = "Statystyki";

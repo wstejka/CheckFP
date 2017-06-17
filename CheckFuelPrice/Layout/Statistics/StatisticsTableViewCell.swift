@@ -13,8 +13,8 @@ class StatisticsTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     @IBOutlet weak var timestamp: UILabel!
-    @IBOutlet weak var priceDescription: UILabel!
     @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var priceWithVat: UILabel!
     
 
 }
