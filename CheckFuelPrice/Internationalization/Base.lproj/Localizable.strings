@@ -19,6 +19,8 @@ lowestPriceLabel = "lowest price";
 
 currentFuelPrices = "Fuel prices";
 currentFuelPrice = "current fuel price";
+fuelPrice = "fuel price";
+
 orders = "My orders";
 statistics = "Statistics";
 settings = "Settings";

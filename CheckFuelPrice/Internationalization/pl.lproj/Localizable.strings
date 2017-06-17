@@ -19,6 +19,8 @@ lowestPriceLabel = "najniższa cena";
 
 currentFuelPrices = "Ceny paliw";
 currentFuelPrice = "aktualna cena paliwa";
+fuelPrice = "cena paliwa";
+
 orders = "Moje zamówienia";
 statistics = "Statystyki";
 settings = "Ustawienia";

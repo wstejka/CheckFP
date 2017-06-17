@@ -18,22 +18,26 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
             log.verbose("\(type?.rawValue ?? "")")
         }
     }
+    
+    var dateList : [String] = []
+    var priceList : [Double] = []
     var fuelData: [FuelPriceItem]?  {
         
         didSet {
             log.verbose("# of data \(fuelData?.count ?? 0)")
-            
-            var dateList : [String] = []
-            var priceList : [Double] = []
-            
+            dateList = []
+            priceList = []
             for item in fuelData! {
-                dateList.append(item.humanReadableDate)
-                priceList.append(item.price)
+                self.dateList.append(item.humanReadableDate)
+                self.priceList.append(item.price)
             }
             
-            self.setChart(dataPoints: dateList, values: priceList)
+            self.setChart(dataPoints: self.dateList, values: self.priceList)
         }
     }
+    
+    var currentOrientation : UIInterfaceOrientation! = nil
+    var chartXAxisLabelCounterDivider = 6
     
     // MARK: - properties
 
@@ -56,9 +60,20 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
     }
 
     
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        if (toInterfaceOrientation.isLandscape) {
+            self.chartXAxisLabelCounterDivider = 3
+        }
+        else {
+            self.chartXAxisLabelCounterDivider = 6
+        }
+        self.barChartView.xAxis.setLabelCount(Int(self.dateList.count / self.chartXAxisLabelCounterDivider), force: true)
+    }
+    
     // MARK: - Methods
     func setChart(dataPoints: [String], values: [Double]) {
 
+        log.debug("entered")
         var dataEntries: [BarChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
@@ -66,10 +81,36 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "currentFuelPrice".localized(withDefaultValue: ""))
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "fuelPrice".localized(withDefaultValue: ""))
         let chartData = BarChartData(dataSets: [chartDataSet])
+        // Don't let resize chart
+        barChartView.doubleTapToZoomEnabled = false
         barChartView.data = chartData
         
+        barChartView.chartDescription?.text = ""
         
+        // present xAxis description at bottom
+        barChartView.xAxis.labelPosition = .bottom
+        // Customize xAxis values
+        barChartView.xAxis.valueFormatter = XValsFormatter(xVals: dataPoints)
+        barChartView.xAxis.setLabelCount(Int(dataPoints.count / self.chartXAxisLabelCounterDivider), force: true)
+        // Add animation
+        barChartView.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.easeOutCubic)
     }
+    
+}
+
+class XValsFormatter: NSObject, IAxisValueFormatter {
+    
+    let xVals: [String]
+    init(xVals: [String]) {
+        self.xVals = xVals
+    }
+    
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        let position = Int(value)
+        
+        return xVals[position]
+    }
+    
 }
