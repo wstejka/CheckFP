@@ -5,295 +5,295 @@
 //  Created by Wojciech Stejka on 17/06/2017.
 //  Copyright © 2017 Wojciech Stejka. All rights reserved.
 // 
-// NOTE: Converted from objective-C to Swift syntax from:
-// https://searchcode.com/codesearch/raw/78479288/
+// NOTE: Converted from objective-C to Swift syntax from "RBCategories/UIColor+RBExtras.m":
+// https://github.com/rob-brown/RBCategories
 
 extension UIColor {
 
     
-    var aluminumCrayonColor: UIColor {
+    class var aluminumCrayonColor: UIColor {
         get {
             return UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
         }
     }
     
-    var aquaCrayonColor: UIColor {
+    class var aquaCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 1.0)
         }
     }
     
-    var asparagusCrayonColor: UIColor {
+    class var asparagusCrayonColor: UIColor {
         get {
             return UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var bananaCrayonColor: UIColor {
+    class var bananaCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 1.0, blue: 0.4, alpha: 1.0)
         }
     }
     
-    var blueberryCrayonColor: UIColor {
+    class var blueberryCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 1.0)
         }
     }
     
-    var bubblegumCrayonColor: UIColor {
+    class var bubblegumCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 0.4, blue: 1.0, alpha: 1.0)
         }
     }
     
-    var carnationCrayonColor: UIColor {
+    class var carnationCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 111/255.0, blue: 207/255.0, alpha: 1.0)
         }
     }
     
-    var cantalopeCrayonColor: UIColor {
+    class var cantalopeCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 0.8, blue: 0.4, alpha: 1.0)
         }
     }
     
-    var cayenneCrayonColor: UIColor {
+    class var cayenneCrayonColor: UIColor {
         get {
             return UIColor(red: 0.5, green: 0.0, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var cloverCrayonColor: UIColor {
+    class var cloverCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 0.5, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var eggplantCrayonColor: UIColor {
+    class var eggplantCrayonColor: UIColor {
         get {
             return UIColor(red: 0.25, green: 0.0, blue: 0.5, alpha: 1.0)
         }
     }
     
-    var fernCrayonColor: UIColor {
+    class var fernCrayonColor: UIColor {
         get {
             return UIColor(red: 0.25, green: 0.5, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var floraCrayonColor: UIColor {
+    class var floraCrayonColor: UIColor {
         get {
             return UIColor(red: 0.4, green: 1.0, blue: 0.4, alpha: 1.0)
         }
     }
     
-    var grapeCrayonColor: UIColor {
+    class var grapeCrayonColor: UIColor {
         get {
             return UIColor(red: 0.5, green: 0.0, blue: 1.0, alpha: 1.0)
         }
     }
     
-    var honeydewCrayonColor: UIColor {
+    class var honeydewCrayonColor: UIColor {
         get {
             return UIColor(red: 0.8, green: 1.0, blue: 0.4, alpha: 1.0)
         }
     }
     
-    var iceCrayonColor: UIColor {
+    class var iceCrayonColor: UIColor {
         get {
             return UIColor(red: 0.4, green: 1.0, blue: 1.0, alpha: 1.0)
         }
     }
     
-    var ironCrayonColor: UIColor {
+    class var ironCrayonColor: UIColor {
         get {
             return UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
         }
     }
     
-    var lavenderCrayonColor: UIColor {
+    class var lavenderCrayonColor: UIColor {
         get {
             return UIColor(red: 0.8, green: 0.4, blue: 1.0, alpha: 1.0)
         }
     }
     
-    var leadCrayonColor: UIColor {
+    class var leadCrayonColor: UIColor {
         get {
             return UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         }
     }
     
-    var lemonCrayonColor: UIColor {
+    class var lemonCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 1.0, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var licoriceCrayonColor: UIColor {
+    class var licoriceCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var limeCrayonColor: UIColor {
+    class var limeCrayonColor: UIColor {
         get {
             return UIColor(red: 0.5, green: 1.0, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var magentaCrayonColor: UIColor {
+    class var magentaCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 0.0, blue: 1.0, alpha: 1.0)
         }
     }
     
-    var magnesiumCrayonColor: UIColor {
+    class var magnesiumCrayonColor: UIColor {
         get {
             return UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1.0)
         }
     }
     
-    var maraschinoCrayonColor: UIColor {
+    class var maraschinoCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var maroonCrayonColor: UIColor {
+    class var maroonCrayonColor: UIColor {
         get {
             return UIColor(red: 0.5, green: 0.0, blue: 0.25, alpha: 1.0)
         }
     }
     
-    var mercuryCrayonColor: UIColor {
+    class var mercuryCrayonColor: UIColor {
         get {
             return UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         }
     }
     
-    var midnightCrayonColor: UIColor {
+    class var midnightCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 0.0, blue: 0.5, alpha: 1.0)
         }
     }
     
-    var mochaCrayonColor: UIColor {
+    class var mochaCrayonColor: UIColor {
         get {
             return UIColor(red: 0.5, green: 0.25, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var mossCrayonColor: UIColor {
+    class var mossCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 0.5, blue: 0.25, alpha: 1.0)
         }
     }
     
-    var nickelCrayonColor: UIColor {
+    class var nickelCrayonColor: UIColor {
         get {
             return UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
         }
     }
     
-    var oceanCrayonColor: UIColor {
+    class var oceanCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 0.25, blue: 0.5, alpha: 1.0)
         }
     }
     
-    var orchidCrayonColor: UIColor {
+    class var orchidCrayonColor: UIColor {
         get {
             return UIColor(red: 0.4, green: 0.4, blue: 1.0, alpha: 1.0)
         }
     }
     
-    var plumCrayonColor: UIColor {
+    class var plumCrayonColor: UIColor {
         get {
             return UIColor(red: 0.5, green: 0.0, blue: 0.5, alpha: 1.0)
         }
     }
     
-    var salmonCrayonColor: UIColor {
+    class var salmonCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 0.4, blue: 0.4, alpha: 1.0)
         }
     }
     
-    var seafoamCrayonColor: UIColor {
+    class var seafoamCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 1.0, blue: 0.5, alpha: 1.0)
         }
     }
     
-    var silverCrayonColor: UIColor {
+    class var silverCrayonColor: UIColor {
         get {
             return UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
         }
     }
     
-    var skyCrayonColor: UIColor {
+    class var skyCrayonColor: UIColor {
         get {
             return UIColor(red: 0.4, green: 0.8, blue: 1.0, alpha: 1.0)
         }
     }
     
-    var snowCrayonColor: UIColor {
+    class var snowCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
     }
     
-    var spindriftCrayonColor: UIColor {
+    class var spindriftCrayonColor: UIColor {
         get {
             return UIColor(red: 0.4, green: 1.0, blue: 0.8, alpha: 1.0)
         }
     }
     
-    var springCrayonColor: UIColor {
+    class var springCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var steelCrayonColor: UIColor {
+    class var steelCrayonColor: UIColor {
         get {
             return UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
         }
     }
     
-    var strawberryCrayonColor: UIColor {
+    class var strawberryCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 0.0, blue: 0.5, alpha: 1.0)
         }
     }
     
-    var tangerineCrayonColor: UIColor {
+    class var tangerineCrayonColor: UIColor {
         get {
             return UIColor(red: 1.0, green: 0.5, blue: 0.0, alpha: 1.0)
         }
     }
     
-    var tealCrayonColor: UIColor {
+    class var tealCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 0.5, blue: 0.5, alpha: 1.0)
         }
     }
     
-    var tinCrayonColor: UIColor {
+    class var tinCrayonColor: UIColor {
         get {
             return UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
         }
     }
     
-    var tungstenCrayonColor: UIColor {
+    class var tungstenCrayonColor: UIColor {
         get {
             return UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
         }
     }
     
-    var turquoiseCrayonColor: UIColor {
+    class var turquoiseCrayonColor: UIColor {
         get {
             return UIColor(red: 0.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
@@ -302,883 +302,883 @@ extension UIColor {
     
     // MARK: - Standard HTML colors (alphabetical)
     
-    var aliceBlueHTMLColor: UIColor {
+    class var aliceBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF0/255.0, green: 0xF8/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var antiqueWhiteHTMLColor: UIColor {
+    class var antiqueWhiteHTMLColor: UIColor {
         get {
             return UIColor(red: 0xFA/255.0, green: 0xEB/255.0, blue: 0xD7/255.0, alpha: 1.0)
         }
     }
     
-    var aquaHTMLColor: UIColor {
+    class var aquaHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var aquamarineHTMLColor: UIColor {
+    class var aquamarineHTMLColor: UIColor {
         get {
             return UIColor(red: 0x7F/255.0, green: 255.0/255.0, blue: 0xD4/255.0, alpha: 1.0)
         }
     }
     
-    var azureHTMLColor: UIColor {
+    class var azureHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var beigeHTMLColor: UIColor {
+    class var beigeHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF5/255.0, green: 0xF5/255.0, blue: 0xDC/255.0, alpha: 1.0)
         }
     }
     
-    var bisqueHTMLColor: UIColor {
+    class var bisqueHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xE4/255.0, blue: 0xC4/255.0, alpha: 1.0)
         }
     }
     
-    var blackHTMLColor: UIColor {
+    class var blackHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0x00/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var blanchedAlmondHTMLColor: UIColor {
+    class var blanchedAlmondHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xEB/255.0, blue: 0xCD/255.0, alpha: 1.0)
         }
     }
     
-    var blueHTMLColor: UIColor {
+    class var blueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0x00/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var blueVioletHTMLColor: UIColor {
+    class var blueVioletHTMLColor: UIColor {
         get {
             return UIColor(red: 0x8A/255.0, green: 0x2B/255.0, blue: 0xE2/255.0, alpha: 1.0)
         }
     }
     
-    var brownHTMLColor: UIColor {
+    class var brownHTMLColor: UIColor {
         get {
             return UIColor(red: 0xA5/255.0, green: 0x2A/255.0, blue: 0x2A/255.0, alpha: 1.0)
         }
     }
     
-    var burlyWoodHTMLColor: UIColor {
+    class var burlyWoodHTMLColor: UIColor {
         get {
             return UIColor(red: 0xDE/255.0, green: 0xB8/255.0, blue: 0x87/255.0, alpha: 1.0)
         }
     }
     
-    var cadetBlueHTMLColor: UIColor {
+    class var cadetBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x5F/255.0, green: 0x9E/255.0, blue: 0xA0/255.0, alpha: 1.0)
         }
     }
     
-    var chartreuseHTMLColor: UIColor {
+    class var chartreuseHTMLColor: UIColor {
         get {
             return UIColor(red: 0x7F/255.0, green: 255.0/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var chocolateHTMLColor: UIColor {
+    class var chocolateHTMLColor: UIColor {
         get {
             return UIColor(red: 0xD2/255.0, green: 0x69/255.0, blue: 0x1E/255.0, alpha: 1.0)
         }
     }
     
-    var coralHTMLColor: UIColor {
+    class var coralHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0x7F/255.0, blue: 0x50/255.0, alpha: 1.0)
         }
     }
     
-    var cornflowerBlueHTMLColor: UIColor {
+    class var cornflowerBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x64/255.0, green: 0x95/255.0, blue: 0xED/255.0, alpha: 1.0)
         }
     }
     
-    var cornsilkHTMLColor: UIColor {
+    class var cornsilkHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xF8/255.0, blue: 0xDC/255.0, alpha: 1.0)
         }
     }
     
-    var crimsonHTMLColor: UIColor {
+    class var crimsonHTMLColor: UIColor {
         get {
             return UIColor(red: 0xDC/255.0, green: 0x14/255.0, blue: 0x3C/255.0, alpha: 1.0)
         }
     }
     
-    var cyanHTMLColor: UIColor {
+    class var cyanHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var darkBlueHTMLColor: UIColor {
+    class var darkBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0x00/255.0, blue: 0x8B/255.0, alpha: 1.0)
         }
     }
     
-    var darkCyanHTMLColor: UIColor {
+    class var darkCyanHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0x8B/255.0, blue: 0x8B/255.0, alpha: 1.0)
         }
     }
     
-    var darkGoldenRodHTMLColor: UIColor {
+    class var darkGoldenRodHTMLColor: UIColor {
         get {
             return UIColor(red: 0xB8/255.0, green: 0x86/255.0, blue: 0x0B/255.0, alpha: 1.0)
         }
     }
     
-    var darkGrayHTMLColor: UIColor {
+    class var darkGrayHTMLColor: UIColor {
         get {
             return UIColor(red: 0xA9/255.0, green: 0xA9/255.0, blue: 0xA9/255.0, alpha: 1.0)
         }
     }
     
-    var darkGreyHTMLColor: UIColor {
+    class var darkGreyHTMLColor: UIColor {
         get {
             return UIColor(red: 0xA9/255.0, green: 0xA9/255.0, blue: 0xA9/255.0, alpha: 1.0)
         }
     }
     
-    var darkGreenHTMLColor: UIColor {
+    class var darkGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0x64/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var darkKhakiHTMLColor: UIColor {
+    class var darkKhakiHTMLColor: UIColor {
         get {
             return UIColor(red: 0xBD/255.0, green: 0xB7/255.0, blue: 0x6B/255.0, alpha: 1.0)
         }
     }
     
-    var darkMagentaHTMLColor: UIColor {
+    class var darkMagentaHTMLColor: UIColor {
         get {
             return UIColor(red: 0x8B/255.0, green: 0x00/255.0, blue: 0x8B/255.0, alpha: 1.0)
         }
     }
     
-    var darkOliveGreenHTMLColor: UIColor {
+    class var darkOliveGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x55/255.0, green: 0x6B/255.0, blue: 0x2F/255.0, alpha: 1.0)
         }
     }
     
-    var darkorangeHTMLColor: UIColor {
+    class var darkorangeHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0x8C/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var darkOrchidHTMLColor: UIColor {
+    class var darkOrchidHTMLColor: UIColor {
         get {
             return UIColor(red: 0x99/255.0, green: 0x32/255.0, blue: 0xCC/255.0, alpha: 1.0)
         }
     }
     
-    var darkRedHTMLColor: UIColor {
+    class var darkRedHTMLColor: UIColor {
         get {
             return UIColor(red: 0x8B/255.0, green: 0x00/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var darkSalmonHTMLColor: UIColor {
+    class var darkSalmonHTMLColor: UIColor {
         get {
             return UIColor(red: 0xE9/255.0, green: 0x96/255.0, blue: 0x7A/255.0, alpha: 1.0)
         }
     }
     
-    var darkSeaGreenHTMLColor: UIColor {
+    class var darkSeaGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x8F/255.0, green: 0xBC/255.0, blue: 0x8F/255.0, alpha: 1.0)
         }
     }
     
-    var darkSlateBlueHTMLColor: UIColor {
+    class var darkSlateBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x48/255.0, green: 0x3D/255.0, blue: 0x8B/255.0, alpha: 1.0)
         }
     }
     
-    var darkSlateGrayHTMLColor: UIColor {
+    class var darkSlateGrayHTMLColor: UIColor {
         get {
             return UIColor(red: 0x2F/255.0, green: 0x4F/255.0, blue: 0x4F/255.0, alpha: 1.0)
         }
     }
     
-    var darkSlateGreyHTMLColor: UIColor {
+    class var darkSlateGreyHTMLColor: UIColor {
         get {
             return UIColor(red: 0x2F/255.0, green: 0x4F/255.0, blue: 0x4F/255.0, alpha: 1.0)
         }
     }
     
-    var darkTurquoiseHTMLColor: UIColor {
+    class var darkTurquoiseHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0xCE/255.0, blue: 0xD1/255.0, alpha: 1.0)
         }
     }
     
-    var darkVioletHTMLColor: UIColor {
+    class var darkVioletHTMLColor: UIColor {
         get {
             return UIColor(red: 0x94/255.0, green: 0x00/255.0, blue: 0xD3/255.0, alpha: 1.0)
         }
     }
     
-    var deepPinkHTMLColor: UIColor {
+    class var deepPinkHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0x14/255.0, blue: 0x93/255.0, alpha: 1.0)
         }
     }
     
-    var deepSkyBlueHTMLColor: UIColor {
+    class var deepSkyBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0xBF/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var dimGrayHTMLColor: UIColor {
+    class var dimGrayHTMLColor: UIColor {
         get {
             return UIColor(red: 0x69/255.0, green: 0x69/255.0, blue: 0x69/255.0, alpha: 1.0)
         }
     }
     
-    var dimGreyHTMLColor: UIColor {
+    class var dimGreyHTMLColor: UIColor {
         get {
             return UIColor(red: 0x69/255.0, green: 0x69/255.0, blue: 0x69/255.0, alpha: 1.0)
         }
     }
     
-    var dodgerBlueHTMLColor: UIColor {
+    class var dodgerBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x1E/255.0, green: 0x90/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var fireBrickHTMLColor: UIColor {
+    class var fireBrickHTMLColor: UIColor {
         get {
             return UIColor(red: 0xB2/255.0, green: 0x22/255.0, blue: 0x22/255.0, alpha: 1.0)
         }
     }
     
-    var floralWhiteHTMLColor: UIColor {
+    class var floralWhiteHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xFA/255.0, blue: 0xF0/255.0, alpha: 1.0)
         }
     }
     
-    var forestGreenHTMLColor: UIColor {
+    class var forestGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x22/255.0, green: 0x8B/255.0, blue: 0x22/255.0, alpha: 1.0)
         }
     }
     
-    var fuchsiaHTMLColor: UIColor {
+    class var fuchsiaHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0x00/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var gainsboroHTMLColor: UIColor {
+    class var gainsboroHTMLColor: UIColor {
         get {
             return UIColor(red: 0xDC/255.0, green: 0xDC/255.0, blue: 0xDC/255.0, alpha: 1.0)
         }
     }
     
-    var ghostWhiteHTMLColor: UIColor {
+    class var ghostWhiteHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF8/255.0, green: 0xF8/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var goldHTMLColor: UIColor {
+    class var goldHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xD7/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var goldenRodHTMLColor: UIColor {
+    class var goldenRodHTMLColor: UIColor {
         get {
             return UIColor(red: 0xDA/255.0, green: 0xA5/255.0, blue: 0x20/255.0, alpha: 1.0)
         }
     }
     
-    var grayHTMLColor: UIColor {
+    class var grayHTMLColor: UIColor {
         get {
             return UIColor(red: 0x80/255.0, green: 0x80/255.0, blue: 0x80/255.0, alpha: 1.0)
         }
     }
     
-    var greyHTMLColor: UIColor {
+    class var greyHTMLColor: UIColor {
         get {
             return UIColor(red: 0x80/255.0, green: 0x80/255.0, blue: 0x80/255.0, alpha: 1.0)
         }
     }
     
-    var greenHTMLColor: UIColor {
+    class var greenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0x80/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var greenYellowHTMLColor: UIColor {
+    class var greenYellowHTMLColor: UIColor {
         get {
             return UIColor(red: 0xAD/255.0, green: 255.0/255.0, blue: 0x2F/255.0, alpha: 1.0)
         }
     }
     
-    var honeyDewHTMLColor: UIColor {
+    class var honeyDewHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF0/255.0, green: 255.0/255.0, blue: 0xF0/255.0, alpha: 1.0)
         }
     }
     
-    var hotPinkHTMLColor: UIColor {
+    class var hotPinkHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0x69/255.0, blue: 0xB4/255.0, alpha: 1.0)
         }
     }
     
-    var indianRedHTMLColor: UIColor {
+    class var indianRedHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xD5/255.0, blue: 0xC5C/255.0, alpha: 1.0)
         }
     }
     
-    var indigoHTMLColor: UIColor {
+    class var indigoHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xB0/255.0, blue: 0x082/255.0, alpha: 1.0)
         }
     }
     
-    var ivoryHTMLColor: UIColor {
+    class var ivoryHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 0xF0/255.0, alpha: 1.0)
         }
     }
     
-    var khakiHTMLColor: UIColor {
+    class var khakiHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF0/255.0, green: 0xE6/255.0, blue: 0x8C/255.0, alpha: 1.0)
         }
     }
     
-    var lavenderHTMLColor: UIColor {
+    class var lavenderHTMLColor: UIColor {
         get {
             return UIColor(red: 0xE6/255.0, green: 0xE6/255.0, blue: 0xFA/255.0, alpha: 1.0)
         }
     }
     
-    var lavenderBlushHTMLColor: UIColor {
+    class var lavenderBlushHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xF0/255.0, blue: 0xF5/255.0, alpha: 1.0)
         }
     }
     
-    var lawnGreenHTMLColor: UIColor {
+    class var lawnGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x7C/255.0, green: 0xFC/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var lemonChiffonHTMLColor: UIColor {
+    class var lemonChiffonHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xFA/255.0, blue: 0xCD/255.0, alpha: 1.0)
         }
     }
     
-    var lightBlueHTMLColor: UIColor {
+    class var lightBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0xAD/255.0, green: 0xD8/255.0, blue: 0xE6/255.0, alpha: 1.0)
         }
     }
     
-    var lightCoralHTMLColor: UIColor {
+    class var lightCoralHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF0/255.0, green: 0x80/255.0, blue: 0x80/255.0, alpha: 1.0)
         }
     }
     
-    var lightCyanHTMLColor: UIColor {
+    class var lightCyanHTMLColor: UIColor {
         get {
             return UIColor(red: 0xE0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var lightGoldenRodYellowHTMLColor: UIColor {
+    class var lightGoldenRodYellowHTMLColor: UIColor {
         get {
             return UIColor(red: 0xFA/255.0, green: 0xFA/255.0, blue: 0xD2/255.0, alpha: 1.0)
         }
     }
     
-    var lightGrayHTMLColor: UIColor {
+    class var lightGrayHTMLColor: UIColor {
         get {
             return UIColor(red: 0xD3/255.0, green: 0xD3/255.0, blue: 0xD3/255.0, alpha: 1.0)
         }
     }
     
-    var lightGreyHTMLColor: UIColor {
+    class var lightGreyHTMLColor: UIColor {
         get {
             return UIColor(red: 0xD3/255.0, green: 0xD3/255.0, blue: 0xD3/255.0, alpha: 1.0)
         }
     }
     
-    var lightGreenHTMLColor: UIColor {
+    class var lightGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x90/255.0, green: 0xEE/255.0, blue: 0x90/255.0, alpha: 1.0)
         }
     }
     
-    var lightPinkHTMLColor: UIColor {
+    class var lightPinkHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xB6/255.0, blue: 0xC1/255.0, alpha: 1.0)
         }
     }
     
-    var lightSalmonHTMLColor: UIColor {
+    class var lightSalmonHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xA0/255.0, blue: 0x7A/255.0, alpha: 1.0)
         }
     }
     
-    var lightSeaGreenHTMLColor: UIColor {
+    class var lightSeaGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x20/255.0, green: 0xB2/255.0, blue: 0xAA/255.0, alpha: 1.0)
         }
     }
     
-    var lightSkyBlueHTMLColor: UIColor {
+    class var lightSkyBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x87/255.0, green: 0xCE/255.0, blue: 0xFA/255.0, alpha: 1.0)
         }
     }
     
-    var lightSlateGrayHTMLColor: UIColor {
+    class var lightSlateGrayHTMLColor: UIColor {
         get {
             return UIColor(red: 0x77/255.0, green: 0x88/255.0, blue: 0x99/255.0, alpha: 1.0)
         }
     }
     
-    var lightSlateGreyHTMLColor: UIColor {
+    class var lightSlateGreyHTMLColor: UIColor {
         get {
             return UIColor(red: 0x77/255.0, green: 0x88/255.0, blue: 0x99/255.0, alpha: 1.0)
         }
     }
     
-    var lightSteelBlueHTMLColor: UIColor {
+    class var lightSteelBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0xB0/255.0, green: 0xC4/255.0, blue: 0xDE/255.0, alpha: 1.0)
         }
     }
     
-    var lightYellowHTMLColor: UIColor {
+    class var lightYellowHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 0xE0/255.0, alpha: 1.0)
         }
     }
     
-    var limeHTMLColor: UIColor {
+    class var limeHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 255.0/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var limeGreenHTMLColor: UIColor {
+    class var limeGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x32/255.0, green: 0xCD/255.0, blue: 0x32/255.0, alpha: 1.0)
         }
     }
     
-    var linenHTMLColor: UIColor {
+    class var linenHTMLColor: UIColor {
         get {
             return UIColor(red: 0xFA/255.0, green: 0xF0/255.0, blue: 0xE6/255.0, alpha: 1.0)
         }
     }
     
-    var magentaHTMLColor: UIColor {
+    class var magentaHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0x00/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var maroonHTMLColor: UIColor {
+    class var maroonHTMLColor: UIColor {
         get {
             return UIColor(red: 0x80/255.0, green: 0x00/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var mediumAquaMarineHTMLColor: UIColor {
+    class var mediumAquaMarineHTMLColor: UIColor {
         get {
             return UIColor(red: 0x66/255.0, green: 0xCD/255.0, blue: 0xAA/255.0, alpha: 1.0)
         }
     }
     
-    var mediumBlueHTMLColor: UIColor {
+    class var mediumBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0x00/255.0, blue: 0xCD/255.0, alpha: 1.0)
         }
     }
     
-    var mediumOrchidHTMLColor: UIColor {
+    class var mediumOrchidHTMLColor: UIColor {
         get {
             return UIColor(red: 0xBA/255.0, green: 0x55/255.0, blue: 0xD3/255.0, alpha: 1.0)
         }
     }
     
-    var mediumPurpleHTMLColor: UIColor {
+    class var mediumPurpleHTMLColor: UIColor {
         get {
             return UIColor(red: 0x93/255.0, green: 0x70/255.0, blue: 0xD8/255.0, alpha: 1.0)
         }
     }
     
-    var mediumSeaGreenHTMLColor: UIColor {
+    class var mediumSeaGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x3C/255.0, green: 0xB3/255.0, blue: 0x71/255.0, alpha: 1.0)
         }
     }
     
-    var mediumSlateBlueHTMLColor: UIColor {
+    class var mediumSlateBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x7B/255.0, green: 0x68/255.0, blue: 0xEE/255.0, alpha: 1.0)
         }
     }
     
-    var mediumSpringGreenHTMLColor: UIColor {
+    class var mediumSpringGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0xFA/255.0, blue: 0x9A/255.0, alpha: 1.0)
         }
     }
     
-    var mediumTurquoiseHTMLColor: UIColor {
+    class var mediumTurquoiseHTMLColor: UIColor {
         get {
             return UIColor(red: 0x48/255.0, green: 0xD1/255.0, blue: 0xCC/255.0, alpha: 1.0)
         }
     }
     
-    var mediumVioletRedHTMLColor: UIColor {
+    class var mediumVioletRedHTMLColor: UIColor {
         get {
             return UIColor(red: 0xC7/255.0, green: 0x15/255.0, blue: 0x85/255.0, alpha: 1.0)
         }
     }
     
-    var midnightBlueHTMLColor: UIColor {
+    class var midnightBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x19/255.0, green: 0x19/255.0, blue: 0x70/255.0, alpha: 1.0)
         }
     }
     
-    var mintCreamHTMLColor: UIColor {
+    class var mintCreamHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF5/255.0, green: 255.0/255.0, blue: 0xFA/255.0, alpha: 1.0)
         }
     }
     
-    var mistyRoseHTMLColor: UIColor {
+    class var mistyRoseHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xE4/255.0, blue: 0xE1/255.0, alpha: 1.0)
         }
     }
     
-    var moccasinHTMLColor: UIColor {
+    class var moccasinHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xE4/255.0, blue: 0xB5/255.0, alpha: 1.0)
         }
     }
     
-    var navajoWhiteHTMLColor: UIColor {
+    class var navajoWhiteHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xDE/255.0, blue: 0xAD/255.0, alpha: 1.0)
         }
     }
     
-    var navyHTMLColor: UIColor {
+    class var navyHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0x00/255.0, blue: 0x80/255.0, alpha: 1.0)
         }
     }
     
-    var oldLaceHTMLColor: UIColor {
+    class var oldLaceHTMLColor: UIColor {
         get {
             return UIColor(red: 0xFD/255.0, green: 0xF5/255.0, blue: 0xE6/255.0, alpha: 1.0)
         }
     }
     
-    var oliveHTMLColor: UIColor {
+    class var oliveHTMLColor: UIColor {
         get {
             return UIColor(red: 0x80/255.0, green: 0x80/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var oliveDrabHTMLColor: UIColor {
+    class var oliveDrabHTMLColor: UIColor {
         get {
             return UIColor(red: 0x6B/255.0, green: 0x8E/255.0, blue: 0x23/255.0, alpha: 1.0)
         }
     }
     
-    var orangeHTMLColor: UIColor {
+    class var orangeHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xA5/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var orangeRedHTMLColor: UIColor {
+    class var orangeRedHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0x45/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var orchidHTMLColor: UIColor {
+    class var orchidHTMLColor: UIColor {
         get {
             return UIColor(red: 0xDA/255.0, green: 0x70/255.0, blue: 0xD6/255.0, alpha: 1.0)
         }
     }
     
-    var paleGoldenRodHTMLColor: UIColor {
+    class var paleGoldenRodHTMLColor: UIColor {
         get {
             return UIColor(red: 0xEE/255.0, green: 0xE8/255.0, blue: 0xAA/255.0, alpha: 1.0)
         }
     }
     
-    var paleGreenHTMLColor: UIColor {
+    class var paleGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x98/255.0, green: 0xFB/255.0, blue: 0x98/255.0, alpha: 1.0)
         }
     }
     
-    var paleTurquoiseHTMLColor: UIColor {
+    class var paleTurquoiseHTMLColor: UIColor {
         get {
             return UIColor(red: 0xAF/255.0, green: 0xEE/255.0, blue: 0xEE/255.0, alpha: 1.0)
         }
     }
     
-    var paleVioletRedHTMLColor: UIColor {
+    class var paleVioletRedHTMLColor: UIColor {
         get {
             return UIColor(red: 0xD8/255.0, green: 0x70/255.0, blue: 0x93/255.0, alpha: 1.0)
         }
     }
     
-    var papayaWhipHTMLColor: UIColor {
+    class var papayaWhipHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xEF/255.0, blue: 0xD5/255.0, alpha: 1.0)
         }
     }
     
-    var peachPuffHTMLColor: UIColor {
+    class var peachPuffHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xDA/255.0, blue: 0xB9/255.0, alpha: 1.0)
         }
     }
     
-    var peruHTMLColor: UIColor {
+    class var peruHTMLColor: UIColor {
         get {
             return UIColor(red: 0xCD/255.0, green: 0x85/255.0, blue: 0x3F/255.0, alpha: 1.0)
         }
     }
     
-    var pinkHTMLColor: UIColor {
+    class var pinkHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xC0/255.0, blue: 0xCB/255.0, alpha: 1.0)
         }
     }
     
-    var plumHTMLColor: UIColor {
+    class var plumHTMLColor: UIColor {
         get {
             return UIColor(red: 0xDD/255.0, green: 0xA0/255.0, blue: 0xDD/255.0, alpha: 1.0)
         }
     }
     
-    var powderBlueHTMLColor: UIColor {
+    class var powderBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0xB0/255.0, green: 0xE0/255.0, blue: 0xE6/255.0, alpha: 1.0)
         }
     }
     
-    var purpleHTMLColor: UIColor {
+    class var purpleHTMLColor: UIColor {
         get {
             return UIColor(red: 0x80/255.0, green: 0x00/255.0, blue: 0x80/255.0, alpha: 1.0)
         }
     }
     
-    var redHTMLColor: UIColor {
+    class var redHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0x00/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var rosyBrownHTMLColor: UIColor {
+    class var rosyBrownHTMLColor: UIColor {
         get {
             return UIColor(red: 0xBC/255.0, green: 0x8F/255.0, blue: 0x8F/255.0, alpha: 1.0)
         }
     }
     
-    var royalBlueHTMLColor: UIColor {
+    class var royalBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x41/255.0, green: 0x69/255.0, blue: 0xE1/255.0, alpha: 1.0)
         }
     }
     
-    var saddleBrownHTMLColor: UIColor {
+    class var saddleBrownHTMLColor: UIColor {
         get {
             return UIColor(red: 0x8B/255.0, green: 0x45/255.0, blue: 0x13/255.0, alpha: 1.0)
         }
     }
     
-    var salmonHTMLColor: UIColor {
+    class var salmonHTMLColor: UIColor {
         get {
             return UIColor(red: 0xFA/255.0, green: 0x80/255.0, blue: 0x72/255.0, alpha: 1.0)
         }
     }
     
-    var sandyBrownHTMLColor: UIColor {
+    class var sandyBrownHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF4/255.0, green: 0xA4/255.0, blue: 0x60/255.0, alpha: 1.0)
         }
     }
     
-    var seaGreenHTMLColor: UIColor {
+    class var seaGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x2E/255.0, green: 0x8B/255.0, blue: 0x57/255.0, alpha: 1.0)
         }
     }
     
-    var seaShellHTMLColor: UIColor {
+    class var seaShellHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xF5/255.0, blue: 0xEE/255.0, alpha: 1.0)
         }
     }
     
-    var siennaHTMLColor: UIColor {
+    class var siennaHTMLColor: UIColor {
         get {
             return UIColor(red: 0xA0/255.0, green: 0x52/255.0, blue: 0x2D/255.0, alpha: 1.0)
         }
     }
     
-    var silverHTMLColor: UIColor {
+    class var silverHTMLColor: UIColor {
         get {
             return UIColor(red: 0xC0/255.0, green: 0xC0/255.0, blue: 0xC0/255.0, alpha: 1.0)
         }
     }
     
-    var skyBlueHTMLColor: UIColor {
+    class var skyBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x87/255.0, green: 0xCE/255.0, blue: 0xEB/255.0, alpha: 1.0)
         }
     }
     
-    var slateBlueHTMLColor: UIColor {
+    class var slateBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x6A/255.0, green: 0x5A/255.0, blue: 0xCD/255.0, alpha: 1.0)
         }
     }
     
-    var slateGrayHTMLColor: UIColor {
+    class var slateGrayHTMLColor: UIColor {
         get {
             return UIColor(red: 0x70/255.0, green: 0x80/255.0, blue: 0x90/255.0, alpha: 1.0)
         }
     }
     
-    var slateGreyHTMLColor: UIColor {
+    class var slateGreyHTMLColor: UIColor {
         get {
             return UIColor(red: 0x70/255.0, green: 0x80/255.0, blue: 0x90/255.0, alpha: 1.0)
         }
     }
     
-    var snowHTMLColor: UIColor {
+    class var snowHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0xFA/255.0, blue: 0xFA/255.0, alpha: 1.0)
         }
     }
     
-    var springGreenHTMLColor: UIColor {
+    class var springGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 255.0/255.0, blue: 0x7F/255.0, alpha: 1.0)
         }
     }
     
-    var steelBlueHTMLColor: UIColor {
+    class var steelBlueHTMLColor: UIColor {
         get {
             return UIColor(red: 0x46/255.0, green: 0x82/255.0, blue: 0xB4/255.0, alpha: 1.0)
         }
     }
     
-    var tanHTMLColor: UIColor {
+    class var tanHTMLColor: UIColor {
         get {
             return UIColor(red: 0xD2/255.0, green: 0xB4/255.0, blue: 0x8C/255.0, alpha: 1.0)
         }
     }
     
-    var tealHTMLColor: UIColor {
+    class var tealHTMLColor: UIColor {
         get {
             return UIColor(red: 0x00/255.0, green: 0x80/255.0, blue: 0x80/255.0, alpha: 1.0)
         }
     }
     
-    var thistleHTMLColor: UIColor {
+    class var thistleHTMLColor: UIColor {
         get {
             return UIColor(red: 0xD8/255.0, green: 0xBF/255.0, blue: 0xD8/255.0, alpha: 1.0)
         }
     }
     
-    var tomatoHTMLColor: UIColor {
+    class var tomatoHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 0x63/255.0, blue: 0x47/255.0, alpha: 1.0)
         }
     }
     
-    var turquoiseHTMLColor: UIColor {
+    class var turquoiseHTMLColor: UIColor {
         get {
             return UIColor(red: 0x40/255.0, green: 0xE0/255.0, blue: 0xD0/255.0, alpha: 1.0)
         }
     }
     
-    var violetHTMLColor: UIColor {
+    class var violetHTMLColor: UIColor {
         get {
             return UIColor(red: 0xEE/255.0, green: 0x82/255.0, blue: 0xEE/255.0, alpha: 1.0)
         }
     }
     
-    var wheatHTMLColor: UIColor {
+    class var wheatHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF5/255.0, green: 0xDE/255.0, blue: 0xB3/255.0, alpha: 1.0)
         }
     }
     
-    var whiteHTMLColor: UIColor {
+    class var whiteHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
     
-    var whiteSmokeHTMLColor: UIColor {
+    class var whiteSmokeHTMLColor: UIColor {
         get {
             return UIColor(red: 0xF5/255.0, green: 0xF5/255.0, blue: 0xF5/255.0, alpha: 1.0)
         }
     }
     
-    var yellowHTMLColor: UIColor {
+    class var yellowHTMLColor: UIColor {
         get {
             return UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 0x00/255.0, alpha: 1.0)
         }
     }
     
-    var yellowGreenHTMLColor: UIColor {
+    class var yellowGreenHTMLColor: UIColor {
         get {
             return UIColor(red: 0x9A/255.0, green: 0xCD/255.0, blue: 0x32, alpha: 1.0)
         }
