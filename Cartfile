@@ -1,3 +1,4 @@
 github "SwiftyBeaver/SwiftyBeaver"
 github "tid-kijyun/Kanna" ~> 2.1.0
 github "danielgindi/Charts" ~> 3.0.2
+github "ViccAlexander/Chameleon"

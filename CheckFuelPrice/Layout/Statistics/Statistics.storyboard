@@ -87,6 +87,7 @@
                                                 <constraint firstItem="49H-ua-8ro" firstAttribute="top" secondItem="0XB-pw-yKy" secondAttribute="topMargin" constant="1" id="hRL-m5-mTR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="price" destination="49H-ua-8ro" id="ocg-vU-rVp"/>
                                             <outlet property="priceWithVat" destination="Car-dN-0mA" id="cKE-Qo-ziR"/>

@@ -10,6 +10,7 @@ import UIKit
 import SwiftyBeaver
 import Firebase
 import Charts
+import Chameleon
 
 // MARK: public constants
 let log = SwiftyBeaver.self
@@ -45,6 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         // TODO: enable persistence once the app will be finished
         Database.database().isPersistenceEnabled = true
+        
+        // === Configure Theme ==== //
+//        Chameleon.setGlobalThemeUsingPrimaryColor(.flatSkyBlue(), withSecondaryColor: .flatSkyBlue(), andContentStyle: UIContentStyle.contrast)
         
         return true
     }

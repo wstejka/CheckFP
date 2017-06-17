@@ -16,6 +16,9 @@
 		9E1C03A11EE4447F0023BCED /* FuelPricesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C03A01EE4447F0023BCED /* FuelPricesTableViewCell.swift */; };
 		9E1C03A31EED4FCC0023BCED /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1C03A21EED4FCC0023BCED /* Charts.framework */; };
 		9E1C03A41EED4FF70023BCED /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1C03A21EED4FCC0023BCED /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9E1E7F041EF5AADF008FC7F5 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1E7F031EF5AADF008FC7F5 /* Chameleon.framework */; };
+		9E1E7F051EF5AAEB008FC7F5 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1E7F031EF5AADF008FC7F5 /* Chameleon.framework */; };
+		9E1E7F061EF5AAEB008FC7F5 /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1E7F031EF5AADF008FC7F5 /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E4A034C1EEFF7350016AB46 /* StatisticsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034B1EEFF7350016AB46 /* StatisticsUtils.swift */; };
 		9E4A034E1EF05A100016AB46 /* StatisticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034D1EF05A100016AB46 /* StatisticsCollectionViewCell.swift */; };
 		9E4A03501EF11FB80016AB46 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034F1EF11FB80016AB46 /* UIImage+Extension.swift */; };
@@ -78,6 +81,7 @@
 				9E1C03A41EED4FF70023BCED /* Charts.framework in Embed Frameworks */,
 				9E5C84301EA0CC5800C7DFA7 /* Kanna.framework in Embed Frameworks */,
 				9E5C84321EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Embed Frameworks */,
+				9E1E7F061EF5AAEB008FC7F5 /* Chameleon.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +99,7 @@
 		9E1C039E1EE2BD020023BCED /* OrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		9E1C03A01EE4447F0023BCED /* FuelPricesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPricesTableViewCell.swift; sourceTree = "<group>"; };
 		9E1C03A21EED4FCC0023BCED /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = ../Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		9E1E7F031EF5AADF008FC7F5 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = ../Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		9E4A034B1EEFF7350016AB46 /* StatisticsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsUtils.swift; sourceTree = "<group>"; };
 		9E4A034D1EF05A100016AB46 /* StatisticsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E4A034F1EF11FB80016AB46 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -147,10 +152,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1E7F041EF5AADF008FC7F5 /* Chameleon.framework in Frameworks */,
 				9E1C03A31EED4FCC0023BCED /* Charts.framework in Frameworks */,
 				9E5C842F1EA0CC5800C7DFA7 /* Kanna.framework in Frameworks */,
 				9E5C84311EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Frameworks */,
 				D18E1728AB6C0C65ECC47628 /* Pods_CheckFuelPrice.framework in Frameworks */,
+				9E1E7F051EF5AAEB008FC7F5 /* Chameleon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +407,7 @@
 		9E5C84341EA0CD4200C7DFA7 /* Carthage Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E1E7F031EF5AADF008FC7F5 /* Chameleon.framework */,
 				9E1C03A21EED4FCC0023BCED /* Charts.framework */,
 				9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */,
 				9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */,
