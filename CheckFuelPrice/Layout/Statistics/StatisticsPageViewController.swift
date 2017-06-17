@@ -66,11 +66,16 @@ extension StatisticsPageViewController : UIPageViewControllerDataSource {
     
 }
 
+// MARK: - StatisticsViewControllerDelegate
 extension StatisticsPageViewController : StatisticsViewControllerDelegate {
     
     
     func selectedFuel(name type: FuelName) {
         log.verbose("entered")
+        if self.type == type {
+            log.verbose("fuel type didn't change. Ingoring ...")
+            return
+        }
         self.type = type
         self.requestData(for: type)
     }
@@ -85,7 +90,7 @@ class StatisticsPageViewController: UIPageViewController {
     // MARK: - constants
     let postfix = "StatViewController"
     let storyboardName = "Statistics"
-    var type = FuelName.unleaded95
+    var type = FuelName.none
     
     lazy var orderedViewControllers: [UIViewController] = {
         
@@ -96,8 +101,11 @@ class StatisticsPageViewController: UIPageViewController {
     
     var items : [FuelPriceItem] = []
     var refFuelPriceItems : DatabaseReference? = nil
+    var observerHandle : DatabaseHandle = 0
     
+    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     // MARK: - properties
+    
     
     
     // MARK: - UIViewController Lifecycle
@@ -136,7 +144,9 @@ class StatisticsPageViewController: UIPageViewController {
         
         // Configure reference to firebase node
         self.refFuelPriceItems = Database.database().reference(withPath: FirebaseNode.fuelPriceItem.rawValue)
-        DispatchQueue.global().async {
+        Utils.customActivityIndicatory(self.view, startAnimate: true)
+        
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
             // Calculate current epoch timestamp
             let timestamp = Int(Date().timeIntervalSince1970)
             let lastMonthTimestamp = timestamp - (60 * 60 * 24 * 30)
@@ -169,6 +179,11 @@ class StatisticsPageViewController: UIPageViewController {
                     }
                     newItems.append(fuelPriceItem)
                 }
+
+                // Run this command on main queue as it affects UI
+                DispatchQueue.main.async {
+                    Utils.customActivityIndicatory(selfweak.view, startAnimate: false)
+                }
                 selfweak.items = newItems
                 selfweak.notifyAllChildrenAboutChange(type: type)
                 
@@ -192,4 +207,21 @@ class StatisticsPageViewController: UIPageViewController {
         }
     }
 
+    // MARK : - Activity indicator lifecycle
+    
+    /* Note there is no needed to use below code as here is used the Utils.customActivityIndicatory
+    func startActivityIndicator() {
+        
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.frame = CGRect(x:0.0,y: 0.0,width: 200.0, height: 200.0)
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.startAnimating()
+    }
+    func stopActivityIndicator() {
+        self.activityIndicator.stopAnimating()
+        
+    }
+    */
 }
