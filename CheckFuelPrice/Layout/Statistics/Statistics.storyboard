@@ -72,6 +72,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="2Bt-ls-SpQ" firstAttribute="centerY" secondItem="0XB-pw-yKy" secondAttribute="centerY" id="0eB-bz-eVM"/>
                                                 <constraint firstItem="Car-dN-0mA" firstAttribute="top" secondItem="0XB-pw-yKy" secondAttribute="topMargin" constant="1" id="34E-S5-kiB"/>

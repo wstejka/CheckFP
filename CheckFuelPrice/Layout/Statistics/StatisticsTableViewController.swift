@@ -26,8 +26,15 @@ extension StatisticsTableViewController: UITableViewDataSource {
         }
         fuelPriceCell.timestamp.text = self.dateList[indexPath.row]
         let priceValue = self.priceList[indexPath.row]
-        fuelPriceCell.price.text = String(priceValue)
-        fuelPriceCell.priceWithVat.text = String(priceValue * (1 + CountryVat.poland.rawValue/100))
+        fuelPriceCell.price.text = String(format: "%.2f", priceValue)
+        
+        fuelPriceCell.priceWithVat.text =  String(format: "%.2f", priceValue * (1 + CountryVat.poland.rawValue/100))
+        if indexPath.row % 2 == 0 {
+            fuelPriceCell.contentView.backgroundColor = .white
+        }
+        else {
+            fuelPriceCell.contentView.backgroundColor = .skyCrayonColor
+        }
         
         return fuelPriceCell
     }
@@ -83,7 +90,7 @@ class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol
         
         // Create table header view using the same tableCellView as for ordinary cell
         let tableHeaderView = self.tableView.dequeueReusableCell(withIdentifier: customTableViewCellName) as? StatisticsTableViewCell
-        tableHeaderView?.backgroundColor = UIColor.lightGray
+        tableHeaderView?.contentView.backgroundColor = .flatSkyBlue()
         tableHeaderView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
         tableHeaderView?.timestamp.text = "timestamp".localized(withDefaultValue: "").capitalizingFirstLetter()
         let priceName = "fuelPrice".localized(withDefaultValue: "").capitalizingFirstLetter()

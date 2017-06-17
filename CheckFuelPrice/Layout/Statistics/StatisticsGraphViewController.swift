@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import Chameleon
 
 class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol, ChartViewDelegate {
 
@@ -82,6 +83,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
         }
         
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "fuelPrice".localized(withDefaultValue: ""))
+        chartDataSet.colors = [.skyCrayonColor]
         let chartData = BarChartData(dataSets: [chartDataSet])
         // Don't let resize chart
         barChartView.doubleTapToZoomEnabled = false
