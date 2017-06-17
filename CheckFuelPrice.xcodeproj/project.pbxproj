@@ -20,6 +20,7 @@
 		9E4A034E1EF05A100016AB46 /* StatisticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034D1EF05A100016AB46 /* StatisticsCollectionViewCell.swift */; };
 		9E4A03501EF11FB80016AB46 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034F1EF11FB80016AB46 /* UIImage+Extension.swift */; };
 		9E4A03521EF15E480016AB46 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A03511EF15E480016AB46 /* UICollectionView+Extension.swift */; };
+		9E4A036D1EF54B6E0016AB46 /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A036C1EF54B6E0016AB46 /* StatisticsTableViewCell.swift */; };
 		9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */; };
 		9E4A1F661ED9DEAA0044F3DD /* CFPEnumerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F651ED9DEAA0044F3DD /* CFPEnumerators.swift */; };
 		9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F671ED9E34C0044F3DD /* FuelType.swift */; };
@@ -98,6 +99,7 @@
 		9E4A034D1EF05A100016AB46 /* StatisticsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E4A034F1EF11FB80016AB46 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		9E4A03511EF15E480016AB46 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		9E4A036C1EF54B6E0016AB46 /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPriceItem.swift; sourceTree = "<group>"; };
 		9E4A1F601ED775760044F3DD /* CheckFuelPrice-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CheckFuelPrice-Bridging-Header.h"; sourceTree = "<group>"; };
 		9E4A1F651ED9DEAA0044F3DD /* CFPEnumerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFPEnumerators.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				9E4A034D1EF05A100016AB46 /* StatisticsCollectionViewCell.swift */,
+				9E4A036C1EF54B6E0016AB46 /* StatisticsTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */,
 				9E1C038F1EE2B8140023BCED /* FuelPricesViewController.swift in Sources */,
 				9E4A1F731EDB22D90044F3DD /* Double+Extension.swift in Sources */,
+				9E4A036D1EF54B6E0016AB46 /* StatisticsTableViewCell.swift in Sources */,
 				9E4A03521EF15E480016AB46 /* UICollectionView+Extension.swift in Sources */,
 				9E1C039F1EE2BD020023BCED /* OrdersViewController.swift in Sources */,
 				9E4A034E1EF05A100016AB46 /* StatisticsCollectionViewCell.swift in Sources */,

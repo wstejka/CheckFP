@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,42 +36,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cdH-Y0-Yx6">
-                                <rect key="frame" x="15" y="8" width="47" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="cdH-Y0-Yx6" secondAttribute="height" id="MGf-yl-bu3"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A3J-4A-Sxa">
-                                <rect key="frame" x="0.0" y="63" width="375" height="604"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="40" id="bBg-e7-SMt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="40" id="bBg-e7-SMt" customClass="StatisticsTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bBg-e7-SMt" id="0XB-pw-yKy">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bt-ls-SpQ">
+                                                    <rect key="frame" x="8" y="10" width="91" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49H-ua-8ro">
+                                                    <rect key="frame" x="139" y="10" width="120" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Car-dN-0mA">
+                                                    <rect key="frame" x="283" y="10" width="64" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Car-dN-0mA" firstAttribute="top" secondItem="0XB-pw-yKy" secondAttribute="topMargin" constant="2" id="34E-S5-kiB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Car-dN-0mA" secondAttribute="trailing" constant="20" id="fiP-sR-ptW"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="price" destination="Car-dN-0mA" id="7Wx-ZC-NJD"/>
+                                            <outlet property="priceDescription" destination="49H-ua-8ro" id="kME-or-qy4"/>
+                                            <outlet property="timestamp" destination="2Bt-ls-SpQ" id="iZa-fh-NFf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cdH-Y0-Yx6" firstAttribute="leading" secondItem="gEn-a7-2HZ" secondAttribute="leading" constant="15" id="GN0-QF-gMN"/>
                             <constraint firstItem="A3J-4A-Sxa" firstAttribute="leading" secondItem="gEn-a7-2HZ" secondAttribute="leading" id="Hib-Jw-jVC"/>
                             <constraint firstItem="Rk5-Iy-XzA" firstAttribute="top" secondItem="A3J-4A-Sxa" secondAttribute="bottom" id="Nbb-D8-qEX"/>
-                            <constraint firstItem="cdH-Y0-Yx6" firstAttribute="top" secondItem="gEn-a7-2HZ" secondAttribute="top" constant="8" id="OLJ-MM-g7H"/>
-                            <constraint firstItem="cdH-Y0-Yx6" firstAttribute="width" secondItem="gEn-a7-2HZ" secondAttribute="width" multiplier="1:8" id="SFq-62-DeO"/>
-                            <constraint firstItem="A3J-4A-Sxa" firstAttribute="top" secondItem="cdH-Y0-Yx6" secondAttribute="bottom" constant="8" id="Tc1-ge-2cY"/>
                             <constraint firstAttribute="trailing" secondItem="A3J-4A-Sxa" secondAttribute="trailing" id="e2v-pI-oX0"/>
+                            <constraint firstItem="A3J-4A-Sxa" firstAttribute="top" secondItem="gEn-a7-2HZ" secondAttribute="top" id="j77-vx-f5K"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="A3J-4A-Sxa" id="LF3-RI-WwC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovw-I9-as4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2495.1999999999998" y="-648.12593703148434"/>
+            <point key="canvasLocation" x="2494.5" y="-648.5"/>
         </scene>
         <!--Statistics Graph View Controller-->
         <scene sceneID="cKF-Pa-VxK">

@@ -41,7 +41,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
     
     // MARK: - properties
 
-    @IBOutlet var barChartView: BarChartView!
+    @IBOutlet weak var barChartView: BarChartView!
 
     
     // MARK: - UIViewController Lifecycle
