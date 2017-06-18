@@ -533,6 +533,7 @@
 				9E5C84331EA0CC5800C7DFA7 /* Embed Frameworks */,
 				605A275EA21D76D79EA78F84 /* [CP] Embed Pods Frameworks */,
 				92CAE1A431714AC6396D8CCA /* [CP] Copy Pods Resources */,
+				9E1E7F091EF67976008FC7F5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -666,6 +667,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9E1E7F091EF67976008FC7F5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run bd9827cffe79ef479d2580acfa51ace09e5c0f6b f6a92ed2c9f71d335b7b200c57277691d2f2fcc3e8e1017980b2c06c71e860d7";
 		};
 		F1070182D677C2A439CC6546 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -871,6 +885,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 49Y3335455;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

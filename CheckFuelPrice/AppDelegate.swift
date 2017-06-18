@@ -11,6 +11,9 @@ import SwiftyBeaver
 import Firebase
 import Charts
 import Chameleon
+import Fabric
+import Crashlytics
+
 
 // MARK: public constants
 let log = SwiftyBeaver.self
@@ -41,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             log.verbose("========== UNIT TESTING ==============")
             return true
         }
+    
+        // === Configure Crashlythics =====/
+        Fabric.with([Crashlytics.self])
         
         // === Configure Firebase ==== //
         FirebaseApp.configure()
@@ -50,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // === Configure Theme ==== //
 //        Chameleon.setGlobalThemeUsingPrimaryColor(.flatSkyBlue(), withSecondaryColor: .flatSkyBlue(), andContentStyle: UIContentStyle.contrast)
         
+    
         return true
     }
 

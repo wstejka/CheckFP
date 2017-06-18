@@ -10,5 +10,8 @@ target 'CheckFuelPrice' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Performance'
+  # Due to information from Firebase team Crashlytics will become soon the first crash reporter
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end

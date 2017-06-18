@@ -96,6 +96,10 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
         // Customize xAxis values
         barChartView.xAxis.valueFormatter = XValsFormatter(xVals: dataPoints)
         barChartView.xAxis.setLabelCount(Int(dataPoints.count / self.chartXAxisLabelCounterDivider), force: true)
+        
+        barChartView.leftAxis.axisMinimum = 1900.0
+        barChartView.leftAxis.axisMaximum = 4000.0
+        
         // Add animation
         barChartView.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.easeOutCubic)
     }

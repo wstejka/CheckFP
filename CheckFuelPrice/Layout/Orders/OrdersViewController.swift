@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Crashlytics
+
 
 class OrdersViewController: UIViewController {
 
@@ -22,6 +24,11 @@ class OrdersViewController: UIViewController {
     }
     
 
+    @IBAction func crashButton(_ sender: Any) {
+        Crashlytics.sharedInstance().crash()
+    }
+    
+    
     /*
     // MARK: - Navigation
 
