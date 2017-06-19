@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="2Hl-Kt-MIh">
             <objects>
-                <viewController id="SDr-pF-OzE" sceneMemberID="viewController">
+                <viewController id="SDr-pF-OzE" customClass="LoginViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YKQ-65-axo"/>
                         <viewControllerLayoutGuide type="bottom" id="T5Q-SN-BbY"/>
@@ -44,6 +44,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="SDr-pF-OzE" eventType="touchUpInside" id="4c1-Zy-Jc5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCH-Kh-hLy">
                                 <rect key="frame" x="87.5" y="339" width="200" height="30"/>
@@ -82,10 +85,27 @@
                             <constraint firstItem="hCH-Kh-hLy" firstAttribute="centerX" secondItem="zbu-Bq-26H" secondAttribute="centerX" id="yNp-f4-TjE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="headingLable" destination="GDR-D0-9Lo" id="Q7i-ww-G4V"/>
+                        <outlet property="loginButton" destination="ze1-OX-6GM" id="Mft-Te-UNS"/>
+                        <outlet property="loginTestField" destination="EG2-5c-YJe" id="uSr-Kw-WhC"/>
+                        <outlet property="passwordButtonPressed" destination="hCH-Kh-hLy" id="nG0-an-HLI"/>
+                        <outlet property="passwordTextField" destination="dk8-Sk-8dW" id="bIq-sJ-X4O"/>
+                        <outlet property="singUpButton" destination="hCH-Kh-hLy" id="r7j-lM-dET"/>
+                        <segue destination="uZ6-Ov-LNu" kind="show" identifier="GoToMainViewSegue" id="06i-b7-lUl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3o-ig-kyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="661.60000000000002" y="88.605697151424295"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="69z-ly-gHj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="uZ6-Ov-LNu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yz0-eL-RgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1692" y="88"/>
         </scene>
     </scenes>
 </document>
