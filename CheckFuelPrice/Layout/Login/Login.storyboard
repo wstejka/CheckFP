@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SDr-pF-OzE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="2Hl-Kt-MIh">
+            <objects>
+                <viewController id="SDr-pF-OzE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YKQ-65-axo"/>
+                        <viewControllerLayoutGuide type="bottom" id="T5Q-SN-BbY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zbu-Bq-26H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="login" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EG2-5c-YJe">
+                                <rect key="frame" x="87" y="180" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="e51-ea-FFD"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dk8-Sk-8dW">
+                                <rect key="frame" x="87.5" y="232" width="200" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ze1-OX-6GM">
+                                <rect key="frame" x="87.5" y="287" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCH-Kh-hLy">
+                                <rect key="frame" x="87.5" y="339" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Sing up">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check Fuel Price" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDR-D0-9Lo">
+                                <rect key="frame" x="56.5" y="55" width="263.5" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="c2n-12-ylG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="35"/>
+                                <color key="textColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hCH-Kh-hLy" firstAttribute="width" secondItem="EG2-5c-YJe" secondAttribute="width" id="49z-5e-hy8"/>
+                            <constraint firstItem="EG2-5c-YJe" firstAttribute="top" secondItem="GDR-D0-9Lo" secondAttribute="bottom" constant="50" id="6jo-Vn-syl"/>
+                            <constraint firstItem="GDR-D0-9Lo" firstAttribute="centerX" secondItem="zbu-Bq-26H" secondAttribute="centerX" id="9xR-ks-RZh"/>
+                            <constraint firstItem="ze1-OX-6GM" firstAttribute="centerX" secondItem="zbu-Bq-26H" secondAttribute="centerX" id="DCs-8t-SXx"/>
+                            <constraint firstItem="hCH-Kh-hLy" firstAttribute="top" secondItem="ze1-OX-6GM" secondAttribute="bottom" constant="22" id="F7I-ZA-BMy"/>
+                            <constraint firstItem="ze1-OX-6GM" firstAttribute="top" secondItem="dk8-Sk-8dW" secondAttribute="bottom" constant="25" id="G6s-gG-vK6"/>
+                            <constraint firstItem="dk8-Sk-8dW" firstAttribute="centerX" secondItem="zbu-Bq-26H" secondAttribute="centerX" id="GOA-hQ-Qoy"/>
+                            <constraint firstItem="GDR-D0-9Lo" firstAttribute="width" secondItem="zbu-Bq-26H" secondAttribute="width" multiplier="0.7" constant="1" id="GYd-aj-egB"/>
+                            <constraint firstItem="EG2-5c-YJe" firstAttribute="width" relation="lessThanOrEqual" secondItem="zbu-Bq-26H" secondAttribute="width" multiplier="0.4" priority="500" constant="50" id="NmI-IL-fhc"/>
+                            <constraint firstItem="dk8-Sk-8dW" firstAttribute="top" secondItem="EG2-5c-YJe" secondAttribute="bottom" constant="22" id="lvP-sU-qx8"/>
+                            <constraint firstItem="GDR-D0-9Lo" firstAttribute="top" secondItem="YKQ-65-axo" secondAttribute="bottom" constant="35" id="oF4-tg-5bH"/>
+                            <constraint firstItem="EG2-5c-YJe" firstAttribute="width" secondItem="dk8-Sk-8dW" secondAttribute="width" id="oX2-qa-vvr"/>
+                            <constraint firstItem="EG2-5c-YJe" firstAttribute="centerX" secondItem="zbu-Bq-26H" secondAttribute="centerX" id="urb-sa-Wc3"/>
+                            <constraint firstItem="ze1-OX-6GM" firstAttribute="width" secondItem="EG2-5c-YJe" secondAttribute="width" id="uyc-rH-x4J"/>
+                            <constraint firstItem="hCH-Kh-hLy" firstAttribute="centerX" secondItem="zbu-Bq-26H" secondAttribute="centerX" id="yNp-f4-TjE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3o-ig-kyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661.60000000000002" y="88.605697151424295"/>
+        </scene>
+    </scenes>
+</document>
