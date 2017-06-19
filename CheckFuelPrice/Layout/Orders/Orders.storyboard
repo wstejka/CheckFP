@@ -22,9 +22,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6G-8j-ab8">
-                                <rect key="frame" x="164" y="283" width="46" height="30"/>
+                                <rect key="frame" x="167" y="283" width="41" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Crash"/>
                                 <connections>
                                     <action selector="crashButton:" destination="ZCb-Ah-lj0" eventType="touchUpInside" id="uXy-yU-cry"/>
                                 </connections>
@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atZ-gg-vCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1926" y="-242"/>
+            <point key="canvasLocation" x="1925.5999999999999" y="-242.42878560719643"/>
         </scene>
     </scenes>
 </document>

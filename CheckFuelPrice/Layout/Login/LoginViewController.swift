@@ -34,9 +34,14 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        log.verbose("entered")
+        log.verbose("entered: \(segue.identifier ?? "")")
+        
     }
 
+    
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+        
+    }
     
     //  MARK: Actions
     @IBAction func loginButtonPressed(_ sender: UIButton) {
