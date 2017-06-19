@@ -28,6 +28,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         log.verbose("entered")
+        loginTestField.placeholder = "login".localized().localizedCapitalized
+        passwordTextField.placeholder = "password".localized().localizedCapitalized
         
     }
     

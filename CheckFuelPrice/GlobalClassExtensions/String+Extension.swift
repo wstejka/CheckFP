@@ -18,6 +18,10 @@ extension String {
     func localized(withComment:String) -> String {
         return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "test", comment: withComment)
     }
+
+    func localized() -> String {
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
+    }
     
 }
 
