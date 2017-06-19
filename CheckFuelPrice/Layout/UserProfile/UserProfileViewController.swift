@@ -50,9 +50,9 @@ extension UserProfileViewController: UITableViewDataSource {
         cell.contentView.addSubview(label)
         label.font = UIFont(name: label.font.fontName, size: 14)
 
-        label.text = descriptionText
+        label.text = descriptionText.localized().capitalized
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: cell.topAnchor , constant: 10).isActive = true
+        label.centerYAnchor.constraint(equalTo: cell.centerYAnchor, constant: 0).isActive = true
         label.leadingAnchor.constraint(equalTo: button.trailingAnchor, constant: 30).isActive = true
         label.widthAnchor.constraint(equalTo: cell.widthAnchor, multiplier: 0.4).isActive = true
 
@@ -75,13 +75,15 @@ class UserProfileViewController: UIViewController {
 
     // MARK: Constants/Variable
     let profileOptionsArray : [ProfileOption : [ProfileOptionProperty : String]] =
-        [.personalData : [.name : "Personal data", .photo : "businessCard"],
-         .changePhoto : [.name : "Change photo", .photo : ""],
-         .singOut : [.name : "Sing out", .photo : ""]]
+        [.personalData : [.name : "personalData", .photo : "businessCard"],
+         .changePhoto : [.name : "changePhoto", .photo : ""],
+         .coordinates : [.name : "coordinates", .photo : ""],
+         .singOut : [.name : "singOut", .photo : ""]]
     
     enum ProfileOption : Int {
         case personalData
         case changePhoto
+        case coordinates
         case singOut
     }
     

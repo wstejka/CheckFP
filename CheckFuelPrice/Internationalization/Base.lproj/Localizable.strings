@@ -6,8 +6,15 @@
  Copyright © 2017 Wojciech Stejka. All rights reserved.
  */
 
+// Login
 login = "login";
 password = "password";
+
+// User's profile
+personalData = "personal data";
+changePhoto = "change photo";
+coordinates = "coordinates";
+singOut = "sign out";
 
 AppHeading = "Current Fuel Prices";
 unleaded95 = "Unleaded 95";

@@ -6,8 +6,15 @@
  Copyright © 2017 Wojciech Stejka. All rights reserved.
  */
 
+// Login
 login = "użytkownik";
 password = "hasło";
+
+// User's profile
+personalData = "dane osobowe";
+changePhoto = "zmień zdjęcie";
+coordinates = "współrzędne";
+singOut = "wyloguj";
 
 AppHeading = "Aktualne ceny paliw";
 unleaded95 = "Bezołowiowa 95";
