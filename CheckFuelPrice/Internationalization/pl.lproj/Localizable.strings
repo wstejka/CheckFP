@@ -16,6 +16,11 @@ changePhoto = "zmień zdjęcie";
 coordinates = "współrzędne";
 singOut = "wyloguj";
 
+// General
+answerYes = "yes";
+answerNo = "no";
+doyouwanttosignout = "czy chcesz się wylogować";
+
 AppHeading = "Aktualne ceny paliw";
 unleaded95 = "Bezołowiowa 95";
 unleaded98 = "Bezołowiowa 98";

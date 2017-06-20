@@ -16,6 +16,11 @@ changePhoto = "change photo";
 coordinates = "coordinates";
 singOut = "sign out";
 
+// General
+answerYes = "yes";
+answerNo = "no";
+doyouwanttosignout = "do you want to sing out";
+
 AppHeading = "Current Fuel Prices";
 unleaded95 = "Unleaded 95";
 unleaded98 = "Unleaded 98";

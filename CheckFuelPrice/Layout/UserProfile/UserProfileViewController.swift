@@ -60,8 +60,6 @@ extension UserProfileViewController: UITableViewDataSource {
         label.centerYAnchor.constraint(equalTo: cell.centerYAnchor, constant: 0).isActive = true
         label.leadingAnchor.constraint(equalTo: button.trailingAnchor, constant: 30).isActive = true
         label.trailingAnchor.constraint(equalTo: cell.trailingAnchor).isActive = true
-//        label.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 20).isActive = true
-//        label.widthAnchor.constraint(equalTo: cell.widthAnchor, multiplier: 0.4).isActive = true
 
         return cell
     }
@@ -73,14 +71,34 @@ extension UserProfileViewController: UITableViewDataSource {
 
 extension UserProfileViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        log.verbose("didSelectRowAt")
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        log.verbose("heightForRowAt")
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {        
         return 50.0
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        log.verbose("didSelectRowAtIndex: \(indexPath.row), type: \(ProfileOption.singOut.rawValue)")
+        
+        if indexPath.row == ProfileOption.singOut.rawValue {
+            let title = "doyouwanttosignout".localized().capitalizingFirstLetter() + " ?"
+            let actionSheet = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
+            let signoutAction = UIAlertAction(title : "Yes", style : UIAlertActionStyle.default){
+                (action) in
+                log.verbose("Yes")
+                self.performSegue(withIdentifier: self.signOutSegueName, sender: nil)
+                
+            }
+            let ignoreAction = UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { action in
+                log.verbose("No")
+            })
+            
+            actionSheet.addAction(ignoreAction)
+            actionSheet.addAction(signoutAction)
+            
+            self.present(actionSheet, animated: true, completion: {
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            })
+            
+        }
     }
 
 }
@@ -108,6 +126,8 @@ class UserProfileViewController: UIViewController {
         case photo
         case color
     }
+    
+    let signOutSegueName = "unwindToLoginWithSegue"
     
     // MARK: - Properties
     

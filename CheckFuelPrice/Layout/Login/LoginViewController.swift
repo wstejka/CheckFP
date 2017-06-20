@@ -33,14 +33,16 @@ class LoginViewController: UIViewController {
         
     }
     
+
+    // MARK: - Segues
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         log.verbose("entered: \(segue.identifier ?? "")")
         
     }
 
-    
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
-        
+        log.verbose("entered")
     }
     
     //  MARK: Actions
@@ -50,7 +52,9 @@ class LoginViewController: UIViewController {
 
     }
     
-    @IBOutlet weak var passwordButtonPressed: UIButton!
+    @IBAction func singUpButtonPressed(_ sender: Any) {
+        log.verbose("entered")
+    }
 
 
 }

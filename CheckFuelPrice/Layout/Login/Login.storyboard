@@ -55,6 +55,9 @@
                                 <state key="normal" title="Sing up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="singUpButtonPressed:" destination="SDr-pF-OzE" eventType="touchUpInside" id="M9y-ia-CZx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check Fuel Price" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDR-D0-9Lo">
                                 <rect key="frame" x="56.5" y="55" width="263.5" height="75"/>
@@ -89,7 +92,6 @@
                         <outlet property="headingLable" destination="GDR-D0-9Lo" id="Q7i-ww-G4V"/>
                         <outlet property="loginButton" destination="ze1-OX-6GM" id="Mft-Te-UNS"/>
                         <outlet property="loginTestField" destination="EG2-5c-YJe" id="uSr-Kw-WhC"/>
-                        <outlet property="passwordButtonPressed" destination="hCH-Kh-hLy" id="nG0-an-HLI"/>
                         <outlet property="passwordTextField" destination="dk8-Sk-8dW" id="bIq-sJ-X4O"/>
                         <outlet property="singUpButton" destination="hCH-Kh-hLy" id="r7j-lM-dET"/>
                         <segue destination="uZ6-Ov-LNu" kind="show" identifier="GoToMainViewSegue" id="06i-b7-lUl"/>
