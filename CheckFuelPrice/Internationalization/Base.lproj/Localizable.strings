@@ -7,8 +7,11 @@
  */
 
 // Login
+loginPlaceholder = "login";
+passwordPlaceholder = "password";
 login = "login";
-password = "password";
+signUp = "sing up";
+
 
 // User's profile
 personalData = "personal data";

@@ -81,13 +81,14 @@ extension UserProfileViewController: UITableViewDelegate {
         if indexPath.row == ProfileOption.singOut.rawValue {
             let title = "doyouwanttosignout".localized().capitalizingFirstLetter() + " ?"
             let actionSheet = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
-            let signoutAction = UIAlertAction(title : "Yes", style : UIAlertActionStyle.default){
+            let signoutAction = UIAlertAction(title : "answerYes".localized().capitalizingFirstLetter(), style : UIAlertActionStyle.default){
                 (action) in
                 log.verbose("Yes")
                 self.performSegue(withIdentifier: self.signOutSegueName, sender: nil)
                 
             }
-            let ignoreAction = UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { action in
+            let ignoreAction = UIAlertAction(title: "answerNo".localized().capitalizingFirstLetter(),
+                                             style: UIAlertActionStyle.default, handler: { action in
                 log.verbose("No")
             })
             
@@ -102,8 +103,6 @@ extension UserProfileViewController: UITableViewDelegate {
     }
 
 }
-
-
 
 class UserProfileViewController: UIViewController {
 

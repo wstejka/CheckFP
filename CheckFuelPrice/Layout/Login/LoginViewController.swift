@@ -28,8 +28,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         log.verbose("entered")
-        loginTestField.placeholder = "login".localized().localizedCapitalized
-        passwordTextField.placeholder = "password".localized().localizedCapitalized
+        loginTestField.placeholder = "loginPlaceholder".localized().localizedCapitalized
+        passwordTextField.placeholder = "passwordPlaceholder".localized().localizedCapitalized
+        loginButton.setTitle("login".localized().capitalizingFirstLetter(), for: UIControlState.normal)
+        singUpButton.setTitle("signUp".localized().capitalizingFirstLetter(), for: UIControlState.normal)
         
     }
     

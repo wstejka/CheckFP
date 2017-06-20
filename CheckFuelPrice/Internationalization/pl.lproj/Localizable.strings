@@ -7,8 +7,10 @@
  */
 
 // Login
-login = "użytkownik";
-password = "hasło";
+loginPlaceholder = "użytkownik";
+passwordPlaceholder = "hasło";
+login = "Zaloguj";
+signUp = "Zarejestruj się";
 
 // User's profile
 personalData = "dane osobowe";
@@ -17,8 +19,8 @@ coordinates = "współrzędne";
 singOut = "wyloguj";
 
 // General
-answerYes = "yes";
-answerNo = "no";
+answerYes = "tak";
+answerNo = "nie";
 doyouwanttosignout = "czy chcesz się wylogować";
 
 AppHeading = "Aktualne ceny paliw";
