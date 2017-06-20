@@ -41,15 +41,11 @@ extension UserProfileViewController: UITableViewDataSource {
         button.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
         button.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 30).isActive = true
         button.widthAnchor.constraint(equalTo: button.heightAnchor, constant: 0).isActive = true
-        button.topAnchor.constraint(equalTo: cell.topAnchor, constant: 0).isActive = true
-        button.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: 0).isActive = true
+        button.heightAnchor.constraint(equalTo: cell.heightAnchor, multiplier: 0.8).isActive = true
         
         let tintedImage = UIImage(named: imageName )?.tinted()
         button.tintColor = ThemesManager.instance().get(color: color)
         button.setImage(tintedImage, for: .normal)
-
-        
-//        button.imageView?.tintColor = self.colors[indexPath.row]
         button.imageView?.translatesAutoresizingMaskIntoConstraints = false
         button.imageView?.topAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
 
@@ -69,18 +65,27 @@ extension UserProfileViewController: UITableViewDataSource {
 
         return cell
     }
-    
+
     func buttonAction(sender: UIButton!) {
-        log.verbose("Button tapped")
+        log.verbose("Button tapped: \(sender.description)")
     }
 }
 
 extension UserProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        log.verbose("didSelectRowAt")
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        log.verbose("heightForRowAt")
+        return 50.0
+    }
+
 }
+
+
 
 class UserProfileViewController: UIViewController {
 
@@ -88,8 +93,8 @@ class UserProfileViewController: UIViewController {
     let profileOptionsArray : [ProfileOption : [ProfileOptionProperty : Any]] =
         [.personalData : [.name : "personalData", .photo : "businessCard", .color : ThemesManager.Colors.blue],
          .changePhoto : [.name : "changePhoto", .photo : "camera", .color : ThemesManager.Colors.orange],
-         .coordinates : [.name : "coordinates", .photo : "businessCard", .color : ThemesManager.Colors.yellow],
-         .singOut : [.name : "singOut", .photo : "camera", .color : ThemesManager.Colors.lightBlue]]
+         .coordinates : [.name : "coordinates", .photo : "location", .color : ThemesManager.Colors.yellow],
+         .singOut : [.name : "singOut", .photo : "logout", .color : ThemesManager.Colors.lightBlue]]
     
     enum ProfileOption : Int {
         case personalData
@@ -114,6 +119,7 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         
         self.tableView.dataSource = self
+        self.tableView.delegate = self
 
         // Do any additional setup after loading the view.
         
