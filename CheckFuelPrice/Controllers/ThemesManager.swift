@@ -24,6 +24,18 @@ struct ThemesManager {
                     .orange : .tangerineCrayonColor]
     }()
     
+    enum FuelColor : Int {
+        case unleaded95
+    }
+
+    lazy var fuelPriceColors: [ThemesManager.Colors : UIColor] = {
+        
+        return [.blue : .aquaCrayonColor,
+                .lightBlue : .dodgerBlueHTMLColor,
+                .yellow : .cantalopeCrayonColor,
+                .orange : .tangerineCrayonColor]
+    }()
+
     
     // MARK: Singleton lifecycle
     

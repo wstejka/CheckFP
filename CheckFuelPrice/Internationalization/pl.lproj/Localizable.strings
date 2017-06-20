@@ -23,7 +23,7 @@ answerYes = "tak";
 answerNo = "nie";
 doyouwanttosignout = "czy chcesz się wylogować";
 
-AppHeading = "Aktualne ceny paliw";
+AppHeading = "aktualne ceny paliw";
 unleaded95 = "Bezołowiowa 95";
 unleaded98 = "Bezołowiowa 98";
 diesel = "Diesel";
@@ -31,8 +31,13 @@ dieselIZ40 = "Diesel Premium";
 dieselHeating = "Diesel opałowy";
 lpg = "Lpg";
 
+// Ceny
 highestPriceLabel = "najwyższa cena";
 lowestPriceLabel = "najniższa cena";
+highest = "najwyższa";
+lowest = "najniższa";
+pricePerDay = "cena na dzień";
+
 
 currentFuelPrices = "ceny paliw";
 currentFuelPrice = "aktualna cena paliwa";
@@ -41,15 +46,15 @@ withVat = "z VAT";
 timestamp = "na dzień";
 
 
-orders = "Moje zamówienia";
-statistics = "Statystyki";
-settings = "Ustawienia";
+orders = "moje zamówienia";
+statistics = "statystyki";
+settings = "ustawienia";
 
-mainTab1Name = "Dane";
-mainTab2Name = "Statystyki";
+mainTab1Name = "dane";
+mainTab2Name = "statystyki";
 
-weekly = "Tygodniowy";
-monthly = "Miesięczny";
-annually = "Roczny";
+weekly = "tygodniowy";
+monthly = "miesięczny";
+annually = "roczny";
 
-downloadingData = "Pobieram dane ...";
+downloadingData = "pobieram dane ...";

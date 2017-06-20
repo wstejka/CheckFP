@@ -18,6 +18,7 @@ class FuelPricesTableViewCell: UITableViewCell {
     @IBOutlet weak var highestPriceValue: UILabel!
     @IBOutlet weak var lowestPriceName: UILabel!
     @IBOutlet weak var lowestPricesValue: UILabel!
+    @IBOutlet weak var perDateLabel: UILabel!
 
 
 }

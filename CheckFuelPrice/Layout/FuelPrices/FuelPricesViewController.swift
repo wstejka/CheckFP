@@ -29,13 +29,14 @@ extension FuelPricesViewController: UITableViewDataSource {
         let objectHandler = self.items[indexPath.row]
         fuelPriceCell.highestPriceName.text = LabelDescriptions.highestPriceLabel.rawValue.localized(withDefaultValue: "")
         fuelPriceCell.lowestPriceName.text = LabelDescriptions.lowestPriceLabel.rawValue.localized(withDefaultValue: "")
-        fuelPriceCell.highestPriceValue.text = String(objectHandler.currentHighestPrice)
-        fuelPriceCell.lowestPricesValue.text = String(objectHandler.currentLowestPrice)
+        fuelPriceCell.highestPriceValue.text = String(format: "%.1f", objectHandler.currentHighestPrice)
+        fuelPriceCell.lowestPricesValue.text = String(format: "%.1f", objectHandler.currentLowestPrice)
+        fuelPriceCell.perDateLabel.text = Double(objectHandler.timestamp).timestampToString()
+        fuelPriceCell.fuelName.text = objectHandler.name.localized()
         
         if let image = UIImage(named: objectHandler.name) {
             fuelPriceCell.fuelImage.image = image
-            //            customViewCell.logoImageView.contentMode = .scaleAspectFit
-            fuelPriceCell.fuelImage.layer.cornerRadius = 10 
+            fuelPriceCell.fuelImage.layer.cornerRadius = 10
             fuelPriceCell.fuelImage.clipsToBounds = true
         }
         else
@@ -56,13 +57,16 @@ class FuelPricesViewController: UIViewController {
     var observerHandle : DatabaseHandle = 0
     
     enum LabelDescriptions : String {
-        case highestPriceLabel = "highestPriceLabel"
-        case lowestPriceLabel = "lowestPriceLabel"
+        case highestPriceLabel = "highest"
+        case lowestPriceLabel = "lowest"
+        case pricePerDay = "pricePerDay"
     }
     let customTableViewCellName = "FuelPricesTableViewCell"
     
     // MARK: - properties
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableHeaderView: UIView!
+    @IBOutlet weak var pricePerDayLabel: UILabel!
     
     
     // MARK: - UIViewController Lifecycle
@@ -74,6 +78,8 @@ class FuelPricesViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        self.pricePerDayLabel.text = "AppHeading".localized().capitalizingFirstLetter() + ":"
+
         // Configure reference to firebase node
         self.refFuelTypes = Database.database().reference(withPath: FirebaseNode.fuelType.rawValue)
         DispatchQueue.global().async {
@@ -99,6 +105,7 @@ class FuelPricesViewController: UIViewController {
                 
                 selfweak.items = newItems
                 selfweak.tableView.reloadData()
+                
             })
         }
     }

@@ -24,7 +24,7 @@ answerYes = "yes";
 answerNo = "no";
 doyouwanttosignout = "do you want to sing out";
 
-AppHeading = "Current Fuel Prices";
+AppHeading = "current Fuel Prices";
 unleaded95 = "Unleaded 95";
 unleaded98 = "Unleaded 98";
 diesel = "Diesel";
@@ -32,8 +32,12 @@ dieselIZ40 = "Diesel Super";
 dieselHeating = "Diesel Heating";
 lpg = "Lpg gas";
 
+// Prices
 highestPriceLabel = "highest price";
 lowestPriceLabel = "lowest price";
+highest = "highest";
+lowest = "lowest";
+pricePerDay = "price per day";
 
 currentFuelPrices = "Fuel prices";
 currentFuelPrice = "current fuel price";
@@ -42,15 +46,15 @@ withVat = "w/ VAT";
 timestamp = "timestamp";
 
 
-orders = "My orders";
-statistics = "Statistics";
-settings = "Settings";
+orders = "my orders";
+statistics = "statistics";
+settings = "settings";
 
-mainTab1Name = "Data";
-mainTab2Name = "Statistics";
+mainTab1Name = "data";
+mainTab2Name = "statistics";
 
-weekly = "Weekly";
-monthly = "Monthly";
-annually = "Annually";
+weekly = "weekly";
+monthly = "monthly";
+annually = "annually";
 
-downloadingData = "Downloading data ...";
+downloadingData = "downloading data ...";
