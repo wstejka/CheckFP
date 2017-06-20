@@ -20,13 +20,16 @@ extension UserProfileViewController: UITableViewDataSource {
         let cell = UITableViewCell()
         guard let profileOption = ProfileOption(rawValue: indexPath.row),
             let descriptionNode = self.profileOptionsArray[profileOption],
-            let descriptionText = descriptionNode[ProfileOptionProperty.name],
-            let imageName = descriptionNode[ProfileOptionProperty.photo] else {
+            let descriptionText = descriptionNode[ProfileOptionProperty.name] as? String,
+            let imageName = descriptionNode[ProfileOptionProperty.photo] as? String,
+            let color = descriptionNode[ProfileOptionProperty.color] as? ThemesManager.Colors else {
                 return cell
         }
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         
         // Let's add objects to UIView programmatically !!
+        // Remark: Much more efficient and easy way is to use the storyboard and it's features ...
+        //         The reason I'm doing it here is to present that it's possible and how to do it
         // ======= Button ======= //
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50.0, height: 30.0))
         cell.addSubview(button)
@@ -35,12 +38,18 @@ extension UserProfileViewController: UITableViewDataSource {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         // button's constraints
-        button.topAnchor.constraint(equalTo: cell.topAnchor, constant: 0).isActive = true
+        button.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
         button.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 30).isActive = true
-        button.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: 0).isActive = true
         button.widthAnchor.constraint(equalTo: button.heightAnchor, constant: 0).isActive = true
+        button.topAnchor.constraint(equalTo: cell.topAnchor, constant: 0).isActive = true
+        button.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: 0).isActive = true
+        
+        let tintedImage = UIImage(named: imageName )?.tinted()
+        button.tintColor = ThemesManager.instance().get(color: color)
+        button.setImage(tintedImage, for: .normal)
 
-        button.setImage(UIImage(named: imageName), for: .normal)
+        
+//        button.imageView?.tintColor = self.colors[indexPath.row]
         button.imageView?.translatesAutoresizingMaskIntoConstraints = false
         button.imageView?.topAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
 
@@ -54,7 +63,9 @@ extension UserProfileViewController: UITableViewDataSource {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.centerYAnchor.constraint(equalTo: cell.centerYAnchor, constant: 0).isActive = true
         label.leadingAnchor.constraint(equalTo: button.trailingAnchor, constant: 30).isActive = true
-        label.widthAnchor.constraint(equalTo: cell.widthAnchor, multiplier: 0.4).isActive = true
+        label.trailingAnchor.constraint(equalTo: cell.trailingAnchor).isActive = true
+//        label.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 20).isActive = true
+//        label.widthAnchor.constraint(equalTo: cell.widthAnchor, multiplier: 0.4).isActive = true
 
         return cell
     }
@@ -74,11 +85,11 @@ extension UserProfileViewController: UITableViewDelegate {
 class UserProfileViewController: UIViewController {
 
     // MARK: Constants/Variable
-    let profileOptionsArray : [ProfileOption : [ProfileOptionProperty : String]] =
-        [.personalData : [.name : "personalData", .photo : "businessCard"],
-         .changePhoto : [.name : "changePhoto", .photo : ""],
-         .coordinates : [.name : "coordinates", .photo : ""],
-         .singOut : [.name : "singOut", .photo : ""]]
+    let profileOptionsArray : [ProfileOption : [ProfileOptionProperty : Any]] =
+        [.personalData : [.name : "personalData", .photo : "businessCard", .color : ThemesManager.Colors.blue],
+         .changePhoto : [.name : "changePhoto", .photo : "camera", .color : ThemesManager.Colors.orange],
+         .coordinates : [.name : "coordinates", .photo : "businessCard", .color : ThemesManager.Colors.yellow],
+         .singOut : [.name : "singOut", .photo : "camera", .color : ThemesManager.Colors.lightBlue]]
     
     enum ProfileOption : Int {
         case personalData
@@ -90,6 +101,7 @@ class UserProfileViewController: UIViewController {
     enum ProfileOptionProperty : Int {
         case name
         case photo
+        case color
     }
     
     // MARK: - Properties

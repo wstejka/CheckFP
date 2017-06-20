@@ -293,4 +293,8 @@ public extension UIImage {
         
         return outputImage
     }
+    
+    public func tinted() -> UIImage {
+        return self.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+    }
 }
