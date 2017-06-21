@@ -158,7 +158,7 @@ class StatisticsPageViewController: UIPageViewController {
             
             log.verbose("range keys \(startingKey) - \(endingKey)")
             
-            // request using key: producent/fuel type/timestamp
+            // request using key: producent/fuel_type/timestamp
             self.refFuelPriceItems!.queryOrdered(byChild: "P_FT_T").queryStarting(atValue: startingKey).queryEnding(atValue: endingKey).observeSingleEvent(of: .value, with: { [weak self] snapshot in
                 
                 guard let selfweak = self else {

@@ -1,7 +1,17 @@
 PODS:
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
+  - FBSDKCoreKit (4.22.1):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.22.1):
+    - FBSDKCoreKit
   - Firebase/Auth (4.0.0):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -35,6 +45,19 @@ PODS:
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.1)
+  - FirebaseUI/Auth (4.0.0):
+    - Firebase/Auth
+  - FirebaseUI/Facebook (4.0.0):
+    - FBSDKLoginKit (~> 4.0)
+    - FirebaseUI/Auth
+  - FirebaseUI/Google (4.0.0):
+    - FirebaseUI/Auth
+    - GoogleSignIn (~> 4.0)
+  - GoogleSignIn (4.0.2):
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
@@ -47,7 +70,16 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - GTMOAuth2 (1.1.4):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.10):
+    - GTMSessionFetcher/Full (= 1.1.10)
   - GTMSessionFetcher/Core (1.1.10)
+  - GTMSessionFetcher/Full (1.1.10):
+    - GTMSessionFetcher/Core (= 1.1.10)
+  - HockeySDK (4.1.5):
+    - HockeySDK/DefaultLib (= 4.1.5)
+  - HockeySDK/DefaultLib (4.1.5)
   - Protobuf (3.3.0)
 
 DEPENDENCIES:
@@ -57,10 +89,17 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Performance
+  - FirebaseUI/Auth (~> 4.0)
+  - FirebaseUI/Facebook (~> 4.0)
+  - FirebaseUI/Google (~> 4.0)
+  - HockeySDK (~> 4.1.5)
 
 SPEC CHECKSUMS:
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  FBSDKCoreKit: 9c2daf0162214d6d2e21cf8208a9c6c2a2e42b9c
+  FBSDKLoginKit: 00cf28916b9f0169763a3d61985d745b579fe304
   Firebase: 284eea779b73fdff309791817da7c68bff8dd572
   FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -68,10 +107,14 @@ SPEC CHECKSUMS:
   FirebaseDatabase: d829b3a8c3e2ac7a16773c5df226966b0805dfc2
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   FirebasePerformance: 77cff325f2adfb20fc03fec32b9811870c1d5130
+  FirebaseUI: b9de05bfb4768db05f64ea90fc2f6a07b819118f
+  GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  HockeySDK: 606b537bbfbe454ee440e92cc93bc634b3c77151
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
 
-PODFILE CHECKSUM: f3ad4b3519aa7c9844653bc184f8d54a9650a3ed
+PODFILE CHECKSUM: fd44a4eb1506e8f29cd9ac855b0568f7c2bed7fa
 
 COCOAPODS: 1.2.1
