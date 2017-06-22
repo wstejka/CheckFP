@@ -126,7 +126,7 @@ class UserProfileViewController: UIViewController {
         case color
     }
     
-    let signOutSegueName = "unwindToLoginWithSegue"
+    let signOutSegueName = "unwindToFuelInfoAndSingOutWithSender"
     
     // MARK: - Properties
     

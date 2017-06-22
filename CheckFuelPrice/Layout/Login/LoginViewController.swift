@@ -43,9 +43,9 @@ class LoginViewController: UIViewController {
         
     }
 
-    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
-        log.verbose("entered")
-    }
+//    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+//        log.verbose("entered")
+//    }
     
     //  MARK: Actions
     @IBAction func loginButtonPressed(_ sender: UIButton) {

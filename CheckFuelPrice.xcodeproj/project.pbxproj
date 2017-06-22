@@ -304,13 +304,6 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		9E1E7F131EF7F2FB008FC7F5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		9E4A1F611ED775880044F3DD /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,13 +332,6 @@
 				9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		9E4A1F751EDC05860044F3DD /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 		9E4A1F871EDDF3070044F3DD /* FuelInfoTab */ = {
@@ -416,7 +402,6 @@
 			children = (
 				9E4A1FBC1EE0AC550044F3DD /* UserProfile.storyboard */,
 				9E1E7F101EF7EC84008FC7F5 /* Controller */,
-				9E1E7F131EF7F2FB008FC7F5 /* View */,
 			);
 			name = UserProfile;
 			sourceTree = "<group>";
@@ -426,7 +411,6 @@
 			children = (
 				9EA203231EA0BDBB00F18A3A /* Main.storyboard */,
 				9E4A1F741EDC05770044F3DD /* Controllers */,
-				9E4A1F751EDC05860044F3DD /* Views */,
 			);
 			name = Main;
 			sourceTree = "<group>";

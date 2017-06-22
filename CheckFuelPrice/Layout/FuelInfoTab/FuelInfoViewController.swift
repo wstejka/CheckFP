@@ -222,7 +222,12 @@ class FuelInfoViewController: UIViewController {
         }
         
     }
-    
+
     // MARK: - Actions
+    @IBAction func unwindToFuelInfoAndSingOut(sender: UIStoryboardSegue) {
+        
+        log.verbose("entered")
+        try! Auth.auth().signOut()
+    }
 
 }
