@@ -23,7 +23,7 @@ extension MainTabBarViewController: FUIAuthDelegate {
      @param error The error that occurred during sign in, if any.
      */
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        log.verbose("entered. error: \(String(describing: error))")
+        log.verbose("Authorization status: \(error == nil ? "Success" : "Fail")")
         if error != nil {
             //Problem signing in
             login()

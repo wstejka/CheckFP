@@ -12,11 +12,13 @@ import Charts
 import Chameleon
 import Fabric
 import Crashlytics
+import TwitterKit
 import Firebase
 import FirebaseGoogleAuthUI
 import FirebaseFacebookAuthUI
 import FirebaseTwitterAuthUI
 import FirebasePhoneAuthUI
+import Keys
 
 
 // MARK: public constants
@@ -55,9 +57,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // === Configure Theme ==== //
 //        Chameleon.setGlobalThemeUsingPrimaryColor(.flatSkyBlue(), withSecondaryColor: .flatSkyBlue(), andContentStyle: UIContentStyle.contrast)
         
+        
         // === Configure Firebase ==== //
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
+        
+        // === Set up Twitter consumer's key and secret 
+        let key = CheckFPKeys()
+        Twitter.sharedInstance().start(withConsumerKey:key.twitterConsumerKey, consumerSecret:key.twitterConsumerSecret)
 
         // ==== Use FIREBASE library to configure APIs
         let authUI = FUIAuth.defaultAuthUI()
@@ -101,7 +108,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         
-        print("XXX 12")
         let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
         if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
             return true

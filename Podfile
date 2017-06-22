@@ -25,5 +25,7 @@ end
 plugin 'cocoapods-keys', {
   :project => "CheckFP",
   :keys => [
-    "HockeyAppIdentifier"
+    "HockeyAppIdentifier",
+    "TwitterConsumerKey",
+    "TwitterConsumerSecret"
   ]}
