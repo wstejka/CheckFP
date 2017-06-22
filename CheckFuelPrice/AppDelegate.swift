@@ -8,11 +8,15 @@
 
 import UIKit
 import SwiftyBeaver
-import Firebase
 import Charts
 import Chameleon
 import Fabric
 import Crashlytics
+import Firebase
+import FirebaseGoogleAuthUI
+import FirebaseFacebookAuthUI
+import FirebaseTwitterAuthUI
+import FirebasePhoneAuthUI
 
 
 // MARK: public constants
@@ -48,13 +52,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // === Configure Crashlythics =====/
         Fabric.with([Crashlytics.self])
         
-        // === Configure Firebase ==== //
-        FirebaseApp.configure()
-        // TODO: enable persistence once the app will be finished
-        Database.database().isPersistenceEnabled = true
-        
         // === Configure Theme ==== //
 //        Chameleon.setGlobalThemeUsingPrimaryColor(.flatSkyBlue(), withSecondaryColor: .flatSkyBlue(), andContentStyle: UIContentStyle.contrast)
+        
+        // === Configure Firebase ==== //
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
+
+        // ==== Use FIREBASE library to configure APIs
+        let authUI = FUIAuth.defaultAuthUI()
+        let providers: [FUIAuthProvider] = [
+            FUIGoogleAuth(),
+            FUIFacebookAuth(),
+            FUITwitterAuth(),
+//            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
+            ]
+        
+        authUI?.providers = providers
         
     
         return true
@@ -82,6 +96,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // MARK: - Authentication/FirebaseAuthUI
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        
+        print("XXX 12")
+        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            return true
+        }
+        // other URL handling goes here.
+        return false
+    }
 
 }
 

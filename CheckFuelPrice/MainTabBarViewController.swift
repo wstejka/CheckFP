@@ -7,9 +7,59 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseAuthUI
 
+
+// MARK: - FirebaseUI extension
+extension MainTabBarViewController: FUIAuthDelegate {
+    
+    /** @fn authUI:didSignInWithUser:error:
+     @brief Message sent after the sign in process has completed to report the signed in user or
+     error encountered.
+     @param authUI The @c FUIAuth instance sending the message.
+     @param user The signed in user if the sign in attempt was successful.
+     @param error The error that occurred during sign in, if any.
+     */
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        log.verbose("entered. error: \(String(describing: error))")
+        if error != nil {
+            //Problem signing in
+            login()
+        }else {
+            // User is in! Here is where we code after signing in
+            // At the moment, we don't need to do anything here
+        }
+    }
+    
+    // MARK: - Authentication related
+    func login() {
+        let authUI = FUIAuth.defaultAuthUI()
+        let authViewController = authUI?.authViewController()
+        self.present(authViewController!, animated: true, completion: nil)
+    }
+    
+    func checkLoggedIn() {
+        
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                // User is signed in.
+            } else {
+                // No user is signed in.
+                self.login()
+            }
+        }
+    }
+}
+
+// MARK: - Implementation
 class MainTabBarViewController: UITabBarController {
+    
 
+
+    // MARK: - UIView lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +79,11 @@ class MainTabBarViewController: UITabBarController {
             // increment counter
             counter += 1
         }
+        
+        // Make this class delegate of
+        FUIAuth.defaultAuthUI()?.delegate = self
+        checkLoggedIn()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,15 +92,5 @@ class MainTabBarViewController: UITabBarController {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

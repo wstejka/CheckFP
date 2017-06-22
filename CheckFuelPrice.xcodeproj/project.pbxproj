@@ -318,6 +318,7 @@
 				9E5C84341EA0CD4200C7DFA7 /* Carthage Frameworks */,
 				9EA2032B1EA0BDBC00F18A3A /* Info.plist */,
 				9E4A1F601ED775760044F3DD /* CheckFuelPrice-Bridging-Header.h */,
+				9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */,
 			);
 			name = "Supporting files";
 			sourceTree = "<group>";
@@ -549,7 +550,6 @@
 		9EA203571EA0BF3A00F18A3A /* AppDelegates */ = {
 			isa = PBXGroup;
 			children = (
-				9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */,
 				9EA2031F1EA0BDBB00F18A3A /* AppDelegate.swift */,
 			);
 			name = AppDelegates;
