@@ -18,7 +18,6 @@ extension StatisticsTableViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        log.verbose("entered")
         guard let fuelPriceCell = self.tableView.dequeueReusableCell(withIdentifier: customTableViewCellName,
                                                                      for: indexPath) as? StatisticsTableViewCell else {
                                                                         

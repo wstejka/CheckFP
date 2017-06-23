@@ -23,6 +23,10 @@ answerYes = "tak";
 answerNo = "nie";
 doyouwanttosignout = "czy chcesz się wylogować";
 
+success = "sukces";
+fail = "błąd";
+loading = "loading";
+
 AppHeading = "aktualne ceny paliw";
 unleaded95 = "Bezołowiowa 95";
 unleaded98 = "Bezołowiowa 98";

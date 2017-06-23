@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EZLoadingActivity
 
 // Let's create generic to force existence of segment value
 protocol StatisticsGenericProtocol {
@@ -137,6 +138,7 @@ class StatisticsPageViewController: UIPageViewController {
     // Added for debugging purpose
     deinit {
         log.verbose("")
+        
     }
     
     // MARK: - Methods
@@ -144,7 +146,8 @@ class StatisticsPageViewController: UIPageViewController {
         
         // Configure reference to firebase node
         self.refFuelPriceItems = Database.database().reference(withPath: FirebaseNode.fuelPriceItem.rawValue)
-        Utils.customActivityIndicatory(self.view, startAnimate: true)
+//        self.startActivityIndicator()
+        ActivitiIndicatorManager.instance().start(with: 5)
         
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
             // Calculate current epoch timestamp
@@ -182,7 +185,9 @@ class StatisticsPageViewController: UIPageViewController {
 
                 // Run this command on main queue as it affects UI
                 DispatchQueue.main.async {
-                    Utils.customActivityIndicatory(selfweak.view, startAnimate: false)
+//                    _ = EZLoadingActivity.hide(success: true, animated: true)
+//                    selfweak.stopActivityIndicator()
+                    ActivitiIndicatorManager.instance().stop(with: .success)
                 }
                 selfweak.items = newItems
                 selfweak.notifyAllChildrenAboutChange(type: type)
@@ -208,20 +213,26 @@ class StatisticsPageViewController: UIPageViewController {
     }
 
     // MARK : - Activity indicator lifecycle
+    var setIconName = EZLoadingActivity.Settings.SuccessIcon
     
-    /* Note there is no needed to use below code as here is used the Utils.customActivityIndicatory
+    // Note there is no needed to use below code as here is used the Utils.customActivityIndicatory
     func startActivityIndicator() {
         
-        self.activityIndicator.center = self.view.center
-        self.activityIndicator.frame = CGRect(x:0.0,y: 0.0,width: 200.0, height: 200.0)
-        self.activityIndicator.hidesWhenStopped = true
-        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        self.view.addSubview(self.activityIndicator)
-        self.activityIndicator.startAnimating()
+        EZLoadingActivity.Settings.ActivityWidth = 120
+        EZLoadingActivity.Settings.ActivityHeight = 60
+        EZLoadingActivity.Settings.SuccessIcon = ""
+        EZLoadingActivity.Settings.SuccessText = ""
+        
+        _ = EZLoadingActivity.showWithDelay("Loading...", disableUI: true, seconds: 10)
     }
+    
     func stopActivityIndicator() {
-        self.activityIndicator.stopAnimating()
+        
+        EZLoadingActivity.Settings.SuccessIcon = setIconName
+//        EZLoadingActivity.Settings.SuccessText
+        _ = EZLoadingActivity.hide(success: true, animated: false)
+        
         
     }
-    */
+ 
 }

@@ -44,7 +44,7 @@ struct ThemesManager {
         // Here ThemesManager is instantatied 
         let startTime = Date().timeIntervalSinceNow
         let thisInstance = ThemesManager()
-        log.verbose("CFPManager instantiated in \((Date().timeIntervalSinceNow - startTime)) secs.")
+        log.verbose("ThemesManager instantiated in \((Date().timeIntervalSinceNow - startTime)) secs.")
         
         return thisInstance
     }()

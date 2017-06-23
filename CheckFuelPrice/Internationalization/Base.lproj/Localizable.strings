@@ -24,6 +24,10 @@ answerYes = "yes";
 answerNo = "no";
 doyouwanttosignout = "do you want to sing out";
 
+success = "success";
+fail = "fail";
+loading = "loading";
+
 AppHeading = "current Fuel Prices";
 unleaded95 = "Unleaded 95";
 unleaded98 = "Unleaded 98";
