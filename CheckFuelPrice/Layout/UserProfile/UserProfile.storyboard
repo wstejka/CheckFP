@@ -39,7 +39,6 @@
                     <connections>
                         <outlet property="tableView" destination="85l-kE-5UG" id="0cr-W0-LWS"/>
                         <segue destination="QEb-ZT-2fJ" kind="unwind" identifier="unwindToFuelInfoAndSingOutWithSender" unwindAction="unwindToFuelInfoAndSingOutWithSender:" id="we7-PP-t3Q"/>
-                        <segue destination="YsG-B5-GI5" kind="show" identifier="userProfilePersonalDataSegue" id="kOF-Cs-oAY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gG7-Nu-KHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mUC-Lm-0jC">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="93" id="16L-WW-ohO" customClass="UserProfilePersonalDataTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
@@ -97,12 +96,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="value" destination="vRb-Nf-N7C" id="ihe-a8-y8U"/>
-                                            <outlet property="valueDescription" destination="LGO-1c-cAi" id="wAb-ae-3E5"/>
+                                            <outlet property="valueLabel" destination="LGO-1c-cAi" id="0zD-IT-YHf"/>
+                                            <outlet property="valueTextField" destination="vRb-Nf-N7C" id="YOI-xi-BH1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2J-aN-x0x">
+                                <rect key="frame" x="313" y="20" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -112,13 +116,47 @@
                             <constraint firstItem="mUC-Lm-0jC" firstAttribute="top" secondItem="GDZ-ws-m9a" secondAttribute="bottom" id="o0s-DD-ZMD"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="l83-xa-yld">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="U5G-N4-ysV">
+                            <connections>
+                                <action selector="leftBarButtonPressed:" destination="YsG-B5-GI5" id="o43-4H-od9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="391-QM-9FH">
+                            <connections>
+                                <action selector="rightBarButtonPressed:" destination="YsG-B5-GI5" id="bXU-CV-Yk3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="leftBarButton" destination="U5G-N4-ysV" id="WH2-F7-lJl"/>
+                        <outlet property="rightBarButton" destination="391-QM-9FH" id="RTd-Bv-VV6"/>
                         <outlet property="tableView" destination="mUC-Lm-0jC" id="hhy-MY-4bt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWV-xD-Zhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="589.60000000000002" y="-367.46626686656674"/>
+            <point key="canvasLocation" x="1932" y="-288.30584707646182"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bzP-WV-GKo">
+            <objects>
+                <navigationController storyboardIdentifier="UserProfilePersonalDataNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="CHb-W2-FWV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DXI-6V-b79">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YsG-B5-GI5" kind="relationship" relationship="rootViewController" id="dmV-7n-waR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eDF-FH-k5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992.79999999999995" y="-288.30584707646182"/>
         </scene>
     </scenes>
 </document>

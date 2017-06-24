@@ -62,12 +62,14 @@
 		9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA203401EA0BEA900F18A3A /* String+Extension.swift */; };
 		9EA2035C1EA0C11500F18A3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EA2035E1EA0C11500F18A3A /* Localizable.strings */; };
 		9EAC4BC01ECF0FA000F7B81B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */; };
+		9EF038661EFF0B0500670527 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */; };
 		9EF1A2C71EFC6894008EDE98 /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; };
 		9EF1A2C81EFC68A3008EDE98 /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; };
 		9EF1A2C91EFC68A3008EDE98 /* EZLoadingActivity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9EF1A2CB1EFCE227008EDE98 /* ActivitiIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CA1EFCE227008EDE98 /* ActivitiIndicatorManager.swift */; };
 		9EF1A2CD1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CC1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift */; };
 		9EF1A2D01EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CF1EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift */; };
+		9EF1A2D21EFEEE03008EDE98 /* FuelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2D11EFEEE03008EDE98 /* FuelUser.swift */; };
 		D18E1728AB6C0C65ECC47628 /* Pods_CheckFuelPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FDA4F736424C282B0BB13B /* Pods_CheckFuelPrice.framework */; };
 /* End PBXBuildFile section */
 
@@ -160,10 +162,12 @@
 		9EA2035F1EA0C12000F18A3A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EA203601EA0C13A00F18A3A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = ../Carthage/Build/iOS/EZLoadingActivity.framework; sourceTree = "<group>"; };
 		9EF1A2CA1EFCE227008EDE98 /* ActivitiIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiIndicatorManager.swift; sourceTree = "<group>"; };
 		9EF1A2CC1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfilePersonalDataViewController.swift; path = Layout/UserProfile/UserProfilePersonalDataViewController.swift; sourceTree = "<group>"; };
 		9EF1A2CF1EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfilePersonalDataTableViewCell.swift; path = Layout/UserProfile/UserProfilePersonalDataTableViewCell.swift; sourceTree = "<group>"; };
+		9EF1A2D11EFEEE03008EDE98 /* FuelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelUser.swift; sourceTree = "<group>"; };
 		FF1DBEF75401F0FDC4F8B1DB /* Pods-CheckFuelPrice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -441,9 +445,10 @@
 			isa = PBXGroup;
 			children = (
 				9E4A1F651ED9DEAA0044F3DD /* CFPEnumerators.swift */,
+				9E6209FA1EEE7F8D00AC75CA /* FirebaseUtils.swift */,
 				9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */,
 				9E4A1F671ED9E34C0044F3DD /* FuelType.swift */,
-				9E6209FA1EEE7F8D00AC75CA /* FirebaseUtils.swift */,
+				9EF1A2D11EFEEE03008EDE98 /* FuelUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -521,6 +526,7 @@
 				9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */,
 				9E4A03511EF15E480016AB46 /* UICollectionView+Extension.swift */,
 				9E1E7F071EF5B650008FC7F5 /* UIColor+Extension.swift */,
+				9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */,
 			);
 			path = GlobalClassExtensions;
 			sourceTree = "<group>";
@@ -758,6 +764,7 @@
 				9E634E8F1EEF0430008AA6AD /* StatisticsGraphViewController.swift in Sources */,
 				9E4A1F711EDB19370044F3DD /* Utils.swift in Sources */,
 				9E4A1F921EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift in Sources */,
+				9EF038661EFF0B0500670527 /* UIApplication+Extension.swift in Sources */,
 				9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */,
 				9E4A1FB81EE093E30044F3DD /* SettingsViewController.swift in Sources */,
 				9EF1A2CD1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift in Sources */,
@@ -787,6 +794,7 @@
 				9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */,
 				9E6209FB1EEE7F8D00AC75CA /* FirebaseUtils.swift in Sources */,
 				9E9E7F251EE171CB0006414D /* GenericNavigationController.swift in Sources */,
+				9EF1A2D21EFEEE03008EDE98 /* FuelUser.swift in Sources */,
 				9E4A1F981EDEFF240044F3DD /* Enum+Extensions.swift in Sources */,
 				9E634E911EEF044D008AA6AD /* StatisticsTableViewController.swift in Sources */,
 				9E6209FD1EEEA80200AC75CA /* StatisticsTabViewController.swift in Sources */,

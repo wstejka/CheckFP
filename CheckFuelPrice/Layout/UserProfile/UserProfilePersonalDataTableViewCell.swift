@@ -12,8 +12,8 @@ class UserProfilePersonalDataTableViewCell: UITableViewCell {
 
     // MARK: Properties
     
-    @IBOutlet weak var valueDescription: UILabel!
-    @IBOutlet weak var value: UITextField!
+    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var valueTextField: UITextField!
     
     // MARK: Cell lifecycle
     override func awakeFromNib() {

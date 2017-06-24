@@ -159,7 +159,12 @@ class UserProfileViewController: UIViewController {
     func processPersonalData() {
         log.verbose("entered")
 
-        performSegue(withIdentifier: personalDataSegueName, sender: nil)
+        guard let navigationViewController = storyboard?.instantiateViewController(withIdentifier: "UserProfilePersonalDataNavigationController") else {
+            log.error("Could not instantiate \"UserProfilePersonalDataNavigationController\" object")
+            return
+        }
+        navigationViewController.modalTransitionStyle = .coverVertical
+        present(navigationViewController, animated: true, completion: nil)
         
     }
     
