@@ -50,7 +50,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
         super.viewDidLoad()
 
         log.verbose("entered")
-        self.barChartView.noDataText = "downloadingData".localized(withDefaultValue: "")
+        self.barChartView.noDataText = "" //"downloadingData".localized(withDefaultValue: "")
         
     }
     
@@ -97,8 +97,9 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
         barChartView.xAxis.valueFormatter = XValsFormatter(xVals: dataPoints)
         barChartView.xAxis.setLabelCount(Int(dataPoints.count / self.chartXAxisLabelCounterDivider), force: true)
         
-        barChartView.leftAxis.axisMinimum = 1900.0
-        barChartView.leftAxis.axisMaximum = 4000.0
+        // It looks odd
+//        barChartView.leftAxis.axisMinimum = 1900.0
+//        barChartView.leftAxis.axisMaximum = 4000.0
         
         // Add animation
         barChartView.animate(xAxisDuration: 1.0, easingOption: ChartEasingOption.easeOutCubic)

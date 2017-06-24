@@ -86,7 +86,7 @@ struct ActivitiIndicatorManager {
 
         switch status {
         case .success:
-            _ = EZLoadingActivity.hide(success: true, animated: true)
+            _ = EZLoadingActivity.hide() //success: true, animated: true)
         case .fail:
             _ = EZLoadingActivity.hide(success: false, animated: true)
         case .immediate:

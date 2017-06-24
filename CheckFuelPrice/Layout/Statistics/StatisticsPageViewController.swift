@@ -138,6 +138,7 @@ class StatisticsPageViewController: UIPageViewController {
     // Added for debugging purpose
     deinit {
         log.verbose("")
+        ActivitiIndicatorManager.instance().stop()
         
     }
     
@@ -145,8 +146,6 @@ class StatisticsPageViewController: UIPageViewController {
     func requestData(for type: FuelName) {
         
         // Configure reference to firebase node
-        self.refFuelPriceItems = Database.database().reference(withPath: FirebaseNode.fuelPriceItem.rawValue)
-//        self.startActivityIndicator()
         ActivitiIndicatorManager.instance().start(with: 5)
         
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
@@ -161,8 +160,10 @@ class StatisticsPageViewController: UIPageViewController {
             
             log.verbose("range keys \(startingKey) - \(endingKey)")
             
+            self.refFuelPriceItems = Database.database().reference(withPath: FirebaseNode.fuelPriceItem.rawValue)
+//            self.refFuelPriceItems?.keepSynced(true)
             // request using key: producent/fuel_type/timestamp
-            self.refFuelPriceItems!.queryOrdered(byChild: "P_FT_T").queryStarting(atValue: startingKey).queryEnding(atValue: endingKey).observeSingleEvent(of: .value, with: { [weak self] snapshot in
+            self.refFuelPriceItems!.queryOrdered(byChild: "P_FT_T").queryStarting(atValue: startingKey).queryEnding(atValue: endingKey).queryLimited(toLast: 30).observeSingleEvent(of: .value, with: { [weak self] snapshot in
                 
                 guard let selfweak = self else {
                     return
@@ -185,8 +186,6 @@ class StatisticsPageViewController: UIPageViewController {
 
                 // Run this command on main queue as it affects UI
                 DispatchQueue.main.async {
-//                    _ = EZLoadingActivity.hide(success: true, animated: true)
-//                    selfweak.stopActivityIndicator()
                     ActivitiIndicatorManager.instance().stop(with: .success)
                 }
                 selfweak.items = newItems
@@ -195,7 +194,6 @@ class StatisticsPageViewController: UIPageViewController {
             })
         }
     }
-    
     
     private func StatisticsPageViewControllerWith(sufix: String) -> UIViewController {
         
@@ -215,24 +213,5 @@ class StatisticsPageViewController: UIPageViewController {
     // MARK : - Activity indicator lifecycle
     var setIconName = EZLoadingActivity.Settings.SuccessIcon
     
-    // Note there is no needed to use below code as here is used the Utils.customActivityIndicatory
-    func startActivityIndicator() {
-        
-        EZLoadingActivity.Settings.ActivityWidth = 120
-        EZLoadingActivity.Settings.ActivityHeight = 60
-        EZLoadingActivity.Settings.SuccessIcon = ""
-        EZLoadingActivity.Settings.SuccessText = ""
-        
-        _ = EZLoadingActivity.showWithDelay("Loading...", disableUI: true, seconds: 10)
-    }
-    
-    func stopActivityIndicator() {
-        
-        EZLoadingActivity.Settings.SuccessIcon = setIconName
-//        EZLoadingActivity.Settings.SuccessText
-        _ = EZLoadingActivity.hide(success: true, animated: false)
-        
-        
-    }
  
 }

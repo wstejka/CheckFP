@@ -99,7 +99,7 @@ class StatisticsViewController: UIViewController {
                     return
                 }
                 
-                log.verbose("Observe: \(selfweak.refFuelTypes!.description()) \(snapshot.childrenCount)")
+                log.verbose("Returned: \(selfweak.refFuelTypes!.description()) \(snapshot.childrenCount)")
                 var newItems: [FuelType] = []
                 
                 for item in snapshot.children {
