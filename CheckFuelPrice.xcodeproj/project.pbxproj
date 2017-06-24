@@ -66,6 +66,8 @@
 		9EF1A2C81EFC68A3008EDE98 /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; };
 		9EF1A2C91EFC68A3008EDE98 /* EZLoadingActivity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9EF1A2CB1EFCE227008EDE98 /* ActivitiIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CA1EFCE227008EDE98 /* ActivitiIndicatorManager.swift */; };
+		9EF1A2CD1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CC1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift */; };
+		9EF1A2D01EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CF1EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift */; };
 		D18E1728AB6C0C65ECC47628 /* Pods_CheckFuelPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FDA4F736424C282B0BB13B /* Pods_CheckFuelPrice.framework */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +162,8 @@
 		9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = ../Carthage/Build/iOS/EZLoadingActivity.framework; sourceTree = "<group>"; };
 		9EF1A2CA1EFCE227008EDE98 /* ActivitiIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiIndicatorManager.swift; sourceTree = "<group>"; };
+		9EF1A2CC1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfilePersonalDataViewController.swift; path = Layout/UserProfile/UserProfilePersonalDataViewController.swift; sourceTree = "<group>"; };
+		9EF1A2CF1EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfilePersonalDataTableViewCell.swift; path = Layout/UserProfile/UserProfilePersonalDataTableViewCell.swift; sourceTree = "<group>"; };
 		FF1DBEF75401F0FDC4F8B1DB /* Pods-CheckFuelPrice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -307,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				9E1E7F111EF7ECAA008FC7F5 /* UserProfileViewController.swift */,
+				9EF1A2CC1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 			children = (
 				9E4A1FBC1EE0AC550044F3DD /* UserProfile.storyboard */,
 				9E1E7F101EF7EC84008FC7F5 /* Controller */,
+				9EF1A2CE1EFED3BF008EDE98 /* Views */,
 			);
 			name = UserProfile;
 			sourceTree = "<group>";
@@ -546,6 +552,14 @@
 				9EA2031F1EA0BDBB00F18A3A /* AppDelegate.swift */,
 			);
 			name = AppDelegates;
+			sourceTree = "<group>";
+		};
+		9EF1A2CE1EFED3BF008EDE98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9EF1A2CF1EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		A6AEF3500C8307DE7A3ABB81 /* Frameworks */ = {
@@ -746,11 +760,13 @@
 				9E4A1F921EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift in Sources */,
 				9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */,
 				9E4A1FB81EE093E30044F3DD /* SettingsViewController.swift in Sources */,
+				9EF1A2CD1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift in Sources */,
 				9E4A1F661ED9DEAA0044F3DD /* CFPEnumerators.swift in Sources */,
 				9E1C03A11EE4447F0023BCED /* FuelPricesTableViewCell.swift in Sources */,
 				9EF1A2CB1EFCE227008EDE98 /* ActivitiIndicatorManager.swift in Sources */,
 				9E634E8D1EEEFF08008AA6AD /* StatisticsViewController.swift in Sources */,
 				9E4A1F941EDE0DC70044F3DD /* FuelInfoViewController.swift in Sources */,
+				9EF1A2D01EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift in Sources */,
 				9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */,
 				9E1C03971EE2BB130023BCED /* StatisticsPageViewController.swift in Sources */,
 				9E9E7F201EE157370006414D /* MainTabBarViewController.swift in Sources */,

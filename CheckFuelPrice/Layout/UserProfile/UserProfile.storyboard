@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,12 +39,86 @@
                     <connections>
                         <outlet property="tableView" destination="85l-kE-5UG" id="0cr-W0-LWS"/>
                         <segue destination="QEb-ZT-2fJ" kind="unwind" identifier="unwindToFuelInfoAndSingOutWithSender" unwindAction="unwindToFuelInfoAndSingOutWithSender:" id="we7-PP-t3Q"/>
+                        <segue destination="YsG-B5-GI5" kind="show" identifier="userProfilePersonalDataSegue" id="kOF-Cs-oAY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gG7-Nu-KHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QEb-ZT-2fJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="108" y="44.527736131934034"/>
+            <point key="canvasLocation" x="-210" y="-107"/>
+        </scene>
+        <!--User Profile Personal Data View Controller-->
+        <scene sceneID="adG-0R-QHU">
+            <objects>
+                <viewController id="YsG-B5-GI5" customClass="UserProfilePersonalDataViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GDZ-ws-m9a"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Q6-bH-2IU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sPg-7W-Xyp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mUC-Lm-0jC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="93" id="16L-WW-ohO" customClass="UserProfilePersonalDataTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="93"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="16L-WW-ohO" id="KbE-GR-voR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="92.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGO-1c-cAi">
+                                                    <rect key="frame" x="22" y="33" width="126" height="26.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vRb-Nf-N7C">
+                                                    <rect key="frame" x="173" y="30" width="175" height="32.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="175" id="mIQ-g4-LNo"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vRb-Nf-N7C" firstAttribute="centerY" secondItem="KbE-GR-voR" secondAttribute="centerY" id="4kz-X6-L5r"/>
+                                                <constraint firstItem="vRb-Nf-N7C" firstAttribute="top" secondItem="KbE-GR-voR" secondAttribute="topMargin" constant="22" id="8Au-A8-V1T"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vRb-Nf-N7C" secondAttribute="trailing" constant="19" id="9u2-53-6U9"/>
+                                                <constraint firstItem="LGO-1c-cAi" firstAttribute="top" secondItem="KbE-GR-voR" secondAttribute="topMargin" constant="25" id="Mry-ta-Zlm"/>
+                                                <constraint firstItem="vRb-Nf-N7C" firstAttribute="leading" secondItem="LGO-1c-cAi" secondAttribute="trailing" constant="25" id="Okc-V4-g3b"/>
+                                                <constraint firstItem="LGO-1c-cAi" firstAttribute="centerY" secondItem="vRb-Nf-N7C" secondAttribute="centerY" id="h9T-eg-8y3"/>
+                                                <constraint firstItem="LGO-1c-cAi" firstAttribute="leading" secondItem="KbE-GR-voR" secondAttribute="leadingMargin" constant="14" id="wUw-Yc-446"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="value" destination="vRb-Nf-N7C" id="ihe-a8-y8U"/>
+                                            <outlet property="valueDescription" destination="LGO-1c-cAi" id="wAb-ae-3E5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mUC-Lm-0jC" firstAttribute="leading" secondItem="sPg-7W-Xyp" secondAttribute="leading" id="16K-uB-fHB"/>
+                            <constraint firstItem="0Q6-bH-2IU" firstAttribute="top" secondItem="mUC-Lm-0jC" secondAttribute="bottom" id="7Bu-Dv-61R"/>
+                            <constraint firstAttribute="trailing" secondItem="mUC-Lm-0jC" secondAttribute="trailing" id="hzL-Zd-Ljd"/>
+                            <constraint firstItem="mUC-Lm-0jC" firstAttribute="top" secondItem="GDZ-ws-m9a" secondAttribute="bottom" id="o0s-DD-ZMD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="mUC-Lm-0jC" id="hhy-MY-4bt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XWV-xD-Zhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589.60000000000002" y="-367.46626686656674"/>
         </scene>
     </scenes>
 </document>

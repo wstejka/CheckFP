@@ -78,30 +78,15 @@ extension UserProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         log.verbose("didSelectRowAtIndex: \(indexPath.row), type: \(ProfileOption.singOut.rawValue)")
         
-        if indexPath.row == ProfileOption.singOut.rawValue {
-            let title = "doyouwanttosignout".localized().capitalizingFirstLetter() + " ?"
-            let actionSheet = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
-            let signoutAction = UIAlertAction(title : "answerYes".localized().capitalizingFirstLetter(), style : UIAlertActionStyle.default){
-                (action) in
-                log.verbose("Yes")
-                self.performSegue(withIdentifier: self.signOutSegueName, sender: nil)
-                
-            }
-            let ignoreAction = UIAlertAction(title: "answerNo".localized().capitalizingFirstLetter(),
-                                             style: UIAlertActionStyle.default, handler: { action in
-                log.verbose("No")
-            })
-            
-            actionSheet.addAction(ignoreAction)
-            actionSheet.addAction(signoutAction)
-            
-            self.present(actionSheet, animated: true, completion: {
-                self.tableView.deselectRow(at: indexPath, animated: true)
-            })
-            
+        if indexPath.row == ProfileOption.personalData.rawValue {
+            self.processPersonalData()
         }
+        else if indexPath.row == ProfileOption.singOut.rawValue {
+            self.processSignOut()
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
     }
-
 }
 
 class UserProfileViewController: UIViewController {
@@ -127,6 +112,7 @@ class UserProfileViewController: UIViewController {
     }
     
     let signOutSegueName = "unwindToFuelInfoAndSingOutWithSender"
+    let personalDataSegueName = "userProfilePersonalDataSegue"
     
     // MARK: - Properties
     
@@ -149,5 +135,32 @@ class UserProfileViewController: UIViewController {
     // MARK: - Actions
     
     // MARK: - Methods
+    func processSignOut() {
+        log.verbose("entered")
+        let title = "doyouwanttosignout".localized().capitalizingFirstLetter() + " ?"
+        let actionSheet = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let signoutAction = UIAlertAction(title : "answerYes".localized().capitalizingFirstLetter(), style : UIAlertActionStyle.default){
+            (action) in
+            log.verbose("Yes")
+            self.performSegue(withIdentifier: self.signOutSegueName, sender: nil)
+            
+        }
+        let ignoreAction = UIAlertAction(title: "answerNo".localized().capitalizingFirstLetter(),
+                                         style: UIAlertActionStyle.default, handler: { action in
+                                            log.verbose("No")
+        })
+        
+        actionSheet.addAction(ignoreAction)
+        actionSheet.addAction(signoutAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func processPersonalData() {
+        log.verbose("entered")
+
+        performSegue(withIdentifier: personalDataSegueName, sender: nil)
+        
+    }
     
 }

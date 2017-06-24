@@ -220,7 +220,6 @@ class StatisticsPageViewController: UIPageViewController {
                 selfweak.getFuelPrice(for: type, query: endingKey)
             })
         }
-            
      }
     
     private func StatisticsPageViewControllerWith(sufix: String) -> UIViewController {

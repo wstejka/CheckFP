@@ -110,7 +110,7 @@ if __name__ == "__main__":
 
 
 
-	# firebaseManager.remove("fuel_price_items")
+	# firebaseManager.remove("test")
 	# firebaseManager.db.child("fuel_types").order_by_child("id").get() #.order_by_child("timestamp").get() #.limit_to_first(5).get()
 
 

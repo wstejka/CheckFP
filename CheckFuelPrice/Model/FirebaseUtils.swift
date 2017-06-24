@@ -11,6 +11,7 @@ import UIKit
 enum FirebaseNode : String {
     case fuelType       = "fuel_types"
     case fuelPriceItem  = "fuel_price_items"
+    case personalData   = "personal_data"
 }
 
 // TODO: This data need to be obtain from Firebase DB
