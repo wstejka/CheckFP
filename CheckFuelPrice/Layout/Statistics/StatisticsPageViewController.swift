@@ -101,6 +101,7 @@ class StatisticsPageViewController: UIPageViewController {
     }()
     
     var items : [FuelPriceItem] = []
+    var refFuelTypes : DatabaseReference? = nil
     var refFuelPriceItems : DatabaseReference? = nil
     var observerHandle : DatabaseHandle = 0
     
@@ -139,32 +140,18 @@ class StatisticsPageViewController: UIPageViewController {
     deinit {
         log.verbose("")
         ActivitiIndicatorManager.instance().stop()
-        
     }
     
     // MARK: - Methods
-    func requestData(for type: FuelName) {
-        
-        // Configure reference to firebase node
-        ActivitiIndicatorManager.instance().start(with: 5)
+    func getFuelPrice(for type : FuelName, query ending : String) {
+        log.verbose("entered")
         
         DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
-            // Calculate current epoch timestamp
-            let timestamp = Int(Date().timeIntervalSince1970)
-            let lastMonthTimestamp = timestamp - (60 * 60 * 24 * 30)
             
-            // to avoid retain cycle let's pass weak reference to self
-            let keyPrefix = String(describing: Producer.lotos.hashValue) + "_" + String(describing: type.hashValue)
-            let startingKey = keyPrefix + "_" + String(describing: lastMonthTimestamp)
-            let endingKey = keyPrefix + "_" + String(describing: timestamp)
-            
-            log.verbose("range keys \(startingKey) - \(endingKey)")
-            
-            self.refFuelPriceItems = Database.database().reference(withPath: FirebaseNode.fuelPriceItem.rawValue)
-//            self.refFuelPriceItems?.keepSynced(true)
+            let refFuelPriceItems = Database.database().reference(withPath: FirebaseNode.fuelPriceItem.rawValue)
             // request using key: producent/fuel_type/timestamp
-            self.refFuelPriceItems!.queryOrdered(byChild: "P_FT_T").queryStarting(atValue: startingKey).queryEnding(atValue: endingKey).queryLimited(toLast: 30).observeSingleEvent(of: .value, with: { [weak self] snapshot in
-                
+            refFuelPriceItems.queryOrdered(byChild: "P_FT_T").queryEnding(atValue: ending).queryLimited(toLast: 30).observeSingleEvent(of: .value, with: { [weak self] snapshot in
+            
                 guard let selfweak = self else {
                     return
                 }
@@ -173,8 +160,8 @@ class StatisticsPageViewController: UIPageViewController {
                     log.error("There is newest request on the list. The \"\(type)\" will be ignored.")
                     return
                 }
-
-                log.verbose("Observe: \(selfweak.refFuelPriceItems!.description()) \(snapshot.childrenCount)")
+                
+                log.verbose("Returned: fuel_price_items.childrenCount = \(snapshot.childrenCount)")
                 var newItems: [FuelPriceItem] = []
                 for item in snapshot.children {
                     guard let fuelPriceItem = FuelPriceItem(snapshot: item as! DataSnapshot) else {
@@ -183,7 +170,7 @@ class StatisticsPageViewController: UIPageViewController {
                     }
                     newItems.append(fuelPriceItem)
                 }
-
+                
                 // Run this command on main queue as it affects UI
                 DispatchQueue.main.async {
                     ActivitiIndicatorManager.instance().stop(with: .success)
@@ -194,6 +181,47 @@ class StatisticsPageViewController: UIPageViewController {
             })
         }
     }
+    
+    
+    func requestData(for type: FuelName) {
+        
+        // Configure reference to firebase node
+        ActivitiIndicatorManager.instance().start(with: 5)
+        
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
+            
+            // First we need to get the latest timestamp for given fuel type
+            // This information we can get from fuel_types node
+            let refFuelTypes = Database.database().reference(withPath: FirebaseNode.fuelType.rawValue)
+            // to avoid retain cycle let's pass weak reference to self
+            refFuelTypes.queryOrdered(byChild: "name").queryEqual(toValue: type.rawValue).observeSingleEvent(of: .value, with: { [weak self] snapshot in
+                
+                guard let selfweak = self else {
+                    return
+                }
+                
+                log.verbose("Returned: fuel_type.childrenCount = \(snapshot.childrenCount)")
+
+                var fuelType : FuelType!
+                for item in snapshot.children {
+                    guard let foundFuelType = FuelType(snapshot: item as! DataSnapshot) else {
+                        log.verbose("Cannot parse data")
+                        return
+                    }
+                    fuelType = foundFuelType
+                    // There should be only one item on the list
+                    break
+                }
+
+                let keyPrefix = String(describing: Producer.lotos.hashValue) + "_" + String(describing: type.hashValue)
+                let endingKey = keyPrefix + "_" + String(fuelType.timestamp)
+    
+                log.verbose("queryEnding  \(endingKey)")
+                selfweak.getFuelPrice(for: type, query: endingKey)
+            })
+        }
+            
+     }
     
     private func StatisticsPageViewControllerWith(sufix: String) -> UIViewController {
         
