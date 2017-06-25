@@ -55,7 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         
         // === Configure Theme ==== //
-//        Chameleon.setGlobalThemeUsingPrimaryColor(.flatSkyBlue(), withSecondaryColor: .flatSkyBlue(), andContentStyle: UIContentStyle.contrast)
+        Chameleon.setGlobalThemeUsingPrimaryColor(ThemesManager.instance().get(color: .lightBlue),
+                                                  withSecondaryColor: .white,
+                                                  andContentStyle: UIContentStyle.contrast)
         
         
         // === Configure Firebase ==== //

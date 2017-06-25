@@ -32,6 +32,29 @@ class UserProfilePersonalDataViewController: UIViewController {
     var refUserItems : DatabaseReference? = nil
     var observerHandle : DatabaseHandle = 0
     
+    enum RightBarItemStatus : String {
+        case edit = "edit"
+        case save = "save"
+    }
+    enum LeftBarItemStatus : String {
+        case done = "done"
+        case cancel = "cancel"
+    }
+    
+    var rightBarStatusEdited : Bool = false {
+        
+        didSet {
+            if rightBarStatusEdited == true {
+                self.rightBarButton.title = RightBarItemStatus.save.rawValue.localized().capitalizingFirstLetter()
+                self.leftBarButton.title = LeftBarItemStatus.cancel.rawValue.localized().capitalizingFirstLetter()
+            }
+            else {
+                self.rightBarButton.title = RightBarItemStatus.edit.rawValue.localized().capitalizingFirstLetter()
+                self.leftBarButton.title = LeftBarItemStatus.done.rawValue.localized().capitalizingFirstLetter()
+            }
+        }
+    }
+    
     // MARK: Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var leftBarButton: UIBarButtonItem!
@@ -43,7 +66,18 @@ class UserProfilePersonalDataViewController: UIViewController {
         super.viewDidLoad()
 
         self.tableView.dataSource = self
+        self.startObserving()
 
+        self.rightBarStatusEdited = false
+    }
+    
+    deinit {
+        log.verbose("")
+    }
+    
+    // MARK: Methods
+    func startObserving()  {
+        log.verbose("entered")
         // Query for user's data
         DispatchQueue.global().async {
             // create reference to user node
@@ -68,24 +102,25 @@ class UserProfilePersonalDataViewController: UIViewController {
                         }
                         selfweak.items.append(fuelUser)
                     }
-                    
             })
         }
-        
-    }
-    
-    deinit {
-        
     }
     
     // MARK: Actions
     @IBAction func leftBarButtonPressed(_ sender: UIBarButtonItem) {
         
-        dismiss(animated: true, completion: nil)
+        if rightBarStatusEdited == false {
+            dismiss(animated: true, completion: nil)
+        }
+        else {
+            rightBarStatusEdited = !rightBarStatusEdited
+        }
         
     }
     
     @IBAction func rightBarButtonPressed(_ sender: Any) {
+        
+        rightBarStatusEdited = !rightBarStatusEdited
     }
 
     

@@ -25,7 +25,14 @@ doyouwanttosignout = "czy chcesz się wylogować";
 
 success = "sukces";
 fail = "błąd";
-loading = "loading";
+loading = "pobieranie";
+
+// Tab bar item description
+edit = "edycja";
+save = "zapisz";
+done = "gotowe";
+cancel = "anuluj";
+
 
 AppHeading = "aktualne ceny paliw";
 unleaded95 = "Bezołowiowa 95";

@@ -28,6 +28,13 @@ success = "success";
 fail = "fail";
 loading = "loading";
 
+// Tab bar item description
+edit = "edit";
+save = "save";
+done = "done";
+cancel = "cancel";
+
+
 AppHeading = "current Fuel Prices";
 unleaded95 = "Unleaded 95";
 unleaded98 = "Unleaded 98";
