@@ -86,6 +86,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="dataTableView" destination="jfo-Td-3ce" id="GQt-nP-Ci3"/>
                         <segue destination="4g6-64-THd" kind="show" identifier="FuelPricesSegue" id="mbN-wj-Rvj"/>

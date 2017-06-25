@@ -12,7 +12,6 @@ class UserProfilePersonalDataTableViewCell: UITableViewCell {
 
     // MARK: Properties
     
-    @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var valueTextField: UITextField!
     
     // MARK: Cell lifecycle

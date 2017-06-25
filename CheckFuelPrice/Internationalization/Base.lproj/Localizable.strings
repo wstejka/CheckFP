@@ -34,6 +34,10 @@ save = "save";
 done = "done";
 cancel = "cancel";
 
+// FuelUserParams
+firstName = "first name";
+lastName = "last name";
+phone = "phone";
 
 AppHeading = "current Fuel Prices";
 unleaded95 = "Unleaded 95";
@@ -69,3 +73,6 @@ monthly = "monthly";
 annually = "annually";
 
 downloadingData = "downloading data ...";
+dataSaved = "data saved ...";
+
+

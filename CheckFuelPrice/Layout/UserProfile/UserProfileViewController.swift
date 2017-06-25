@@ -83,9 +83,8 @@ extension UserProfileViewController: UITableViewDelegate {
         }
         else if indexPath.row == ProfileOption.singOut.rawValue {
             self.processSignOut()
-            self.tableView.deselectRow(at: indexPath, animated: true)
         }
-        
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

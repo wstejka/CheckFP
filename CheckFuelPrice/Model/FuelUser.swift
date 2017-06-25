@@ -9,17 +9,17 @@
 struct FuelUser {
     
     let uid : String
-    let name : String
-    let last_name : String
-    let phone : String
-    let updated : Int
+    var firstName : String = ""
+    var lastName : String = ""
+    var phone : String = ""
+    var updated : Int = 0
     
-    init(uid : String, name : String, last_name : String,
+    init(uid : String, firstName : String, lastName : String,
         phone : String, updated : Int) {
         
         self.uid = uid
-        self.name = name
-        self.last_name = last_name
+        self.firstName = firstName
+        self.lastName = lastName
         self.phone = phone
         self.updated = updated
     }
@@ -31,11 +31,29 @@ struct FuelUser {
         }
         
         self.uid = snapshot.key
-        self.name = userAttributes["name"] as! String
-        self.last_name = userAttributes["last_name"] as! String
-        self.phone = userAttributes["phone"] as! String
-        self.updated = userAttributes["updated"] as! Int
+        if let firstName = userAttributes["firstName"] as? String {
+            self.firstName = firstName
+        }
+        if let lastName = userAttributes["lastName"] as? String {
+            self.lastName = lastName
+        }
+        if let phone = userAttributes["phone"] as? String {
+            self.phone = phone
+        }
+        if let updated = userAttributes["updated"] as? Int {
+            self.updated = updated
+        }
         
+    }
+    
+    func toAnyObject() -> Any {
+        return [
+            "firstName": firstName,
+            "lastName": lastName,
+            "phone" : phone,
+            "updated": updated,
+            "uid" : uid
+        ]
     }
     
 }

@@ -8,84 +8,65 @@
 
 import UIKit
 
-extension UserProfilePersonalDataViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell") as? UserProfilePersonalDataTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.valueTextField.isUserInteractionEnabled = false
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-
-}
-
-class UserProfilePersonalDataViewController: UIViewController {
+class UserProfilePersonalDataViewController: UITableViewController {
 
     // MARK: Variable/Constants
-    var items : [FuelUser] = []
     var refUserItems : DatabaseReference? = nil
     var observerHandle : DatabaseHandle = 0
     
-    enum RightBarItemStatus : String {
-        case edit = "edit"
-        case save = "save"
-    }
-    enum LeftBarItemStatus : String {
-        case done = "done"
-        case cancel = "cancel"
-    }
-    
-    var rightBarStatusEdited : Bool = false {
-        
-        didSet {
-            if rightBarStatusEdited == true {
-                self.rightBarButton.title = RightBarItemStatus.save.rawValue.localized().capitalizingFirstLetter()
-                self.leftBarButton.title = LeftBarItemStatus.cancel.rawValue.localized().capitalizingFirstLetter()
-            }
-            else {
-                self.rightBarButton.title = RightBarItemStatus.edit.rawValue.localized().capitalizingFirstLetter()
-                self.leftBarButton.title = LeftBarItemStatus.done.rawValue.localized().capitalizingFirstLetter()
-            }
-        }
-    }
     
     // MARK: Properties
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var leftBarButton: UIBarButtonItem!
-    @IBOutlet weak var rightBarButton: UIBarButtonItem!
-    
+
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var headerLabel: UILabel!
     
     // MARK: UIViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.dataSource = self
+        
         self.startObserving()
+        
+        // set up placeholders for text fields
+        self.firstNameTextField.placeholder = "firstName".localized().capitalizingFirstLetter()
+        self.lastNameTextField.placeholder = "lastName".localized().capitalizingFirstLetter()
+        self.phoneTextField.placeholder = "phone".localized().capitalizingFirstLetter()
 
-        self.rightBarStatusEdited = false
+        
+        // tableView settings
+        self.tableView.allowsSelection = false
+        self.title = "personalData".localized().capitalizingFirstLetter()
+
     }
-    
+        
     deinit {
         log.verbose("")
+        if (self.refUserItems != nil) && (self.observerHandle > 0) {
+            // remove observer
+            self.refUserItems!.removeObserver(withHandle: self.observerHandle)
+            log.verbose("Observer for node \(FirebaseNode.users.rawValue) removed")
+            
+
+        }
     }
     
     // MARK: Methods
+    
     func startObserving()  {
         log.verbose("entered")
         // Query for user's data
         DispatchQueue.global().async {
+            // create observer
+            guard let uid = Auth.auth().currentUser?.uid else {
+                log.error("This user is not authenticated.")
+                return
+            }
+            log.verbose("uid: \(String(describing: uid))")
+
             // create reference to user node
             self.refUserItems = Database.database().reference(withPath: FirebaseNode.users.rawValue)
-            // create observer
-            let uid = Auth.auth().currentUser?.uid
-            log.verbose("uid: \(String(describing: uid))")
-            self.observerHandle = self.refUserItems!.queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(
+            self.observerHandle = self.refUserItems!.queryOrderedByKey().queryEqual(toValue: uid).observe(
                 .value, with: { [weak self] snapshot in
                     
                     guard let selfweak = self else {
@@ -95,32 +76,80 @@ class UserProfilePersonalDataViewController: UIViewController {
                     
                     log.verbose("Returned: users.childrenCount = \(snapshot.childrenCount)")
                     
+                    var fuelUser : FuelUser? = nil
                     for item in snapshot.children {
-                        guard let fuelUser = FuelUser(snapshot: item as! DataSnapshot) else {
-                            log.verbose("Cannot parse data")
-                            return
-                        }
-                        selfweak.items.append(fuelUser)
+                        fuelUser = FuelUser(snapshot: item as! DataSnapshot)
                     }
+                    
+                    if fuelUser == nil {
+                        log.warning("There is no yet profile for user: \(uid). Let's create placeholder")
+                        // There is no yet user's profile. Let's create placeholder
+                        fuelUser = FuelUser(uid: uid, firstName: "", lastName: "", phone: "", updated: 0)
+                    }
+                    selfweak.createUserParams(from: fuelUser)
             })
         }
     }
     
-    // MARK: Actions
-    @IBAction func leftBarButtonPressed(_ sender: UIBarButtonItem) {
+    func createUserParams(from user : FuelUser?) {
+        log.info("entered")
+
+        guard let user = user else { return }
+        self.firstNameTextField.text = user.firstName
+        self.lastNameTextField.text = user.lastName
+        self.phoneTextField.text = user.phone
         
-        if rightBarStatusEdited == false {
-            dismiss(animated: true, completion: nil)
-        }
-        else {
-            rightBarStatusEdited = !rightBarStatusEdited
-        }
-        
+        self.tableView.reloadData()
     }
     
-    @IBAction func rightBarButtonPressed(_ sender: Any) {
+    func updateUserProfileData() {
+        log.verbose("updating ...")
         
-        rightBarStatusEdited = !rightBarStatusEdited
+        DispatchQueue.global().async {
+            
+            guard let uid = Auth.auth().currentUser?.uid else {
+                log.error("Not authenticated user.")
+                return
+            }
+            // Create the FuelUserData object provisioned with data provided by user
+            let fuelUser = FuelUser(uid: uid, firstName: self.firstNameTextField.text ?? "",
+                                    lastName: self.lastNameTextField.text ?? "",
+                                    phone: self.phoneTextField.text ?? "", updated: Int(Date().timeIntervalSince1970))
+            
+            
+            let ref = Database.database().reference(withPath: FirebaseNode.users.rawValue)
+            ref.child(uid).setValue(fuelUser.toAnyObject(), withCompletionBlock: { (error, dataRef) in
+                
+                
+                log.verbose("XXX")
+                DispatchQueue.main.async {
+                    if error != nil {
+                        self.headerLabel.textColor = .red
+                        self.headerLabel.text = error.debugDescription
+                    }
+                    else {
+                        self.headerLabel.textColor = ThemesManager.instance().get(color: ThemesManager.Colors.lightBlue)
+                        self.headerLabel.text = "dataSaved".localized().capitalizingFirstLetter()
+                    }
+                    
+                    // Clear label after 2 secs
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0, execute: {
+                        self.headerLabel.text = ""
+                    })
+                }
+            })
+        
+        }
+    }
+    
+    // MARK: Actions
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        self.updateUserProfileData()
     }
 
     

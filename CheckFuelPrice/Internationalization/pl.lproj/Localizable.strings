@@ -33,6 +33,10 @@ save = "zapisz";
 done = "gotowe";
 cancel = "anuluj";
 
+// FuelUserParams
+firstName = "Imię";
+lastName = "Nazwisko";
+phone = "Telefon";
 
 AppHeading = "aktualne ceny paliw";
 unleaded95 = "Bezołowiowa 95";
@@ -57,7 +61,7 @@ withVat = "z VAT";
 timestamp = "na dzień";
 
 
-orders = "moje zamówienia";
+orders = "zamówienia";
 statistics = "statystyki";
 settings = "ustawienia";
 
@@ -69,3 +73,6 @@ monthly = "miesięczny";
 annually = "roczny";
 
 downloadingData = "pobieram dane ...";
+dataSaved = "dane zapisano ...";
+
+
