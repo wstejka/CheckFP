@@ -19,7 +19,7 @@ import FirebaseFacebookAuthUI
 import FirebaseTwitterAuthUI
 import FirebasePhoneAuthUI
 import Keys
-
+import Floaty
 
 // MARK: public constants
 let log = SwiftyBeaver.self

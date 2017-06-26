@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorageUI
 
+
 class UserProfilePersonalDataViewController: UITableViewController {
 
     // MARK: Variable/Constants
@@ -26,7 +27,6 @@ class UserProfilePersonalDataViewController: UITableViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var userPhotoImageView: UIImageView!
-    @IBOutlet weak var userPhotoChangeButton: UIButton!
     
     // MARK: UIViewController lifecycle
     override func viewDidLoad() {
@@ -50,10 +50,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.title = "personalData".localized().capitalizingFirstLetter()
         
         // customize chnage button view
-        self.userPhotoChangeButton.layer.cornerRadius = 10
-        self.userPhotoChangeButton.backgroundColor = ThemesManager.instance().get(color: ThemesManager.Colors.lightBlue_v2)
-        self.userPhotoChangeButton.setTitleColor(.white, for: .normal)
-        self.userPhotoChangeButton.setTitleColor(.gray, for: .selected)
+
     }
         
     deinit {

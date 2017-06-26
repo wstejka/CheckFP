@@ -80,6 +80,7 @@ PODS:
   - FirebaseUI/Twitter (4.1.1):
     - FirebaseUI/Auth
     - TwitterKit (~> 2.4)
+  - Floaty (3.0.0)
   - GoogleSignIn (4.0.2):
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
@@ -104,9 +105,9 @@ PODS:
   - GTMSessionFetcher/Core (1.1.10)
   - GTMSessionFetcher/Full (1.1.10):
     - GTMSessionFetcher/Core (= 1.1.10)
-  - HockeySDK (4.1.5):
-    - HockeySDK/DefaultLib (= 4.1.5)
-  - HockeySDK/DefaultLib (4.1.5)
+  - HockeySDK (4.1.6):
+    - HockeySDK/DefaultLib (= 4.1.6)
+  - HockeySDK/DefaultLib (4.1.6)
   - Keys (1.0.0)
   - Protobuf (3.3.0)
   - SDWebImage (4.0.0):
@@ -122,6 +123,7 @@ DEPENDENCIES:
   - Fabric
   - Firebase/Performance
   - FirebaseUI (~> 4.0)
+  - Floaty (~> 3.0.0)
   - HockeySDK (~> 4.1.5)
   - Keys (from `Pods/CocoaPodsKeys`)
   - TwitterKit (= 2.7)
@@ -145,17 +147,18 @@ SPEC CHECKSUMS:
   FirebasePerformance: 51a400fba288e43258b94128f2a649faeec5d909
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   FirebaseUI: 5ebebe2c096c71f20abd1d43d0388958373bdaa0
+  Floaty: d1be5d323094f0de422bb615452d00ba26ac74dd
   GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
-  HockeySDK: 606b537bbfbe454ee440e92cc93bc634b3c77151
+  HockeySDK: 95db557d54489a570dcdefae0d02f98eecc279a3
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: 225d00f30e07a15073e15b0a4568960e57baa27a
+PODFILE CHECKSUM: a0aa66959a44dda14341c1000aaa626ace0f2eb1
 
 COCOAPODS: 1.2.1

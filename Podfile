@@ -19,6 +19,7 @@ target 'CheckFuelPrice' do
   pod 'Crashlytics'
 
   pod 'HockeySDK', '~> 4.1.5'
+  pod "Floaty", "~> 3.0.0"
 
 end
 
