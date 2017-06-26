@@ -11,7 +11,9 @@ struct ThemesManager {
     // MARK: Variables/constants
     enum Colors : Int {
         case blue
+        case blue_v2
         case lightBlue
+        case lightBlue_v2
         case yellow
         case orange
     }
@@ -20,6 +22,7 @@ struct ThemesManager {
     
             return [.blue : .aquaCrayonColor,
                     .lightBlue : .dodgerBlueHTMLColor,
+                    .lightBlue_v2 : .blueCustomColor,
                     .yellow : .cantalopeCrayonColor,
                     .orange : .tangerineCrayonColor]
     }()
@@ -61,10 +64,10 @@ struct ThemesManager {
     
     // MARK: - Methods
     
-    func get(color: ThemesManager.Colors) -> UIColor? {
+    func get(color: ThemesManager.Colors) -> UIColor {
         
         guard let theColor = ThemesManager.themesManagerInstance.themes[color] else {
-            return nil
+            return UIColor.black
         }
         return theColor
     }

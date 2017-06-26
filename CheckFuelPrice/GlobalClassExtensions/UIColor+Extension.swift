@@ -571,7 +571,19 @@ extension UIColor {
             return UIColor(red: 0x1E/255.0, green: 0x90/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
     }
-    
+
+    class var dodgerBlueHTMLColorLight: UIColor {
+        get {
+            return UIColor(red: 0x1E/255.0, green: 0x90/255.0, blue: 255.0/255.0, alpha: 0.7)
+        }
+    }
+
+    class var blueCustomColor: UIColor {
+        get {
+            return UIColor(red: 62/255.0, green: 159/255.0, blue: 254/255.0, alpha: 1.0)
+        }
+    }
+        
     class var fireBrickHTMLColor: UIColor {
         get {
             return UIColor(red: 0xB2/255.0, green: 0x22/255.0, blue: 0x22/255.0, alpha: 1.0)

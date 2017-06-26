@@ -83,7 +83,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
         }
         
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "fuelPrice".localized(withDefaultValue: ""))
-        chartDataSet.colors = [.skyCrayonColor]
+        chartDataSet.colors = [ThemesManager.instance().get(color: .lightBlue_v2)]
         let chartData = BarChartData(dataSets: [chartDataSet])
         // Don't let resize chart
         barChartView.doubleTapToZoomEnabled = false
@@ -97,7 +97,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
         barChartView.xAxis.valueFormatter = XValsFormatter(xVals: dataPoints)
         barChartView.xAxis.setLabelCount(Int(dataPoints.count / self.chartXAxisLabelCounterDivider), force: true)
         
-        // It looks odd
+        // It looks odd, comment it out
 //        barChartView.leftAxis.axisMinimum = 1900.0
 //        barChartView.leftAxis.axisMaximum = 4000.0
         
