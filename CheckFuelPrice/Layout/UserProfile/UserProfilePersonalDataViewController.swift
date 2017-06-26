@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseStorageUI
+import Floaty
 
 
 class UserProfilePersonalDataViewController: UITableViewController {
@@ -20,6 +21,8 @@ class UserProfilePersonalDataViewController: UITableViewController {
     var lastPhotoTimestamp : Int = 0
     var lastPhotoReference : String = ""
     
+    let photoCollectionSegueName : String = "photoCollectionSegue"
+    
     // MARK: Properties
 
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -27,6 +30,9 @@ class UserProfilePersonalDataViewController: UITableViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var userPhotoImageView: UIImageView!
+    @IBOutlet weak var photoViewCell: UITableViewCell!
+    
+    
     
     // MARK: UIViewController lifecycle
     override func viewDidLoad() {
@@ -40,7 +46,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.phoneTextField.placeholder = "phone".localized().capitalizingFirstLetter()
         
         // userPhotoImageView
-        self.userPhotoImageView.image = UIImage(named: "male2")
+        self.userPhotoImageView.image = UIImage(named: "male_big")
         self.userPhotoImageView.layer.cornerRadius = 20
         self.userPhotoImageView.layer.masksToBounds = true;
         self.userPhotoImageView.layer.borderWidth = 0;
@@ -50,6 +56,18 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.title = "personalData".localized().capitalizingFirstLetter()
         
         // customize chnage button view
+        let floaty = Floaty()
+        floaty.openAnimationType = .slideLeft
+        floaty.addItem("takePhoto".localized().capitalizingFirstLetter(), icon: UIImage(named: "camera")!) { (item) in
+            
+            log.verbose("pushed: take photo")
+        }
+        floaty.addItem("choosePhoto".localized().capitalizingFirstLetter(), icon: UIImage(named: "image_collection")!) { (item) in
+            
+            log.verbose("pushed: choose photo")
+//            performSegue(withIdentifier: self.photoCollectionSegueName, sender: nil)
+        }
+        self.photoViewCell.contentView.addSubview(floaty)
 
     }
         

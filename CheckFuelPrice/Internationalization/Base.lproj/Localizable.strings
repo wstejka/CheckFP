@@ -11,7 +11,8 @@ loginPlaceholder = "login";
 passwordPlaceholder = "password";
 login = "login";
 signUp = "sing up";
-
+takePhoto = "Take a photo";
+choosePhoto ="Choose photo";
 
 // User's profile
 personalData = "personal data";

@@ -73,7 +73,7 @@ extension UserProfileViewController: UITableViewDataSource {
 extension UserProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {        
-        return 50.0
+        return 70.0
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -87,6 +87,7 @@ extension UserProfileViewController: UITableViewDelegate {
         }
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
+    
 }
 
 class UserProfileViewController: UIViewController {

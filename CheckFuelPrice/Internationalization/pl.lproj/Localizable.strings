@@ -11,6 +11,8 @@ loginPlaceholder = "użytkownik";
 passwordPlaceholder = "hasło";
 login = "Zaloguj";
 signUp = "Zarejestruj się";
+takePhoto = "Zrób zdjęcie";
+choosePhoto ="Wybierz zdjęcie";
 
 // User's profile
 personalData = "dane osobowe";
