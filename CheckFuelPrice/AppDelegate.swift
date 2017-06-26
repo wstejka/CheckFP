@@ -59,12 +59,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                   withSecondaryColor: .white,
                                                   andContentStyle: UIContentStyle.contrast)
         
-        
         // === Configure Firebase ==== //
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
+
+        // Run FirebaseConnectionManager which keeps the firebase connection status
+        _ = FirebaseConnectionManager.instance()
         
-        // === Set up Twitter consumer's key and secret 
+
+        // === Set up Twitter consumer's key and secret
         let key = CheckFPKeys()
         Twitter.sharedInstance().start(withConsumerKey:key.twitterConsumerKey, consumerSecret:key.twitterConsumerSecret)
 

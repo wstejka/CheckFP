@@ -81,9 +81,6 @@ extension UserProfileViewController: UITableViewDelegate {
         if indexPath.row == ProfileOption.personalData.rawValue {
             self.processPersonalData()
         }
-        else if indexPath.row == ProfileOption.photo.rawValue {
-            self.processPhoto()
-        }
         else if indexPath.row == ProfileOption.singOut.rawValue {
             self.processSignOut()
         }
@@ -115,7 +112,7 @@ class UserProfileViewController: UIViewController {
     
     let signOutSegueName = "unwindToFuelInfoAndSingOutWithSender"
     let personalDataSegueName = "userProfilePersonalDataSegue"
-    let userProfilePhotoSegueName = "userProfilePhotoSegue"
+
     
     // MARK: - Properties
     
@@ -149,11 +146,6 @@ class UserProfileViewController: UIViewController {
         navigationViewController.modalTransitionStyle = .coverVertical
         present(navigationViewController, animated: true, completion: nil)
         
-    }
-    
-    func processPhoto() {
-        log.verbose("entered")
-        performSegue(withIdentifier: self.userProfilePhotoSegueName, sender: nil)
     }
     
     func processSignOut() {

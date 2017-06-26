@@ -41,50 +41,12 @@
                     <connections>
                         <outlet property="tableView" destination="85l-kE-5UG" id="0cr-W0-LWS"/>
                         <segue destination="QEb-ZT-2fJ" kind="unwind" identifier="unwindToFuelInfoAndSingOutWithSender" unwindAction="unwindToFuelInfoAndSingOutWithSender:" id="we7-PP-t3Q"/>
-                        <segue destination="ZSI-F3-NZu" kind="show" identifier="userProfilePhotoSegue" id="Lnb-2i-pkt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gG7-Nu-KHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QEb-ZT-2fJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-391" y="-153"/>
-        </scene>
-        <!--User Profile Photo View Controller-->
-        <scene sceneID="Tm0-Rw-QZX">
-            <objects>
-                <viewController id="ZSI-F3-NZu" customClass="UserProfilePhotoViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hYS-eC-gG4"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gu4-2e-25F"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zu5-7a-rdj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fGr-E7-BHq">
-                                <rect key="frame" x="94" y="104" width="187.5" height="187.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="1VX-wu-T3o"/>
-                                    <constraint firstAttribute="width" secondItem="fGr-E7-BHq" secondAttribute="height" id="mqE-S4-sr4"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="fGr-E7-BHq" firstAttribute="width" secondItem="Zu5-7a-rdj" secondAttribute="width" multiplier="0.5" priority="500" id="6fc-mQ-CCz"/>
-                            <constraint firstItem="fGr-E7-BHq" firstAttribute="top" secondItem="hYS-eC-gG4" secondAttribute="bottom" constant="40" id="Zlw-X7-ez3"/>
-                            <constraint firstItem="fGr-E7-BHq" firstAttribute="centerX" secondItem="Zu5-7a-rdj" secondAttribute="centerX" id="kBM-cK-K8l"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="userPhotoImageView" destination="fGr-E7-BHq" id="qkY-kN-dlg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S8n-LN-P7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="422" y="-13"/>
         </scene>
         <!--User Profile Personal Data View Controller-->
         <scene sceneID="H9h-Yt-2os">
@@ -134,11 +96,21 @@
                                                         <constraint firstAttribute="width" constant="160" id="g8D-DC-FXa"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRc-5T-ADK">
+                                                    <rect key="frame" x="298" y="150" width="60" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="1vp-fL-oOC"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Change"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="gRc-5T-ADK" firstAttribute="leading" relation="lessThanOrEqual" secondItem="52Z-6E-qAK" secondAttribute="trailing" constant="30" id="3WC-Ct-Cdw"/>
+                                                <constraint firstItem="gRc-5T-ADK" firstAttribute="bottom" secondItem="52Z-6E-qAK" secondAttribute="bottom" id="Rhf-Tb-ZKX"/>
                                                 <constraint firstItem="52Z-6E-qAK" firstAttribute="centerY" secondItem="ImG-uk-BKL" secondAttribute="centerY" id="XgJ-7Z-kO6"/>
-                                                <constraint firstItem="52Z-6E-qAK" firstAttribute="centerX" secondItem="ImG-uk-BKL" secondAttribute="centerX" id="tUh-Ta-ism"/>
+                                                <constraint firstItem="gRc-5T-ADK" firstAttribute="leading" secondItem="52Z-6E-qAK" secondAttribute="trailing" priority="500" constant="30" id="soP-DM-zd7"/>
                                                 <constraint firstItem="52Z-6E-qAK" firstAttribute="width" secondItem="ImG-uk-BKL" secondAttribute="width" multiplier="0.5" priority="500" id="vDq-qG-LHl"/>
+                                                <constraint firstItem="52Z-6E-qAK" firstAttribute="centerX" secondItem="ImG-uk-BKL" secondAttribute="centerX" id="w2A-05-Ba7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -241,7 +213,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TY-dE-Qu2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="UserProfilePersonalDataNavigationController" id="p0S-e5-e9m" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gBz-BW-JYa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gBz-BW-JYa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

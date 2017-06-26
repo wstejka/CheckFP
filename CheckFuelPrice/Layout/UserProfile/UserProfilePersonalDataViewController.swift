@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorageUI
 
 class UserProfilePersonalDataViewController: UITableViewController {
 
@@ -141,7 +142,8 @@ class UserProfilePersonalDataViewController: UITableViewController {
                 log.error("Photo download failed")
             }
             else {
-                log.verbose("Photo downloaded")
+                log.verbose("Photo downloaded successfully")
+                // update local photo information to be in-sync
                 self.lastPhotoTimestamp = user.photoTimestamp
                 self.lastPhotoReference = user.photoReference
             }
