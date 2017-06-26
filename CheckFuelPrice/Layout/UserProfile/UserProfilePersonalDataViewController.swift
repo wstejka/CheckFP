@@ -13,7 +13,10 @@ class UserProfilePersonalDataViewController: UITableViewController {
     // MARK: Variable/Constants
     var refUserItems : DatabaseReference? = nil
     var observerHandle : DatabaseHandle = 0
+    var storageRef : StorageReference?
     
+    var lastPhotoTimestamp : Int = 0
+    var lastPhotoReference : String = ""
     
     // MARK: Properties
 
@@ -21,6 +24,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var userPhotoImageView: UIImageView!
     
     // MARK: UIViewController lifecycle
     override func viewDidLoad() {
@@ -32,7 +36,10 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.firstNameTextField.placeholder = "firstName".localized().capitalizingFirstLetter()
         self.lastNameTextField.placeholder = "lastName".localized().capitalizingFirstLetter()
         self.phoneTextField.placeholder = "phone".localized().capitalizingFirstLetter()
-
+        
+        self.userPhotoImageView.layer.cornerRadius = 20
+        self.userPhotoImageView.layer.masksToBounds = true;
+        self.userPhotoImageView.layer.borderWidth = 0;
         
         // tableView settings
         self.tableView.allowsSelection = false
@@ -84,14 +91,16 @@ class UserProfilePersonalDataViewController: UITableViewController {
                     if fuelUser == nil {
                         log.warning("There is no yet profile for user: \(uid). Let's create placeholder")
                         // There is no yet user's profile. Let's create placeholder
-                        fuelUser = FuelUser(uid: uid, firstName: "", lastName: "", phone: "", updated: 0)
+                        fuelUser = FuelUser(uid: uid, firstName: "", lastName: "", phone: "",
+                                            updated: 0, photoRefence : "", photoTimestamp : 0)
                     }
-                    selfweak.createUserParams(from: fuelUser)
+                    selfweak.populateFieldsWithData(from: fuelUser)
+                    selfweak.showUserPhoto(from: fuelUser)
             })
         }
     }
     
-    func createUserParams(from user : FuelUser?) {
+    func populateFieldsWithData(from user : FuelUser?) {
         log.info("entered")
 
         guard let user = user else { return }
@@ -100,6 +109,45 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.phoneTextField.text = user.phone
         
         self.tableView.reloadData()
+    }
+    
+    func showUserPhoto(from user: FuelUser?) {
+        log.verbose("entered")
+        
+        guard let user = user else { return }
+        guard let uid = Auth.auth().currentUser?.uid else {
+            log.error("Not authenticated user.")
+            return
+        }
+        log.verbose("Photo (\(user.photoTimestamp)); lastPhoto \(self.lastPhotoTimestamp)")
+        if user.photoTimestamp == self.lastPhotoTimestamp
+        {
+            log.verbose("Photo (\(user.photoReference)) didn't change. Nothing to update ...")
+            return
+        }
+        
+        let photReferenceName = FirebaseStorageNode.users.rawValue + "/" + uid + "/" + user.photoReference
+        log.verbose("downloading personal photo from: \(photReferenceName)) for user \(uid)")
+        
+        // Create a storage reference from our storage service
+        self.storageRef = Storage.storage().reference().child(photReferenceName)
+        
+        self.userPhotoImageView.sd_setImage(with: storageRef!, maxImageSize: (FirebaseStorage.fileSizeLimit),
+                                            placeholderImage: UIImage(named: "male2"), cache : nil,
+                                            completion: { (image, error, cache, refrence) in
+                                                
+            self.userPhotoImageView.sd_removeActivityIndicator()
+            if error != nil {
+                log.error("Photo download failed")
+            }
+            else {
+                log.verbose("Photo downloaded")
+                self.lastPhotoTimestamp = user.photoTimestamp
+                self.lastPhotoReference = user.photoReference
+            }
+            
+        })
+
     }
     
     func updateUserProfileData() {
@@ -111,17 +159,18 @@ class UserProfilePersonalDataViewController: UITableViewController {
                 log.error("Not authenticated user.")
                 return
             }
+            
             // Create the FuelUserData object provisioned with data provided by user
             let fuelUser = FuelUser(uid: uid, firstName: self.firstNameTextField.text ?? "",
                                     lastName: self.lastNameTextField.text ?? "",
-                                    phone: self.phoneTextField.text ?? "", updated: Int(Date().timeIntervalSince1970))
+                                    phone: self.phoneTextField.text ?? "",
+                                    updated: Int(Date().timeIntervalSince1970),
+                                    photoRefence : self.lastPhotoReference, photoTimestamp : self.lastPhotoTimestamp)
             
             
             let ref = Database.database().reference(withPath: FirebaseNode.users.rawValue)
             ref.child(uid).setValue(fuelUser.toAnyObject(), withCompletionBlock: { (error, dataRef) in
                 
-                
-                log.verbose("XXX")
                 DispatchQueue.main.async {
                     if error != nil {
                         self.headerLabel.textColor = .red

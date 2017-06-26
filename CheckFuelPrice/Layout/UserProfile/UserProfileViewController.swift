@@ -81,6 +81,9 @@ extension UserProfileViewController: UITableViewDelegate {
         if indexPath.row == ProfileOption.personalData.rawValue {
             self.processPersonalData()
         }
+        else if indexPath.row == ProfileOption.photo.rawValue {
+            self.processPhoto()
+        }
         else if indexPath.row == ProfileOption.singOut.rawValue {
             self.processSignOut()
         }
@@ -93,13 +96,13 @@ class UserProfileViewController: UIViewController {
     // MARK: Constants/Variable
     let profileOptionsArray : [ProfileOption : [ProfileOptionProperty : Any]] =
         [.personalData : [.name : "personalData", .photo : "businessCard", .color : ThemesManager.Colors.blue],
-         .changePhoto : [.name : "changePhoto", .photo : "camera", .color : ThemesManager.Colors.orange],
+         .photo : [.name : "photo", .photo : "camera", .color : ThemesManager.Colors.orange],
          .coordinates : [.name : "coordinates", .photo : "location", .color : ThemesManager.Colors.yellow],
          .singOut : [.name : "singOut", .photo : "logout", .color : ThemesManager.Colors.lightBlue]]
     
     enum ProfileOption : Int {
         case personalData
-        case changePhoto
+        case photo
         case coordinates
         case singOut
     }
@@ -112,6 +115,7 @@ class UserProfileViewController: UIViewController {
     
     let signOutSegueName = "unwindToFuelInfoAndSingOutWithSender"
     let personalDataSegueName = "userProfilePersonalDataSegue"
+    let userProfilePhotoSegueName = "userProfilePhotoSegue"
     
     // MARK: - Properties
     
@@ -134,6 +138,24 @@ class UserProfileViewController: UIViewController {
     // MARK: - Actions
     
     // MARK: - Methods
+
+    func processPersonalData() {
+        log.verbose("entered")
+
+        guard let navigationViewController = storyboard?.instantiateViewController(withIdentifier: "UserProfilePersonalDataNavigationController") else {
+            log.error("Could not instantiate \"UserProfilePersonalDataNavigationController\" object")
+            return
+        }
+        navigationViewController.modalTransitionStyle = .coverVertical
+        present(navigationViewController, animated: true, completion: nil)
+        
+    }
+    
+    func processPhoto() {
+        log.verbose("entered")
+        performSegue(withIdentifier: self.userProfilePhotoSegueName, sender: nil)
+    }
+    
     func processSignOut() {
         log.verbose("entered")
         let title = "doyouwanttosignout".localized().capitalizingFirstLetter() + " ?"
@@ -154,17 +176,4 @@ class UserProfileViewController: UIViewController {
         
         self.present(actionSheet, animated: true, completion: nil)
     }
-    
-    func processPersonalData() {
-        log.verbose("entered")
-
-        guard let navigationViewController = storyboard?.instantiateViewController(withIdentifier: "UserProfilePersonalDataNavigationController") else {
-            log.error("Could not instantiate \"UserProfilePersonalDataNavigationController\" object")
-            return
-        }
-        navigationViewController.modalTransitionStyle = .coverVertical
-        present(navigationViewController, animated: true, completion: nil)
-        
-    }
-    
 }
