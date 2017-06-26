@@ -26,6 +26,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var userPhotoImageView: UIImageView!
+    @IBOutlet weak var userPhotoChangeButton: UIButton!
     
     // MARK: UIViewController lifecycle
     override func viewDidLoad() {
@@ -33,11 +34,13 @@ class UserProfilePersonalDataViewController: UITableViewController {
         
         self.startObserving()
         
-        // set up placeholders for text fields
+        // Set up placeholders for text fields
         self.firstNameTextField.placeholder = "firstName".localized().capitalizingFirstLetter()
         self.lastNameTextField.placeholder = "lastName".localized().capitalizingFirstLetter()
         self.phoneTextField.placeholder = "phone".localized().capitalizingFirstLetter()
         
+        // userPhotoImageView
+        self.userPhotoImageView.image = UIImage(named: "male2")
         self.userPhotoImageView.layer.cornerRadius = 20
         self.userPhotoImageView.layer.masksToBounds = true;
         self.userPhotoImageView.layer.borderWidth = 0;
@@ -45,7 +48,12 @@ class UserProfilePersonalDataViewController: UITableViewController {
         // tableView settings
         self.tableView.allowsSelection = false
         self.title = "personalData".localized().capitalizingFirstLetter()
-
+        
+        // customize chnage button view
+        self.userPhotoChangeButton.layer.cornerRadius = 10
+        self.userPhotoChangeButton.backgroundColor = ThemesManager.instance().get(color: ThemesManager.Colors.lightBlue_v2)
+        self.userPhotoChangeButton.setTitleColor(.white, for: .normal)
+        self.userPhotoChangeButton.setTitleColor(.gray, for: .selected)
     }
         
     deinit {
@@ -123,18 +131,22 @@ class UserProfilePersonalDataViewController: UITableViewController {
         log.verbose("Photo (\(user.photoTimestamp)); lastPhoto \(self.lastPhotoTimestamp)")
         if user.photoTimestamp == self.lastPhotoTimestamp
         {
-            log.verbose("Photo (\(user.photoReference)) didn't change. Nothing to update ...")
+            log.verbose("Photo \"\(user.photoReference)\" didn't change. Nothing to update ...")
             return
         }
         
-        let photReferenceName = FirebaseStorageNode.users.rawValue + "/" + uid + "/" + user.photoReference
-        log.verbose("downloading personal photo from: \(photReferenceName)) for user \(uid)")
+        let photoReferenceName = FirebaseStorageNode.users.rawValue + "/" + uid + "/" + user.photoReference
+        log.verbose("downloading personal photo from: \"\(photoReferenceName)\" for user \(uid)")
         
         // Create a storage reference from our storage service
-        self.storageRef = Storage.storage().reference().child(photReferenceName)
-        
+        self.storageRef = Storage.storage().reference().child(photoReferenceName)
+        var cache : SDImageCache? = nil
+        if FirebaseConnectionManager.isFirebaseConnected == false {
+            // if we are not connected get image from cache
+            cache = SDImageCache()
+        }
         self.userPhotoImageView.sd_setImage(with: storageRef!, maxImageSize: (FirebaseStorage.fileSizeLimit),
-                                            placeholderImage: UIImage(named: "male2"), cache : nil,
+                                            placeholderImage: nil, cache : cache,
                                             completion: { (image, error, cache, refrence) in
                                                 
             self.userPhotoImageView.sd_removeActivityIndicator()
@@ -195,13 +207,19 @@ class UserProfilePersonalDataViewController: UITableViewController {
     
     // MARK: Actions
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        log.info("")
         
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        log.info("")
         self.updateUserProfileData()
     }
 
     
+    @IBAction func userPhotoChangeButtonPressed(_ sender: UIButton) {
+        log.info("")
+    }
+
 }

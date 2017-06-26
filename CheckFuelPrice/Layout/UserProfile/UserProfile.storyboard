@@ -15,7 +15,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="F7p-Bs-NuR">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="r1K-AY-R92" customClass="UserProfileViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="r1K-AY-R92" customClass="UserProfileViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fdx-3B-JLx"/>
                         <viewControllerLayoutGuide type="bottom" id="Z3R-cd-daj"/>
@@ -90,27 +90,29 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="52Z-6E-qAK">
-                                                    <rect key="frame" x="107.5" y="20" width="160" height="160.5"/>
+                                                    <rect key="frame" x="67.5" y="20" width="160" height="160.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="52Z-6E-qAK" secondAttribute="height" id="FcP-zU-Z0U"/>
                                                         <constraint firstAttribute="width" constant="160" id="g8D-DC-FXa"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRc-5T-ADK">
-                                                    <rect key="frame" x="298" y="150" width="60" height="30"/>
+                                                    <rect key="frame" x="267" y="150" width="80" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="1vp-fL-oOC"/>
+                                                        <constraint firstAttribute="width" constant="80" id="1vp-fL-oOC"/>
                                                     </constraints>
                                                     <state key="normal" title="Change"/>
+                                                    <connections>
+                                                        <action selector="userPhotoChangeButtonPressed:" destination="ycA-wb-qj2" eventType="touchUpInside" id="LCd-Rr-8Nc"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="gRc-5T-ADK" firstAttribute="leading" relation="lessThanOrEqual" secondItem="52Z-6E-qAK" secondAttribute="trailing" constant="30" id="3WC-Ct-Cdw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gRc-5T-ADK" secondAttribute="trailing" constant="20" id="2tI-B9-qnN"/>
                                                 <constraint firstItem="gRc-5T-ADK" firstAttribute="bottom" secondItem="52Z-6E-qAK" secondAttribute="bottom" id="Rhf-Tb-ZKX"/>
                                                 <constraint firstItem="52Z-6E-qAK" firstAttribute="centerY" secondItem="ImG-uk-BKL" secondAttribute="centerY" id="XgJ-7Z-kO6"/>
-                                                <constraint firstItem="gRc-5T-ADK" firstAttribute="leading" secondItem="52Z-6E-qAK" secondAttribute="trailing" priority="500" constant="30" id="soP-DM-zd7"/>
                                                 <constraint firstItem="52Z-6E-qAK" firstAttribute="width" secondItem="ImG-uk-BKL" secondAttribute="width" multiplier="0.5" priority="500" id="vDq-qG-LHl"/>
-                                                <constraint firstItem="52Z-6E-qAK" firstAttribute="centerX" secondItem="ImG-uk-BKL" secondAttribute="centerX" id="w2A-05-Ba7"/>
+                                                <constraint firstItem="52Z-6E-qAK" firstAttribute="centerX" secondItem="ImG-uk-BKL" secondAttribute="centerX" constant="-40" id="w2A-05-Ba7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -202,6 +204,7 @@
                         <outlet property="headerLabel" destination="sry-Ah-k16" id="ad1-hV-kry"/>
                         <outlet property="lastNameTextField" destination="x7U-KQ-zbH" id="dB7-1k-PTk"/>
                         <outlet property="phoneTextField" destination="O5B-rF-FsC" id="9kX-SB-x9g"/>
+                        <outlet property="userPhotoChangeButton" destination="gRc-5T-ADK" id="HvA-6R-dmS"/>
                         <outlet property="userPhotoImageView" destination="52Z-6E-qAK" id="WVB-G0-S73"/>
                     </connections>
                 </tableViewController>

@@ -11,7 +11,6 @@ struct ThemesManager {
     // MARK: Variables/constants
     enum Colors : Int {
         case blue
-        case blue_v2
         case lightBlue
         case lightBlue_v2
         case yellow

@@ -23,6 +23,7 @@ extension UserProfileViewController: UITableViewDataSource {
             let descriptionText = descriptionNode[ProfileOptionProperty.name] as? String,
             let imageName = descriptionNode[ProfileOptionProperty.photo] as? String,
             let color = descriptionNode[ProfileOptionProperty.color] as? ThemesManager.Colors else {
+                log.error("")
                 return cell
         }
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
@@ -92,14 +93,13 @@ class UserProfileViewController: UIViewController {
 
     // MARK: Constants/Variable
     let profileOptionsArray : [ProfileOption : [ProfileOptionProperty : Any]] =
-        [.personalData : [.name : "personalData", .photo : "businessCard", .color : ThemesManager.Colors.blue],
-         .photo : [.name : "photo", .photo : "camera", .color : ThemesManager.Colors.orange],
-         .coordinates : [.name : "coordinates", .photo : "location", .color : ThemesManager.Colors.yellow],
-         .singOut : [.name : "singOut", .photo : "logout", .color : ThemesManager.Colors.lightBlue]]
+        [.personalData : [.name : "personalData", .photo : "businessCard", .color : ThemesManager.Colors.lightBlue_v2],
+//         .photo : [.name : "photo", .photo : "camera", .color : ThemesManager.Colors.orange],
+         .coordinates : [.name : "coordinates", .photo : "location", .color : ThemesManager.Colors.orange],
+         .singOut : [.name : "singOut", .photo : "logout", .color : ThemesManager.Colors.yellow]]
     
     enum ProfileOption : Int {
         case personalData
-        case photo
         case coordinates
         case singOut
     }
