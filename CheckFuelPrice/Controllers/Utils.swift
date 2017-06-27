@@ -6,6 +6,7 @@
 //  Copyright © 2017 Wojciech Stejka. All rights reserved.
 //
 
+
 class Utils {
     
     static func getUniqueId() -> String {

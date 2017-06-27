@@ -120,7 +120,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         log.verbose("Observer for node \(FirebaseNode.users.rawValue) removed")
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     func addFloatyButtons() {
         
@@ -188,6 +188,9 @@ class UserProfilePersonalDataViewController: UITableViewController {
                         // There is no yet user's profile. Let's create placeholder
                         fuelUser = FuelUser()
                     }
+                    
+                    
+                    
                     selfweak.populateFieldsWithData(from: fuelUser)
                     selfweak.showUserPhoto(from: fuelUser)
             })
@@ -296,7 +299,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         }
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         log.info("")
         

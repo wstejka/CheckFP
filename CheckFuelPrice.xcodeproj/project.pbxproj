@@ -52,6 +52,7 @@
 		9E634E8F1EEF0430008AA6AD /* StatisticsGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E634E8E1EEF0430008AA6AD /* StatisticsGraphViewController.swift */; };
 		9E634E911EEF044D008AA6AD /* StatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E634E901EEF044D008AA6AD /* StatisticsTableViewController.swift */; };
 		9E6602831F02902C001651CA /* PhotoStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6602821F02902C001651CA /* PhotoStorageManager.swift */; };
+		9E6602871F02DE45001651CA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */; };
 		9E9E7F201EE157370006414D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */; };
 		9E9E7F251EE171CB0006414D /* GenericNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */; };
 		9E9E7F271EE1A7AA0006414D /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E9E7F261EE1A7AA0006414D /* CustomCell.xib */; };
@@ -147,6 +148,7 @@
 		9E634E8E1EEF0430008AA6AD /* StatisticsGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsGraphViewController.swift; sourceTree = "<group>"; };
 		9E634E901EEF044D008AA6AD /* StatisticsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewController.swift; sourceTree = "<group>"; };
 		9E6602821F02902C001651CA /* PhotoStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStorageManager.swift; sourceTree = "<group>"; };
+		9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		9E9E7F221EE16DC00006414D /* StatisticsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTabViewController.swift; sourceTree = "<group>"; };
 		9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericNavigationController.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				9E1E7F071EF5B650008FC7F5 /* UIColor+Extension.swift */,
 				9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */,
 				9EB2D1521F02587E00299547 /* ZFRippleButton.swift */,
+				9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */,
 			);
 			path = GlobalClassExtensions;
 			sourceTree = "<group>";
@@ -768,6 +771,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6602871F02DE45001651CA /* UserDefaults+Extension.swift in Sources */,
 				9E634E8F1EEF0430008AA6AD /* StatisticsGraphViewController.swift in Sources */,
 				9E4A1F711EDB19370044F3DD /* Utils.swift in Sources */,
 				9E4A1F921EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift in Sources */,

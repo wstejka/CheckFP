@@ -114,6 +114,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SwiftyUserDefaults (3.0.0)
   - TwitterCore (2.7.0):
     - Fabric
   - TwitterKit (2.7.0):
@@ -126,8 +127,9 @@ DEPENDENCIES:
   - FirebaseUI (~> 4.0)
   - Floaty (~> 3.0.0)
   - HockeySDK (~> 4.1.5)
-  - ImagePicker
+  - ImagePicker (= 2.1.1)
   - Keys (from `Pods/CocoaPodsKeys`)
+  - SwiftyUserDefaults
   - TwitterKit (= 2.7)
 
 EXTERNAL SOURCES:
@@ -159,9 +161,10 @@ SPEC CHECKSUMS:
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: ae253034b24458cdeed21f1e56130b68d9ad2f3a
+PODFILE CHECKSUM: c6bfb64b268509beccce173d86ac72a82917b22f
 
 COCOAPODS: 1.2.1
