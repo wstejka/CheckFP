@@ -8,9 +8,9 @@ PODS:
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
-  - FBSDKCoreKit (4.23.0):
+  - FBSDKCoreKit (4.24.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.23.0):
+  - FBSDKLoginKit (4.24.0):
     - FBSDKCoreKit
   - Firebase/Auth (4.0.2):
     - Firebase/Core
@@ -108,6 +108,7 @@ PODS:
   - HockeySDK (4.1.6):
     - HockeySDK/DefaultLib (= 4.1.6)
   - HockeySDK/DefaultLib (4.1.6)
+  - ImagePicker (2.1.1)
   - Keys (1.0.0)
   - Protobuf (3.3.0)
   - SDWebImage (4.0.0):
@@ -125,6 +126,7 @@ DEPENDENCIES:
   - FirebaseUI (~> 4.0)
   - Floaty (~> 3.0.0)
   - HockeySDK (~> 4.1.5)
+  - ImagePicker
   - Keys (from `Pods/CocoaPodsKeys`)
   - TwitterKit (= 2.7)
 
@@ -136,8 +138,8 @@ SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  FBSDKCoreKit: d7829f5a69901cd7296105328e4c3c3fc7da6518
-  FBSDKLoginKit: 6b92bd65f319d669d2b0730e49db495ef1660566
+  FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
+  FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
   Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
   FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -153,12 +155,13 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   HockeySDK: 95db557d54489a570dcdefae0d02f98eecc279a3
+  ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: a0aa66959a44dda14341c1000aaa626ace0f2eb1
+PODFILE CHECKSUM: ae253034b24458cdeed21f1e56130b68d9ad2f3a
 
 COCOAPODS: 1.2.1

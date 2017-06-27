@@ -20,6 +20,7 @@ target 'CheckFuelPrice' do
 
   pod 'HockeySDK', '~> 4.1.5'
   pod "Floaty", "~> 3.0.0"
+  pod 'ImagePicker', '2.1.1'
 
 end
 
