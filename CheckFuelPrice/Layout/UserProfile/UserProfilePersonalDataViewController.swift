@@ -23,6 +23,9 @@ extension UserProfilePersonalDataViewController : ImagePickerDelegate {
 
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         log.verbose("")
+        let image = images[0]
+        PhotoStorageManager.instance().saveUser(photo: image)
+        
         imagePicker.dismiss(animated: true, completion: nil)
         
     }
@@ -35,7 +38,7 @@ extension UserProfilePersonalDataViewController : ImagePickerDelegate {
 
 class UserProfilePersonalDataViewController: UITableViewController {
 
-    // MARK: Variable/Constants
+    // MARK: - Variable/Constants
     // Firebase handlers
     var refUserItems : DatabaseReference? = nil
     var observerHandle : DatabaseHandle = 0
@@ -44,7 +47,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
     var lastPhotoTimestamp : Int = 0
     var lastPhotoReference : String = ""
     
-    // MARK: Properties
+    // MARK: - Properties
 
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -54,7 +57,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
     @IBOutlet weak var photoViewCell: UITableViewCell!
     
     
-    // MARK: UIViewController lifecycle
+    // MARK: - UIViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,7 +110,6 @@ class UserProfilePersonalDataViewController: UITableViewController {
             log.verbose("pushed: choose photo")
             var configuration = Configuration()
             configuration.mainColor = .white
-            //
             
             let imagePickerController = ImagePickerController()
             imagePickerController.configuration = configuration
@@ -202,7 +204,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
             // if we are not connected get image from cache
             cache = SDImageCache()
         }
-        self.userPhotoImageView.sd_setImage(with: storageRef!, maxImageSize: (FirebaseStorage.fileSizeLimit),
+        self.userPhotoImageView.sd_setImage(with: storageRef!, maxImageSize: (FirebaseUtils.fileSizeLimit),
                                             placeholderImage: nil, cache : cache,
                                             completion: { (image, error, cache, refrence) in
                                                 
@@ -221,7 +223,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
 
     }
     
-    func updateUserProfileData() {
+    func saveUserProfileData() {
         log.verbose("updating ...")
         
         DispatchQueue.global().async {
@@ -271,12 +273,8 @@ class UserProfilePersonalDataViewController: UITableViewController {
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         log.info("")
-        self.updateUserProfileData()
+        self.saveUserProfileData()
     }
 
-    
-    @IBAction func userPhotoChangeButtonPressed(_ sender: UIButton) {
-        log.info("")
-    }
 
 }

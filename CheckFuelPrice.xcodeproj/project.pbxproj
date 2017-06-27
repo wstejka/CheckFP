@@ -51,6 +51,7 @@
 		9E634E8D1EEEFF08008AA6AD /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E634E8C1EEEFF08008AA6AD /* StatisticsViewController.swift */; };
 		9E634E8F1EEF0430008AA6AD /* StatisticsGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E634E8E1EEF0430008AA6AD /* StatisticsGraphViewController.swift */; };
 		9E634E911EEF044D008AA6AD /* StatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E634E901EEF044D008AA6AD /* StatisticsTableViewController.swift */; };
+		9E6602831F02902C001651CA /* PhotoStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6602821F02902C001651CA /* PhotoStorageManager.swift */; };
 		9E9E7F201EE157370006414D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */; };
 		9E9E7F251EE171CB0006414D /* GenericNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */; };
 		9E9E7F271EE1A7AA0006414D /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E9E7F261EE1A7AA0006414D /* CustomCell.xib */; };
@@ -65,7 +66,6 @@
 		9EB2D1531F02587E00299547 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB2D1521F02587E00299547 /* ZFRippleButton.swift */; };
 		9EF038661EFF0B0500670527 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */; };
 		9EF0386A1F0137F300670527 /* FirebaseConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF038691F0137F300670527 /* FirebaseConnectionManager.swift */; };
-		9EF038701F018CB200670527 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF0386F1F018CB200670527 /* PhotoCollectionViewCell.swift */; };
 		9EF1A2C71EFC6894008EDE98 /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; };
 		9EF1A2C91EFC68A3008EDE98 /* EZLoadingActivity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9EF1A2CB1EFCE227008EDE98 /* ActivitiIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CA1EFCE227008EDE98 /* ActivitiIndicatorManager.swift */; };
@@ -146,6 +146,7 @@
 		9E634E8C1EEEFF08008AA6AD /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		9E634E8E1EEF0430008AA6AD /* StatisticsGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsGraphViewController.swift; sourceTree = "<group>"; };
 		9E634E901EEF044D008AA6AD /* StatisticsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewController.swift; sourceTree = "<group>"; };
+		9E6602821F02902C001651CA /* PhotoStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStorageManager.swift; sourceTree = "<group>"; };
 		9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		9E9E7F221EE16DC00006414D /* StatisticsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTabViewController.swift; sourceTree = "<group>"; };
 		9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericNavigationController.swift; sourceTree = "<group>"; };
@@ -167,7 +168,6 @@
 		9EB2D1521F02587E00299547 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		9EF038691F0137F300670527 /* FirebaseConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConnectionManager.swift; sourceTree = "<group>"; };
-		9EF0386F1F018CB200670527 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewCell.swift; path = Layout/UserProfile/PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = ../Carthage/Build/iOS/EZLoadingActivity.framework; sourceTree = "<group>"; };
 		9EF1A2CA1EFCE227008EDE98 /* ActivitiIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiIndicatorManager.swift; sourceTree = "<group>"; };
 		9EF1A2CC1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfilePersonalDataViewController.swift; path = Layout/UserProfile/UserProfilePersonalDataViewController.swift; sourceTree = "<group>"; };
@@ -343,6 +343,7 @@
 				9E1E7F141EF93F75008FC7F5 /* ThemesManager.swift */,
 				9EF1A2CA1EFCE227008EDE98 /* ActivitiIndicatorManager.swift */,
 				9EF038691F0137F300670527 /* FirebaseConnectionManager.swift */,
+				9E6602821F02902C001651CA /* PhotoStorageManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -570,7 +571,6 @@
 			isa = PBXGroup;
 			children = (
 				9EF1A2CF1EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift */,
-				9EF0386F1F018CB200670527 /* PhotoCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -769,12 +769,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E634E8F1EEF0430008AA6AD /* StatisticsGraphViewController.swift in Sources */,
-				9EF038701F018CB200670527 /* PhotoCollectionViewCell.swift in Sources */,
 				9E4A1F711EDB19370044F3DD /* Utils.swift in Sources */,
 				9E4A1F921EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift in Sources */,
 				9EF038661EFF0B0500670527 /* UIApplication+Extension.swift in Sources */,
 				9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */,
 				9E4A1FB81EE093E30044F3DD /* SettingsViewController.swift in Sources */,
+				9E6602831F02902C001651CA /* PhotoStorageManager.swift in Sources */,
 				9EF1A2CD1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift in Sources */,
 				9E4A1F661ED9DEAA0044F3DD /* CFPEnumerators.swift in Sources */,
 				9E1C03A11EE4447F0023BCED /* FuelPricesTableViewCell.swift in Sources */,

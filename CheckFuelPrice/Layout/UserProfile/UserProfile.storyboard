@@ -203,7 +203,7 @@
         <scene sceneID="IYI-Vl-Opx">
             <objects>
                 <navigationController storyboardIdentifier="UserProfilePersonalDataNavigationController" id="p0S-e5-e9m" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gBz-BW-JYa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gBz-BW-JYa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
