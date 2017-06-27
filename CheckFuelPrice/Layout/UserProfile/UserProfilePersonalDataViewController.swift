@@ -24,7 +24,32 @@ extension UserProfilePersonalDataViewController : ImagePickerDelegate {
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         log.verbose("")
         let image = images[0]
-        PhotoStorageManager.instance().saveUser(photo: image)
+        let photoManager = PhotoStorageManager()
+        photoManager.saveUser(photo: image, progress: { (progress) in
+            // TODO: Integarate status with progress bar
+        }) { (error) in
+            
+            // Image uploaded successfully. Let's update timestamp as name didn't change
+            if error == nil {
+                guard let uid = Auth.auth().currentUser?.uid else {
+                    log.error("Not authenticated user.")
+                    return
+                }
+                
+                let timestamp = Date().timeIntervalSince1970
+                self.refUserItems?.child(uid).updateChildValues([FirebaseNode.photoTimestamp.rawValue: timestamp], withCompletionBlock: { (error, ref : DatabaseReference) in
+                   
+                    if error == nil {
+                        log.error("Value \(FirebaseNode.photoTimestamp.rawValue) updated successfully")
+                    }
+                    else {
+                        log.error("Failed changing value \(FirebaseNode.photoTimestamp.rawValue) with error \(error.debugDescription)")
+                    }
+                })
+                log.error("Start changing \(FirebaseNode.photoTimestamp.rawValue) with value: \(timestamp)")
+
+            }
+        }
         
         imagePicker.dismiss(animated: true, completion: nil)
         
@@ -82,16 +107,17 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.addFloatyButtons()
 
     }
-        
-    deinit {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.startObserving()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
         log.verbose("")
-        if (self.refUserItems != nil) && (self.observerHandle > 0) {
-            // remove observer
-            self.refUserItems!.removeObserver(withHandle: self.observerHandle)
-            log.verbose("Observer for node \(FirebaseNode.users.rawValue) removed")
-            
-
-        }
+  
+        // remove observer
+        self.refUserItems!.removeAllObservers()
+        log.verbose("Observer for node \(FirebaseNode.users.rawValue) removed")
     }
     
     // MARK: Methods
@@ -226,7 +252,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
     func saveUserProfileData() {
         log.verbose("updating ...")
         
-        DispatchQueue.global().async {
+        DispatchQueue.global().async { 
             
             guard let uid = Auth.auth().currentUser?.uid else {
                 log.error("Not authenticated user.")
@@ -242,21 +268,27 @@ class UserProfilePersonalDataViewController: UITableViewController {
             
             
             let ref = Database.database().reference(withPath: FirebaseNode.users.rawValue)
-            ref.child(uid).setValue(fuelUser.toAnyObject(), withCompletionBlock: { (error, dataRef) in
+            ref.child(uid).setValue(fuelUser.toAnyObject(), withCompletionBlock: { [weak self] (error, dataRef) in
                 
                 DispatchQueue.main.async {
+                    
+                    guard let selfweak = self else {
+                        log.error("Could not get weak self")
+                        return
+                    }
+                    
                     if error != nil {
-                        self.headerLabel.textColor = .red
-                        self.headerLabel.text = error.debugDescription
+                        selfweak.headerLabel.textColor = .red
+                        selfweak.headerLabel.text = error.debugDescription
                     }
                     else {
-                        self.headerLabel.textColor = ThemesManager.get(color: .secondary)
-                        self.headerLabel.text = "dataSaved".localized().capitalizingFirstLetter()
+                        selfweak.headerLabel.textColor = ThemesManager.get(color: .secondary)
+                        selfweak.headerLabel.text = "dataSaved".localized().capitalizingFirstLetter()
                     }
                     
                     // Clear label after 2 secs
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0, execute: {
-                        self.headerLabel.text = ""
+                        selfweak.headerLabel.text = ""
                     })
                 }
             })

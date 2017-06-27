@@ -132,6 +132,9 @@ class UserProfileViewController: UIViewController {
 
         
     }
+    deinit {
+        log.info("")
+    }
 
     // MARK: - Actions
     
