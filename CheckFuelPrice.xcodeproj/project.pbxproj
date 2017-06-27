@@ -62,12 +62,11 @@
 		9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA203401EA0BEA900F18A3A /* String+Extension.swift */; };
 		9EA2035C1EA0C11500F18A3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EA2035E1EA0C11500F18A3A /* Localizable.strings */; };
 		9EAC4BC01ECF0FA000F7B81B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */; };
+		9EB2D1531F02587E00299547 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB2D1521F02587E00299547 /* ZFRippleButton.swift */; };
 		9EF038661EFF0B0500670527 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */; };
 		9EF0386A1F0137F300670527 /* FirebaseConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF038691F0137F300670527 /* FirebaseConnectionManager.swift */; };
-		9EF0386E1F018BE400670527 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF0386D1F018BE400670527 /* PhotoCollectionViewController.swift */; };
 		9EF038701F018CB200670527 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF0386F1F018CB200670527 /* PhotoCollectionViewCell.swift */; };
 		9EF1A2C71EFC6894008EDE98 /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; };
-		9EF1A2C81EFC68A3008EDE98 /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; };
 		9EF1A2C91EFC68A3008EDE98 /* EZLoadingActivity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9EF1A2CB1EFCE227008EDE98 /* ActivitiIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CA1EFCE227008EDE98 /* ActivitiIndicatorManager.swift */; };
 		9EF1A2CD1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CC1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift */; };
@@ -165,9 +164,9 @@
 		9EA2035F1EA0C12000F18A3A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EA203601EA0C13A00F18A3A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9EB2D1521F02587E00299547 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		9EF038691F0137F300670527 /* FirebaseConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConnectionManager.swift; sourceTree = "<group>"; };
-		9EF0386D1F018BE400670527 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewController.swift; path = Layout/UserProfile/PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		9EF0386F1F018CB200670527 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCollectionViewCell.swift; path = Layout/UserProfile/PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = ../Carthage/Build/iOS/EZLoadingActivity.framework; sourceTree = "<group>"; };
 		9EF1A2CA1EFCE227008EDE98 /* ActivitiIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiIndicatorManager.swift; sourceTree = "<group>"; };
@@ -182,7 +181,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EF1A2C81EFC68A3008EDE98 /* EZLoadingActivity.framework in Frameworks */,
 				9EF1A2C71EFC6894008EDE98 /* EZLoadingActivity.framework in Frameworks */,
 				9E1E7F041EF5AADF008FC7F5 /* Chameleon.framework in Frameworks */,
 				9E1C03A31EED4FCC0023BCED /* Charts.framework in Frameworks */,
@@ -322,7 +320,6 @@
 			children = (
 				9E1E7F111EF7ECAA008FC7F5 /* UserProfileViewController.swift */,
 				9EF1A2CC1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift */,
-				9EF0386D1F018BE400670527 /* PhotoCollectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -535,6 +532,7 @@
 				9E4A03511EF15E480016AB46 /* UICollectionView+Extension.swift */,
 				9E1E7F071EF5B650008FC7F5 /* UIColor+Extension.swift */,
 				9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */,
+				9EB2D1521F02587E00299547 /* ZFRippleButton.swift */,
 			);
 			path = GlobalClassExtensions;
 			sourceTree = "<group>";
@@ -594,8 +592,8 @@
 			buildPhases = (
 				F1070182D677C2A439CC6546 /* [CP] Check Pods Manifest.lock */,
 				9EA203181EA0BDBB00F18A3A /* Sources */,
-				9EA203191EA0BDBB00F18A3A /* Frameworks */,
 				9EA2031A1EA0BDBB00F18A3A /* Resources */,
+				9EA203191EA0BDBB00F18A3A /* Frameworks */,
 				9E5C84331EA0CC5800C7DFA7 /* Embed Frameworks */,
 				605A275EA21D76D79EA78F84 /* [CP] Embed Pods Frameworks */,
 				92CAE1A431714AC6396D8CCA /* [CP] Copy Pods Resources */,
@@ -799,7 +797,6 @@
 				9E1E7F081EF5B650008FC7F5 /* UIColor+Extension.swift in Sources */,
 				9E4A03521EF15E480016AB46 /* UICollectionView+Extension.swift in Sources */,
 				9E1E7F121EF7ECAA008FC7F5 /* UserProfileViewController.swift in Sources */,
-				9EF0386E1F018BE400670527 /* PhotoCollectionViewController.swift in Sources */,
 				9E1C039F1EE2BD020023BCED /* OrdersViewController.swift in Sources */,
 				9E4A034E1EF05A100016AB46 /* StatisticsCollectionViewCell.swift in Sources */,
 				9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */,
@@ -810,6 +807,7 @@
 				9E4A1F981EDEFF240044F3DD /* Enum+Extensions.swift in Sources */,
 				9E634E911EEF044D008AA6AD /* StatisticsTableViewController.swift in Sources */,
 				9E6209FD1EEEA80200AC75CA /* StatisticsTabViewController.swift in Sources */,
+				9EB2D1531F02587E00299547 /* ZFRippleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

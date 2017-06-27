@@ -83,7 +83,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
         }
         
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "fuelPrice".localized(withDefaultValue: ""))
-        chartDataSet.colors = [ThemesManager.instance().get(color: .lightBlue_v2)]
+        chartDataSet.colors = [ThemesManager.get(color: .primary)]
         let chartData = BarChartData(dataSets: [chartDataSet])
         // Don't let resize chart
         barChartView.doubleTapToZoomEnabled = false

@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         
         // === Configure Theme ==== //
-        Chameleon.setGlobalThemeUsingPrimaryColor(ThemesManager.instance().get(color: .lightBlue),
+        Chameleon.setGlobalThemeUsingPrimaryColor(ThemesManager.get(color: .primary),
                                                   withSecondaryColor: .white,
                                                   andContentStyle: UIContentStyle.contrast)
         

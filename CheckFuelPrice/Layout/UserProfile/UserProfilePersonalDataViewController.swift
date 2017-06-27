@@ -9,19 +9,40 @@
 import UIKit
 import FirebaseStorageUI
 import Floaty
+import ImagePicker
 
+
+// MARK: - Extension ImagePickerDelegate
+extension UserProfilePersonalDataViewController : ImagePickerDelegate {
+    
+    
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        log.verbose("")
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        log.verbose("")
+        imagePicker.dismiss(animated: true, completion: nil)
+        
+    }
+
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        log.verbose("")
+    }
+    
+}
 
 class UserProfilePersonalDataViewController: UITableViewController {
 
     // MARK: Variable/Constants
+    // Firebase handlers
     var refUserItems : DatabaseReference? = nil
     var observerHandle : DatabaseHandle = 0
     var storageRef : StorageReference?
     
     var lastPhotoTimestamp : Int = 0
     var lastPhotoReference : String = ""
-    
-    let photoCollectionSegueName : String = "photoCollectionSegue"
     
     // MARK: Properties
 
@@ -33,8 +54,8 @@ class UserProfilePersonalDataViewController: UITableViewController {
     @IBOutlet weak var photoViewCell: UITableViewCell!
     
     
-    
     // MARK: UIViewController lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,19 +76,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.tableView.allowsSelection = false
         self.title = "personalData".localized().capitalizingFirstLetter()
         
-        // customize chnage button view
-        let floaty = Floaty()
-        floaty.openAnimationType = .slideLeft
-        floaty.addItem("takePhoto".localized().capitalizingFirstLetter(), icon: UIImage(named: "camera")!) { (item) in
-            
-            log.verbose("pushed: take photo")
-        }
-        floaty.addItem("choosePhoto".localized().capitalizingFirstLetter(), icon: UIImage(named: "image_collection")!) { (item) in
-            
-            log.verbose("pushed: choose photo")
-//            performSegue(withIdentifier: self.photoCollectionSegueName, sender: nil)
-        }
-        self.photoViewCell.contentView.addSubview(floaty)
+        self.addFloatyButtons()
 
     }
         
@@ -84,19 +93,53 @@ class UserProfilePersonalDataViewController: UITableViewController {
     
     // MARK: Methods
     
+    func addFloatyButtons() {
+        
+        // customize change button view
+        let floaty = Floaty()
+        floaty.openAnimationType = .slideLeft
+        floaty.addItem("cancel".localized().capitalizingFirstLetter(), icon: UIImage(named: "camera")!) { (item) in
+            
+            log.verbose("pushed: cancel")
+        }
+        floaty.addItem("choosePhoto".localized().capitalizingFirstLetter(), icon: UIImage(named: "image_collection")!) { (item) in
+            
+            log.verbose("pushed: choose photo")
+            var configuration = Configuration()
+            configuration.mainColor = .white
+            //
+            
+            let imagePickerController = ImagePickerController()
+            imagePickerController.configuration = configuration
+            imagePickerController.bottomContainer.backgroundColor = ThemesManager.get(color: .primary)
+            imagePickerController.bottomContainer.doneButton.backgroundColor = ThemesManager.get(color: .primary)
+            
+//            topView.flashButton.backgroundColor = ThemesManager.get(color: .primary)
+//            imagePickerController.topView.rotateCamera.backgroundColor = ThemesManager.get(color: .primary)
+//            imagePickerController.topView.rotateCamera.layer.borderWidth = 0
+            
+            imagePickerController.delegate = self
+            imagePickerController.imageLimit = 1
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+        self.photoViewCell.contentView.addSubview(floaty)
+    }
+    
     func startObserving()  {
         log.verbose("entered")
+        
         // Query for user's data
         DispatchQueue.global().async {
-            // create observer
+            
             guard let uid = Auth.auth().currentUser?.uid else {
                 log.error("This user is not authenticated.")
                 return
             }
             log.verbose("uid: \(String(describing: uid))")
 
-            // create reference to user node
+            // create reference to the user node
             self.refUserItems = Database.database().reference(withPath: FirebaseNode.users.rawValue)
+            // start observing ... 
             self.observerHandle = self.refUserItems!.queryOrderedByKey().queryEqual(toValue: uid).observe(
                 .value, with: { [weak self] snapshot in
                     
@@ -115,8 +158,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
                     if fuelUser == nil {
                         log.warning("There is no yet profile for user: \(uid). Let's create placeholder")
                         // There is no yet user's profile. Let's create placeholder
-                        fuelUser = FuelUser(uid: uid, firstName: "", lastName: "", phone: "",
-                                            updated: 0, photoRefence : "", photoTimestamp : 0)
+                        fuelUser = FuelUser()
                     }
                     selfweak.populateFieldsWithData(from: fuelUser)
                     selfweak.showUserPhoto(from: fuelUser)
@@ -206,7 +248,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
                         self.headerLabel.text = error.debugDescription
                     }
                     else {
-                        self.headerLabel.textColor = ThemesManager.instance().get(color: ThemesManager.Colors.lightBlue)
+                        self.headerLabel.textColor = ThemesManager.get(color: .secondary)
                         self.headerLabel.text = "dataSaved".localized().capitalizingFirstLetter()
                     }
                     

@@ -89,7 +89,7 @@ class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol
         
         // Create table header view using the same tableCellView as for ordinary cell
         let tableHeaderView = self.tableView.dequeueReusableCell(withIdentifier: customTableViewCellName) as? StatisticsTableViewCell
-        tableHeaderView?.contentView.backgroundColor = ThemesManager.instance().get(color: .lightBlue_v2)
+        tableHeaderView?.contentView.backgroundColor = ThemesManager.get(color: .primary)
         tableHeaderView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
         tableHeaderView?.timestamp.text = "timestamp".localized(withDefaultValue: "").capitalizingFirstLetter()
         let priceName = "fuelPrice".localized(withDefaultValue: "").capitalizingFirstLetter()

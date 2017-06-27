@@ -22,7 +22,7 @@ extension UserProfileViewController: UITableViewDataSource {
             let descriptionNode = self.profileOptionsArray[profileOption],
             let descriptionText = descriptionNode[ProfileOptionProperty.name] as? String,
             let imageName = descriptionNode[ProfileOptionProperty.photo] as? String,
-            let color = descriptionNode[ProfileOptionProperty.color] as? ThemesManager.Colors else {
+            let color = descriptionNode[ProfileOptionProperty.color] as? ThemesManager.Color else {
                 log.error("")
                 return cell
         }
@@ -45,7 +45,7 @@ extension UserProfileViewController: UITableViewDataSource {
         button.heightAnchor.constraint(equalTo: cell.heightAnchor, multiplier: 0.8).isActive = true
         
         let tintedImage = UIImage(named: imageName )?.tinted()
-        button.tintColor = ThemesManager.instance().get(color: color)
+        button.tintColor = ThemesManager.get(color: color)
         button.setImage(tintedImage, for: .normal)
         button.imageView?.translatesAutoresizingMaskIntoConstraints = false
         button.imageView?.topAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
@@ -94,10 +94,10 @@ class UserProfileViewController: UIViewController {
 
     // MARK: Constants/Variable
     let profileOptionsArray : [ProfileOption : [ProfileOptionProperty : Any]] =
-        [.personalData : [.name : "personalData", .photo : "businessCard", .color : ThemesManager.Colors.lightBlue_v2],
+        [.personalData : [.name : "personalData", .photo : "businessCard", .color : ThemesManager.Color.primary],
 //         .photo : [.name : "photo", .photo : "camera", .color : ThemesManager.Colors.orange],
-         .coordinates : [.name : "coordinates", .photo : "location", .color : ThemesManager.Colors.orange],
-         .singOut : [.name : "singOut", .photo : "logout", .color : ThemesManager.Colors.yellow]]
+         .coordinates : [.name : "coordinates", .photo : "location", .color : ThemesManager.Color.theme2],
+         .singOut : [.name : "singOut", .photo : "logout", .color : ThemesManager.Color.theme3]]
     
     enum ProfileOption : Int {
         case personalData

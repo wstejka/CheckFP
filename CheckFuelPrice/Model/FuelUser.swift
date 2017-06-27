@@ -6,9 +6,31 @@
 //  Copyright © 2017 Wojciech Stejka. All rights reserved.
 //
 
+struct Size {
+    var width = 0.0, height = 0.0
+}
+struct Point {
+    var x = 0.0, y = 0.0
+}
+
+struct Rect {
+    var origin = Point()
+    var size = Size()
+    init() {}
+    init(origin: Point, size: Size) {
+        self.origin = origin
+        self.size = size
+    }
+    init(center: Point, size: Size) {
+        let originX = center.x - (size.width / 2)
+        let originY = center.y - (size.height / 2)
+        self.init(origin: Point(x: originX, y: originY), size: size)
+    }
+}
+
 struct FuelUser {
     
-    let uid : String
+    var uid : String = ""
     var firstName : String = ""
     var lastName : String = ""
     var phone : String = ""
@@ -16,6 +38,11 @@ struct FuelUser {
     // reference to user's photo e.g.: users/UCPdi7Hto3Q7QRdX5ShDgSqJwB63/unique_id_photo.jpg
     var photoReference : String = ""
     var photoTimestamp : Int = 0
+    
+    init() {
+    
+        self.init(uid: "", firstName: "", lastName: "", phone: "", updated: 0, photoRefence: "", photoTimestamp: 1)
+    }
     
     init(uid : String, firstName : String, lastName : String,
          phone : String, updated : Int, photoRefence : String,
