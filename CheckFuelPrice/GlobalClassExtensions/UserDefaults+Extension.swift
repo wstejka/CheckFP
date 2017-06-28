@@ -8,6 +8,6 @@
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-    static let username = DefaultsKey<String?>("username")
-    static let launchCount = DefaultsKey<Int>("launchCount")
+    static let lastUserPhotoTimestamp = DefaultsKey<Int?>("lastUserPhotoTimestamp")
+    static let lastUserPhotoReference = DefaultsKey<String?>("lastUserPhotoReference")
 }

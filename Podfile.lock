@@ -110,10 +110,37 @@ PODS:
   - HockeySDK/DefaultLib (4.1.6)
   - ImagePicker (2.1.1)
   - Keys (1.0.0)
+  - libwebp (0.6.0):
+    - libwebp/core (= 0.6.0)
+    - libwebp/dec (= 0.6.0)
+    - libwebp/demux (= 0.6.0)
+    - libwebp/dsp (= 0.6.0)
+    - libwebp/enc (= 0.6.0)
+    - libwebp/mux (= 0.6.0)
+    - libwebp/utils (= 0.6.0)
+    - libwebp/webp (= 0.6.0)
+  - libwebp/core (0.6.0):
+    - libwebp/webp
+  - libwebp/dec (0.6.0):
+    - libwebp/core
+  - libwebp/demux (0.6.0):
+    - libwebp/core
+  - libwebp/dsp (0.6.0):
+    - libwebp/core
+  - libwebp/enc (0.6.0):
+    - libwebp/core
+  - libwebp/mux (0.6.0):
+    - libwebp/core
+  - libwebp/utils (0.6.0):
+    - libwebp/core
+  - libwebp/webp (0.6.0)
   - Protobuf (3.3.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SDWebImage/WebP (4.0.0):
+    - libwebp
+    - SDWebImage/Core
   - SwiftyUserDefaults (3.0.0)
   - TwitterCore (2.7.0):
     - Fabric
@@ -129,6 +156,7 @@ DEPENDENCIES:
   - HockeySDK (~> 4.1.5)
   - ImagePicker (= 2.1.1)
   - Keys (from `Pods/CocoaPodsKeys`)
+  - SDWebImage/WebP
   - SwiftyUserDefaults
   - TwitterKit (= 2.7)
 
@@ -159,12 +187,13 @@ SPEC CHECKSUMS:
   HockeySDK: 95db557d54489a570dcdefae0d02f98eecc279a3
   ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
+  libwebp: 1d5a07c2eb97f9c31bd5f154bb82efc0ea67c6a2
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: c6bfb64b268509beccce173d86ac72a82917b22f
+PODFILE CHECKSUM: 358f1712a61a0a0acf4d81cb452cf4abdbe4f5c2
 
 COCOAPODS: 1.2.1

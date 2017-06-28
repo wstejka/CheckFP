@@ -13,6 +13,7 @@ enum FirebaseNode : String {
     case fuelPriceItem  = "fuel_price_items"
     case users          = "users"
     case photoTimestamp = "photoTimestamp"
+    case photoReference = "photoReference"
 }
 
 enum FirebaseStorageNode : String {
@@ -36,10 +37,10 @@ enum CountryVat : Double {
 struct FirebaseUtils {
     
     // 1MB
-    private static let fileSizeFactor : UInt64 = 1024 * 1024
+    private static let fileSizeFactor : Int64 = 1024 * 1024
     // 2 * 1MB
-    static let fileSizeLimit : UInt64 = 2 * fileSizeFactor
+    static let fileSizeLimit : Int64 = 2 * fileSizeFactor
 
-    static let defaultPhotoUserName = "photo.jpg"
+    static let defaultUserPhotoName = "photo.jpg"
     
 }

@@ -22,6 +22,7 @@ target 'CheckFuelPrice' do
   pod "Floaty", "~> 3.0.0"
   pod 'ImagePicker', '2.1.1'
   pod 'SwiftyUserDefaults'
+  pod 'SDWebImage/WebP'
 
 end
 

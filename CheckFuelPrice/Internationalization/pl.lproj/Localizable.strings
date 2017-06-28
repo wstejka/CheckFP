@@ -9,10 +9,12 @@
 // Login
 loginPlaceholder = "użytkownik";
 passwordPlaceholder = "hasło";
-login = "Zaloguj";
-signUp = "Zarejestruj się";
-takePhoto = "Zrób zdjęcie";
-choosePhoto ="Wybierz zdjęcie";
+login = "zaloguj";
+signUp = "zarejestruj się";
+takePhoto = "zrób zdjęcie";
+choosePhoto ="wybierz zdjęcie";
+selectPhoto ="wybierz zdjęcie";
+changePhoto ="zmień zdjęcie";
 
 // User's profile
 personalData = "dane osobowe";

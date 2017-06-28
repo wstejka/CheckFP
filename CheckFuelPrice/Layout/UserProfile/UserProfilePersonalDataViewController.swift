@@ -10,7 +10,7 @@ import UIKit
 import FirebaseStorageUI
 import Floaty
 import ImagePicker
-
+import SwiftyUserDefaults
 
 // MARK: - Extension ImagePickerDelegate
 extension UserProfilePersonalDataViewController : ImagePickerDelegate {
@@ -23,36 +23,29 @@ extension UserProfilePersonalDataViewController : ImagePickerDelegate {
 
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         log.verbose("")
-        let image = images[0]
-        let photoManager = PhotoStorageManager()
-        photoManager.saveUser(photo: image, progress: { (progress) in
-            // TODO: Integarate status with progress bar
-        }) { (error) in
-            
-            // Image uploaded successfully. Let's update timestamp as name didn't change
-            if error == nil {
-                guard let uid = Auth.auth().currentUser?.uid else {
-                    log.error("Not authenticated user.")
-                    return
-                }
-                
-                let timestamp = Date().timeIntervalSince1970
-                self.refUserItems?.child(uid).updateChildValues([FirebaseNode.photoTimestamp.rawValue: timestamp], withCompletionBlock: { (error, ref : DatabaseReference) in
-                   
-                    if error == nil {
-                        log.error("Value \(FirebaseNode.photoTimestamp.rawValue) updated successfully")
-                    }
-                    else {
-                        log.error("Failed changing value \(FirebaseNode.photoTimestamp.rawValue) with error \(error.debugDescription)")
-                    }
-                })
-                log.error("Start changing \(FirebaseNode.photoTimestamp.rawValue) with value: \(timestamp)")
-
-            }
+        
+        
+        let newImageView = UIImageView()
+        newImageView.image = images[0]
+        guard let uid = Auth.auth().currentUser?.uid else {
+            log.error("Not authenticated user.")
+            return
         }
         
-        imagePicker.dismiss(animated: true, completion: nil)
+        // Create the file metadata
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
         
+        let fullPath = FirebaseStorageNode.users.rawValue + "/" + uid + "/" + FirebaseUtils.defaultUserPhotoName
+        let storageRef = Storage.storage().reference().child(fullPath)
+        let databaseRef = self.fbReferenceUser?.child(uid)
+        newImageView.saveUser(with: storageRef, dbRef: databaseRef, progress: { (progress) in
+            
+        }, final: { (error) in
+            
+        })
+        
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
@@ -65,12 +58,10 @@ class UserProfilePersonalDataViewController: UITableViewController {
 
     // MARK: - Variable/Constants
     // Firebase handlers
-    var refUserItems : DatabaseReference? = nil
+    var fbReferenceUser : DatabaseReference!
     var observerHandle : DatabaseHandle = 0
-    var storageRef : StorageReference?
     
-    var lastPhotoTimestamp : Int = 0
-    var lastPhotoReference : String = ""
+    let dispatchTimeDelay : Double = 1.0
     
     // MARK: - Properties
 
@@ -87,8 +78,6 @@ class UserProfilePersonalDataViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.startObserving()
-        
         // Set up placeholders for text fields
         self.firstNameTextField.placeholder = "firstName".localized().capitalizingFirstLetter()
         self.lastNameTextField.placeholder = "lastName".localized().capitalizingFirstLetter()
@@ -104,8 +93,11 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.tableView.allowsSelection = false
         self.title = "personalData".localized().capitalizingFirstLetter()
         
+        // Initiate reference to firebase node
+        self.fbReferenceUser = Database.database().reference(withPath: FirebaseNode.users.rawValue)
+        
+        // Add floaty buttons with user's photo options
         self.addFloatyButtons()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -115,8 +107,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         log.verbose("")
   
-        // remove observer
-        self.refUserItems!.removeAllObservers()
+        self.fbReferenceUser.removeAllObservers()
         log.verbose("Observer for node \(FirebaseNode.users.rawValue) removed")
     }
     
@@ -129,11 +120,12 @@ class UserProfilePersonalDataViewController: UITableViewController {
         floaty.openAnimationType = .slideLeft
         floaty.addItem("cancel".localized().capitalizingFirstLetter(), icon: UIImage(named: "camera")!) { (item) in
             
-            log.verbose("pushed: cancel")
+            log.verbose("\"cancel\" option selected")
+
         }
-        floaty.addItem("choosePhoto".localized().capitalizingFirstLetter(), icon: UIImage(named: "image_collection")!) { (item) in
+        floaty.addItem("changePhoto".localized().capitalizingFirstLetter(), icon: UIImage(named: "image_collection")!) { (item) in
             
-            log.verbose("pushed: choose photo")
+            log.verbose("\"change photo\" option selected")
             var configuration = Configuration()
             configuration.mainColor = .white
             
@@ -141,10 +133,6 @@ class UserProfilePersonalDataViewController: UITableViewController {
             imagePickerController.configuration = configuration
             imagePickerController.bottomContainer.backgroundColor = ThemesManager.get(color: .primary)
             imagePickerController.bottomContainer.doneButton.backgroundColor = ThemesManager.get(color: .primary)
-            
-//            topView.flashButton.backgroundColor = ThemesManager.get(color: .primary)
-//            imagePickerController.topView.rotateCamera.backgroundColor = ThemesManager.get(color: .primary)
-//            imagePickerController.topView.rotateCamera.layer.borderWidth = 0
             
             imagePickerController.delegate = self
             imagePickerController.imageLimit = 1
@@ -156,7 +144,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
     func startObserving()  {
         log.verbose("entered")
         
-        // Query for user's data
+        // Query for user's personal data
         DispatchQueue.global().async {
             
             guard let uid = Auth.auth().currentUser?.uid else {
@@ -164,43 +152,32 @@ class UserProfilePersonalDataViewController: UITableViewController {
                 return
             }
             log.verbose("uid: \(String(describing: uid))")
-
-            // create reference to the user node
-            self.refUserItems = Database.database().reference(withPath: FirebaseNode.users.rawValue)
+            
             // start observing ... 
-            self.observerHandle = self.refUserItems!.queryOrderedByKey().queryEqual(toValue: uid).observe(
-                .value, with: { [weak self] snapshot in
-                    
-                    guard let selfweak = self else {
-                        log.error("Could not get weak self")
-                        return
-                    }
-                    
+            self.observerHandle = self.fbReferenceUser!.queryOrderedByKey().queryEqual(toValue: uid).observe(
+                .value, with: { snapshot in
+
                     log.verbose("Returned: users.childrenCount = \(snapshot.childrenCount)")
                     
-                    var fuelUser : FuelUser? = nil
+                    var fuelUser = FuelUser()
                     for item in snapshot.children {
-                        fuelUser = FuelUser(snapshot: item as! DataSnapshot)
+                        guard let currentFuelUser = FuelUser(snapshot: item as! DataSnapshot) else {
+                            log.error("Could not cast data properly ...")
+                            return
+                        }
+                        fuelUser = currentFuelUser
                     }
-                    
-                    if fuelUser == nil {
-                        log.warning("There is no yet profile for user: \(uid). Let's create placeholder")
-                        // There is no yet user's profile. Let's create placeholder
-                        fuelUser = FuelUser()
-                    }
-                    
-                    
-                    
-                    selfweak.populateFieldsWithData(from: fuelUser)
-                    selfweak.showUserPhoto(from: fuelUser)
+
+                    self.populateFieldsWithData(from: fuelUser)
+                    self.showUserPhoto(from: fuelUser)
+                    Defaults[.lastUserPhotoTimestamp] = fuelUser.photoTimestamp
             })
         }
     }
     
-    func populateFieldsWithData(from user : FuelUser?) {
+    func populateFieldsWithData(from user : FuelUser) {
         log.info("entered")
 
-        guard let user = user else { return }
         self.firstNameTextField.text = user.firstName
         self.lastNameTextField.text = user.lastName
         self.phoneTextField.text = user.phone
@@ -208,48 +185,27 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func showUserPhoto(from user: FuelUser?) {
+    func showUserPhoto(from user: FuelUser) {
         log.verbose("entered")
         
-        guard let user = user else { return }
         guard let uid = Auth.auth().currentUser?.uid else {
             log.error("Not authenticated user.")
             return
         }
-        log.verbose("Photo (\(user.photoTimestamp)); lastPhoto \(self.lastPhotoTimestamp)")
-        if user.photoTimestamp == self.lastPhotoTimestamp
-        {
-            log.verbose("Photo \"\(user.photoReference)\" didn't change. Nothing to update ...")
-            return
-        }
+        log.verbose("Photo: \"\(user.photoTimestamp)\", lastPhoto: \"\(Defaults[.lastUserPhotoTimestamp] ?? 0)\"")
         
         let photoReferenceName = FirebaseStorageNode.users.rawValue + "/" + uid + "/" + user.photoReference
-        log.verbose("downloading personal photo from: \"\(photoReferenceName)\" for user \(uid)")
-        
         // Create a storage reference from our storage service
-        self.storageRef = Storage.storage().reference().child(photoReferenceName)
-        var cache : SDImageCache? = nil
-        if FirebaseConnectionManager.isFirebaseConnected == false {
-            // if we are not connected get image from cache
-            cache = SDImageCache()
-        }
-        self.userPhotoImageView.sd_setImage(with: storageRef!, maxImageSize: (FirebaseUtils.fileSizeLimit),
-                                            placeholderImage: nil, cache : cache,
-                                            completion: { (image, error, cache, refrence) in
-                                                
-            self.userPhotoImageView.sd_removeActivityIndicator()
-            if error != nil {
-                log.error("Photo download failed")
-            }
-            else {
-                log.verbose("Photo downloaded successfully")
-                // update local photo information to be in-sync
-                self.lastPhotoTimestamp = user.photoTimestamp
-                self.lastPhotoReference = user.photoReference
-            }
-            
-        })
+        let storageRef = Storage.storage().reference().child(photoReferenceName)
 
+        var useCache = true
+        if FirebaseConnectionManager.isFirebaseConnected == true &&
+            user.photoTimestamp != Defaults[.lastUserPhotoTimestamp] {
+            useCache = false
+        }
+        DispatchQueue.global().async {
+            _ = self.userPhotoImageView.setImage(with: storageRef, placeholder: UIImage(named: "male_big"), useCache: useCache)
+        }
     }
     
     func saveUserProfileData() {
@@ -267,35 +223,30 @@ class UserProfilePersonalDataViewController: UITableViewController {
                                     lastName: self.lastNameTextField.text ?? "",
                                     phone: self.phoneTextField.text ?? "",
                                     updated: Int(Date().timeIntervalSince1970),
-                                    photoRefence : self.lastPhotoReference, photoTimestamp : self.lastPhotoTimestamp)
+                                    photoReference : Defaults[.lastUserPhotoReference] ?? "",
+                                    photoTimestamp : Defaults[.lastUserPhotoTimestamp] ?? 0)
             
             
             let ref = Database.database().reference(withPath: FirebaseNode.users.rawValue)
-            ref.child(uid).setValue(fuelUser.toAnyObject(), withCompletionBlock: { [weak self] (error, dataRef) in
+            ref.child(uid).setValue(fuelUser.toAnyObject(), withCompletionBlock: { (error, dataRef) in
                 
                 DispatchQueue.main.async {
                     
-                    guard let selfweak = self else {
-                        log.error("Could not get weak self")
-                        return
-                    }
-                    
                     if error != nil {
-                        selfweak.headerLabel.textColor = .red
-                        selfweak.headerLabel.text = error.debugDescription
+                        self.headerLabel.textColor = .red
+                        self.headerLabel.text = error.debugDescription
                     }
                     else {
-                        selfweak.headerLabel.textColor = ThemesManager.get(color: .secondary)
-                        selfweak.headerLabel.text = "dataSaved".localized().capitalizingFirstLetter()
+                        self.headerLabel.textColor = ThemesManager.get(color: .secondary)
+                        self.headerLabel.text = "dataSaved".localized().capitalizingFirstLetter()
                     }
                     
-                    // Clear label after 2 secs
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0, execute: {
-                        selfweak.headerLabel.text = ""
-                    })
                 }
+                // Clear label after 2 secs
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.dispatchTimeDelay, execute: {
+                    self.headerLabel.text = ""
+                })
             })
-        
         }
     }
     

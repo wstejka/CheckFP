@@ -11,8 +11,10 @@ loginPlaceholder = "login";
 passwordPlaceholder = "password";
 login = "login";
 signUp = "sing up";
-takePhoto = "Take a photo";
-choosePhoto ="Choose photo";
+takePhoto = "take a photo";
+choosePhoto ="choose photo";
+selectPhoto ="select photo";
+changePhoto ="change photo";
 
 // User's profile
 personalData = "personal data";

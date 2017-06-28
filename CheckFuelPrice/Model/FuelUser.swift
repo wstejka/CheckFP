@@ -41,11 +41,11 @@ struct FuelUser {
     
     init() {
     
-        self.init(uid: "", firstName: "", lastName: "", phone: "", updated: 0, photoRefence: "", photoTimestamp: 1)
+        self.init(uid: "", firstName: "", lastName: "", phone: "", updated: 0, photoReference: "", photoTimestamp: 1)
     }
     
     init(uid : String, firstName : String, lastName : String,
-         phone : String, updated : Int, photoRefence : String,
+         phone : String, updated : Int, photoReference : String,
          photoTimestamp : Int) {
         
         self.uid = uid
@@ -53,7 +53,7 @@ struct FuelUser {
         self.lastName = lastName
         self.phone = phone
         self.updated = updated
-        self.photoReference = photoRefence
+        self.photoReference = photoReference
         self.photoTimestamp = photoTimestamp
         
     }
@@ -77,8 +77,8 @@ struct FuelUser {
         if let updated = userAttributes["updated"] as? Int {
             self.updated = updated
         }
-        if let photoRefence = userAttributes["photoRefence"] as? String {
-            self.photoReference = photoRefence
+        if let photoReference = userAttributes["photoReference"] as? String {
+            self.photoReference = photoReference
         }
         if let photoTimestamp = userAttributes["photoTimestamp"] as? Int {
             self.photoTimestamp = photoTimestamp
@@ -93,7 +93,7 @@ struct FuelUser {
             "phone" : phone,
             "updated": updated,
             "uid" : uid,
-            "photoRefence" : photoReference,
+            "photoReference" : photoReference,
             "photoTimestamp" : photoTimestamp,
         ]
     }
