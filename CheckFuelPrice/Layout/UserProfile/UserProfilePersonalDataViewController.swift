@@ -194,9 +194,10 @@ class UserProfilePersonalDataViewController: UITableViewController {
         }
         log.verbose("Photo: \"\(user.photoTimestamp)\", lastPhoto: \"\(Defaults[.lastUserPhotoTimestamp] ?? 0)\"")
         
-        let photoReferenceName = FirebaseStorageNode.users.rawValue + "/" + uid + "/" + user.photoReference
+        let photoReference = (user.photoReference.isEmpty ? FirebaseUtils.defaultUserPhotoName : user.photoReference)
+        let photoReferencePath = FirebaseStorageNode.users.rawValue + "/" + uid + "/" + photoReference
         // Create a storage reference from our storage service
-        let storageRef = Storage.storage().reference().child(photoReferenceName)
+        let storageRef = Storage.storage().reference().child(photoReferencePath)
 
         var useCache = true
         if FirebaseConnectionManager.isFirebaseConnected == true &&

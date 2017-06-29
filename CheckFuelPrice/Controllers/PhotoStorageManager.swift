@@ -122,7 +122,7 @@ extension UIImageView {
     
     
     func saveUser(with ref: StorageReference?, dbRef: DatabaseReference?,
-                  progress : @escaping (Double) -> Void, final : @escaping (NSError) -> Void) {
+                  progress : @escaping (Double) -> Void, final : @escaping (NSError?) -> Void) {
 
         log.verbose("entered")
         
@@ -155,6 +155,7 @@ extension UIImageView {
         
         guard let data = UIImageJPEGRepresentation(image, FirebaseStorageFileCompressionLevel.veryhigh.rawValue) else {
             log.error("Cannot convert UIImage to JPEG with compression")
+            final(NSError(domain: "", code: 5, userInfo: ["error" : "Cannot convert UIImage to JPEG with compression"]))
             return
         }
 
@@ -219,9 +220,11 @@ extension UIImageView {
                     
                     if error == nil {
                         log.verbose("timestamp updated")
+                        final(nil)
                     }
                     else {
                         log.verbose("timestamp update failed")
+                        final(NSError(domain: "", code: 6, userInfo: ["error" : "timestamp update failed"]))
                     }
                 })
             })
