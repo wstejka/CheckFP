@@ -118,7 +118,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         // customize change button view
         let floaty = Floaty()
         floaty.openAnimationType = .slideLeft
-        floaty.addItem("cancel".localized().capitalizingFirstLetter(), icon: UIImage(named: "camera")!) { (item) in
+        floaty.addItem("cancel".localized().capitalizingFirstLetter(), icon: UIImage(named: "cancel")!) { (item) in
             
             log.verbose("\"cancel\" option selected")
 

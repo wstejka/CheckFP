@@ -98,9 +98,9 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="52Z-6E-qAK" firstAttribute="leading" secondItem="ImG-uk-BKL" secondAttribute="leadingMargin" constant="18" id="4vi-tl-3bN"/>
                                                 <constraint firstItem="52Z-6E-qAK" firstAttribute="centerY" secondItem="ImG-uk-BKL" secondAttribute="centerY" id="XgJ-7Z-kO6"/>
-                                                <constraint firstItem="52Z-6E-qAK" firstAttribute="width" secondItem="ImG-uk-BKL" secondAttribute="width" multiplier="0.5" priority="500" constant="-27.5" id="vDq-qG-LHl"/>
-                                                <constraint firstItem="52Z-6E-qAK" firstAttribute="centerX" secondItem="ImG-uk-BKL" secondAttribute="centerX" constant="-81" id="w2A-05-Ba7"/>
+                                                <constraint firstItem="52Z-6E-qAK" firstAttribute="width" secondItem="ImG-uk-BKL" secondAttribute="width" multiplier="0.5" priority="500" id="vDq-qG-LHl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -204,7 +204,7 @@
         <scene sceneID="IYI-Vl-Opx">
             <objects>
                 <navigationController storyboardIdentifier="UserProfilePersonalDataNavigationController" id="p0S-e5-e9m" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gBz-BW-JYa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gBz-BW-JYa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
