@@ -41,7 +41,8 @@
                     <connections>
                         <outlet property="tableView" destination="85l-kE-5UG" id="0cr-W0-LWS"/>
                         <segue destination="QEb-ZT-2fJ" kind="unwind" identifier="unwindToFuelInfoAndSingOutWithSender" unwindAction="unwindToFuelInfoAndSingOutWithSender:" id="we7-PP-t3Q"/>
-                        <segue destination="p0S-e5-e9m" kind="show" identifier="UnusedSegue" id="Ode-Nn-Qp0"/>
+                        <segue destination="p0S-e5-e9m" kind="show" identifier="PlaceholderSegue1" id="Ode-Nn-Qp0"/>
+                        <segue destination="wCh-WN-Rsu" kind="show" identifier="PlaceholderSegue2" id="ndC-ah-3H8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gG7-Nu-KHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -201,6 +202,61 @@
             <point key="canvasLocation" x="1518" y="-1116"/>
         </scene>
         <!--Navigation Controller-->
+        <scene sceneID="yQ6-rM-oMH">
+            <objects>
+                <navigationController storyboardIdentifier="UserProfileMapNavigationController" id="wCh-WN-Rsu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ltB-eN-t1I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KUM-KD-G78" kind="relationship" relationship="rootViewController" id="j5S-I8-ZkZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3s-YI-Q18" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="697" y="-387"/>
+        </scene>
+        <!--User Profile Map View Controller-->
+        <scene sceneID="W5G-gD-hbs">
+            <objects>
+                <viewController id="KUM-KD-G78" customClass="UserProfileMapViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KJA-0x-0Rp"/>
+                        <viewControllerLayoutGuide type="bottom" id="fo6-G4-ebw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uqI-fF-zl9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Uea-H6-5m8">
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Uea-H6-5m8" firstAttribute="leading" secondItem="uqI-fF-zl9" secondAttribute="leadingMargin" id="KLo-La-IPx"/>
+                            <constraint firstItem="fo6-G4-ebw" firstAttribute="top" secondItem="Uea-H6-5m8" secondAttribute="bottom" id="Trc-L0-uSh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uea-H6-5m8" secondAttribute="trailing" id="pFN-47-7XP"/>
+                            <constraint firstItem="Uea-H6-5m8" firstAttribute="top" secondItem="KJA-0x-0Rp" secondAttribute="bottom" id="wV9-ct-WNt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rkB-h6-41f">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="LAc-Dd-nqC">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="KUM-KD-G78" id="wrE-ja-nN0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="Uea-H6-5m8" id="n5L-yK-XFD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7E7-0Q-GQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1537" y="-387"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="IYI-Vl-Opx">
             <objects>
                 <navigationController storyboardIdentifier="UserProfilePersonalDataNavigationController" id="p0S-e5-e9m" sceneMemberID="viewController">
@@ -214,7 +270,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TY-dE-Qu2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="639" y="-674"/>
+            <point key="canvasLocation" x="698" y="-1117"/>
         </scene>
     </scenes>
 </document>

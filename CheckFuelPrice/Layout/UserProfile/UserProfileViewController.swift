@@ -82,6 +82,9 @@ extension UserProfileViewController: UITableViewDelegate {
         if indexPath.row == ProfileOption.personalData.rawValue {
             self.processPersonalData()
         }
+        if indexPath.row == ProfileOption.coordinates.rawValue {
+            self.processCoordinates()
+        }
         else if indexPath.row == ProfileOption.singOut.rawValue {
             self.processSignOut()
         }
@@ -145,6 +148,18 @@ class UserProfileViewController: UIViewController {
 
         guard let navigationViewController = storyboard?.instantiateViewController(withIdentifier: "UserProfilePersonalDataNavigationController") else {
             log.error("Could not instantiate \"UserProfilePersonalDataNavigationController\" object")
+            return
+        }
+        navigationViewController.modalTransitionStyle = .coverVertical
+        present(navigationViewController, animated: true, completion: nil)
+        
+    }
+    
+    func processCoordinates() {
+        log.verbose("entered")
+        
+        guard let navigationViewController = storyboard?.instantiateViewController(withIdentifier: "UserProfileMapNavigationController") else {
+            log.error("Could not instantiate \"UserProfileMapNavigationController\" object")
             return
         }
         navigationViewController.modalTransitionStyle = .coverVertical

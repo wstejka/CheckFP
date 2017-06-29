@@ -120,6 +120,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         floaty.openAnimationType = .slideLeft
         floaty.addItem("cancel".localized().capitalizingFirstLetter(), icon: UIImage(named: "cancel")!) { (item) in
             
+            // Created just for providing 2nd param
             log.verbose("\"cancel\" option selected")
 
         }
