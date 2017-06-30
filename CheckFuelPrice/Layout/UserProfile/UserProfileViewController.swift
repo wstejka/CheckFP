@@ -170,7 +170,7 @@ class UserProfileViewController: UIViewController {
     func processSignOut() {
         log.verbose("entered")
         let title = "doyouwanttosignout".localized().capitalizingFirstLetter() + " ?"
-        let actionSheet = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
         let signoutAction = UIAlertAction(title : "answerYes".localized().capitalizingFirstLetter(), style : UIAlertActionStyle.default){
             (action) in
             log.verbose("Yes")
@@ -182,9 +182,9 @@ class UserProfileViewController: UIViewController {
                                             log.verbose("No")
         })
         
-        actionSheet.addAction(ignoreAction)
-        actionSheet.addAction(signoutAction)
+        alertController.addAction(ignoreAction)
+        alertController.addAction(signoutAction)
         
-        self.present(actionSheet, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 }

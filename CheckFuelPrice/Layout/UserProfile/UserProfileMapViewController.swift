@@ -40,7 +40,7 @@ extension UserProfileMapViewController : CLLocationManagerDelegate {
 // MARK: - HandleMapSearchDelegate
 extension UserProfileMapViewController: HandleMapSearchDelegate {
     
-    func dropPinZoomIn(placemark: MKPlacemark){
+    func dropPinZoomIn(placemark: MKPlacemark) {
         log.verbose("")
         
         // cache the pin
@@ -182,7 +182,6 @@ class UserProfileMapViewController: UIViewController {
             if userLocation.latitude != 0.0 && userLocation.longitude != 0.0 {
                 log.verbose("Found latitude: \(userLocation.latitude) and longitude: \(userLocation.longitude) information")
 
-
                 let addressDictionary  = ["Name" : userLocation.name,
                                           "City" : userLocation.city,
                                           "State" : userLocation.state]
@@ -193,7 +192,7 @@ class UserProfileMapViewController: UIViewController {
                 
             }
             else {
-                log.verbose("No latitude and longitude information")
+                log.verbose("No latitude and/or longitude information")
             }
         })
     }

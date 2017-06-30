@@ -78,6 +78,7 @@ annually = "annually";
 downloadingData = "downloading data ...";
 dataSaved = "data saved ...";
 searchForPlaces = "search for places";
-homeLocation = "home location";
+homeLocation = "set home location";
+homeLocationQuestion = "do you want to set this place as your home location?";
 
 

@@ -79,5 +79,6 @@ annually = "roczny";
 downloadingData = "pobieram dane ...";
 dataSaved = "dane zapisano ...";
 searchForPlaces = "znajdź miejsce";
-homeLocation = "miejsce zamieszkania";
+homeLocation = "ustaw miejsce zamieszkania";
+homeLocationQuestion = "czy chcesz ustawić ten punkt jako miejsce zamieszkania?";
 

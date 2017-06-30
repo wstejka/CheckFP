@@ -45,9 +45,33 @@ extension LocationSearchTable {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedItem = matchingItems[indexPath.row].placemark
-        handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem)
-        dismiss(animated: true, completion: nil)
+        
+        let alertController = UIAlertController(title: "homeLocationQuestion".localized().capitalizingFirstLetter(),
+                                                message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let alertActionYes = UIAlertAction(title: "answerYes".localized().capitalizingFirstLetter(), style: UIAlertActionStyle.default) { (action) in
+
+            // Firebase
+            guard let uid = Auth.auth().currentUser?.uid else {
+                log.error("This user is not authenticated.")
+                return
+            }
+            let selectedItem = self.matchingItems[indexPath.row].placemark
+            let userLocation = FuelUserLocation(latitude: selectedItem.coordinate.latitude ,
+                                                longitude: selectedItem.coordinate.longitude,
+                                                name: selectedItem.name ?? "", city: selectedItem.locality ?? "",
+                                                state: selectedItem.administrativeArea ?? "")
+            self.userDatabaseRef?.child(uid).setValue(userLocation.toAnyObject())
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+        let alertActionNo = UIAlertAction(title: "answerNo".localized().capitalizingFirstLetter(),
+                                           style: UIAlertActionStyle.default) { (action) in
+                                            
+        }
+        alertController.addAction(alertActionYes)
+        alertController.addAction(alertActionNo)
+        present(alertController, animated: true, completion: nil)
+        
     }
 }
 
@@ -81,6 +105,16 @@ class LocationSearchTable : UITableViewController {
     var mapView: MKMapView? = nil
     var handleMapSearchDelegate : HandleMapSearchDelegate? = nil
  
+    var userDatabaseRef : DatabaseReference? = nil
+    
+    
+    // MARK: UITableViewController lifecycle
+    
+    override func viewDidLoad() {
+        log.verbose("")
+        userDatabaseRef = Database.database().reference(withPath: FirebaseNode.userlocation.rawValue)
+        
+    }
     
     // MARK: - Methods
     
