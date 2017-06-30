@@ -162,14 +162,13 @@ class UserProfilePersonalDataViewController: UITableViewController {
 
                     log.verbose("Returned: users.childrenCount = \(snapshot.childrenCount)")
                     
-                    var fuelUser = FuelUser()
+                    var fuelUser = FuelUserProfile()
                     for item in snapshot.children {
-                        guard let currentFuelUser = FuelUser(snapshot: item as! DataSnapshot) else {
+                        guard let currentFuelUser = FuelUserProfile(snapshot: item as! DataSnapshot) else {
                             log.error("Could not cast data properly ...")
                             return
                         }
                         fuelUser = currentFuelUser
-                        break
                     }
 
                     self.populateFieldsWithData(from: fuelUser)
@@ -179,7 +178,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         }
     }
     
-    func populateFieldsWithData(from user : FuelUser) {
+    func populateFieldsWithData(from user : FuelUserProfile) {
         log.info("entered")
 
         self.firstNameTextField.text = user.firstName
@@ -189,7 +188,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func showUserPhoto(from user: FuelUser) {
+    func showUserPhoto(from user: FuelUserProfile) {
         log.verbose("entered")
         
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -224,7 +223,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
             }
             
             // Create the FuelUserData object provisioned with data provided by user
-            let fuelUser = FuelUser(uid: uid, firstName: self.firstNameTextField.text ?? "",
+            let fuelUser = FuelUserProfile(uid: uid, firstName: self.firstNameTextField.text ?? "",
                                     lastName: self.lastNameTextField.text ?? "",
                                     phone: self.phoneTextField.text ?? "",
                                     updated: Int(Date().timeIntervalSince1970),

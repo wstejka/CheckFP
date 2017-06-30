@@ -6,29 +6,9 @@
 //  Copyright © 2017 Wojciech Stejka. All rights reserved.
 //
 
-struct Size {
-    var width = 0.0, height = 0.0
-}
-struct Point {
-    var x = 0.0, y = 0.0
-}
 
-struct Rect {
-    var origin = Point()
-    var size = Size()
-    init() {}
-    init(origin: Point, size: Size) {
-        self.origin = origin
-        self.size = size
-    }
-    init(center: Point, size: Size) {
-        let originX = center.x - (size.width / 2)
-        let originY = center.y - (size.height / 2)
-        self.init(origin: Point(x: originX, y: originY), size: size)
-    }
-}
-
-struct FuelUser {
+// MARK: - Fuel user profile
+struct FuelUserProfile {
     
     var uid : String = ""
     var firstName : String = ""
@@ -39,9 +19,10 @@ struct FuelUser {
     var photoReference : String = ""
     var photoTimestamp : Int = 0
     
+    
     init() {
     
-        self.init(uid: "", firstName: "", lastName: "", phone: "", updated: 0, photoReference: "", photoTimestamp: 1)
+        self.init(uid: "", firstName: "", lastName: "", phone: "", updated: 0, photoReference: "", photoTimestamp: 0)
     }
     
     init(uid : String, firstName : String, lastName : String,
@@ -99,4 +80,66 @@ struct FuelUser {
     }
     
 }
+
+// MARK: Fuel user location
+struct FuelUserLocation {
+    
+    
+    var uid: String = ""
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+    var name : String = ""
+    var city : String = ""
+    var state : String = ""
+    
+    init() {
+        
+        self.init(latitude: 0.0, longitude: 0.0, name : "", city : "", state : "")
+    }
+    
+    init(latitude: Double, longitude: Double, name: String, city: String, state: String) {
+        self.latitude = latitude
+        self.longitude = longitude
+        self.name = name
+        self.city = city
+        self.state = state
+    }
+    
+    init?(snapshot: DataSnapshot) {
+        
+        guard let userAttributes = snapshot.value as? [String : AnyObject] else {
+            return nil
+        }
+        
+        self.uid = snapshot.key
+        if let latitude = userAttributes["latitude"] as? Double {
+            self.latitude = latitude
+        }
+        if let longitude = userAttributes["longitude"] as? Double {
+            self.longitude = longitude
+        }
+        if let name = userAttributes["Name"] as? String {
+            self.name = name
+        }
+        if let city = userAttributes["City"] as? String {
+            self.city = city
+        }
+        if let state = userAttributes["State"] as? String {
+            self.state = state
+        }
+    }
+    
+    func toAnyObject() -> Any {
+        return [
+            "latitude" : latitude,
+            "longitude" : longitude,
+            "Name" : name,
+            "City" : city,
+            "State" : state,
+        ]
+    }
+    
+}
+
+
 

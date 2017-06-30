@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Contacts
 
 
 // MARK: - CLLocationManagerDelegate extension
@@ -39,7 +40,7 @@ extension UserProfileMapViewController : CLLocationManagerDelegate {
 // MARK: - HandleMapSearchDelegate
 extension UserProfileMapViewController: HandleMapSearchDelegate {
     
-    func dropPinZoomIn(placemark:MKPlacemark){
+    func dropPinZoomIn(placemark: MKPlacemark){
         log.verbose("")
         
         // cache the pin
@@ -65,7 +66,7 @@ extension UserProfileMapViewController : MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         
-        log.verbose("mapView viewFor annotation")
+        log.verbose("mapView: viewForAnnotation")
         if annotation is MKUserLocation {
             //return nil so map view draws "blue dot" for standard user location
             return nil
@@ -127,7 +128,7 @@ class UserProfileMapViewController: UIViewController {
         configureCurrrenLocation()
         configureSearchController()
         
-        userDatabaseRef = Database.database().reference(withPath: FirebaseNode.users.rawValue)
+        userDatabaseRef = Database.database().reference(withPath: FirebaseNode.userlocation.rawValue)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -167,21 +168,34 @@ class UserProfileMapViewController: UIViewController {
             
             log.verbose("Returned: users.childrenCount = \(snapshot.childrenCount)")
             
-            var fuelUser = FuelUser()
+            var userLocation = FuelUserLocation()
             for item in snapshot.children {
-                guard let currentFuelUser = FuelUser(snapshot: item as! DataSnapshot) else {
+                guard let currentFuelUser = FuelUserLocation(snapshot: item as! DataSnapshot) else {
                     log.error("Could not cast data properly ...")
                     return
                 }
-                fuelUser = currentFuelUser
+                userLocation = currentFuelUser
                 break
             }
-            
-            
-            
+
+            // Add placemark on map if coordinates are set up
+            if userLocation.latitude != 0.0 && userLocation.longitude != 0.0 {
+                log.verbose("Found latitude: \(userLocation.latitude) and longitude: \(userLocation.longitude) information")
+
+
+                let addressDictionary  = ["Name" : userLocation.name,
+                                          "City" : userLocation.city,
+                                          "State" : userLocation.state]
+                let coordinate2D = CLLocationCoordinate2D(latitude: userLocation.latitude,
+                                                          longitude: userLocation.longitude)
+                let placemark = MKPlacemark(coordinate: coordinate2D, addressDictionary: addressDictionary)
+                self.dropPinZoomIn(placemark: placemark)
+                
+            }
+            else {
+                log.verbose("No latitude and longitude information")
+            }
         })
-        
-        
     }
     
     
