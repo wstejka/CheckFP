@@ -77,5 +77,7 @@ annually = "annually";
 
 downloadingData = "downloading data ...";
 dataSaved = "data saved ...";
+searchForPlaces = "search for places";
+homeLocation = "home location";
 
 

@@ -107,7 +107,9 @@ class UserProfilePersonalDataViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         log.verbose("")
   
-        self.fbReferenceUser.removeAllObservers()
+        if fbReferenceUser != nil {
+            self.fbReferenceUser.removeAllObservers()
+        }
         log.verbose("Observer for node \(FirebaseNode.users.rawValue) removed")
     }
     
@@ -167,6 +169,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
                             return
                         }
                         fuelUser = currentFuelUser
+                        break
                     }
 
                     self.populateFieldsWithData(from: fuelUser)

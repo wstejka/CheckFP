@@ -78,5 +78,6 @@ annually = "roczny";
 
 downloadingData = "pobieram dane ...";
 dataSaved = "dane zapisano ...";
-
+searchForPlaces = "znajdź miejsce";
+homeLocation = "miejsce zamieszkania";
 
