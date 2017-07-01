@@ -38,7 +38,6 @@
 		9E4A1F921EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F911EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift */; };
 		9E4A1F941EDE0DC70044F3DD /* FuelInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F931EDE0DC70044F3DD /* FuelInfoViewController.swift */; };
 		9E4A1F981EDEFF240044F3DD /* Enum+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1F971EDEFF240044F3DD /* Enum+Extensions.swift */; };
-		9E4A1FB81EE093E30044F3DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A1FB71EE093E30044F3DD /* SettingsViewController.swift */; };
 		9E4A1FBB1EE0AAEC0044F3DD /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4A1FBA1EE0AAEC0044F3DD /* Settings.storyboard */; };
 		9E4A1FBD1EE0AC550044F3DD /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4A1FBC1EE0AC550044F3DD /* UserProfile.storyboard */; };
 		9E5C842F1EA0CC5800C7DFA7 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */; };
@@ -53,6 +52,7 @@
 		9E634E911EEF044D008AA6AD /* StatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E634E901EEF044D008AA6AD /* StatisticsTableViewController.swift */; };
 		9E6602871F02DE45001651CA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */; };
 		9E8015161F078F6B007403E5 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8015151F078F6B007403E5 /* UIImageView+Extension.swift */; };
+		9E8015181F07ED4E007403E5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */; };
 		9E82AC781F04F4F700A9FBEE /* UserProfileMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82AC771F04F4F700A9FBEE /* UserProfileMapViewController.swift */; };
 		9E82AC7A1F0517D600A9FBEE /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82AC791F0517D600A9FBEE /* LocationSearchTable.swift */; };
 		9E9E7F201EE157370006414D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */; };
@@ -139,7 +139,6 @@
 		9E4A1F911EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelInfoTopTableViewCell.swift; sourceTree = "<group>"; };
 		9E4A1F931EDE0DC70044F3DD /* FuelInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelInfoViewController.swift; sourceTree = "<group>"; };
 		9E4A1F971EDEFF240044F3DD /* Enum+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Enum+Extensions.swift"; sourceTree = "<group>"; };
-		9E4A1FB71EE093E30044F3DD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Layout/Settings/SettingsViewController.swift; sourceTree = "<group>"; };
 		9E4A1FBA1EE0AAEC0044F3DD /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = CheckFuelPrice/Layout/Settings/Settings.storyboard; sourceTree = SOURCE_ROOT; };
 		9E4A1FBC1EE0AC550044F3DD /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = Layout/UserProfile/UserProfile.storyboard; sourceTree = "<group>"; };
 		9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = ../Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
@@ -151,6 +150,7 @@
 		9E634E901EEF044D008AA6AD /* StatisticsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewController.swift; sourceTree = "<group>"; };
 		9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		9E8015151F078F6B007403E5 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = Layout/Settings/SettingsTableViewController.swift; sourceTree = "<group>"; };
 		9E82AC771F04F4F700A9FBEE /* UserProfileMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileMapViewController.swift; path = Layout/UserProfile/UserProfileMapViewController.swift; sourceTree = "<group>"; };
 		9E82AC791F0517D600A9FBEE /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationSearchTable.swift; path = Layout/UserProfile/LocationSearchTable.swift; sourceTree = "<group>"; };
 		9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -415,7 +415,7 @@
 		9E4A1FB51EE093A80044F3DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9E4A1FB71EE093E30044F3DD /* SettingsViewController.swift */,
+				9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -783,7 +783,6 @@
 				9E4A1F921EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift in Sources */,
 				9EF038661EFF0B0500670527 /* UIApplication+Extension.swift in Sources */,
 				9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */,
-				9E4A1FB81EE093E30044F3DD /* SettingsViewController.swift in Sources */,
 				9EF1A2CD1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift in Sources */,
 				9E4A1F661ED9DEAA0044F3DD /* CFPEnumerators.swift in Sources */,
 				9E1C03A11EE4447F0023BCED /* FuelPricesTableViewCell.swift in Sources */,
@@ -812,6 +811,7 @@
 				9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */,
 				9E82AC7A1F0517D600A9FBEE /* LocationSearchTable.swift in Sources */,
 				9E6209FB1EEE7F8D00AC75CA /* FirebaseUtils.swift in Sources */,
+				9E8015181F07ED4E007403E5 /* SettingsTableViewController.swift in Sources */,
 				9E82AC781F04F4F700A9FBEE /* UserProfileMapViewController.swift in Sources */,
 				9EF0386A1F0137F300670527 /* FirebaseConnectionManager.swift in Sources */,
 				9E9E7F251EE171CB0006414D /* GenericNavigationController.swift in Sources */,
