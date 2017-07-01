@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Yjh-t1-fKa">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Yjh-t1-fKa" userLabel="SearchView">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,7 +27,7 @@
                         <sections>
                             <tableViewSection headerTitle="Themes" id="wbg-a4-jal">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="themeColorPrimary" id="hzl-Cd-1rm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="theme" id="hzl-Cd-1rm" userLabel="theme">
                                         <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hzl-Cd-1rm" id="tJq-dq-G6e">
@@ -44,14 +44,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nw-Y7-W0v">
-                                                    <rect key="frame" x="263" y="7" width="92" height="30"/>
+                                                    <rect key="frame" x="263" y="4" width="92" height="30"/>
                                                     <state key="normal" title="Change color"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="DRx-Ae-DWc" firstAttribute="width" secondItem="tJq-dq-G6e" secondAttribute="width" multiplier="0.5" priority="500" id="F1S-db-879"/>
                                                 <constraint firstItem="DRx-Ae-DWc" firstAttribute="centerY" secondItem="tJq-dq-G6e" secondAttribute="centerY" id="FYP-Hj-1XJ"/>
-                                                <constraint firstItem="0Nw-Y7-W0v" firstAttribute="centerY" secondItem="tJq-dq-G6e" secondAttribute="centerY" id="jFs-oX-UDa"/>
+                                                <constraint firstItem="0Nw-Y7-W0v" firstAttribute="centerY" secondItem="tJq-dq-G6e" secondAttribute="centerY" constant="-2.75" id="jFs-oX-UDa"/>
                                                 <constraint firstAttribute="trailing" secondItem="0Nw-Y7-W0v" secondAttribute="trailing" constant="20" id="lBE-ft-jLc"/>
                                                 <constraint firstItem="DRx-Ae-DWc" firstAttribute="leading" secondItem="tJq-dq-G6e" secondAttribute="leadingMargin" constant="10" id="pHU-Xm-FHI"/>
                                             </constraints>
@@ -59,7 +59,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Fuel Price Setting" id="W7Y-kq-MfS">
+                            <tableViewSection headerTitle="Fuel Price Settings" id="W7Y-kq-MfS">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="producer" id="dZs-T1-qJW">
                                         <rect key="frame" x="0.0" y="199.5" width="375" height="44"/>
@@ -80,6 +80,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQZ-4Y-7yS">
                                                     <rect key="frame" x="245" y="7" width="110" height="30"/>
                                                     <state key="normal" title="Select producer"/>
+                                                    <connections>
+                                                        <action selector="producerButtonPressed:" destination="WYX-v8-9cF" eventType="touchUpInside" id="1if-j8-2pK"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -116,6 +119,9 @@
                                                         <segment title="Yes"/>
                                                         <segment title="No"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="vatOptionSelected:" destination="WYX-v8-9cF" eventType="valueChanged" id="Os6-eb-PRl"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -154,6 +160,9 @@
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="fLI-67-ezb">
                                                     <rect key="frame" x="177.5" y="6" width="116.5" height="31"/>
+                                                    <connections>
+                                                        <action selector="taxAmountValueChanged:" destination="WYX-v8-9cF" eventType="valueChanged" id="Qoz-ed-Fgc"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -193,6 +202,9 @@
                                                         <segment title="1000L"/>
                                                         <segment title="1L"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="priceUnitValueChanged:" destination="WYX-v8-9cF" eventType="valueChanged" id="lWw-LQ-5DE"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -226,6 +238,9 @@
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="kJa-xM-Rgc">
                                                     <rect key="frame" x="177.5" y="7" width="116.5" height="31"/>
+                                                    <connections>
+                                                        <action selector="unleaded95ValueChanged:" destination="WYX-v8-9cF" eventType="valueChanged" id="SEZ-ug-mH7"/>
+                                                    </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3Q-0U-mfU">
                                                     <rect key="frame" x="302" y="14" width="45" height="16"/>
@@ -267,6 +282,9 @@
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="u6w-ce-OSe">
                                                     <rect key="frame" x="177.5" y="7" width="116.5" height="31"/>
+                                                    <connections>
+                                                        <action selector="unleaded98ValueChanged:" destination="WYX-v8-9cF" eventType="valueChanged" id="9Kt-El-I4E"/>
+                                                    </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKN-DS-47E">
                                                     <rect key="frame" x="302" y="14" width="45" height="16"/>
@@ -308,6 +326,9 @@
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="5R4-4f-OCY">
                                                     <rect key="frame" x="177.5" y="7" width="116.5" height="31"/>
+                                                    <connections>
+                                                        <action selector="dieselValueChanged:" destination="WYX-v8-9cF" eventType="valueChanged" id="w0E-i4-v3x"/>
+                                                    </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAX-uN-U1r">
                                                     <rect key="frame" x="302" y="14" width="45" height="16"/>
@@ -349,6 +370,9 @@
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="ca3-c2-obf">
                                                     <rect key="frame" x="177.5" y="7" width="116.5" height="31"/>
+                                                    <connections>
+                                                        <action selector="dieselPremiumValueChanged:" destination="WYX-v8-9cF" eventType="valueChanged" id="4CL-7N-v2f"/>
+                                                    </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7W-8O-z3U">
                                                     <rect key="frame" x="302" y="14" width="45" height="16"/>
@@ -390,6 +414,9 @@
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="O6Z-y5-sFW">
                                                     <rect key="frame" x="177.5" y="7" width="116.5" height="31"/>
+                                                    <connections>
+                                                        <action selector="dieselHeatingValueChanged:" destination="WYX-v8-9cF" eventType="valueChanged" id="9cp-ex-NO9"/>
+                                                    </connections>
                                                 </slider>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpu-fO-PVR">
                                                     <rect key="frame" x="302" y="14" width="45" height="16"/>
@@ -421,18 +448,26 @@
                             <outlet property="delegate" destination="WYX-v8-9cF" id="zG9-MU-P1A"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="dieselCell" destination="v9f-gg-km2" id="70B-aV-anT"/>
-                        <outlet property="dieselHeatingCell" destination="AeE-wp-yi5" id="RSm-wv-wiL"/>
-                        <outlet property="dieselPremiumCell" destination="HtC-SU-jKk" id="IDg-5N-0Vm"/>
-                        <outlet property="priceUnitOfMeasureCell" destination="hw6-PO-wWr" id="Lup-A8-3x8"/>
-                        <outlet property="producersCell" destination="dZs-T1-qJW" id="4bB-u0-B9K"/>
-                        <outlet property="taxAmountCell" destination="2xs-ER-QCZ" id="39j-dF-yln"/>
-                        <outlet property="themeColorPrimaryCell" destination="hzl-Cd-1rm" id="Yfy-8f-rEC"/>
-                        <outlet property="unleaded95Cell" destination="i7o-01-0Ho" id="db6-dM-VLn"/>
-                        <outlet property="unleaded98Cell" destination="ecA-3A-Iye" id="9PV-RM-3JS"/>
-                        <outlet property="vatCell" destination="6VH-8k-oWX" id="OVp-qJ-yyv"/>
+                        <outlet property="dieselHeatingLabel" destination="NFk-P4-7Xe" id="M6w-RR-lC7"/>
+                        <outlet property="dieselHeatingValueLabel" destination="gpu-fO-PVR" id="G1u-IR-sAJ"/>
+                        <outlet property="dieselLabel" destination="C72-Qc-bNF" id="aLh-bW-Gwz"/>
+                        <outlet property="dieselPremiumLabel" destination="l3E-gb-f9y" id="Ulm-4n-rzX"/>
+                        <outlet property="dieselPremiumValueLabel" destination="w7W-8O-z3U" id="8o0-Dl-kJA"/>
+                        <outlet property="dieselValueLabel" destination="tAX-uN-U1r" id="vvf-MD-HG8"/>
+                        <outlet property="priceUnitLabel" destination="RB5-pq-Vh3" id="1p9-mV-Lqm"/>
+                        <outlet property="producerLabel" destination="56C-0E-Wwe" id="Qia-JD-y3A"/>
+                        <outlet property="taxAmountLabel" destination="8c5-zd-wp1" id="RXL-03-z1Q"/>
+                        <outlet property="taxAmountValueLabel" destination="ruZ-CH-OET" id="Ihj-Dw-kM8"/>
+                        <outlet property="theme" destination="DRx-Ae-DWc" id="cxh-bc-B1f"/>
+                        <outlet property="unleaded95Label" destination="fQM-is-Lmk" id="knq-YX-HAA"/>
+                        <outlet property="unleaded95ValueLabel" destination="S3Q-0U-mfU" id="aqR-hI-mu2"/>
+                        <outlet property="unleaded98Label" destination="XTI-US-sAS" id="x1m-o9-FLD"/>
+                        <outlet property="unleaded98ValueLabel" destination="fKN-DS-47E" id="WfH-l6-K7y"/>
+                        <outlet property="vatLabel" destination="c9h-pN-spw" id="okV-nq-5Br"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYW-Gl-3c8" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -82,3 +82,8 @@ searchForPlaces = "znajdź miejsce";
 homeLocation = "ustaw miejsce zamieszkania";
 homeLocationQuestion = "czy chcesz ustawić ten punkt jako miejsce zamieszkania?";
 
+// Settings
+fuelSupplier = "dostawca";
+includeVatInFuelPrice = "uwzględnić Vat w cenie?";
+vatTaxAmount = "wysokość VAT";
+capacity = "domyślna pojemność";

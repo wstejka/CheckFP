@@ -81,4 +81,10 @@ searchForPlaces = "search for places";
 homeLocation = "set home location";
 homeLocationQuestion = "do you want to set this place as your home location?";
 
+// Settings
+fuelSupplier = "producers";
+includeVatInFuelPrice = "include Vat in fuel price?";
+vatTaxAmount = "vat tax amount";
+capacity = "default capacity";
+
 
