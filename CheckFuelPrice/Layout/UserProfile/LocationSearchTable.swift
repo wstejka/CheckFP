@@ -20,7 +20,7 @@ protocol HandleMapSearchDelegate {
 extension LocationSearchTable : UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        print("updateSearchResults")
+        log.verbose("updateSearchResults")
         
         guard let mapView = mapView,
             let searchBarText = searchController.searchBar.text else { return }

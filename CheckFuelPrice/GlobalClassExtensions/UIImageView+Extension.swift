@@ -1,16 +1,14 @@
 //
-//  PhotoStorageManager.swift
+//  UIImageView+Extension.swift
 //  CheckFuelPrice
 //
-//  Created by Wojciech Stejka on 27/06/2017.
+//  Created by Wojciech Stejka on 01/07/2017.
 //  Copyright © 2017 Wojciech Stejka. All rights reserved.
+//
 //
 import SDWebImage
 import FirebaseStorageUI
 import ObjectiveC
-
-//! PhotoStorageManager instance keeps in-sync user's profile photo on Firebase Storage 
-//  and reference/timestamp info in Firebase DB
 
 //  This is a FirebaseUI implementation originaly writen in objc and converted to Swift with soem small mods
 //  https://github.com/firebase/FirebaseUI-iOS/blob/master/FirebaseStorageUI/UIImageView%2BFirebaseStorage.m
@@ -21,7 +19,7 @@ private var uploadTaskObjectKey: UInt8 = 0
 
 private var uploadTaskInProgressKey: UInt8 = 0
 
-extension UIImageView {
+public extension UIImageView {
     
     // MARK: - Variables, pseudo-stored variables
     
@@ -34,7 +32,7 @@ extension UIImageView {
             objc_setAssociatedObject(self, &downloadTaskObjectKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
-
+    
     var uploadTaskObject: StorageUploadTask? {
         get {
             return objc_getAssociatedObject(self, &uploadTaskObjectKey) as? StorageUploadTask
@@ -58,7 +56,7 @@ extension UIImageView {
         }
     }
     
-
+    
     // MARK: - UIImageView Methods
     
     func setImage(with ref: StorageReference?, placeholder: UIImage?, useCache: Bool = true) -> StorageDownloadTask? {
@@ -70,7 +68,7 @@ extension UIImageView {
             return nil
         }
         log.verbose("photo: \(storageRef.fullPath)")
-
+        
         // If there's already a download on this UIImageView, cancel it
         if (self.downloadTaskObject != nil) {
             self.downloadTaskObject?.cancel()
@@ -100,19 +98,19 @@ extension UIImageView {
         let download = storageRef.getData(maxSize: FirebaseUtils.fileSizeLimit) { (data, error) in
             
             
-                if data == nil {
-                    log.error("File download failed with error: \(error.debugDescription)")
-                    // Set placeholder image
-                    self.image = placeholder
-                    return
-                }
-                log.verbose("Picking up photo from firebase storage")
-                let image = UIImage(data: data!)
-                DispatchQueue.main.async {
-                    self.image = image
-                }
-                log.verbose("Updating cache with photo")
-                cache.store(image, forKey: storageRef.fullPath, completion: nil)
+            if data == nil {
+                log.error("File download failed with error: \(error.debugDescription)")
+                // Set placeholder image
+                self.image = placeholder
+                return
+            }
+            log.verbose("Picking up photo from firebase storage")
+            let image = UIImage(data: data!)
+            DispatchQueue.main.async {
+                self.image = image
+            }
+            log.verbose("Updating cache with photo")
+            cache.store(image, forKey: storageRef.fullPath, completion: nil)
         }
         
         self.downloadTaskObject = download
@@ -123,7 +121,7 @@ extension UIImageView {
     
     func saveUser(with ref: StorageReference?, dbRef: DatabaseReference?,
                   progress : @escaping (Double) -> Void, final : @escaping (NSError?) -> Void) {
-
+        
         log.verbose("entered")
         
         // STEP 1: First of all validate data ===============
@@ -158,7 +156,7 @@ extension UIImageView {
             final(NSError(domain: "", code: 5, userInfo: ["error" : "Cannot convert UIImage to JPEG with compression"]))
             return
         }
-
+        
         // STEP 2: stop upload and download if there is any ===============
         // If there's already a download on this UIImageView, cancel it
         if (self.downloadTaskObject != nil) {
@@ -209,7 +207,7 @@ extension UIImageView {
             // Upload completed successfully. Update cache with new photo
             let cache = SDImageCache()
             log.verbose("updating cache with uploaded image")
-            cache.store(image, forKey: storageRef.fullPath, completion: { 
+            cache.store(image, forKey: storageRef.fullPath, completion: {
                 
                 //Let's get update DB
                 
@@ -217,15 +215,15 @@ extension UIImageView {
                 let timestamp = Int(Date().timeIntervalSince1970)
                 databaseRef.updateChildValues([FirebaseNode.photoTimestamp.rawValue : timestamp,
                                                FirebaseNode.photoReference.rawValue : FirebaseUtils.defaultUserPhotoName], withCompletionBlock: { (error, ref : DatabaseReference) in
-                    
-                    if error == nil {
-                        log.verbose("timestamp updated")
-                        final(nil)
-                    }
-                    else {
-                        log.verbose("timestamp update failed")
-                        final(NSError(domain: "", code: 6, userInfo: ["error" : "timestamp update failed"]))
-                    }
+                                                
+                                                if error == nil {
+                                                    log.verbose("timestamp updated")
+                                                    final(nil)
+                                                }
+                                                else {
+                                                    log.verbose("timestamp update failed")
+                                                    final(NSError(domain: "", code: 6, userInfo: ["error" : "timestamp update failed"]))
+                                                }
                 })
             })
         }
