@@ -23,6 +23,7 @@
 		9E1E7F0F1EF7D891008FC7F5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E7F0E1EF7D891008FC7F5 /* LoginViewController.swift */; };
 		9E1E7F121EF7ECAA008FC7F5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E7F111EF7ECAA008FC7F5 /* UserProfileViewController.swift */; };
 		9E1E7F151EF93F75008FC7F5 /* ThemesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E7F141EF93F75008FC7F5 /* ThemesManager.swift */; };
+		9E2E87341F08E20C0030E216 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E87331F08E20C0030E216 /* UserConfig.swift */; };
 		9E4A034C1EEFF7350016AB46 /* StatisticsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034B1EEFF7350016AB46 /* StatisticsUtils.swift */; };
 		9E4A034E1EF05A100016AB46 /* StatisticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034D1EF05A100016AB46 /* StatisticsCollectionViewCell.swift */; };
 		9E4A03501EF11FB80016AB46 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034F1EF11FB80016AB46 /* UIImage+Extension.swift */; };
@@ -123,6 +124,7 @@
 		9E1E7F0E1EF7D891008FC7F5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Layout/Login/LoginViewController.swift; sourceTree = "<group>"; };
 		9E1E7F111EF7ECAA008FC7F5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = Layout/UserProfile/UserProfileViewController.swift; sourceTree = "<group>"; };
 		9E1E7F141EF93F75008FC7F5 /* ThemesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesManager.swift; sourceTree = "<group>"; };
+		9E2E87331F08E20C0030E216 /* UserConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		9E4A034B1EEFF7350016AB46 /* StatisticsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsUtils.swift; sourceTree = "<group>"; };
 		9E4A034D1EF05A100016AB46 /* StatisticsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E4A034F1EF11FB80016AB46 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				9E4A1F5A1ED773210044F3DD /* FuelPriceItem.swift */,
 				9E4A1F671ED9E34C0044F3DD /* FuelType.swift */,
 				9EF1A2D11EFEEE03008EDE98 /* FuelUser.swift */,
+				9E2E87331F08E20C0030E216 /* UserConfig.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */,
 				9E1C038F1EE2B8140023BCED /* FuelPricesViewController.swift in Sources */,
 				9E4A1F731EDB22D90044F3DD /* Double+Extension.swift in Sources */,
+				9E2E87341F08E20C0030E216 /* UserConfig.swift in Sources */,
 				9E1E7F0F1EF7D891008FC7F5 /* LoginViewController.swift in Sources */,
 				9E4A036D1EF54B6E0016AB46 /* StatisticsTableViewCell.swift in Sources */,
 				9E1E7F081EF5B650008FC7F5 /* UIColor+Extension.swift in Sources */,

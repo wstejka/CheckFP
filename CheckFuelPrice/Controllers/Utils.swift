@@ -28,4 +28,10 @@ class Utils {
         }
     }
     
+    enum TableSections {
+        case header
+        case body
+        case footer
+    }
+    
 }

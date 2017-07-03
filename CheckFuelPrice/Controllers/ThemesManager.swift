@@ -12,17 +12,33 @@ struct ThemesManager {
     enum Color {
         case primary
         case secondary
-        case theme1     // blue
-        case theme2     // yellow
-        case theme3     // orange
+        case color1     // blue
+        case color2     // yellow
+        case color3     // orange
     }
     
-    enum Themes {
+    enum Theme : Int {
         case basic
-        case custom
+        case theme1
+        case theme2
+        
+        init?(withName: String?) {
+
+            guard let name = withName else {
+                return nil
+            }
+            for item in iterateEnum(Theme.self) {
+                
+                if String(describing: item) == name {
+                    self = item
+                    return
+                }
+            }
+            return nil
+        }
     }
     
-    static var activeTheme : Themes = .basic
+    static var activeTheme : Theme = .basic
     // computed variable {get}
     static var themes: [ThemesManager.Color : UIColor] {
     
@@ -30,9 +46,9 @@ struct ThemesManager {
             
             return [.primary    : .blueCustomColor,
                     .secondary  : .aquaCrayonColor,
-                    .theme1     : .dodgerBlueHTMLColor,
-                    .theme2     : .cantalopeCrayonColor,
-                    .theme3     : .tangerineCrayonColor]
+                    .color1     : .dodgerBlueHTMLColor,
+                    .color2     : .cantalopeCrayonColor,
+                    .color3     : .tangerineCrayonColor]
         }
         return [:]
     }

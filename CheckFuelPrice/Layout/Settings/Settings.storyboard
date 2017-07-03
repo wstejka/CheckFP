@@ -46,6 +46,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nw-Y7-W0v">
                                                     <rect key="frame" x="263" y="4" width="92" height="30"/>
                                                     <state key="normal" title="Change color"/>
+                                                    <connections>
+                                                        <action selector="themeButtonPressed:" destination="WYX-v8-9cF" eventType="touchUpInside" id="XAa-xw-bJZ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -82,6 +85,7 @@
                                                     <state key="normal" title="Select producer"/>
                                                     <connections>
                                                         <action selector="producerButtonPressed:" destination="WYX-v8-9cF" eventType="touchUpInside" id="1if-j8-2pK"/>
+                                                        <action selector="themeButtonPressed:" destination="WYX-v8-9cF" eventType="touchUpInside" id="WQz-b9-DuP"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -199,8 +203,8 @@
                                                         <constraint firstAttribute="width" constant="120" id="xbO-vU-rzg"/>
                                                     </constraints>
                                                     <segments>
-                                                        <segment title="1000L"/>
                                                         <segment title="1L"/>
+                                                        <segment title="1000L"/>
                                                     </segments>
                                                     <connections>
                                                         <action selector="priceUnitValueChanged:" destination="WYX-v8-9cF" eventType="valueChanged" id="lWw-LQ-5DE"/>
@@ -453,21 +457,31 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dieselHeatingLabel" destination="NFk-P4-7Xe" id="M6w-RR-lC7"/>
+                        <outlet property="dieselHeatingSlider" destination="O6Z-y5-sFW" id="pqX-Df-vpM"/>
                         <outlet property="dieselHeatingValueLabel" destination="gpu-fO-PVR" id="G1u-IR-sAJ"/>
                         <outlet property="dieselLabel" destination="C72-Qc-bNF" id="aLh-bW-Gwz"/>
                         <outlet property="dieselPremiumLabel" destination="l3E-gb-f9y" id="Ulm-4n-rzX"/>
+                        <outlet property="dieselPremiumSlider" destination="ca3-c2-obf" id="ie3-v5-xrS"/>
                         <outlet property="dieselPremiumValueLabel" destination="w7W-8O-z3U" id="8o0-Dl-kJA"/>
+                        <outlet property="dieselSlider" destination="5R4-4f-OCY" id="XWj-5F-Ixb"/>
                         <outlet property="dieselValueLabel" destination="tAX-uN-U1r" id="vvf-MD-HG8"/>
                         <outlet property="priceUnitLabel" destination="RB5-pq-Vh3" id="1p9-mV-Lqm"/>
+                        <outlet property="priceUnitSegment" destination="1lk-fG-yYY" id="ObO-6a-I5q"/>
+                        <outlet property="producerButton" destination="vQZ-4Y-7yS" id="V12-02-iKK"/>
                         <outlet property="producerLabel" destination="56C-0E-Wwe" id="Qia-JD-y3A"/>
                         <outlet property="taxAmountLabel" destination="8c5-zd-wp1" id="RXL-03-z1Q"/>
+                        <outlet property="taxAmountSlider" destination="fLI-67-ezb" id="iko-Ur-Cc1"/>
                         <outlet property="taxAmountValueLabel" destination="ruZ-CH-OET" id="Ihj-Dw-kM8"/>
                         <outlet property="theme" destination="DRx-Ae-DWc" id="cxh-bc-B1f"/>
+                        <outlet property="themeButton" destination="0Nw-Y7-W0v" id="pT8-xd-R03"/>
                         <outlet property="unleaded95Label" destination="fQM-is-Lmk" id="knq-YX-HAA"/>
+                        <outlet property="unleaded95Slider" destination="kJa-xM-Rgc" id="aCf-Uk-tVC"/>
                         <outlet property="unleaded95ValueLabel" destination="S3Q-0U-mfU" id="aqR-hI-mu2"/>
                         <outlet property="unleaded98Label" destination="XTI-US-sAS" id="x1m-o9-FLD"/>
+                        <outlet property="unleaded98Slider" destination="u6w-ce-OSe" id="oos-7p-BTP"/>
                         <outlet property="unleaded98ValueLabel" destination="fKN-DS-47E" id="WfH-l6-K7y"/>
                         <outlet property="vatLabel" destination="c9h-pN-spw" id="okV-nq-5Br"/>
+                        <outlet property="vatSegment" destination="0W5-MO-xG3" id="Lhn-SD-0c6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYW-Gl-3c8" userLabel="First Responder" sceneMemberID="firstResponder"/>

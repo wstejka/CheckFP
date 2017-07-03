@@ -99,8 +99,8 @@ class UserProfileViewController: UIViewController {
     let profileOptionsArray : [ProfileOption : [ProfileOptionProperty : Any]] =
         [.personalData : [.name : "personalData", .photo : "businessCard", .color : ThemesManager.Color.primary],
 //         .photo : [.name : "photo", .photo : "camera", .color : ThemesManager.Colors.orange],
-         .coordinates : [.name : "coordinates", .photo : "location", .color : ThemesManager.Color.theme2],
-         .singOut : [.name : "singOut", .photo : "logout", .color : ThemesManager.Color.theme3]]
+         .coordinates : [.name : "coordinates", .photo : "location", .color : ThemesManager.Color.color2],
+         .singOut : [.name : "singOut", .photo : "logout", .color : ThemesManager.Color.color3]]
     
     enum ProfileOption : Int {
         case personalData

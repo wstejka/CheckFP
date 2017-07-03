@@ -82,9 +82,13 @@ homeLocation = "set home location";
 homeLocationQuestion = "do you want to set this place as your home location?";
 
 // Settings
-fuelSupplier = "producers";
+fuelSupplier = "supplier";
 includeVatInFuelPrice = "include Vat in fuel price?";
 vatTaxAmount = "vat tax amount";
 capacity = "default capacity";
 
+theme = "theme";
+fuelPriceSettings = "fuel price settings";
+profitMarginPerFuelType = "profit margin per fuel type";
 
+doYouWantToSaveData = "Do want to save data?";

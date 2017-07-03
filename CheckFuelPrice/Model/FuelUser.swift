@@ -15,7 +15,7 @@ struct FuelUserProfile {
     var lastName : String = ""
     var phone : String = ""
     var updated : Int = 0
-    // reference to user's photo e.g.: users/UCPdi7Hto3Q7QRdX5ShDgSqJwB63/unique_id_photo.jpg
+    // reference to user's photo e.g.: unique_id_photo.jpg
     var photoReference : String = ""
     var photoTimestamp : Int = 0
     

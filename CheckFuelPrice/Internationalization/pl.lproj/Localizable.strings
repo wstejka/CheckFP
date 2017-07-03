@@ -87,3 +87,10 @@ fuelSupplier = "dostawca";
 includeVatInFuelPrice = "uwzględnić Vat w cenie?";
 vatTaxAmount = "wysokość VAT";
 capacity = "domyślna pojemność";
+
+theme = "motyw";
+fuelPriceSettings = "Ustawienia dla cen paliw";
+profitMarginPerFuelType = "Marże dla poszczególnych paliw";
+
+doYouWantToSaveData = "Chcesz zapisać zmiany?";
+

@@ -20,6 +20,28 @@ enum Producer : Int {
     case none = 0
     case lotos
     case orlen
+    
+    
+    init?(withName: String?) {
+        
+        guard let name = withName else { return nil }
+        switch name.lowercased() {
+        case "none":
+            self = .none
+        case "lotos":
+            self = .lotos
+        case "orlen":
+            self = .orlen
+        default:
+            log.error("option \(name) not defined")
+            return nil
+        }
+    }
+}
+
+enum FuelUnit : Int {
+    case oneLiter
+    case thousandLiters
 }
 
 

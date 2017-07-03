@@ -27,3 +27,4 @@ func iterateEnum<T: Hashable>(_: T.Type) -> AnyIterator<T> {
     }
 }
 
+
