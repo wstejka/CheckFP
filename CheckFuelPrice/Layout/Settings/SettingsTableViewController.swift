@@ -44,6 +44,8 @@ class SettingsTableViewController: UITableViewController {
     var userConfigRef : DatabaseReference? = nil
     
     
+    var resultSearchController : UISearchController? = nil
+    
     // MARK: - Outlets/Properties
     
     // MARK: Section: themes
@@ -97,10 +99,26 @@ class SettingsTableViewController: UITableViewController {
         log.verbose("")
 
         initialConfiguration()
+        // Firebase: create reference
         userConfigRef = Database.database().reference(withPath: FirebaseNode.userSettings.rawValue)
-        
+        // Create Save button in top navigation bar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self,
                                                                  action: #selector(saveBarButtonTapped))
+        
+        // Instantiate search table view controller
+        guard let searchTableView = storyboard!.instantiateViewController(withIdentifier: "SettingsSearchTableViewController") as? SettingsSearchTableViewController else {
+            log.error("Cannot instantiate SettingsSearchTableViewController programmatically")
+            return
+        }
+        
+        self.resultSearchController = UISearchController(searchResultsController: searchTableView)
+        resultSearchController!.searchResultsUpdater = searchTableView
+        
+        let searchBar = resultSearchController!.searchBar
+        tableView.tableHeaderView?.addSubview(searchBar)
+        searchBar.sizeToFit()
+        
+//        tableView.contentInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
         
     }
     
