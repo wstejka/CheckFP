@@ -132,8 +132,10 @@ class SettingsTableViewController: UITableViewController {
         
         let alertController = UIAlertController(title: "doYouWantToSaveData".localized(), message: "",
                                                 preferredStyle: UIAlertControllerStyle.alert)
-        let actionYes = UIAlertAction(title: "answerYes".localized(), style: UIAlertActionStyle.default) { (action) in
+        let actionYes = UIAlertAction(title: "answerYes".localized().capitalizingFirstLetter(),
+                                      style: UIAlertActionStyle.default) { (action) in
             
+            log.verbose("answered: Yes")
             
             let userConfig = UserConfig(theme: self.themeButton.tag, supplier: self.producerButton.tag,
                                         vatIncluded: self.vatSegment.selectedSegmentIndex,
@@ -146,7 +148,13 @@ class SettingsTableViewController: UITableViewController {
             
             
         }
+        let actionNo = UIAlertAction(title: "answerNo".localized().capitalizingFirstLetter(),
+                                     style: UIAlertActionStyle.default) { (action) in
+            log.verbose("answered: No")
+            
+        }
         alertController.addAction(actionYes)
+        alertController.addAction(actionNo)
         present(alertController, animated: true, completion: nil)
         
     }
