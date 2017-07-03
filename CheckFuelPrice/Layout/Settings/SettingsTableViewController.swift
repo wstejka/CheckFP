@@ -130,6 +130,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         log.verbose("")
         if userConfigRef != nil {
+            log.verbose("removeAllObservers")
             userConfigRef?.removeAllObservers()
         }
     }

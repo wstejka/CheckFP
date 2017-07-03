@@ -163,19 +163,13 @@ class UserProfileMapViewController: UIViewController {
             return
         }
         
-        _ = self.userDatabaseRef?.queryOrderedByKey().queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
-            log.verbose("State changed")
+        _ = self.userDatabaseRef?.child(uid).observe(.value, with: { (snapshot) in
+
+            log.verbose("Snapshot: \(snapshot)")
             
-            log.verbose("Returned: users.childrenCount = \(snapshot.childrenCount)")
-            
-            var userLocation = FuelUserLocation()
-            for item in snapshot.children {
-                guard let currentFuelUser = FuelUserLocation(snapshot: item as! DataSnapshot) else {
-                    log.error("Could not cast data properly ...")
-                    return
-                }
-                userLocation = currentFuelUser
-                break
+            guard let userLocation = FuelUserLocation(snapshot: snapshot) else {
+                log.error("Could not cast data properly ...")
+                return
             }
 
             // Add placemark on map if coordinates are set up

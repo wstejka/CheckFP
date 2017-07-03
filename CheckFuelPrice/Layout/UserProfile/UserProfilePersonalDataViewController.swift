@@ -120,7 +120,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         // customize change button view
         let floaty = Floaty()
         floaty.openAnimationType = .slideLeft
-        floaty.addItem("cancel".localized().capitalizingFirstLetter(), icon: UIImage(named: "cancel")!) { (item) in
+        floaty.addItem("placeholder".localized().capitalizingFirstLetter(), icon: UIImage(named: "cancel")!) { (item) in
             
             // Created just for providing 2nd param
             log.verbose("\"cancel\" option selected")
@@ -157,18 +157,14 @@ class UserProfilePersonalDataViewController: UITableViewController {
             log.verbose("uid: \(String(describing: uid))")
             
             // start observing ... 
-            self.observerHandle = self.fbReferenceUser!.queryOrderedByKey().queryEqual(toValue: uid).observe(
+            self.observerHandle = self.fbReferenceUser!.child(uid).observe(
                 .value, with: { snapshot in
 
-                    log.verbose("Returned: users.childrenCount = \(snapshot.childrenCount)")
+                    log.verbose("Snapshot: \(snapshot)")
                     
-                    var fuelUser = FuelUserProfile()
-                    for item in snapshot.children {
-                        guard let currentFuelUser = FuelUserProfile(snapshot: item as! DataSnapshot) else {
-                            log.error("Could not cast data properly ...")
-                            return
-                        }
-                        fuelUser = currentFuelUser
+                    guard let fuelUser = FuelUserProfile(snapshot: snapshot) else {
+                        log.error("Could not cast data properly ...")
+                        return
                     }
 
                     self.populateFieldsWithData(from: fuelUser)

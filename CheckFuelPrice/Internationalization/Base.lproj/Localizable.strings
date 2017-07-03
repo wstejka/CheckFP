@@ -80,6 +80,7 @@ dataSaved = "data saved ...";
 searchForPlaces = "search for places";
 homeLocation = "set home location";
 homeLocationQuestion = "do you want to set this place as your home location?";
+placeholder = "placeholder";
 
 // Settings
 fuelSupplier = "supplier";
