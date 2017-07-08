@@ -28,7 +28,7 @@ class Utils {
         }
     }
     
-    enum TableSections {
+    enum TableSections : Int {
         case header
         case body
         case footer

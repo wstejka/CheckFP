@@ -22,6 +22,53 @@ extension SettingsTableViewController {
         
         return headerTitle
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let body = getBodyFor(sectionIndex: indexPath.section)
+        let text = body[indexPath.row]
+        
+        if indexPath.section == SettingSection.theme.rawValue &&
+            indexPath.row == FirstSection.theme.rawValue {
+         
+            themeTitleLabel.text = text
+            themeDetailLabel.text = ""
+        }
+        else if indexPath.section == SettingSection.priceSettings.rawValue {
+            
+            if indexPath.row == SecondSection.fuelSupplier.rawValue {
+                producerTitleLabel.text = text
+                producerDetailLabel.text = ""
+            }
+            else if indexPath.row == SecondSection.capacity.rawValue {
+                priceUnitLabel.text = text
+            }
+            else if indexPath.row == SecondSection.includeVatInFuelPrice.rawValue {
+                vatLabel.text = text
+            }
+            else if indexPath.row == SecondSection.vatTaxAmount.rawValue {
+                taxAmountLabel.text = text
+            }
+        }
+        else if indexPath.section == SettingSection.profitMargin.rawValue {
+            
+            if indexPath.row == ThirdSection.unleaded95.rawValue {
+                unleaded95Label.text = text
+            }
+            else if indexPath.row == ThirdSection.unleaded98.rawValue {
+                unleaded98Label.text = text
+            }
+            else if indexPath.row == ThirdSection.diesel.rawValue {
+                dieselLabel.text = text
+            }
+            else if indexPath.row == ThirdSection.dieselIZ40.rawValue {
+                dieselPremiumLabel.text = text
+            }
+            else if indexPath.row == ThirdSection.dieselHeating.rawValue {
+                dieselHeatingLabel.text = text
+            }
+        }
+    }
         
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         log.verbose("section: \(indexPath.section), indexPath=\(indexPath.row)")
@@ -85,12 +132,12 @@ class SettingsTableViewController: UITableViewController {
                                                                            "dieselHeating".localized().capitalizingFirstLetter()]]]
     }()
     
-    func getRowFor(sectionIndex: Int) -> [String] {
+    func getBodyFor(sectionIndex: Int) -> [String] {
         log.verbose("")
         
         guard let section = SettingSection(rawValue: sectionIndex),
             let sectionData = self.sectionsConfig[section],
-        let sectionBody = sectionData[Utils.TableSections.body] as? [String] else {
+            let sectionBody = sectionData[Utils.TableSections.body] as? [String] else {
             log.error("Cannot get data for section: \(sectionIndex)")
                 return []
         }
@@ -199,8 +246,6 @@ class SettingsTableViewController: UITableViewController {
             log.error("This user is not authenticated.")
             return
         }
-        
-        
         
         let alertController = UIAlertController(title: "doYouWantToSaveData".localized(), message: "",
                                                 preferredStyle: UIAlertControllerStyle.alert)
@@ -334,25 +379,7 @@ class SettingsTableViewController: UITableViewController {
         log.verbose("")
 
         self.clearsSelectionOnViewWillAppear = true
-                                                                                
-        themeTitleLabel.text = "theme".localized().capitalizingFirstLetter()
-        themeDetailLabel.text = ""
-    
-        producerTitleLabel.text = "fuelSupplier".localized().capitalizingFirstLetter()
-        producerDetailLabel.text = ""
-        
-        vatLabel.text = "includeVatInFuelPrice".localized().capitalizingFirstLetter()
-        taxAmountLabel.text = "vatTaxAmount".localized().capitalizingFirstLetter()
-        priceUnitLabel.text = "capacity".localized().capitalizingFirstLetter()
-
-        unleaded95Label.text = "unleaded95".localized().capitalizingFirstLetter()
-        unleaded98Label.text = "unleaded98".localized().capitalizingFirstLetter()
-        dieselLabel.text = "diesel".localized().capitalizingFirstLetter()
-        dieselPremiumLabel.text = "dieselIZ40".localized().capitalizingFirstLetter()
-        dieselHeatingLabel.text = "dieselHeating".localized().capitalizingFirstLetter()
-    
         restoreDataFromDefaults()
-        
     }
     
     func restoreDataFromDefaults() {
@@ -373,7 +400,5 @@ class SettingsTableViewController: UITableViewController {
         dieselValueChanged(dieselSlider)
         dieselPremiumValueChanged(dieselPremiumSlider)
         dieselHeatingValueChanged(dieselHeatingSlider)
-
     }
-    
 }
