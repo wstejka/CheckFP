@@ -30,15 +30,12 @@ extension SettingsTableViewController {
         
         if indexPath.section == SettingSection.theme.rawValue &&
             indexPath.row == FirstSection.theme.rawValue {
-         
             themeTitleLabel.text = text
-            themeDetailLabel.text = ""
         }
         else if indexPath.section == SettingSection.priceSettings.rawValue {
             
             if indexPath.row == SecondSection.fuelSupplier.rawValue {
                 producerTitleLabel.text = text
-                producerDetailLabel.text = ""
             }
             else if indexPath.row == SecondSection.capacity.rawValue {
                 priceUnitLabel.text = text
@@ -212,6 +209,7 @@ class SettingsTableViewController: UITableViewController {
             log.error("Cannot instantiate SettingsSearchTableViewController programmatically")
             return
         }
+//        searchTableView.view.layer.opacity = 0.9
         
         self.resultSearchController = UISearchController(searchResultsController: searchTableView)
         resultSearchController!.searchResultsUpdater = searchTableView
@@ -254,9 +252,11 @@ class SettingsTableViewController: UITableViewController {
             
             log.verbose("answered: Yes")
             
-            let userConfig = UserConfig(theme: 0, supplier: 1,
+            let userConfig = UserConfig(theme: Defaults[.currentTheme] ?? ThemesManager.Theme.basic.rawValue,
+                                        supplier: Defaults[.currentSuplier] ?? Producer.none.rawValue,
                                         vatIncluded: self.vatSegment.selectedSegmentIndex,
-                                        vatAmount: self.taxAmountSlider.value, capacity: self.priceUnitSegment.selectedSegmentIndex,
+                                        vatAmount: self.taxAmountSlider.value,
+                                        capacity: self.priceUnitSegment.selectedSegmentIndex,
                                         unleaded95Margin: self.unleaded95Slider.value, unleaded98Margin: self.unleaded98Slider.value,
                                         dieselMargin: self.dieselSlider.value, dieselPremiumMargin: self.dieselPremiumSlider.value,
                                         dieselHeatingMargin: self.dieselHeatingSlider.value)
@@ -384,6 +384,18 @@ class SettingsTableViewController: UITableViewController {
     
     func restoreDataFromDefaults() {
         // populate fields with previous values
+        if let theme = Defaults[.currentTheme],
+            let themeObject = ThemesManager.Theme(rawValue: theme){
+            
+            themeDetailLabel.text = String(describing: themeObject)
+        }
+        
+        if let supplier = Defaults[.currentSuplier],
+            let supplierObject = Producer(rawValue: supplier) {
+            
+            producerDetailLabel.text = String(describing: supplierObject)
+        }
+        
         priceUnitSegment.selectedSegmentIndex = Defaults[.currentDefaultCapacity] ?? 0
         vatSegment.selectedSegmentIndex = Defaults[.currentIncludeVat] ?? 0
         taxAmountSlider.value = Float(Defaults[.currentVatTaxAmount] ?? 0.0)

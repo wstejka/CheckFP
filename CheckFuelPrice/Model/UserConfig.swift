@@ -84,13 +84,13 @@ struct UserConfig {
             "theme" : theme,
             "supplier" : supplier,
             "vatIncluded" : vatIncluded,
-            "vatAmount" : vatAmount,
+            "vatAmount" : Int(vatAmount),
             "capacity" : capacity,
-            "unleaded95Margin" : unleaded95Margin,
-            "unleaded98Margin" : unleaded98Margin,
-            "dieselMargin" : dieselMargin,
-            "dieselPremiumMargin" : dieselPremiumMargin,
-            "dieselHeatingMargin" : dieselHeatingMargin,
+            "unleaded95Margin" : Int(unleaded95Margin),
+            "unleaded98Margin" : Int(unleaded98Margin),
+            "dieselMargin" : Int(dieselMargin),
+            "dieselPremiumMargin" : Int(dieselPremiumMargin),
+            "dieselHeatingMargin" : Int(dieselHeatingMargin),
         ]
     }
     
