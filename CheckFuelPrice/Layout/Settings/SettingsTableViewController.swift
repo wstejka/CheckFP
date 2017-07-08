@@ -26,8 +26,8 @@ extension SettingsTableViewController {
         log.verbose("section: \(indexPath.section), indexPath=\(indexPath.row)")
         let section = indexPath.section
         let row = indexPath.row
-        if (section == 0 && row == 0) ||
-            (section == 1 && row == 0)
+        if (section == SettingSection.theme.rawValue && row == FirstSection.theme.rawValue) ||
+            (section == SettingSection.priceSettings.rawValue && row == SecondSection.fuelSupplier.rawValue)
         {
             return true
         }
@@ -45,6 +45,25 @@ class SettingsTableViewController: UITableViewController {
         case theme = 0
         case priceSettings
         case profitMargin
+    }
+    
+    enum FirstSection : Int {
+        case theme = 0
+    }
+    
+    enum SecondSection : Int {
+        case fuelSupplier
+        case capacity
+        case includeVatInFuelPrice
+        case vatTaxAmount
+    }
+    
+    enum ThirdSection : Int {
+        case unleaded95
+        case unleaded98
+        case diesel
+        case dieselIZ40
+        case dieselHeating
     }
     
     typealias ConfigType = [SettingSection : [Utils.TableSections : Any]]
@@ -320,8 +339,10 @@ class SettingsTableViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = true
                                                                                 
         themeTitleLabel.text = "theme".localized().capitalizingFirstLetter()
+        themeDetailLabel.text = ""
     
         producerTitleLabel.text = "fuelSupplier".localized().capitalizingFirstLetter()
+        producerDetailLabel.text = ""
         
         vatLabel.text = "includeVatInFuelPrice".localized().capitalizingFirstLetter()
         taxAmountLabel.text = "vatTaxAmount".localized().capitalizingFirstLetter()
