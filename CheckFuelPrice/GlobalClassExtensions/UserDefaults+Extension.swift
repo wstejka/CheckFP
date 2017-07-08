@@ -10,4 +10,16 @@ import SwiftyUserDefaults
 extension DefaultsKeys {
     static let lastUserPhotoTimestamp = DefaultsKey<Int?>("lastUserPhotoTimestamp")
     static let lastUserPhotoReference = DefaultsKey<String?>("lastUserPhotoReference")
+    
+    // User's settings
+    static let currentTheme = DefaultsKey<Int?>("currentTheme")
+    static let currentSuplier = DefaultsKey<Int?>("currentSuplier")
+    static let currentDefaultCapacity = DefaultsKey<Int?>("currentDefaultCapacity")
+    static let currentIncludeVat = DefaultsKey<Int?>("currentIncludeVat")
+    static let currentVatTaxAmount = DefaultsKey<Double?>("currentVatTaxAmount")
+    static let currentUnleaded95Margin = DefaultsKey<Double?>("currentUnleaded95Margin")
+    static let currentUnleaded98Margin = DefaultsKey<Double?>("currentUnleaded98Margin")
+    static let currentDieselMargin = DefaultsKey<Double?>("currentDieselMargin")
+    static let currentDieselSuperMargin = DefaultsKey<Double?>("currentDieselSuperMargin")
+    static let currentDieselHeatingMargin = DefaultsKey<Double?>("currentDieselHeatingMargin")
 }

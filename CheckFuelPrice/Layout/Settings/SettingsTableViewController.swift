@@ -8,6 +8,7 @@
 
 import UIKit
 import Chameleon
+import SwiftyUserDefaults
 
 extension SettingsTableViewController {
 
@@ -313,24 +314,20 @@ class SettingsTableViewController: UITableViewController {
     func setupLayoutWith(userConfig : UserConfig) {
         log.verbose("")
 
-        vatSegment.selectedSegmentIndex = userConfig.vatIncluded
+        // Provision data
+        Defaults[.currentTheme] = userConfig.theme
+        Defaults[.currentSuplier] = userConfig.supplier
+        Defaults[.currentDefaultCapacity] = userConfig.capacity
         
-        taxAmountSlider.value = userConfig.vatAmount
-        taxAmountValueChanged(taxAmountSlider)
+        Defaults[.currentIncludeVat] = userConfig.vatIncluded
+        Defaults[.currentVatTaxAmount] = Double(userConfig.vatAmount)
+        Defaults[.currentUnleaded95Margin] = Double(userConfig.unleaded95Margin)
+        Defaults[.currentUnleaded98Margin] = Double(userConfig.unleaded98Margin)
+        Defaults[.currentDieselMargin] = Double(userConfig.dieselMargin)
+        Defaults[.currentDieselSuperMargin] = Double(userConfig.dieselPremiumMargin)
+        Defaults[.currentDieselHeatingMargin] = Double(userConfig.dieselHeatingMargin)
         
-        priceUnitSegment.selectedSegmentIndex = userConfig.capacity
-        
-        unleaded95Slider.value = userConfig.unleaded95Margin
-        unleaded95ValueChanged(unleaded95Slider)
-        unleaded98Slider.value = userConfig.unleaded98Margin
-        unleaded98ValueChanged(unleaded98Slider)
-        dieselSlider.value = userConfig.dieselMargin
-        dieselValueChanged(dieselSlider)
-        dieselPremiumSlider.value = userConfig.dieselPremiumMargin
-        dieselPremiumValueChanged(dieselPremiumSlider)
-        dieselHeatingSlider.value = userConfig.dieselHeatingMargin
-        dieselHeatingValueChanged(dieselHeatingSlider)
-        
+        restoreDataFromDefaults()        
     }
     
     func initialConfiguration() {
@@ -353,8 +350,30 @@ class SettingsTableViewController: UITableViewController {
         dieselLabel.text = "diesel".localized().capitalizingFirstLetter()
         dieselPremiumLabel.text = "dieselIZ40".localized().capitalizingFirstLetter()
         dieselHeatingLabel.text = "dieselHeating".localized().capitalizingFirstLetter()
-                
+    
+        restoreDataFromDefaults()
         
+    }
+    
+    func restoreDataFromDefaults() {
+        // populate fields with previous values
+        priceUnitSegment.selectedSegmentIndex = Defaults[.currentDefaultCapacity] ?? 0
+        vatSegment.selectedSegmentIndex = Defaults[.currentIncludeVat] ?? 0
+        taxAmountSlider.value = Float(Defaults[.currentVatTaxAmount] ?? 0.0)
+        
+        unleaded95Slider.value = Float(Defaults[.currentUnleaded95Margin] ?? 0.0)
+        unleaded98Slider.value = Float(Defaults[.currentUnleaded98Margin] ?? 0.0)
+        dieselSlider.value = Float(Defaults[.currentDieselMargin] ?? 0.0)
+        dieselPremiumSlider.value = Float(Defaults[.currentDieselSuperMargin] ?? 0.0)
+        dieselHeatingSlider.value = Float(Defaults[.currentDieselHeatingMargin] ?? 0.0)
+        
+        taxAmountValueChanged(taxAmountSlider)
+        unleaded95ValueChanged(unleaded95Slider)
+        unleaded98ValueChanged(unleaded98Slider)
+        dieselValueChanged(dieselSlider)
+        dieselPremiumValueChanged(dieselPremiumSlider)
+        dieselHeatingValueChanged(dieselHeatingSlider)
+
     }
     
 }
