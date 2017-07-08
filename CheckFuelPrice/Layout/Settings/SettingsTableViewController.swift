@@ -14,13 +14,27 @@ extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         guard let settingSection = SettingSection(rawValue: section),
-            let config = configuration[settingSection],
-            let headerTitle = config[Utils.TableSections.header] else {
+            let config = sectionsConfig[settingSection],
+            let headerTitle = config[Utils.TableSections.header] as? String else {
                 return nil
         }
         
         return headerTitle
     }
+        
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        log.verbose("section: \(indexPath.section), indexPath=\(indexPath.row)")
+        let section = indexPath.section
+        let row = indexPath.row
+        if (section == 0 && row == 0) ||
+            (section == 1 && row == 0)
+        {
+            return true
+        }
+        return false
+        
+    }
+    
 }
 
 class SettingsTableViewController: UITableViewController {
@@ -32,30 +46,53 @@ class SettingsTableViewController: UITableViewController {
         case priceSettings
         case profitMargin
     }
-    typealias ConfigType = [SettingSection : [Utils.TableSections : String]]
     
-    let configuration : ConfigType = {
+    typealias ConfigType = [SettingSection : [Utils.TableSections : Any]]
+    let sectionsConfig : ConfigType = {
         
-        return [SettingSection.theme : [Utils.TableSections.header : "theme".localized().capitalizingFirstLetter()],
-                SettingSection.priceSettings : [Utils.TableSections.header : "fuelPriceSettings".localized().capitalizingFirstLetter()],
-                SettingSection.profitMargin : [Utils.TableSections.header : "profitMarginPerFuelType".localized().capitalizingFirstLetter()]]
+        return [SettingSection.theme : [Utils.TableSections.header : "theme".localized().capitalizingFirstLetter(),
+                                        Utils.TableSections.body : ["theme".localized().capitalizingFirstLetter()]],
+                SettingSection.priceSettings : [Utils.TableSections.header : "fuelPriceSettings".localized().capitalizingFirstLetter(),
+                                                Utils.TableSections.body : ["fuelSupplier".localized().capitalizingFirstLetter(),
+                                                                            "capacity".localized().capitalizingFirstLetter(),
+                                                                            "includeVatInFuelPrice".localized().capitalizingFirstLetter(),
+                                                                            "vatTaxAmount".localized().capitalizingFirstLetter()]],
+                SettingSection.profitMargin : [Utils.TableSections.header : "profitMarginPerFuelType".localized().capitalizingFirstLetter(),
+                                               Utils.TableSections.body : ["unleaded95".localized().capitalizingFirstLetter(),
+                                                                           "unleaded98".localized().capitalizingFirstLetter(),
+                                                                           "diesel".localized().capitalizingFirstLetter(),
+                                                                           "dieselIZ40".localized().capitalizingFirstLetter(),
+                                                                           "dieselHeating".localized().capitalizingFirstLetter()]]]
     }()
     
-    var userConfigRef : DatabaseReference? = nil
+    func getRowFor(sectionIndex: Int) -> [String] {
+        log.verbose("")
+        
+        guard let section = SettingSection(rawValue: sectionIndex),
+            let sectionData = self.sectionsConfig[section],
+        let sectionBody = sectionData[Utils.TableSections.body] as? [String] else {
+            log.error("Cannot get data for section: \(sectionIndex)")
+                return []
+        }
+        
+        return sectionBody
+    }
     
+    
+    var userConfigRef : DatabaseReference? = nil
     
     var resultSearchController : UISearchController? = nil
     
     // MARK: - Outlets/Properties
     
     // MARK: Section: themes
-    @IBOutlet weak var theme: UILabel!
-    @IBOutlet weak var themeButton: UIButton!
+    @IBOutlet weak var themeTitleLabel: UILabel!
+    @IBOutlet weak var themeDetailLabel: UILabel!
     
     // MARK: Section: fuel price settings
     // producer
-    @IBOutlet weak var producerLabel: UILabel!
-    @IBOutlet weak var producerButton: UIButton!
+    @IBOutlet weak var producerTitleLabel: UILabel!
+    @IBOutlet weak var producerDetailLabel: UILabel!
     
     // VAT
     @IBOutlet weak var vatLabel: UILabel!
@@ -91,8 +128,6 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var dieselHeatingSlider: UISlider!
     @IBOutlet weak var dieselHeatingValueLabel: UILabel!
     
-
-    
     // MARK: - TableViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,8 +152,6 @@ class SettingsTableViewController: UITableViewController {
         let searchBar = resultSearchController!.searchBar
         tableView.tableHeaderView?.addSubview(searchBar)
         searchBar.sizeToFit()
-        
-//        tableView.contentInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
         
     }
     
@@ -156,7 +189,7 @@ class SettingsTableViewController: UITableViewController {
             
             log.verbose("answered: Yes")
             
-            let userConfig = UserConfig(theme: self.themeButton.tag, supplier: self.producerButton.tag,
+            let userConfig = UserConfig(theme: 0, supplier: 1,
                                         vatIncluded: self.vatSegment.selectedSegmentIndex,
                                         vatAmount: self.taxAmountSlider.value, capacity: self.priceUnitSegment.selectedSegmentIndex,
                                         unleaded95Margin: self.unleaded95Slider.value, unleaded98Margin: self.unleaded98Slider.value,
@@ -260,13 +293,7 @@ class SettingsTableViewController: UITableViewController {
     
     func setupLayoutWith(userConfig : UserConfig) {
         log.verbose("")
-        
-        themeButton.setTitle(String(userConfig.theme), for: UIControlState.normal)
-        themeButton.tag = userConfig.theme
-        
-        producerButton.titleLabel?.text = String(describing: userConfig.supplier)
-        producerButton.tag = userConfig.supplier
-        
+
         vatSegment.selectedSegmentIndex = userConfig.vatIncluded
         
         taxAmountSlider.value = userConfig.vatAmount
@@ -290,9 +317,12 @@ class SettingsTableViewController: UITableViewController {
     func initialConfiguration() {
         log.verbose("")
 
-        tableView.allowsSelection = false
-        theme.text = "theme".localized().capitalizingFirstLetter()
-        producerLabel.text = "fuelSupplier".localized().capitalizingFirstLetter()
+        self.clearsSelectionOnViewWillAppear = true
+                                                                                
+        themeTitleLabel.text = "theme".localized().capitalizingFirstLetter()
+    
+        producerTitleLabel.text = "fuelSupplier".localized().capitalizingFirstLetter()
+        
         vatLabel.text = "includeVatInFuelPrice".localized().capitalizingFirstLetter()
         taxAmountLabel.text = "vatTaxAmount".localized().capitalizingFirstLetter()
         priceUnitLabel.text = "capacity".localized().capitalizingFirstLetter()
