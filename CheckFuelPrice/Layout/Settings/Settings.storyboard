@@ -511,9 +511,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="tcc-oD-ov8" userLabel="Header">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change supplier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5c-PP-DZc">
+                                    <rect key="frame" x="16" y="33" width="230" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="supplierCell" textLabel="Shh-Md-b8D" style="IBUITableViewCellStyleDefault" id="e3Y-Ke-gG5">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e3Y-Ke-gG5" id="M7C-K6-wQN">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -535,10 +549,13 @@
                             <outlet property="delegate" destination="i5E-t1-TGB" id="jwR-Ig-kDf"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableHeaderTitleLabel" destination="I5c-PP-DZc" id="6Ux-Ay-RyT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRd-ur-asR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3345" y="-339"/>
+            <point key="canvasLocation" x="3344.8000000000002" y="-339.58020989505252"/>
         </scene>
         <!--Settings Search Table View Controller-->
         <scene sceneID="vLQ-NP-1Zg">

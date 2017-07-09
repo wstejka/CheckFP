@@ -85,6 +85,7 @@ placeholder = "zastępczy";
 
 // Settings
 fuelSupplier = "dostawca";
+changeSupplier = "Zmień dostawcę";
 includeVatInFuelPrice = "uwzględnić Vat w cenie?";
 vatTaxAmount = "wysokość VAT";
 capacity = "domyślna pojemność";

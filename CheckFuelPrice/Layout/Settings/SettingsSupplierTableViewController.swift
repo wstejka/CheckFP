@@ -77,6 +77,9 @@ class SettingsSupplierTableViewController: UITableViewController {
     
     var delegate : SupplierChangedDelegate? = nil
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableHeaderTitleLabel: UILabel!
     
     // MARK: - UITableView lifecycle
 
@@ -84,9 +87,9 @@ class SettingsSupplierTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-         self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
         
-        
+        tableHeaderTitleLabel.text = "changeSupplier".localized()
 
     }
 
