@@ -12,7 +12,7 @@ import SwiftyUserDefaults
 
 extension SettingsTableViewController : SupplierChangedDelegate {
     
-    func selected(supplier: Producer) {
+    func selected(supplier: Supplier) {
         log.verbose("selected: \(supplier)")
         
         Defaults[.currentSuplier] = supplier.rawValue
@@ -260,7 +260,7 @@ class SettingsTableViewController: UITableViewController {
             log.verbose("answered: Yes")
             
             let userConfig = UserConfig(theme: Defaults[.currentTheme] ?? ThemesManager.Theme.basic.rawValue,
-                                        supplier: Defaults[.currentSuplier] ?? Producer.none.rawValue,
+                                        supplier: Defaults[.currentSuplier] ?? Supplier.none.rawValue,
                                         vatIncluded: self.vatSegment.selectedSegmentIndex,
                                         vatAmount: self.taxAmountSlider.value,
                                         capacity: self.priceUnitSegment.selectedSegmentIndex,
@@ -295,7 +295,7 @@ class SettingsTableViewController: UITableViewController {
             
             supplierTableVC.delegate = self
             if let supplier = Defaults[.currentSuplier],
-                let supplierObject = Producer(rawValue: supplier) {
+                let supplierObject = Supplier(rawValue: supplier) {
                 
                 supplierTableVC.currentSupplier = supplierObject
             }
@@ -418,7 +418,7 @@ class SettingsTableViewController: UITableViewController {
         }
         
         if let supplier = Defaults[.currentSuplier],
-            let supplierObject = Producer(rawValue: supplier) {
+            let supplierObject = Supplier(rawValue: supplier) {
             
             producerDetailLabel.text = String(describing: supplierObject)
         }

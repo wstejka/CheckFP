@@ -11,7 +11,7 @@ struct UserConfig {
     
     var uid : String = ""
     var theme : Int = ThemesManager.Theme.basic.rawValue
-    var supplier: Int = Producer.none.rawValue
+    var supplier: Int = Supplier.none.rawValue
     var vatIncluded: Int = 0
     var vatAmount: Float = 23.0
     var capacity : Int = FuelUnit.oneLiter.rawValue

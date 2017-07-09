@@ -15,13 +15,13 @@ struct FuelPriceItem {
     let excise : Double
     let fee : Double
     let humanReadableDate : String
-    let producer : Producer
+    let producer : Supplier
     let reference : DatabaseReference?
     
     
     // MARK: - Initializers
     init(timestamp: Int, fuelType: Fuel, price: Double, excise: Double, fee: Double,
-        humanReadableDate: String, producer: Producer) {
+        humanReadableDate: String, producer: Supplier) {
         
         self.timestamp = timestamp
         self.fuelType = fuelType
@@ -54,7 +54,7 @@ struct FuelPriceItem {
         guard let producerId = fuelPriceAttributes["producer"] as? Int else {
             return nil
         }
-        self.producer = Producer(rawValue: producerId)! 
+        self.producer = Supplier(rawValue: producerId)! 
         self.reference = snapshot.ref
         
 //        log.debug("\(snapshot.key), \(self)")

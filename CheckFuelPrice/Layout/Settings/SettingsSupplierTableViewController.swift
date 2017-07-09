@@ -10,7 +10,7 @@ import UIKit
 
 protocol SupplierChangedDelegate {
     
-    func selected(supplier: Producer)
+    func selected(supplier: Supplier)
 }
 
 // MARK: - Extension - Table view data source
@@ -56,14 +56,14 @@ extension SettingsSupplierTableViewController {
 class SettingsSupplierTableViewController: UITableViewController {
     
     // MARK: Vars/Consts
-    var items : [Producer] {
+    var items : [Supplier] {
         
         get {
-            var options : [Producer] = []
-            for item in iterateEnum(Producer.self) {
+            var options : [Supplier] = []
+            for item in iterateEnum(Supplier.self) {
                 
                 // ignore none option
-                if item == Producer.none {
+                if item == Supplier.none {
                     continue
                 }
                 
@@ -73,7 +73,7 @@ class SettingsSupplierTableViewController: UITableViewController {
         }
     }
     
-    var currentSupplier : Producer? = nil
+    var currentSupplier : Supplier? = nil
     
     var delegate : SupplierChangedDelegate? = nil
     

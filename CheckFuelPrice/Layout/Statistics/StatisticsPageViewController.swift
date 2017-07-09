@@ -213,7 +213,7 @@ class StatisticsPageViewController: UIPageViewController {
                     break
                 }
 
-                let keyPrefix = String(describing: Producer.lotos.hashValue) + "_" + String(describing: type.hashValue)
+                let keyPrefix = String(describing: Supplier.lotos.hashValue) + "_" + String(describing: type.hashValue)
                 let endingKey = keyPrefix + "_" + String(fuelType.timestamp)
     
                 log.verbose("queryEnding  \(endingKey)")

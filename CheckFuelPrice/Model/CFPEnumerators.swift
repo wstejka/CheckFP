@@ -16,7 +16,7 @@ enum Fuel : Int {
     case lpg
 }
 
-enum Producer : Int {
+enum Supplier : Int {
     case none = 0
     case lotos
     case orlen
