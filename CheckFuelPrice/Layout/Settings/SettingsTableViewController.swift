@@ -10,6 +10,16 @@ import UIKit
 import Chameleon
 import SwiftyUserDefaults
 
+extension SettingsTableViewController : SupplierChangedDelegate {
+    
+    func selected(supplier: Producer) {
+        log.verbose("selected: \(supplier)")
+        
+        Defaults[.currentSuplier] = supplier.rawValue
+        restoreDataFromDefaults()
+    }
+}
+
 extension SettingsTableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -129,24 +139,16 @@ class SettingsTableViewController: UITableViewController {
                                                                            "dieselHeating".localized().capitalizingFirstLetter()]]]
     }()
     
-    func getBodyFor(sectionIndex: Int) -> [String] {
-        log.verbose("")
-        
-        guard let section = SettingSection(rawValue: sectionIndex),
-            let sectionData = self.sectionsConfig[section],
-            let sectionBody = sectionData[Utils.TableSections.body] as? [String] else {
-            log.error("Cannot get data for section: \(sectionIndex)")
-                return []
-        }
-        
-        return sectionBody
-    }
-    
-    
     var userConfigRef : DatabaseReference? = nil
     
     var resultSearchController : UISearchController? = nil
     
+    var removeFirebaseRef : Bool = true
+
+    // MARK: - Segues
+    let settingsSupplierTableViewControllerSegue = "SettingsSupplierTableViewControllerSegue"
+    
+
     // MARK: - Outlets/Properties
     
     // MARK: Section: themes
@@ -222,12 +224,17 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         log.verbose("")
-        startObserving()
+        if removeFirebaseRef == true {
+            startObserving()
+        }
+        removeFirebaseRef = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         log.verbose("")
-        if userConfigRef != nil {
+        // we don't want to remove reference for pushed views created on the top of this one
+        if (userConfigRef != nil) &&
+            (removeFirebaseRef == true) {
             log.verbose("removeAllObservers")
             userConfigRef?.removeAllObservers()
         }
@@ -274,6 +281,26 @@ class SettingsTableViewController: UITableViewController {
         alertController.addAction(actionNo)
         present(alertController, animated: true, completion: nil)
         
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        log.verbose("sender: \(segue.identifier ?? "")")
+        
+        removeFirebaseRef = false
+        if segue.identifier == settingsSupplierTableViewControllerSegue {
+            guard let supplierTableVC = segue.destination as? SettingsSupplierTableViewController else {
+                return
+            }
+            
+            supplierTableVC.delegate = self
+            if let supplier = Defaults[.currentSuplier],
+                let supplierObject = Producer(rawValue: supplier) {
+                
+                supplierTableVC.currentSupplier = supplierObject
+            }
+            
+        }
     }
 
     // MARK: - Section: Theme
@@ -413,4 +440,18 @@ class SettingsTableViewController: UITableViewController {
         dieselPremiumValueChanged(dieselPremiumSlider)
         dieselHeatingValueChanged(dieselHeatingSlider)
     }
+    
+    func getBodyFor(sectionIndex: Int) -> [String] {
+        log.verbose("")
+        
+        guard let section = SettingSection(rawValue: sectionIndex),
+            let sectionData = self.sectionsConfig[section],
+            let sectionBody = sectionData[Utils.TableSections.body] as? [String] else {
+                log.error("Cannot get data for section: \(sectionIndex)")
+                return []
+        }
+        
+        return sectionBody
+    }
+    
 }
