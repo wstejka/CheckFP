@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Protocol SupplierChangedDelegate
 protocol SupplierChangedDelegate {
     
     func selected(supplier: Supplier)

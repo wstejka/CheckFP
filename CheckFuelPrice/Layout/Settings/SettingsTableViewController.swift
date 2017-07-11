@@ -10,6 +10,13 @@ import UIKit
 import Chameleon
 import SwiftyUserDefaults
 
+extension SettingsTableViewController : HandleSettingSearchDelegate {
+    
+    func selected(search option: SettingsTableViewController.SelectedRow) {
+        log.verbose("selected option: \(option)")
+    }
+}
+
 extension SettingsTableViewController : ThemeChangedDelegate {
     
     func selected(theme: ThemesManager.Theme) {
@@ -132,6 +139,8 @@ class SettingsTableViewController: UITableViewController {
     }
     
     typealias ConfigType = [SettingSection : [Utils.TableSections : Any]]
+    // It should be two-value list. These two represent section and row of selected option
+    typealias SelectedRow = [Int]
     let sectionsConfig : ConfigType = {
         
         return [SettingSection.theme : [Utils.TableSections.header : "theme".localized().capitalizingFirstLetter(),
@@ -218,14 +227,16 @@ class SettingsTableViewController: UITableViewController {
                                                                  action: #selector(saveBarButtonTapped))
         
         // Instantiate search table view controller
-        guard let searchTableView = storyboard!.instantiateViewController(withIdentifier: "SettingsSearchTableViewController") as? SettingsSearchTableViewController else {
+        guard let searchTableViewController = storyboard!.instantiateViewController(withIdentifier: "SettingsSearchTableViewController") as? SettingsSearchTableViewController else {
             log.error("Cannot instantiate SettingsSearchTableViewController programmatically")
             return
         }
+        searchTableViewController.sectionsConfig = sectionsConfig
+        searchTableViewController.delegate = self
 //        searchTableView.view.layer.opacity = 0.9
         
-        self.resultSearchController = UISearchController(searchResultsController: searchTableView)
-        resultSearchController!.searchResultsUpdater = searchTableView
+        self.resultSearchController = UISearchController(searchResultsController: searchTableViewController)
+        resultSearchController?.searchResultsUpdater = searchTableViewController
         
         let searchBar = resultSearchController!.searchBar
         tableView.tableHeaderView?.addSubview(searchBar)
@@ -309,6 +320,19 @@ class SettingsTableViewController: UITableViewController {
                 let supplierObject = Supplier(rawValue: supplier) {
                 
                 supplierTableVC.currentSupplier = supplierObject
+            }
+            
+        }
+        else if segue.identifier == settingsThemeTableViewControllerSegue {
+            guard let themeTableVC = segue.destination as? SettingsThemeTableViewController else {
+                return
+            }
+            
+            themeTableVC.delegate = self
+            if let theme = Defaults[.currentTheme],
+                let themeObject = ThemesManager.Theme(rawValue: theme) {
+                
+                themeTableVC.currentTheme = themeObject
             }
             
         }

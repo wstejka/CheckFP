@@ -8,109 +8,116 @@
 
 import UIKit
 
+// MARK: Protocol HandleSettingSearchDelegate
+protocol HandleSettingSearchDelegate {
+    
+    func selected(search option: SettingsTableViewController.SelectedRow)
+}
+
+// MARK: Extension UISearchResultsUpdating
 extension SettingsSearchTableViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         log.verbose("")
+        
+        self.matchingItems = []
+        guard let searchText = searchController.searchBar.text?.lowercased() else {return}
+        
+        for item in sectionConfigAsList {
+            
+            // alternative: not case sensitive
+            if item.text.lowercased().range(of: searchText) != nil {
+                self.matchingItems.append(item)
+            }
+            tableView.reloadData()
+        }
+        
     }
 
 }
 
+// MARK: Extension Table view data source
 extension SettingsSearchTableViewController {
     
-    // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return matchingItems.count
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
+            log.error("Could not create Cell object")
+            return UITableViewCell()
+        }
+        let matchingItem = matchingItems[indexPath.row]
+        cell.textLabel?.text = matchingItem.text
+        
+        let detailText = matchingItem.section
+        cell.detailTextLabel?.text = String(detailText)
+        
+        return cell
+    }
+}
 
+
+struct SettingsMatchingItem {
     
+    let text : String
+    let detailText : String
+    let section : Int
+    let row : Int
 }
 
 class SettingsSearchTableViewController: UITableViewController {
 
     
-    //
+    // MARK: Variables/Constants
+    var sectionsConfig : SettingsTableViewController.ConfigType? = nil
+    var delegate : HandleSettingSearchDelegate? = nil
+    
+    // This computed variable returns options ordered as list instead of dict
+    var sectionConfigAsList : [SettingsMatchingItem] {
+        
+        get {
+            
+            var list : [SettingsMatchingItem] = []
+            guard let sectionsConf = sectionsConfig else {
+                return []
+            }
+            
+            // TODO: to guarantee ordering we need to increment through position
+            for (key, values) in sectionsConf {
+                
+                let sectionPos = key.rawValue
+                
+                guard let sectionHeaderText = values[Utils.TableSections.header] as? String,
+                    let sectionBody = values[Utils.TableSections.body] as? [String] else {
+                        log.error("Cannot get data for section")
+                        return []
+                }
+                
+                for pos in 0...(sectionBody.count - 1) {
+
+                    let settingsItem =  SettingsMatchingItem(text: sectionBody[pos], detailText: sectionHeaderText,
+                                                             section: sectionPos, row: pos)
+
+                    list.append(settingsItem)
+                }
+            }
+            
+            return list
+        }
+    }
+    
+    var matchingItems : [SettingsMatchingItem] = []
+    
+    // MARK: UITableViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-//    override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
-//        
-//    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+         self.clearsSelectionOnViewWillAppear = false
 
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
