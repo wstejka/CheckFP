@@ -25,12 +25,21 @@ extension SettingsSearchTableViewController: UISearchResultsUpdating {
         
         for item in sectionConfigAsList {
             
-            // alternative: not case sensitive
-            if item.text.lowercased().range(of: searchText) != nil {
-                self.matchingItems.append(item)
+            let matchingSubstringRange = item.text.lowercased().range(of: searchText)
+            if matchingSubstringRange == nil {
+                continue
             }
-            tableView.reloadData()
+            let attributedString = NSMutableAttributedString(string: item.text,
+                                                             attributes: [:])
+            
+            attributedString.setAttributes([NSForegroundColorAttributeName : ThemesManager.get(color: .primary),
+                                            NSFontAttributeName : UIFont.boldSystemFont(ofSize: 18.0)],
+                                           range: String().nsRange(from: matchingSubstringRange!))
+            var itemCopy = item
+            itemCopy.attributedText = attributedString
+            self.matchingItems.append(itemCopy)
         }
+        tableView.reloadData()
         
     }
 
@@ -50,7 +59,7 @@ extension SettingsSearchTableViewController {
             return UITableViewCell()
         }
         let matchingItem = matchingItems[indexPath.row]
-        cell.textLabel?.text = matchingItem.text
+        cell.textLabel?.attributedText = matchingItem.attributedText
         
         let detailText = matchingItem.section
         cell.detailTextLabel?.text = String(detailText)
@@ -62,7 +71,8 @@ extension SettingsSearchTableViewController {
 
 struct SettingsMatchingItem {
     
-    let text : String
+    var text : String
+    var attributedText : NSAttributedString
     let detailText : String
     let section : Int
     let row : Int
@@ -85,10 +95,12 @@ class SettingsSearchTableViewController: UITableViewController {
                 return []
             }
             
-            // TODO: to guarantee ordering we need to increment through position
-            for (key, values) in sectionsConf {
-                
-                let sectionPos = key.rawValue
+            
+            for sectionPos in iterateEnum(SettingsTableViewController.SettingSection.self) {
+                guard let values = sectionsConf[sectionPos] else {
+                    log.error("Cannot find node associated with \(sectionPos)")
+                    return []
+                }
                 
                 guard let sectionHeaderText = values[Utils.TableSections.header] as? String,
                     let sectionBody = values[Utils.TableSections.body] as? [String] else {
@@ -98,8 +110,8 @@ class SettingsSearchTableViewController: UITableViewController {
                 
                 for pos in 0...(sectionBody.count - 1) {
 
-                    let settingsItem =  SettingsMatchingItem(text: sectionBody[pos], detailText: sectionHeaderText,
-                                                             section: sectionPos, row: pos)
+                    let settingsItem =  SettingsMatchingItem(text: sectionBody[pos], attributedText: NSAttributedString(), detailText: sectionHeaderText,
+                                                             section: sectionPos.rawValue, row: pos)
 
                     list.append(settingsItem)
                 }
