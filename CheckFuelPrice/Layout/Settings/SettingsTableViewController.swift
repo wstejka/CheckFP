@@ -17,7 +17,8 @@ extension SettingsTableViewController : HandleSettingSearchDelegate {
         
         let indexPath = IndexPath(row: option.row, section: option.section)
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
-        
+        // clear text at searchBar
+        self.resultSearchController?.searchBar.text = ""
     }
 }
 
@@ -108,10 +109,9 @@ extension SettingsTableViewController {
             return true
         }
         return false
-        
     }
-    
 }
+
 
 class SettingsTableViewController: UITableViewController {
 
