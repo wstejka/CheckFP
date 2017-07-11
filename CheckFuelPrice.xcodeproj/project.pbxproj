@@ -44,6 +44,8 @@
 		9E4F6CCD1F0A6B83007F5186 /* SettingsSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F6CCC1F0A6B83007F5186 /* SettingsSearchTableViewController.swift */; };
 		9E4F6CCF1F12A2C4007F5186 /* SettingsSupplierTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F6CCE1F12A2C4007F5186 /* SettingsSupplierTableViewController.swift */; };
 		9E4F6CD11F12B9E3007F5186 /* Float+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F6CD01F12B9E3007F5186 /* Float+Extension.swift */; };
+		9E4F6CD31F12C096007F5186 /* SettingsThemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F6CD21F12C096007F5186 /* SettingsThemeTableViewController.swift */; };
+		9E4F6CD51F12C2CA007F5186 /* SettingsThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F6CD41F12C2CA007F5186 /* SettingsThemeTableViewCell.swift */; };
 		9E5C842F1EA0CC5800C7DFA7 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */; };
 		9E5C84301EA0CC5800C7DFA7 /* Kanna.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E5C84311EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */; };
@@ -149,6 +151,8 @@
 		9E4F6CCC1F0A6B83007F5186 /* SettingsSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsSearchTableViewController.swift; path = Layout/Settings/SettingsSearchTableViewController.swift; sourceTree = "<group>"; };
 		9E4F6CCE1F12A2C4007F5186 /* SettingsSupplierTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsSupplierTableViewController.swift; path = Layout/Settings/SettingsSupplierTableViewController.swift; sourceTree = "<group>"; };
 		9E4F6CD01F12B9E3007F5186 /* Float+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+Extension.swift"; sourceTree = "<group>"; };
+		9E4F6CD21F12C096007F5186 /* SettingsThemeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsThemeTableViewController.swift; path = Layout/Settings/SettingsThemeTableViewController.swift; sourceTree = "<group>"; };
+		9E4F6CD41F12C2CA007F5186 /* SettingsThemeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsThemeTableViewCell.swift; path = Layout/Settings/SettingsThemeTableViewCell.swift; sourceTree = "<group>"; };
 		9E5C842D1EA0CC5800C7DFA7 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = ../Carthage/Build/iOS/Kanna.framework; sourceTree = "<group>"; };
 		9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = ../Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		9E5C84381EA1038E00C7DFA7 /* WSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSUtils.swift; sourceTree = "<group>"; };
@@ -426,6 +430,7 @@
 				9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */,
 				9E4F6CCC1F0A6B83007F5186 /* SettingsSearchTableViewController.swift */,
 				9E4F6CCE1F12A2C4007F5186 /* SettingsSupplierTableViewController.swift */,
+				9E4F6CD21F12C096007F5186 /* SettingsThemeTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 		9E4A1FB61EE093AF0044F3DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9E4F6CD41F12C2CA007F5186 /* SettingsThemeTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -817,7 +823,9 @@
 				9E4A1F731EDB22D90044F3DD /* Double+Extension.swift in Sources */,
 				9E2E87341F08E20C0030E216 /* UserConfig.swift in Sources */,
 				9E1E7F0F1EF7D891008FC7F5 /* LoginViewController.swift in Sources */,
+				9E4F6CD31F12C096007F5186 /* SettingsThemeTableViewController.swift in Sources */,
 				9E4A036D1EF54B6E0016AB46 /* StatisticsTableViewCell.swift in Sources */,
+				9E4F6CD51F12C2CA007F5186 /* SettingsThemeTableViewCell.swift in Sources */,
 				9E1E7F081EF5B650008FC7F5 /* UIColor+Extension.swift in Sources */,
 				9E4A03521EF15E480016AB46 /* UICollectionView+Extension.swift in Sources */,
 				9E1E7F121EF7ECAA008FC7F5 /* UserProfileViewController.swift in Sources */,

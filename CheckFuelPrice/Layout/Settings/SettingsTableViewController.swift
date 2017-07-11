@@ -10,6 +10,16 @@ import UIKit
 import Chameleon
 import SwiftyUserDefaults
 
+extension SettingsTableViewController : ThemeChangedDelegate {
+    
+    func selected(theme: ThemesManager.Theme) {
+        log.verbose("selected: \(theme)")
+        
+        Defaults[.currentTheme] = theme.rawValue
+        restoreDataFromDefaults()
+    }
+}
+
 extension SettingsTableViewController : SupplierChangedDelegate {
     
     func selected(supplier: Supplier) {
@@ -147,6 +157,7 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Segues
     let settingsSupplierTableViewControllerSegue = "SettingsSupplierTableViewControllerSegue"
+    let settingsThemeTableViewControllerSegue = "SettingsThemeTableViewControllerSegue"
     
 
     // MARK: - Outlets/Properties

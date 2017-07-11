@@ -40,18 +40,26 @@ struct ThemesManager {
     
     static var activeTheme : Theme = .basic
     // computed variable {get}
-    static var themes: [ThemesManager.Color : UIColor] {
+    private static var currentTheme: [ThemesManager.Color : UIColor] {
     
-        if ThemesManager.activeTheme == .basic {
-            
-            return [.primary    : .blueCustomColor,
-                    .secondary  : .aquaCrayonColor,
-                    .color1     : .dodgerBlueHTMLColor,
-                    .color2     : .cantalopeCrayonColor,
-                    .color3     : .tangerineCrayonColor]
+
+        guard let theme = themeColors[ThemesManager.activeTheme] else {
+            log.error("Cannot find theme for \(ThemesManager.activeTheme)")
+            return [:]
         }
-        return [:]
+        
+        var themeDict : [ThemesManager.Color : UIColor] = [:]
+        for item in iterateEnum(Color.self) {
+            themeDict[item] = theme[item.hashValue]
+        }
+        
+        return themeDict
     }
+    
+    static let themeColors : [ThemesManager.Theme: [UIColor]] = [.basic : [.blueCustomColor, .aquaCrayonColor, .dodgerBlueHTMLColor,
+                                                                              .cantalopeCrayonColor, .tangerineCrayonColor],
+                                                                    .theme1 : [],
+                                                                    .theme2 : []]
     
     // MARK: Singleton lifecycle
     
@@ -79,7 +87,7 @@ struct ThemesManager {
     
     static func get(color: ThemesManager.Color) -> UIColor {
         
-        guard let theColor = ThemesManager.themes[color] else {
+        guard let theColor = ThemesManager.currentTheme[color] else {
             return .blueCustomColor
         }
         return theColor
