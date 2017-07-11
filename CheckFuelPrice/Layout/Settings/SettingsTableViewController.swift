@@ -12,8 +12,12 @@ import SwiftyUserDefaults
 
 extension SettingsTableViewController : HandleSettingSearchDelegate {
     
-    func selected(search option: SettingsTableViewController.SelectedRow) {
+    func selected(search option: SettingsMatchingItem) {
         log.verbose("selected option: \(option)")
+        
+        let indexPath = IndexPath(row: option.row, section: option.section)
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+        
     }
 }
 

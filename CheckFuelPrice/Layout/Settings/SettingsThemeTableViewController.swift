@@ -72,7 +72,6 @@ extension SettingsThemeTableViewController {
         _ = navigationController?.popViewController(animated: true)
         
     }
-    
 }
 
 class SettingsThemeTableViewController: UITableViewController {

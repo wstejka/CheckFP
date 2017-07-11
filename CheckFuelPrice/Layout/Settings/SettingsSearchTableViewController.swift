@@ -11,7 +11,7 @@ import UIKit
 // MARK: Protocol HandleSettingSearchDelegate
 protocol HandleSettingSearchDelegate {
     
-    func selected(search option: SettingsTableViewController.SelectedRow)
+    func selected(search option: SettingsMatchingItem)
 }
 
 // MARK: Extension UISearchResultsUpdating
@@ -40,7 +40,6 @@ extension SettingsSearchTableViewController: UISearchResultsUpdating {
             self.matchingItems.append(itemCopy)
         }
         tableView.reloadData()
-        
     }
 
 }
@@ -65,6 +64,19 @@ extension SettingsSearchTableViewController {
         cell.detailTextLabel?.text = String(detailText)
         
         return cell
+    }
+}
+
+// MARK: - Extension Table view delegate
+extension SettingsSearchTableViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let selected = self.matchingItems[indexPath.row]
+        
+        log.verbose("didSelectRowAt: section=\(selected.section), row=\(selected.row)")
+        self.delegate?.selected(search: selected)
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -110,7 +122,8 @@ class SettingsSearchTableViewController: UITableViewController {
                 
                 for pos in 0...(sectionBody.count - 1) {
 
-                    let settingsItem =  SettingsMatchingItem(text: sectionBody[pos], attributedText: NSAttributedString(), detailText: sectionHeaderText,
+                    let settingsItem =  SettingsMatchingItem(text: sectionBody[pos], attributedText: NSAttributedString(),
+                                                             detailText: sectionHeaderText,
                                                              section: sectionPos.rawValue, row: pos)
 
                     list.append(settingsItem)
