@@ -11,8 +11,8 @@
 		9E1C038F1EE2B8140023BCED /* FuelPricesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C038E1EE2B8140023BCED /* FuelPricesViewController.swift */; };
 		9E1C03931EE2BAC40023BCED /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1C03921EE2BAC40023BCED /* Statistics.storyboard */; };
 		9E1C03971EE2BB130023BCED /* StatisticsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C03961EE2BB130023BCED /* StatisticsPageViewController.swift */; };
-		9E1C039C1EE2BCD30023BCED /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1C039B1EE2BCD30023BCED /* Orders.storyboard */; };
-		9E1C039F1EE2BD020023BCED /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C039E1EE2BD020023BCED /* OrdersViewController.swift */; };
+		9E1C039C1EE2BCD30023BCED /* Purchases.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1C039B1EE2BCD30023BCED /* Purchases.storyboard */; };
+		9E1C039F1EE2BD020023BCED /* PurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C039E1EE2BD020023BCED /* PurchasesViewController.swift */; };
 		9E1C03A11EE4447F0023BCED /* FuelPricesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C03A01EE4447F0023BCED /* FuelPricesTableViewCell.swift */; };
 		9E1C03A31EED4FCC0023BCED /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1C03A21EED4FCC0023BCED /* Charts.framework */; };
 		9E1C03A41EED4FF70023BCED /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1C03A21EED4FCC0023BCED /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -119,8 +119,8 @@
 		9E1C038E1EE2B8140023BCED /* FuelPricesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPricesViewController.swift; sourceTree = "<group>"; };
 		9E1C03921EE2BAC40023BCED /* Statistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Statistics.storyboard; path = CheckFuelPrice/Layout/Statistics/Statistics.storyboard; sourceTree = SOURCE_ROOT; };
 		9E1C03961EE2BB130023BCED /* StatisticsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsPageViewController.swift; sourceTree = "<group>"; };
-		9E1C039B1EE2BCD30023BCED /* Orders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
-		9E1C039E1EE2BD020023BCED /* OrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		9E1C039B1EE2BCD30023BCED /* Purchases.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Purchases.storyboard; sourceTree = "<group>"; };
+		9E1C039E1EE2BD020023BCED /* PurchasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesViewController.swift; sourceTree = "<group>"; };
 		9E1C03A01EE4447F0023BCED /* FuelPricesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPricesTableViewCell.swift; sourceTree = "<group>"; };
 		9E1C03A21EED4FCC0023BCED /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = ../Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		9E1E7F031EF5AADF008FC7F5 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = ../Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 		9E1C039A1EE2BCD30023BCED /* Orders */ = {
 			isa = PBXGroup;
 			children = (
-				9E1C039B1EE2BCD30023BCED /* Orders.storyboard */,
+				9E1C039B1EE2BCD30023BCED /* Purchases.storyboard */,
 				9E1C039D1EE2BCDF0023BCED /* Controllers */,
 			);
 			name = Orders;
@@ -311,7 +311,7 @@
 		9E1C039D1EE2BCDF0023BCED /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9E1C039E1EE2BD020023BCED /* OrdersViewController.swift */,
+				9E1C039E1EE2BD020023BCED /* PurchasesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -711,7 +711,7 @@
 				9EAC4BC01ECF0FA000F7B81B /* GoogleService-Info.plist in Resources */,
 				9E1C038B1EE2B7B30023BCED /* FuelPrices.storyboard in Resources */,
 				9E4A1FBD1EE0AC550044F3DD /* UserProfile.storyboard in Resources */,
-				9E1C039C1EE2BCD30023BCED /* Orders.storyboard in Resources */,
+				9E1C039C1EE2BCD30023BCED /* Purchases.storyboard in Resources */,
 				9E4A1FBB1EE0AAEC0044F3DD /* Settings.storyboard in Resources */,
 				9E4A1F8C1EDDF45D0044F3DD /* FuelInfoTab.storyboard in Resources */,
 				9EA203271EA0BDBC00F18A3A /* Assets.xcassets in Resources */,
@@ -829,7 +829,7 @@
 				9E1E7F081EF5B650008FC7F5 /* UIColor+Extension.swift in Sources */,
 				9E4A03521EF15E480016AB46 /* UICollectionView+Extension.swift in Sources */,
 				9E1E7F121EF7ECAA008FC7F5 /* UserProfileViewController.swift in Sources */,
-				9E1C039F1EE2BD020023BCED /* OrdersViewController.swift in Sources */,
+				9E1C039F1EE2BD020023BCED /* PurchasesViewController.swift in Sources */,
 				9E4A034E1EF05A100016AB46 /* StatisticsCollectionViewCell.swift in Sources */,
 				9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */,
 				9E82AC7A1F0517D600A9FBEE /* LocationSearchTable.swift in Sources */,

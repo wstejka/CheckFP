@@ -10,7 +10,7 @@ import SDWebImage
 import FirebaseStorageUI
 import ObjectiveC
 
-//  This is a FirebaseUI implementation originaly writen in objc and converted to Swift with soem small mods
+//  This is a FirebaseUI implementation originaly writen in objc and converted to Swift by me with some small modifications
 //  https://github.com/firebase/FirebaseUI-iOS/blob/master/FirebaseStorageUI/UIImageView%2BFirebaseStorage.m
 //  implementation in some aspects like using SDWebImage as a backend for storing files
 

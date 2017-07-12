@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Orders View Controller-->
+        <!--Purchases View Controller-->
         <scene sceneID="a6f-3Q-1pB">
             <objects>
-                <viewController id="ZCb-Ah-lj0" customClass="OrdersViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZCb-Ah-lj0" customClass="PurchasesViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8zL-jW-WfM"/>
                         <viewControllerLayoutGuide type="bottom" id="saL-ua-s5k"/>

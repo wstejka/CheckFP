@@ -66,6 +66,7 @@ timestamp = "na dzień";
 
 
 orders = "zamówienia";
+purchases = "zakupy";
 statistics = "statystyki";
 settings = "ustawienia";
 

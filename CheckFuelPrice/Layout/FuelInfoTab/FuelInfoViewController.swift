@@ -83,9 +83,9 @@ extension FuelInfoViewController: UITableViewDataSource {
         performSegue(withIdentifier: ViewSegue.FuelPricesSegue.rawValue, sender: nil)
     }
 
-    func OrdersImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
+    func purchasesImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
-        performSegue(withIdentifier: ViewSegue.OrdersSegue.rawValue, sender: nil)
+        performSegue(withIdentifier: ViewSegue.PurchasesSegue.rawValue, sender: nil)
 
     }
     
@@ -127,7 +127,7 @@ class FuelInfoViewController: UIViewController {
     
     enum FuelImages :String {
         case currentPrices  = "FuelPump"
-        case orders         = "Orders"
+        case purchases      = "Purchases"
         case statistics     = "Statistics"
         case settings       = "Settings2"
     }
@@ -145,7 +145,7 @@ class FuelInfoViewController: UIViewController {
     
     enum ViewSegue : String {
         case FuelPricesSegue    = "FuelPricesSegue"
-        case OrdersSegue        = "OrdersSegue"
+        case PurchasesSegue     = "PurchasesSegue"
         case StatisticsSegue    = "StatisticsSegue"
         case SettingsSegue      = "SettingsSegue"
     }
@@ -159,9 +159,9 @@ class FuelInfoViewController: UIViewController {
                              ImageProperties.description : "currentFuelPrices",
                              ImageProperties.selector : #selector(currentFuelPricesImageTapped)] as [FuelInfoViewController.ImageProperties : Any]
         
-        let orders = [ImageProperties.image : "Orders",
-                      ImageProperties.description : "orders",
-                      ImageProperties.selector : #selector(OrdersImageTapped)] as [FuelInfoViewController.ImageProperties : Any]
+        let purchases = [ImageProperties.image : "Purchases",
+                         ImageProperties.description : "purchases",
+                         ImageProperties.selector : #selector(purchasesImageTapped)] as [FuelInfoViewController.ImageProperties : Any]
         
         let statistics = [ImageProperties.image : "Statistics",
                           ImageProperties.description : "statistics",
@@ -173,7 +173,7 @@ class FuelInfoViewController: UIViewController {
         
         let tilesDict = [CustomCellId.fuelDataRow.rawValue :
                             [ImagePosition.left : currentPrices,
-                             ImagePosition.right: orders],
+                             ImagePosition.right: purchases],
                          CustomCellId.fuelSettingsRow.rawValue :
                             [ImagePosition.left : statistics,
                              ImagePosition.right: settings]

@@ -65,6 +65,7 @@ timestamp = "timestamp";
 
 
 orders = "my orders";
+purchases = "purchases";
 statistics = "statistics";
 settings = "settings";
 

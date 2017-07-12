@@ -1,5 +1,5 @@
 //
-//  OrdersViewController.swift
+//  PurchasesViewController.swift
 //  CheckFuelPrice
 //
 //  Created by Wojciech Stejka on 03/06/2017.
@@ -10,7 +10,7 @@ import UIKit
 import Crashlytics
 
 
-class OrdersViewController: UIViewController {
+class PurchasesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

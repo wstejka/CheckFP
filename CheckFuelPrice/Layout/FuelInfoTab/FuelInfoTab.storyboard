@@ -15,7 +15,7 @@
                 <navigationController id="Cui-mn-Nus" customClass="GenericNavigationController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Fuel" image="Gas Station Logo" id="KGy-qN-i2n"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9vn-YN-wqS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9vn-YN-wqS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -93,7 +93,7 @@
                         <segue destination="4g6-64-THd" kind="show" identifier="FuelPricesSegue" id="mbN-wj-Rvj"/>
                         <segue destination="gUT-fI-jpj" kind="show" identifier="SettingsSegue" id="yDc-N4-fjk"/>
                         <segue destination="uf1-UH-F9f" kind="show" identifier="StatisticsSegue" id="rGl-6n-85r"/>
-                        <segue destination="ajL-PY-BU9" kind="show" identifier="OrdersSegue" id="kwU-nV-fu9"/>
+                        <segue destination="ajL-PY-BU9" kind="show" identifier="PurchasesSegue" id="kwU-nV-fu9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8q-4f-VJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -132,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="1928" y="-631"/>
         </scene>
-        <!--Orders-->
+        <!--Purchases-->
         <scene sceneID="AZX-2D-C3e">
             <objects>
-                <viewControllerPlaceholder storyboardName="Orders" id="ajL-PY-BU9" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Purchases" id="ajL-PY-BU9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lV-zD-UjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1946" y="-834"/>
