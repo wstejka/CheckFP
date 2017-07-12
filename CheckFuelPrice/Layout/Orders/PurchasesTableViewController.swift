@@ -54,8 +54,10 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = model[collectionView.tag][indexPath.row]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? PurchasesCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.backgroundColor = model[collectionView.tag][indexPath.row] 
         
         return cell
     }

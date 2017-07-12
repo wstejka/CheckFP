@@ -60,8 +60,7 @@ extension SettingsSearchTableViewController {
         let matchingItem = matchingItems[indexPath.row]
         cell.textLabel?.attributedText = matchingItem.attributedText
         
-        let detailText = matchingItem.section
-        cell.detailTextLabel?.text = String(detailText)
+        cell.detailTextLabel?.text = matchingItem.detailText
         
         return cell
     }

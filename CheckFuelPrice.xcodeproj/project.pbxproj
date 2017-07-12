@@ -267,7 +267,7 @@
 				9E1C03891EE2B7B30023BCED /* FuelPrices */,
 				9E1C03911EE2BA9F0023BCED /* Statistics */,
 				9E4A1FB41EE0939D0044F3DD /* Settings */,
-				9E1C039A1EE2BCD30023BCED /* Orders */,
+				9E1C039A1EE2BCD30023BCED /* Purchases */,
 			);
 			name = MainTab1;
 			sourceTree = "<group>";
@@ -304,14 +304,14 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		9E1C039A1EE2BCD30023BCED /* Orders */ = {
+		9E1C039A1EE2BCD30023BCED /* Purchases */ = {
 			isa = PBXGroup;
 			children = (
 				9E1C039B1EE2BCD30023BCED /* Purchases.storyboard */,
 				9E1C039D1EE2BCDF0023BCED /* Controllers */,
 				9E63CDE41F1601F300941D54 /* Views */,
 			);
-			name = Orders;
+			name = Purchases;
 			path = Layout/Orders;
 			sourceTree = "<group>";
 		};
