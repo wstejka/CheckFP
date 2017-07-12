@@ -12,7 +12,6 @@
 		9E1C03931EE2BAC40023BCED /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1C03921EE2BAC40023BCED /* Statistics.storyboard */; };
 		9E1C03971EE2BB130023BCED /* StatisticsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C03961EE2BB130023BCED /* StatisticsPageViewController.swift */; };
 		9E1C039C1EE2BCD30023BCED /* Purchases.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1C039B1EE2BCD30023BCED /* Purchases.storyboard */; };
-		9E1C039F1EE2BD020023BCED /* PurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C039E1EE2BD020023BCED /* PurchasesViewController.swift */; };
 		9E1C03A11EE4447F0023BCED /* FuelPricesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C03A01EE4447F0023BCED /* FuelPricesTableViewCell.swift */; };
 		9E1C03A31EED4FCC0023BCED /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1C03A21EED4FCC0023BCED /* Charts.framework */; };
 		9E1C03A41EED4FF70023BCED /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1C03A21EED4FCC0023BCED /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -56,6 +55,10 @@
 		9E634E8D1EEEFF08008AA6AD /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E634E8C1EEEFF08008AA6AD /* StatisticsViewController.swift */; };
 		9E634E8F1EEF0430008AA6AD /* StatisticsGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E634E8E1EEF0430008AA6AD /* StatisticsGraphViewController.swift */; };
 		9E634E911EEF044D008AA6AD /* StatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E634E901EEF044D008AA6AD /* StatisticsTableViewController.swift */; };
+		9E63CDE31F16017D00941D54 /* PurchasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CDE21F16017D00941D54 /* PurchasesTableViewController.swift */; };
+		9E63CDE61F1603B300941D54 /* PurchasesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CDE51F1603B300941D54 /* PurchasesTableViewCell.swift */; };
+		9E63CDE81F1611B000941D54 /* PurchasesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CDE71F1611B000941D54 /* PurchasesCollectionViewCell.swift */; };
+		9E63CDEA1F165BAC00941D54 /* FuelPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CDE91F165BAC00941D54 /* FuelPurchase.swift */; };
 		9E6602871F02DE45001651CA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */; };
 		9E8015161F078F6B007403E5 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8015151F078F6B007403E5 /* UIImageView+Extension.swift */; };
 		9E8015181F07ED4E007403E5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */; };
@@ -120,7 +123,6 @@
 		9E1C03921EE2BAC40023BCED /* Statistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Statistics.storyboard; path = CheckFuelPrice/Layout/Statistics/Statistics.storyboard; sourceTree = SOURCE_ROOT; };
 		9E1C03961EE2BB130023BCED /* StatisticsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsPageViewController.swift; sourceTree = "<group>"; };
 		9E1C039B1EE2BCD30023BCED /* Purchases.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Purchases.storyboard; sourceTree = "<group>"; };
-		9E1C039E1EE2BD020023BCED /* PurchasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesViewController.swift; sourceTree = "<group>"; };
 		9E1C03A01EE4447F0023BCED /* FuelPricesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPricesTableViewCell.swift; sourceTree = "<group>"; };
 		9E1C03A21EED4FCC0023BCED /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = ../Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		9E1E7F031EF5AADF008FC7F5 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = ../Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
@@ -160,6 +162,10 @@
 		9E634E8C1EEEFF08008AA6AD /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		9E634E8E1EEF0430008AA6AD /* StatisticsGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsGraphViewController.swift; sourceTree = "<group>"; };
 		9E634E901EEF044D008AA6AD /* StatisticsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewController.swift; sourceTree = "<group>"; };
+		9E63CDE21F16017D00941D54 /* PurchasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesTableViewController.swift; sourceTree = "<group>"; };
+		9E63CDE51F1603B300941D54 /* PurchasesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesTableViewCell.swift; sourceTree = "<group>"; };
+		9E63CDE71F1611B000941D54 /* PurchasesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesCollectionViewCell.swift; sourceTree = "<group>"; };
+		9E63CDE91F165BAC00941D54 /* FuelPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPurchase.swift; sourceTree = "<group>"; };
 		9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		9E8015151F078F6B007403E5 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = Layout/Settings/SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -303,6 +309,7 @@
 			children = (
 				9E1C039B1EE2BCD30023BCED /* Purchases.storyboard */,
 				9E1C039D1EE2BCDF0023BCED /* Controllers */,
+				9E63CDE41F1601F300941D54 /* Views */,
 			);
 			name = Orders;
 			path = Layout/Orders;
@@ -311,7 +318,7 @@
 		9E1C039D1EE2BCDF0023BCED /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9E1C039E1EE2BD020023BCED /* PurchasesViewController.swift */,
+				9E63CDE21F16017D00941D54 /* PurchasesTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -479,6 +486,7 @@
 				9E4A1F671ED9E34C0044F3DD /* FuelType.swift */,
 				9EF1A2D11EFEEE03008EDE98 /* FuelUser.swift */,
 				9E2E87331F08E20C0030E216 /* UserConfig.swift */,
+				9E63CDE91F165BAC00941D54 /* FuelPurchase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -493,6 +501,15 @@
 				9E5C842E1EA0CC5800C7DFA7 /* SwiftyBeaver.framework */,
 			);
 			name = "Carthage Frameworks";
+			sourceTree = "<group>";
+		};
+		9E63CDE41F1601F300941D54 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E63CDE51F1603B300941D54 /* PurchasesTableViewCell.swift */,
+				9E63CDE71F1611B000941D54 /* PurchasesCollectionViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		9E9E7F211EE15ED70006414D /* Controllers */ = {
@@ -811,12 +828,15 @@
 				9E4F6CD11F12B9E3007F5186 /* Float+Extension.swift in Sources */,
 				9EF1A2D01EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift in Sources */,
 				9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */,
+				9E63CDE31F16017D00941D54 /* PurchasesTableViewController.swift in Sources */,
 				9E1C03971EE2BB130023BCED /* StatisticsPageViewController.swift in Sources */,
 				9E9E7F201EE157370006414D /* MainTabBarViewController.swift in Sources */,
 				9E8015161F078F6B007403E5 /* UIImageView+Extension.swift in Sources */,
 				9E4A034C1EEFF7350016AB46 /* StatisticsUtils.swift in Sources */,
 				9E4A03501EF11FB80016AB46 /* UIImage+Extension.swift in Sources */,
+				9E63CDE61F1603B300941D54 /* PurchasesTableViewCell.swift in Sources */,
 				9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */,
+				9E63CDEA1F165BAC00941D54 /* FuelPurchase.swift in Sources */,
 				9E1E7F151EF93F75008FC7F5 /* ThemesManager.swift in Sources */,
 				9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */,
 				9E1C038F1EE2B8140023BCED /* FuelPricesViewController.swift in Sources */,
@@ -829,8 +849,8 @@
 				9E1E7F081EF5B650008FC7F5 /* UIColor+Extension.swift in Sources */,
 				9E4A03521EF15E480016AB46 /* UICollectionView+Extension.swift in Sources */,
 				9E1E7F121EF7ECAA008FC7F5 /* UserProfileViewController.swift in Sources */,
-				9E1C039F1EE2BD020023BCED /* PurchasesViewController.swift in Sources */,
 				9E4A034E1EF05A100016AB46 /* StatisticsCollectionViewCell.swift in Sources */,
+				9E63CDE81F1611B000941D54 /* PurchasesCollectionViewCell.swift in Sources */,
 				9E4A1F681ED9E34C0044F3DD /* FuelType.swift in Sources */,
 				9E82AC7A1F0517D600A9FBEE /* LocationSearchTable.swift in Sources */,
 				9E6209FB1EEE7F8D00AC75CA /* FirebaseUtils.swift in Sources */,

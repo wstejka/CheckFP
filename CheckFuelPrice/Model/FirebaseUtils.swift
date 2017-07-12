@@ -16,6 +16,7 @@ enum FirebaseNode : String {
     case userSettings   = "users/settings"
     case photoTimestamp = "photoTimestamp"
     case photoReference = "photoReference"
+    case fuelPurchase   = "purchases"
 }
 
 enum FirebaseStorageNode : String {
