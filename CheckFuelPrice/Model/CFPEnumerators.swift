@@ -14,6 +14,12 @@ enum Fuel : Int {
     case dieselIZ40
     case dieselHeating
     case lpg
+    
+    func getLocalizedText() -> String? {
+        
+        let handler = String(describing: self)
+        return handler.localized().capitalizingFirstLetter()
+    }
 }
 
 enum Supplier : Int {

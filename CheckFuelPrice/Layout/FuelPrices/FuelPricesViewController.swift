@@ -89,7 +89,7 @@ class FuelPricesViewController: UIViewController {
                     return
                 }
                 
-                log.verbose("Observe: \(selfweak.refFuelTypes!.description()) \(snapshot.childrenCount)")
+                log.verbose("Updated: \(snapshot)")
                 var newItems: [FuelType] = []
                 
                 for item in snapshot.children {

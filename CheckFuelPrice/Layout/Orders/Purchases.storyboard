@@ -55,14 +55,23 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZb-eO-Y1E">
-                                                                <rect key="frame" x="118" y="65" width="70" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEP-tu-Mw5">
+                                                                <rect key="frame" x="203" y="17.5" width="70" height="17"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="70" id="8p3-gs-5El"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSW-3e-n3e">
                                                                 <rect key="frame" x="203" y="65" width="70" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZb-eO-Y1E">
+                                                                <rect key="frame" x="118" y="64.5" width="70" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -96,15 +105,6 @@
                                                                 </constraints>
                                                                 <state key="normal" title="Button"/>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEP-tu-Mw5">
-                                                                <rect key="frame" x="203" y="18" width="70" height="17"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="70" id="8p3-gs-5El"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                         </subviews>
                                                     </view>
                                                     <constraints>
@@ -135,6 +135,16 @@
                                                         <constraint firstItem="wSW-3e-n3e" firstAttribute="width" secondItem="zEP-tu-Mw5" secondAttribute="width" id="sHc-0d-5tM"/>
                                                         <constraint firstItem="wSW-3e-n3e" firstAttribute="leading" secondItem="zEP-tu-Mw5" secondAttribute="leading" id="ufC-oi-6lH"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outlet property="amountLabel" destination="oa9-Pd-bfe" id="otY-ut-PKi"/>
+                                                        <outlet property="amountValueLabel" destination="zEP-tu-Mw5" id="HsX-3n-YzE"/>
+                                                        <outlet property="fuelTypeButton" destination="sLB-HS-LPi" id="fYC-E0-6tC"/>
+                                                        <outlet property="fuelTypeLabel" destination="gGR-Zx-JbL" id="TSB-XA-rtW"/>
+                                                        <outlet property="priceLabel" destination="bZb-eO-Y1E" id="ac5-Ps-6rH"/>
+                                                        <outlet property="priceValueLabel" destination="wSW-3e-n3e" id="SfX-1n-Y5m"/>
+                                                        <outlet property="valueLabel" destination="MzE-sB-4Jg" id="Te8-JD-bfm"/>
+                                                        <outlet property="valueValueLabel" destination="N7T-aW-WFA" id="BeZ-xP-oOu"/>
+                                                    </connections>
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
@@ -156,6 +166,10 @@
                             <outlet property="delegate" destination="Y24-rq-nsk" id="4Ii-cS-xHl"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mjg-PJ-V7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

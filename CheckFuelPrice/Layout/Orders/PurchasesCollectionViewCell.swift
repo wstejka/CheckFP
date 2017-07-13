@@ -10,4 +10,17 @@ import UIKit
 
 class PurchasesCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var fuelTypeButton: UIButton!
+    
+    @IBOutlet weak var fuelTypeLabel: UILabel!
+    
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var amountValueLabel: UILabel!
+    
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var priceValueLabel: UILabel!
+    
+    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var valueValueLabel: UILabel!
+    
 }
