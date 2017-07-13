@@ -10,7 +10,8 @@ import UIKit
 
 class PurchasesCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var fuelTypeButton: UIButton!
+    
+    @IBOutlet weak var fuelTypeImageView: UIImageView!
     
     @IBOutlet weak var fuelTypeLabel: UILabel!
     

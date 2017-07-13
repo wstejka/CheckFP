@@ -59,11 +59,10 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? PurchasesCollectionViewCell else {
             return UICollectionViewCell()
         }
-//        cell.backgroundColor = model[collectionView.tag][indexPath.row] 
         
-        cell.fuelTypeButton.layer.cornerRadius = 10.0
+        cell.fuelTypeImageView.layer.cornerRadius = 10.0
+        
         let item = model[collectionView.tag][indexPath.row]
-        
         cell.fuelTypeLabel.text = Fuel(rawValue: item.fuelType)?.getLocalizedText()
         
         let amount = item.amount
@@ -76,7 +75,7 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
         cell.priceValueLabel.text = String(price)
         
         cell.valueLabel.text = "value:"
-        cell.valueValueLabel.text = String(value)
+        cell.valueValueLabel.text = String(value.round(to: 2))
         
         return cell
     }
