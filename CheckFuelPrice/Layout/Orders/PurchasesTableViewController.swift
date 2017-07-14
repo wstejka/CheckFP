@@ -59,10 +59,13 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? PurchasesCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        cell.fuelTypeImageView.layer.cornerRadius = 10.0
-        
         let item = model[collectionView.tag][indexPath.row]
+        
+        let fuelTypeView = cell.fuelTypeView.addXib(forType: FuelTypeView.self)
+        fuelTypeView.backgroundColor = .red
+        fuelTypeView.mainText.text = String(item.fuelType)
+        fuelTypeView.detailText.text = "buba"
+        
         cell.fuelTypeLabel.text = Fuel(rawValue: item.fuelType)?.getLocalizedText()
         
         let amount = item.amount

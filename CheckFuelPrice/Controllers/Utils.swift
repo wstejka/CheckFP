@@ -33,5 +33,5 @@ class Utils {
         case body
         case footer
     }
-    
+
 }

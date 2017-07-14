@@ -11,7 +11,7 @@ import UIKit
 class PurchasesCollectionViewCell: UICollectionViewCell {
     
     
-    @IBOutlet weak var fuelTypeImageView: UIImageView!
+    @IBOutlet weak var fuelTypeView: UIView!
     
     @IBOutlet weak var fuelTypeLabel: UILabel!
     

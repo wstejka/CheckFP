@@ -59,6 +59,9 @@
 		9E63CDE61F1603B300941D54 /* PurchasesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CDE51F1603B300941D54 /* PurchasesTableViewCell.swift */; };
 		9E63CDE81F1611B000941D54 /* PurchasesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CDE71F1611B000941D54 /* PurchasesCollectionViewCell.swift */; };
 		9E63CDEA1F165BAC00941D54 /* FuelPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CDE91F165BAC00941D54 /* FuelPurchase.swift */; };
+		9E63CDEF1F180FC500941D54 /* FuelTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E63CDEE1F180FC500941D54 /* FuelTypeView.xib */; };
+		9E63CDF11F180FEC00941D54 /* FuelTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CDF01F180FEC00941D54 /* FuelTypeView.swift */; };
+		9E63CDF31F19414F00941D54 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CDF21F19414F00941D54 /* UIView+Extension.swift */; };
 		9E6602871F02DE45001651CA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */; };
 		9E8015161F078F6B007403E5 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8015151F078F6B007403E5 /* UIImageView+Extension.swift */; };
 		9E8015181F07ED4E007403E5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */; };
@@ -166,6 +169,9 @@
 		9E63CDE51F1603B300941D54 /* PurchasesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesTableViewCell.swift; sourceTree = "<group>"; };
 		9E63CDE71F1611B000941D54 /* PurchasesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E63CDE91F165BAC00941D54 /* FuelPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPurchase.swift; sourceTree = "<group>"; };
+		9E63CDEE1F180FC500941D54 /* FuelTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FuelTypeView.xib; sourceTree = "<group>"; };
+		9E63CDF01F180FEC00941D54 /* FuelTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTypeView.swift; sourceTree = "<group>"; };
+		9E63CDF21F19414F00941D54 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		9E8015151F078F6B007403E5 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = Layout/Settings/SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -512,6 +518,16 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		9E63CDED1F180F8F00941D54 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9E63CDEE1F180FC500941D54 /* FuelTypeView.xib */,
+				9E63CDF01F180FEC00941D54 /* FuelTypeView.swift */,
+			);
+			name = Common;
+			path = Layout/Common;
+			sourceTree = "<group>";
+		};
 		9E9E7F211EE15ED70006414D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +594,7 @@
 				9EB2D1521F02587E00299547 /* ZFRippleButton.swift */,
 				9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */,
 				9E4F6CD01F12B9E3007F5186 /* Float+Extension.swift */,
+				9E63CDF21F19414F00941D54 /* UIView+Extension.swift */,
 			);
 			path = GlobalClassExtensions;
 			sourceTree = "<group>";
@@ -585,6 +602,7 @@
 		9EA203541EA0BED400F18A3A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9E63CDED1F180F8F00941D54 /* Common */,
 				9E1E7F0A1EF7BC12008FC7F5 /* Login */,
 				9E51D9B81ED71B0A00C22246 /* Main */,
 				9E4A1FB91EE0AA060044F3DD /* UserProfile */,
@@ -727,6 +745,7 @@
 				9E1C03931EE2BAC40023BCED /* Statistics.storyboard in Resources */,
 				9EAC4BC01ECF0FA000F7B81B /* GoogleService-Info.plist in Resources */,
 				9E1C038B1EE2B7B30023BCED /* FuelPrices.storyboard in Resources */,
+				9E63CDEF1F180FC500941D54 /* FuelTypeView.xib in Resources */,
 				9E4A1FBD1EE0AC550044F3DD /* UserProfile.storyboard in Resources */,
 				9E1C039C1EE2BCD30023BCED /* Purchases.storyboard in Resources */,
 				9E4A1FBB1EE0AAEC0044F3DD /* Settings.storyboard in Resources */,
@@ -824,6 +843,7 @@
 				9E1C03A11EE4447F0023BCED /* FuelPricesTableViewCell.swift in Sources */,
 				9EF1A2CB1EFCE227008EDE98 /* ActivitiIndicatorManager.swift in Sources */,
 				9E634E8D1EEEFF08008AA6AD /* StatisticsViewController.swift in Sources */,
+				9E63CDF31F19414F00941D54 /* UIView+Extension.swift in Sources */,
 				9E4A1F941EDE0DC70044F3DD /* FuelInfoViewController.swift in Sources */,
 				9E4F6CD11F12B9E3007F5186 /* Float+Extension.swift in Sources */,
 				9EF1A2D01EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift in Sources */,
@@ -838,6 +858,7 @@
 				9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */,
 				9E63CDEA1F165BAC00941D54 /* FuelPurchase.swift in Sources */,
 				9E1E7F151EF93F75008FC7F5 /* ThemesManager.swift in Sources */,
+				9E63CDF11F180FEC00941D54 /* FuelTypeView.swift in Sources */,
 				9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */,
 				9E1C038F1EE2B8140023BCED /* FuelPricesViewController.swift in Sources */,
 				9E4A1F731EDB22D90044F3DD /* Double+Extension.swift in Sources */,

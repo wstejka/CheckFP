@@ -20,6 +20,7 @@ enum Fuel : Int {
         let handler = String(describing: self)
         return handler.localized().capitalizingFirstLetter()
     }
+    
 }
 
 enum Supplier : Int {

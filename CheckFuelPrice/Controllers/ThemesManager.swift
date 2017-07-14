@@ -92,6 +92,7 @@ struct ThemesManager {
         }
         return theColor
     }
+    
 }
 
 
