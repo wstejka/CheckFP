@@ -36,6 +36,7 @@ edit = "edit";
 save = "save";
 done = "done";
 cancel = "cancel";
+remove = "remove";
 
 // FuelUserParams
 firstName = "first name";
@@ -64,6 +65,9 @@ fuelPrice = "fuel price";
 withVat = "w/ VAT";
 timestamp = "timestamp";
 
+amount = "amount";
+price = "price";
+value = "value";
 
 orders = "my orders";
 purchases = "purchases";
@@ -96,3 +100,7 @@ fuelPriceSettings = "fuel price settings";
 profitMarginPerFuelType = "profit margin per fuel type";
 
 doYouWantToSaveData = "Do want to save data?";
+
+// Purchase
+
+selectOption = "Select option";

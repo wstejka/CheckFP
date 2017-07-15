@@ -16,13 +16,13 @@
         <scene sceneID="zKZ-q8-P0H">
             <objects>
                 <tableViewController id="Y24-rq-nsk" customClass="PurchasesTableViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="155" sectionHeaderHeight="28" sectionFooterHeight="28" id="0KT-7F-zQM">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="155" sectionHeaderHeight="18" sectionFooterHeight="18" id="0KT-7F-zQM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="155" id="piS-Zz-7gh" customClass="PurchasesTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="155"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="155"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="piS-Zz-7gh" id="TCT-5O-iwt">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="154.5"/>

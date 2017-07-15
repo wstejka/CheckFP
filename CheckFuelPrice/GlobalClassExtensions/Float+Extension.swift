@@ -18,4 +18,9 @@ extension Float {
         }
         return rounded
     }
+    
+    func strRound(to places: Int) -> String {
+        
+        return String(format: "%.\(places)f", self)
+    }
 }

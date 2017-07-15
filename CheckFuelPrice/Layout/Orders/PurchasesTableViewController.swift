@@ -11,16 +11,29 @@ import UIKit
 // MARK: - Extension: Table view data source
 extension PurchasesTableViewController {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        log.error("")
         return model.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        log.error("numberOfRowsInSection")
+        // Remark: we need only 1 row per day as particular purchase are shown in colection
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+        log.error("cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        let currentDate = model[section].first
+        return currentDate?.humanReadableDate
     }
     
 }
@@ -33,7 +46,8 @@ extension PurchasesTableViewController {
         guard let tableViewCell = cell as? PurchasesTableViewCell else {
             return
         }
-        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+        
+        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.section)
         tableViewCell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
     }
     
@@ -51,6 +65,7 @@ extension PurchasesTableViewController {
 extension PurchasesTableViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return model[collectionView.tag].count
     }
 
@@ -59,6 +74,8 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? PurchasesCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.section = collectionView.tag
+        cell.row = indexPath.row
         cell.layer.cornerRadius = 10.0
         cell.backgroundColor = UIColor.flatWhite()
         
@@ -70,14 +87,18 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
         let amount = item.amount
         let price = item.price
         let value = amount * price
-        cell.amountLabel.text = "amount:"
-        cell.amountValueLabel.text = String(amount)
+        cell.amountLabel.text = "amount".localized() + ":"
+        cell.amountValueLabel.text = amount.strRound(to: 2)
         
-        cell.priceLabel.text = "price:"
-        cell.priceValueLabel.text = String(price)
+        cell.priceLabel.text = "price".localized() + ":"
+        cell.priceValueLabel.text = price.strRound(to: 2)
         
-        cell.valueLabel.text = "value:"
-        cell.valueValueLabel.text = String(value.round(to: 2))
+        cell.valueLabel.text = "value".localized() + ":"
+        cell.valueValueLabel.text = value.strRound(to: 2)
+        
+        
+        let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGesture))
+        cell.addGestureRecognizer(pressGesture)
         
         return cell
     }
@@ -85,9 +106,40 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
 
 extension PurchasesTableViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        log.verbose("didSelectItemAt: \(collectionView.tag)\\\(indexPath.row)")
+    func longPressGesture(sender: UILongPressGestureRecognizer) {
+        
+        
+        guard let cell = sender.view as? PurchasesCollectionViewCell else {
+            log.error("Incorrect type of view. Cannot cast to PurchasesCollectionViewCell")
+            return
+        }
+        if sender.state == UIGestureRecognizerState.began {
+            log.verbose("state: \(sender.state), row: \(cell.row), section: \(cell.section)")
+         
+            let alertController = UIAlertController(title: "", message: "selectOption".localized(),
+                                                    preferredStyle: UIAlertControllerStyle.actionSheet)
+            
+            let removeOption = UIAlertAction(title: "remove".localized().capitalizingFirstLetter(),
+                                        style: UIAlertActionStyle.destructive, handler: { action in
+                
+            })
+            let editOption = UIAlertAction(title: "edit".localized().capitalizingFirstLetter(),
+                                        style: UIAlertActionStyle.default, handler: { action in
+                
+            })
+            let cancelOption = UIAlertAction(title: "cancel".localized().capitalizingFirstLetter(),
+                                             style: UIAlertActionStyle.cancel, handler: { (action) in
+                                                
+            })
+            
+            alertController.addAction(removeOption)
+            alertController.addAction(editOption)
+            alertController.addAction(cancelOption)
+            present(alertController, animated: true, completion: nil)
+            
+        }
     }
+
 }
 
 
@@ -179,5 +231,7 @@ class PurchasesTableViewController: UITableViewController {
         })
         
     }
+    
+
 
 }

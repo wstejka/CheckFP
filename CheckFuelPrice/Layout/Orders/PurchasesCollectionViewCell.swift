@@ -10,6 +10,7 @@ import UIKit
 
 class PurchasesCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Outlets
     
     @IBOutlet weak var fuelTypeView: UIView!
     
@@ -21,5 +22,9 @@ class PurchasesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var valueValueLabel: UILabel!
+    
+    // MARK: - Vars/Consts
+    var section : Int = 0
+    var row : Int = 0
     
 }

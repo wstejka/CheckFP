@@ -36,6 +36,7 @@ edit = "edycja";
 save = "zapisz";
 done = "gotowe";
 cancel = "anuluj";
+remove = "usuń";
 
 // FuelUserParams
 firstName = "Imię";
@@ -64,6 +65,10 @@ currentFuelPrice = "aktualna cena paliwa";
 fuelPrice = "cena paliwa";
 withVat = "z VAT";
 timestamp = "na dzień";
+
+amount = "ilość";
+price = "cena";
+value = "wartość";
 
 
 orders = "zamówienia";
@@ -98,3 +103,6 @@ profitMarginPerFuelType = "Marże dla poszczególnych paliw";
 
 doYouWantToSaveData = "Chcesz zapisać zmiany?";
 
+// Purchase
+
+selectOption = "Wybierz opcję";
