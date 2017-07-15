@@ -112,7 +112,15 @@ class PurchaseUpdateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        log.verbose("")
+        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+    }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        log.verbose("")
+        AppUtility.lockOrientation([.portrait,.landscapeLeft,.landscapeRight])
+    }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         
