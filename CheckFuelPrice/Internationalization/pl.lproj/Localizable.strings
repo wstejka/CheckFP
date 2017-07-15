@@ -48,7 +48,7 @@ unleaded95 = "Bezołowiowa 95";
 unleaded98 = "Bezołowiowa 98";
 diesel = "Diesel";
 dieselIZ40 = "Diesel Premium";
-dieselHeating = "Diesel opałowy";
+dieselHeating = "Diesel grzewczy";
 lpg = "Lpg";
 heat = "Grzewczy";
 
@@ -106,3 +106,6 @@ doYouWantToSaveData = "Chcesz zapisać zmiany?";
 // Purchase
 
 selectOption = "Wybierz opcję";
+addNewPurchase = "Dodaj nowy zakup";
+editExistingPurchase = "Zmień istniejący zakup";
+

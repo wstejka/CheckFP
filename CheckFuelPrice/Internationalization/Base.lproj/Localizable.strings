@@ -104,3 +104,5 @@ doYouWantToSaveData = "Do want to save data?";
 // Purchase
 
 selectOption = "Select option";
+addNewPurchase = "Add new purchase";
+editExistingPurchase = "Edit existing purchase";
