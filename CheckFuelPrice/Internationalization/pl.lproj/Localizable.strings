@@ -49,6 +49,7 @@ diesel = "Diesel";
 dieselIZ40 = "Diesel Premium";
 dieselHeating = "Diesel opałowy";
 lpg = "Lpg";
+heat = "Grzewczy";
 
 // Ceny
 highestPriceLabel = "najwyższa cena";

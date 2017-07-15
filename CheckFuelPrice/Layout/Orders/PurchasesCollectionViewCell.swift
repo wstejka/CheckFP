@@ -13,8 +13,6 @@ class PurchasesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var fuelTypeView: UIView!
     
-    @IBOutlet weak var fuelTypeLabel: UILabel!
-    
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var amountValueLabel: UILabel!
     

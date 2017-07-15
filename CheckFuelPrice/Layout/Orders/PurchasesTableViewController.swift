@@ -59,14 +59,13 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? PurchasesCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.layer.cornerRadius = 10.0
+        cell.backgroundColor = UIColor.flatWhite()
+        
         let item = model[collectionView.tag][indexPath.row]
         
         let fuelTypeView = cell.fuelTypeView.addXib(forType: FuelTypeView.self)
-        fuelTypeView.backgroundColor = .red
-        fuelTypeView.mainText.text = String(item.fuelType)
-        fuelTypeView.detailText.text = "buba"
-        
-        cell.fuelTypeLabel.text = Fuel(rawValue: item.fuelType)?.getLocalizedText()
+        Utils.setupFuelType(view: fuelTypeView, forType: item.fuelType)
         
         let amount = item.amount
         let price = item.price
@@ -110,6 +109,8 @@ class PurchasesTableViewController: UITableViewController {
 
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
+        
+//        self.tableView.separatorStyle = .none
 
         // Uncomment the following line to display "+" button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,

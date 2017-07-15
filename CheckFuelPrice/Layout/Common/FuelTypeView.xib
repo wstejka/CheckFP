@@ -12,35 +12,38 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FuelTypeView" customModule="CheckFuelPrice" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="113" height="89"/>
+            <rect key="frame" x="0.0" y="0.0" width="112" height="93"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-Oc-ivm">
-                    <rect key="frame" x="37.5" y="24" width="38" height="21"/>
-                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-Oc-ivm">
+                    <rect key="frame" x="39.5" y="37.5" width="33" height="18"/>
+                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zm3-Td-eMC">
-                    <rect key="frame" x="50.5" y="50" width="32" height="18"/>
-                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="13"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zm3-Td-eMC">
+                    <rect key="frame" x="48" y="49.5" width="22" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="jiM-0f-QXS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="9"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="dIh-Oc-ivm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-10" id="BL8-tb-Cv8"/>
-                <constraint firstItem="Zm3-Td-eMC" firstAttribute="top" secondItem="dIh-Oc-ivm" secondAttribute="bottom" constant="5" id="HHe-GW-q1o"/>
+                <constraint firstItem="dIh-Oc-ivm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BL8-tb-Cv8"/>
+                <constraint firstItem="Zm3-Td-eMC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="12" id="Jp9-Rs-Ule"/>
                 <constraint firstItem="dIh-Oc-ivm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VoL-5i-igb"/>
-                <constraint firstItem="Zm3-Td-eMC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="10" id="oga-lA-5r0"/>
+                <constraint firstItem="Zm3-Td-eMC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="2.75" id="oga-lA-5r0"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="detailText" destination="Zm3-Td-eMC" id="LjQ-5a-FB5"/>
                 <outlet property="mainText" destination="dIh-Oc-ivm" id="fmv-6H-tcY"/>
             </connections>
-            <point key="canvasLocation" x="-370.5" y="-70.5"/>
+            <point key="canvasLocation" x="-416" y="-97.5"/>
         </view>
     </objects>
 </document>

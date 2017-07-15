@@ -49,6 +49,7 @@ diesel = "Diesel";
 dieselIZ40 = "Diesel Super";
 dieselHeating = "Diesel Heating";
 lpg = "Lpg gas";
+heat = "Heat";
 
 // Prices
 highestPriceLabel = "highest price";

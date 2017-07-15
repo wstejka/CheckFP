@@ -5,6 +5,7 @@
 //  Created by Wojciech Stejka on 20/06/2017.
 //  Copyright © 2017 Wojciech Stejka. All rights reserved.
 //
+import Chameleon
 
 struct ThemesManager {
     
@@ -93,6 +94,22 @@ struct ThemesManager {
         return theColor
     }
     
+    static func getFuelColor(forFuelType: Int) -> UIColor {
+        
+        guard let fuelType = Fuel(rawValue: forFuelType) else {
+            log.verbose("Can't get Fuel object for \(forFuelType) type")
+            return .white
+        }
+        let staticFuelColors : [UIColor] = [.white, .flatGreenColorDark(), .flatSkyBlue(), .flatYellow(),
+                                            .flatNavyBlueColorDark(), .flatOrangeColorDark()]
+        
+        if forFuelType > (staticFuelColors.count - 1) {
+            log.verbose("Can't get color object for \(String(describing: fuelType))")
+            return .white
+        }
+        
+        return staticFuelColors[forFuelType]
+    }
 }
 
 

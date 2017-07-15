@@ -33,5 +33,36 @@ class Utils {
         case body
         case footer
     }
+    
+    static func setupFuelType(view: FuelTypeView, forType: Int) {
 
+        guard let fuelType = Fuel(rawValue: forType) else {
+            log.error("Could not instatiate Fuel object for \(forType) value")
+            return
+        }        
+        
+        let color = ThemesManager.getFuelColor(forFuelType: forType)
+        view.backgroundColor = color
+        view.mainText.textColor = .white
+        view.detailText.textColor = .white
+        view.detailText.text = ""
+        
+        switch fuelType {
+        case .unleaded95:
+            view.mainText.text = "95"
+        case .unleaded98:
+            view.mainText.text = "98"
+        case .diesel:
+            view.mainText.text = "Diesel"
+        case .dieselIZ40:
+            view.mainText.text = "Diesel"
+            view.detailText.text = "Super"
+        case .dieselHeating:
+            view.mainText.text = "Diesel"
+            view.detailText.text = "heat".localized()
+        default:
+            view.mainText.text = "Undefined"
+        }
+        
+    }
 }
