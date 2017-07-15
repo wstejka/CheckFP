@@ -19,6 +19,7 @@ struct FuelPurchase {
     var timestamp : Int = 0
     var vatIncluded: Bool = true
     var vatAmount: Float = 23.0
+    var position : Int = 0
     
     init() {
     }
@@ -54,18 +55,22 @@ struct FuelPurchase {
         if let vatAmount = purchaseConfiguration["vatAmount"] as? Float {
             self.vatAmount = vatAmount
         }
+        if let position = purchaseConfiguration["position"] as? Int {
+            self.position = position
+        }
     }
     
     func toAnyObject() -> Any {
         return [
-            "amount" : amount.round(to: 1),
+            "amount" : amount.round(to: 2),
             "capacity" : capacity,
             "fuelType" : fuelType,
             "humanReadableDate" : humanReadableDate,
-            "price" : price.round(to: 1),
+            "price" : price.round(to: 2),
             "timestamp" : timestamp,
             "vatIncluded" : vatIncluded,
             "vatAmount" : vatAmount.round(to: 1),
+            "position" : position,
         ]
     }
 

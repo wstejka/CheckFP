@@ -12,19 +12,18 @@ import UIKit
 extension PurchasesTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        log.error("")
+        log.verbose("\(model.count)")
         return model.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        log.error("numberOfRowsInSection")
-        // Remark: we need only 1 row per day as particular purchase are shown in colection
+        // Remark: we need only 1 row per day as particular purchase are shown invarlection
         return 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        log.error("cellForRowAt")
+        log.verbose("cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         return cell
@@ -119,12 +118,14 @@ extension PurchasesTableViewController: UICollectionViewDelegate {
             let alertController = UIAlertController(title: "", message: "selectOption".localized(),
                                                     preferredStyle: UIAlertControllerStyle.actionSheet)
             
-            let removeOption = UIAlertAction(title: "remove".localized().capitalizingFirstLetter(),
-                                        style: UIAlertActionStyle.destructive, handler: { action in
+            let removeOption = UIAlertAction(title: "remove".localized().capitalizingFirstLetter(), style: UIAlertActionStyle.destructive, handler: { action in
+                                            
+                                            
                 
             })
-            let editOption = UIAlertAction(title: "edit".localized().capitalizingFirstLetter(),
-                                        style: UIAlertActionStyle.default, handler: { action in
+            let editOption = UIAlertAction(title: "edit".localized().capitalizingFirstLetter(), style: UIAlertActionStyle.default, handler: { action in
+                                            
+                self.processEdit(cell: cell)
                 
             })
             let cancelOption = UIAlertAction(title: "cancel".localized().capitalizingFirstLetter(),
@@ -153,6 +154,8 @@ class PurchasesTableViewController: UITableViewController {
     
     var purchaseRef : DatabaseReference? = nil
     
+    let purchaseUpdateViewControllerSegue = "PurchaseUpdateViewControllerSegue"
+    
     // MARK: - Outlets
     
     // MARK: - UITableViewController lifecycle
@@ -162,8 +165,6 @@ class PurchasesTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false
         
-//        self.tableView.separatorStyle = .none
-
         // Uncomment the following line to display "+" button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
                                                                  target: self, action: #selector(addButtonPressed))
@@ -232,6 +233,23 @@ class PurchasesTableViewController: UITableViewController {
         
     }
     
+    func processEdit(cell: PurchasesCollectionViewCell?) {
+        log.verbose("")
+        
+        guard let navigationViewController = self.storyboard?.instantiateViewController(withIdentifier: "PurchaseUpdateNavigationViewController") as? UINavigationController else {
+            log.error("Could not instantiate \"PurchaseUpdateNavigationViewController\" object")
+            return
+        }
+        if let cell = cell {
+            // if cell is not empty it means user edits existing cell
+            // In that case let's copy snapshot information
+            let purchaseUpdateVC = navigationViewController.topViewController as? PurchaseUpdateViewController
+            purchaseUpdateVC?.snapshot = self.model[cell.section][cell.row]
+        }
+        
+        navigationViewController.modalTransitionStyle = .coverVertical
+        self.present(navigationViewController, animated: true, completion: nil)
 
+    }
 
 }
