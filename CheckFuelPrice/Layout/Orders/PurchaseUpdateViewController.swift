@@ -132,8 +132,8 @@ class PurchaseUpdateViewController: UIViewController {
 
     // MARK: - Methods
     func computeValueLabel() {
-        let amount = Float(amountTextField.text ?? "0.0")
-        let price = Float(priceTextField.text ?? "0.0")
+        let amount = Float(amountTextField.text)
+        let price = Float(priceTextField.text)
         
         let value = amount! * price!
         valueLabel.text = value.strRound(to: 2)

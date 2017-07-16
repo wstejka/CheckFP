@@ -29,7 +29,7 @@ extension PurchasesTableViewController : PurchaseUpdateViewControllerDelegate {
         fuelPurchase.uid = uid
         
         // Create the FuelPurchase object provisioned with data provided by user
-        purchaseRef?.child(fuelPurchase.uid).child(fuelPurchase.position).setValue(snapshot.toAnyObject(), withCompletionBlock: { (error, dataRef) in
+        purchaseRef?.child(fuelPurchase.uid).child(fuelPurchase.position).setValue(fuelPurchase.toAnyObject(), withCompletionBlock: { (error, dataRef) in
         })
     }
 }
