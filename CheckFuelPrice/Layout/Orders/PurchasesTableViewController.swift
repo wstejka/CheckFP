@@ -14,23 +14,22 @@ extension PurchasesTableViewController : PurchaseUpdateViewControllerDelegate {
     func savedPurchase(snapshot: FuelPurchase) {
         log.verbose("\(snapshot)")
         
-        var fuelPrice = snapshot
+        var fuelPurchase = snapshot
         
         // If position is empty it means it is new instance
         // Let's generate new
-        if fuelPrice.position.isEmpty {
-            fuelPrice.position = Utils.getUniqueId()
+        if fuelPurchase.position.isEmpty {
+            fuelPurchase.position = Utils.getUniqueId()
         }
         
         guard let uid = Auth.auth().currentUser?.uid else {
             log.error("Not authenticated user.")
             return
         }
-        fuelPrice.uid = uid
+        fuelPurchase.uid = uid
         
         // Create the FuelPurchase object provisioned with data provided by user
-        let ref = Database.database().reference(withPath: FirebaseNode.fuelPurchase.rawValue)
-        ref.child(fuelPrice.uid).child(fuelPrice.position).setValue(snapshot.toAnyObject(), withCompletionBlock: { (error, dataRef) in
+        purchaseRef?.child(fuelPurchase.uid).child(fuelPurchase.position).setValue(snapshot.toAnyObject(), withCompletionBlock: { (error, dataRef) in
         })
     }
 }
@@ -146,8 +145,11 @@ extension PurchasesTableViewController: UICollectionViewDelegate {
                                                     preferredStyle: UIAlertControllerStyle.actionSheet)
             
             let removeOption = UIAlertAction(title: "remove".localized().capitalizingFirstLetter(), style: UIAlertActionStyle.destructive, handler: { action in
-                                            
-                                            
+                
+                let fuelPurchase = self.model[cell.section][cell.row]
+                
+                // Create the FuelPurchase object provisioned with data provided by user
+                self.purchaseRef?.child(fuelPurchase.uid).child(fuelPurchase.position).removeValue()
                 
             })
             let editOption = UIAlertAction(title: "edit".localized().capitalizingFirstLetter(), style: UIAlertActionStyle.default, handler: { action in
@@ -249,7 +251,7 @@ class PurchasesTableViewController: UITableViewController {
             
             // Let's now populate data in model array
             self.model = []
-            for key in snapshotDict.keys.sorted() {
+            for key in snapshotDict.keys.sorted().reversed() {
                 
                 guard let purchases = snapshotDict[key] else {
                     continue
