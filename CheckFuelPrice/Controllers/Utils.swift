@@ -34,34 +34,34 @@ class Utils {
         case footer
     }
     
-    static func setupFuelType(view: FuelTypeView, forType: Int) {
+    static func setupFuelType(type: Int, inView: FuelTypeView) {
 
-        guard let fuelType = Fuel(rawValue: forType) else {
-            log.error("Could not instatiate Fuel object for \(forType) value")
+        guard let fuelType = Fuel(rawValue: type) else {
+            log.error("Could not instatiate Fuel object for \(type) value")
             return
         }        
         
-        let color = ThemesManager.getFuelColor(forFuelType: forType)
-        view.backgroundColor = color
-        view.mainText.textColor = .white
-        view.detailText.textColor = .white
-        view.detailText.text = ""
+        let color = ThemesManager.getFuelColor(forFuelType: type)
+        inView.backgroundColor = color
+        inView.mainText.textColor = .white
+        inView.detailText.textColor = .white
+        inView.detailText.text = ""
         
         switch fuelType {
         case .unleaded95:
-            view.mainText.text = "95"
+            inView.mainText.text = "95"
         case .unleaded98:
-            view.mainText.text = "98"
+            inView.mainText.text = "98"
         case .diesel:
-            view.mainText.text = "Diesel"
+            inView.mainText.text = "Diesel"
         case .dieselIZ40:
-            view.mainText.text = "Diesel"
-            view.detailText.text = "Super"
+            inView.mainText.text = "Diesel"
+            inView.detailText.text = "Super"
         case .dieselHeating:
-            view.mainText.text = "Diesel"
-            view.detailText.text = "heat".localized()
+            inView.mainText.text = "Diesel"
+            inView.detailText.text = "heat".localized()
         default:
-            view.mainText.text = "Undefined"
+            inView.mainText.text = "Undefined"
         }
         
     }

@@ -108,7 +108,7 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
         let item = model[collectionView.tag][indexPath.row]
         
         let fuelTypeView = cell.fuelTypeView.addXib(forType: FuelTypeView.self)
-        Utils.setupFuelType(view: fuelTypeView, forType: item.fuelType)
+        Utils.setupFuelType(type: item.fuelType, inView: fuelTypeView)
         
         let amount = item.amount
         let price = item.price

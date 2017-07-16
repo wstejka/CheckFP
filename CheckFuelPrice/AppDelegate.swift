@@ -57,8 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // === Configure Theme ==== //
 //        Chameleon.setGlobalThemeUsingPrimaryColor(ThemesManager.get(color: .primary), withSecondaryColor: nil,
 //                                                  andContentStyle: UIContentStyle.light)
-        
-        
         // === Configure Firebase ==== //
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
@@ -66,7 +64,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Run FirebaseConnectionManager which keeps the firebase connection status
         _ = FirebaseConnectionManager.instance()
         
-
+        
+        // Run UserConfigurationManager which keeps up-to-date the user's configuration
+        _ = UserConfigurationManager.instance()
+        
         // === Set up Twitter consumer's key and secret
         let key = CheckFPKeys()
         Twitter.sharedInstance().start(withConsumerKey:key.twitterConsumerKey, consumerSecret:key.twitterConsumerSecret)
