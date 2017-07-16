@@ -16,12 +16,29 @@ struct FuelPurchase {
     var fuelType : Int = Fuel.none.rawValue
     var humanReadableDate : String = ""
     var price : Float = 0.0
-    var timestamp : Int = 0
+    var timestamp : Int = Int(Date().timeIntervalSince1970)
     var vatIncluded: Bool = true
     var vatAmount: Float = 23.0
-    var position : Int = 0
+    var position : String = ""
     
     init() {
+    }
+    
+    init(uid : String, amount : Float, capacity: Int, fuelType: Int,
+         humanReadableDate: String, price: Float, timestamp: Int,
+         vatIncluded: Bool, vatAmount: Float, position: String) {
+
+        self.uid = uid
+        self.amount = amount
+        self.capacity = capacity
+        self.fuelType = fuelType
+        self.humanReadableDate = humanReadableDate
+        self.price = price
+        self.timestamp = timestamp
+        self.vatIncluded = vatIncluded
+        self.vatAmount = vatAmount
+        self.position = position
+        
     }
     
     init?(snapshot: DataSnapshot) {
@@ -30,7 +47,10 @@ struct FuelPurchase {
             return nil
         }
         
-        self.uid = snapshot.key
+        self.position = snapshot.key
+        if let uid = purchaseConfiguration["uid"] as? String {
+            self.uid = uid
+        }
         if let amount = purchaseConfiguration["amount"] as? Float {
             self.amount = amount
         }
@@ -55,7 +75,7 @@ struct FuelPurchase {
         if let vatAmount = purchaseConfiguration["vatAmount"] as? Float {
             self.vatAmount = vatAmount
         }
-        if let position = purchaseConfiguration["position"] as? Int {
+        if let position = purchaseConfiguration["position"] as? String {
             self.position = position
         }
     }
@@ -71,6 +91,7 @@ struct FuelPurchase {
             "vatIncluded" : vatIncluded,
             "vatAmount" : vatAmount.round(to: 1),
             "position" : position,
+            "uid" : uid
         ]
     }
 

@@ -64,6 +64,7 @@
 		9E63CDF31F19414F00941D54 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CDF21F19414F00941D54 /* UIView+Extension.swift */; };
 		9E63CE171F1A323F00941D54 /* PurchaseUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CE161F1A323F00941D54 /* PurchaseUpdateViewController.swift */; };
 		9E63CE191F1A963B00941D54 /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CE181F1A963B00941D54 /* OrientationManager.swift */; };
+		9E63CE1B1F1B4EC900941D54 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63CE1A1F1B4EC900941D54 /* Date+Extension.swift */; };
 		9E6602871F02DE45001651CA /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */; };
 		9E8015161F078F6B007403E5 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8015151F078F6B007403E5 /* UIImageView+Extension.swift */; };
 		9E8015181F07ED4E007403E5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */; };
@@ -176,6 +177,7 @@
 		9E63CDF21F19414F00941D54 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9E63CE161F1A323F00941D54 /* PurchaseUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseUpdateViewController.swift; sourceTree = "<group>"; };
 		9E63CE181F1A963B00941D54 /* OrientationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrientationManager.swift; path = Controllers/OrientationManager.swift; sourceTree = "<group>"; };
+		9E63CE1A1F1B4EC900941D54 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		9E8015151F078F6B007403E5 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = Layout/Settings/SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -601,6 +603,7 @@
 				9E6602861F02DE45001651CA /* UserDefaults+Extension.swift */,
 				9E4F6CD01F12B9E3007F5186 /* Float+Extension.swift */,
 				9E63CDF21F19414F00941D54 /* UIView+Extension.swift */,
+				9E63CE1A1F1B4EC900941D54 /* Date+Extension.swift */,
 			);
 			path = GlobalClassExtensions;
 			sourceTree = "<group>";
@@ -854,6 +857,7 @@
 				9E4A1F941EDE0DC70044F3DD /* FuelInfoViewController.swift in Sources */,
 				9E4F6CD11F12B9E3007F5186 /* Float+Extension.swift in Sources */,
 				9EF1A2D01EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift in Sources */,
+				9E63CE1B1F1B4EC900941D54 /* Date+Extension.swift in Sources */,
 				9E5C84391EA1038E00C7DFA7 /* WSUtils.swift in Sources */,
 				9E63CDE31F16017D00941D54 /* PurchasesTableViewController.swift in Sources */,
 				9E1C03971EE2BB130023BCED /* StatisticsPageViewController.swift in Sources */,

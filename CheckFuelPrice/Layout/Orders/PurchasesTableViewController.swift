@@ -8,6 +8,33 @@
 
 import UIKit
 
+
+extension PurchasesTableViewController : PurchaseUpdateViewControllerDelegate {
+    
+    func savedPurchase(snapshot: FuelPurchase) {
+        log.verbose("\(snapshot)")
+        
+        var fuelPrice = snapshot
+        
+        // If position is empty it means it is new instance
+        // Let's generate new
+        if fuelPrice.position.isEmpty {
+            fuelPrice.position = Utils.getUniqueId()
+        }
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            log.error("Not authenticated user.")
+            return
+        }
+        fuelPrice.uid = uid
+        
+        // Create the FuelPurchase object provisioned with data provided by user
+        let ref = Database.database().reference(withPath: FirebaseNode.fuelPurchase.rawValue)
+        ref.child(fuelPrice.uid).child(fuelPrice.position).setValue(snapshot.toAnyObject(), withCompletionBlock: { (error, dataRef) in
+        })
+    }
+}
+
 // MARK: - Extension: Table view data source
 extension PurchasesTableViewController {
     
@@ -153,6 +180,7 @@ class PurchasesTableViewController: UITableViewController {
     var storedOffsets : [Int : CGFloat] = [:]
     
     var purchaseRef : DatabaseReference? = nil
+    var removeFirebaseRef : Bool = true
     
     let purchaseUpdateViewControllerSegue = "PurchaseUpdateViewControllerSegue"
     
@@ -175,12 +203,16 @@ class PurchasesTableViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        self.startObserving()
+        if removeFirebaseRef == true {
+            self.startObserving()
+        }
+        removeFirebaseRef = true
     }
 
     override func viewDidDisappear(_ animated: Bool) {
 
-        if self.purchaseRef != nil {
+        if (self.purchaseRef != nil) &&
+            (removeFirebaseRef == true) {
             purchaseRef?.removeAllObservers()
         }
         
@@ -188,10 +220,6 @@ class PurchasesTableViewController: UITableViewController {
     
 
     // MARK: Methods
-    func addButtonPressed(tapGestureRecognizer : UITapGestureRecognizer) {
-        log.verbose("")
-    }
-    
     func startObserving() {
         guard let uid = Auth.auth().currentUser?.uid else {
             log.error("This user is not authenticated.")
@@ -232,7 +260,13 @@ class PurchasesTableViewController: UITableViewController {
         })
         
     }
+
+    func addButtonPressed(tapGestureRecognizer : UITapGestureRecognizer) {
+        log.verbose("")
+        processEdit(cell: nil)
+    }
     
+
     func processEdit(cell: PurchasesCollectionViewCell?) {
         log.verbose("")
         
@@ -240,14 +274,16 @@ class PurchasesTableViewController: UITableViewController {
             log.error("Could not instantiate \"PurchaseUpdateNavigationViewController\" object")
             return
         }
+        let purchaseUpdateVC = navigationViewController.topViewController as? PurchaseUpdateViewController
+        purchaseUpdateVC?.delegate = self
         if let cell = cell {
             // if cell is not empty it means user edits existing cell
             // In that case let's copy snapshot information
-            let purchaseUpdateVC = navigationViewController.topViewController as? PurchaseUpdateViewController
             purchaseUpdateVC?.snapshot = self.model[cell.section][cell.row]
         }
         
         navigationViewController.modalTransitionStyle = .coverVertical
+        removeFirebaseRef = false
         self.present(navigationViewController, animated: true, completion: nil)
 
     }

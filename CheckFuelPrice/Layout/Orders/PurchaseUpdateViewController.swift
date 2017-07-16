@@ -10,7 +10,7 @@ import UIKit
 
 protocol PurchaseUpdateViewControllerDelegate {
     
-    func savedPurchase(snapshot: DataSnapshot)
+    func savedPurchase(snapshot: FuelPurchase)
 }
 
 extension PurchaseUpdateViewController: UIPickerViewDataSource {
@@ -59,7 +59,7 @@ class PurchaseUpdateViewController: UIViewController {
     @IBOutlet weak var valueLabel: UILabel!
     
     // MARK: - Vars/Consts
-    public let delegate : PurchaseUpdateViewControllerDelegate? = nil
+    public var delegate : PurchaseUpdateViewControllerDelegate? = nil
     
     var snapshot : FuelPurchase? = nil
     
@@ -101,6 +101,9 @@ class PurchaseUpdateViewController: UIViewController {
         priceLabel.text = "price".localized()
         priceTextField.text = fuelPurchase.price.strRound(to: 2)
         
+        let value = fuelPurchase.amount * fuelPurchase.price
+        valueLabel.text = value.strRound(to: 2)
+        
         // set up numeric keyboard to simplify providing data
         amountTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
         priceTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
@@ -127,6 +130,17 @@ class PurchaseUpdateViewController: UIViewController {
         return UIInterfaceOrientationMask.portrait
     }
 
+    // MARK: - Methods
+    func computeValueLabel() {
+        let amount = Float(amountTextField.text ?? "0.0")
+        let price = Float(priceTextField.text ?? "0.0")
+        
+        let value = amount! * price!
+        valueLabel.text = value.strRound(to: 2)
+        
+    }
+    
+    
     // MARK: - Actions
     
     @IBAction func leftButtonItemPressed(_ sender: UIBarButtonItem) {
@@ -135,11 +149,30 @@ class PurchaseUpdateViewController: UIViewController {
     }
 
     @IBAction func rightButtonItemPressed(_ sender: UIBarButtonItem) {
+
+        var value = amountTextField.text!
+        self.snapshot?.amount = Float(value)!
+        value = priceTextField.text!
+        self.snapshot?.price = Float(value)!
+        self.snapshot?.timestamp = datePicker.date.getSimpleTimestamp()
+        self.snapshot?.humanReadableDate = datePicker.date.toString()
+        self.snapshot?.fuelType = pickerView.selectedRow(inComponent: 0) + 1
+        delegate?.savedPurchase(snapshot: self.snapshot!)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         log.verbose("\(sender.date)")
     }
     
+    @IBAction func amountEditingDidEnd(_ sender: UITextField) {
+        log.verbose("")
+        computeValueLabel()
+    }
+    
+    @IBAction func priceEditingDidEnd(_ sender: UITextField) {
+        log.verbose("")
+        computeValueLabel()
+    }
     
 }

@@ -20,10 +20,10 @@ extension Double {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "CET")!
         if format == .short {
-            dateFormatter.dateFormat = "dd-MM-YYYY"
+            dateFormatter.dateFormat = "dd-MM-yyyy"
         }
         else {
-            dateFormatter.dateFormat = "dd-MM-YYYY mm:ss"
+            dateFormatter.dateFormat = "dd-MM-yyyy mm:ss"
         }
         
         return dateFormatter.string(from: date)
