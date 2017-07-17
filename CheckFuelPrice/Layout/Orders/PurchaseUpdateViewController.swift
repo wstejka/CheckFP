@@ -51,10 +51,10 @@ class PurchaseUpdateViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var amountTextField: WSUITextField!
     
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var priceTextField: WSUITextField!
     
     @IBOutlet weak var valueLabel: UILabel!
     
@@ -98,16 +98,12 @@ class PurchaseUpdateViewController: UIViewController {
         amountLabel.text = "amount".localized()
         amountTextField.text = fuelPurchase.amount.strRound(to: 2)
         
+        
         priceLabel.text = "price".localized()
         priceTextField.text = fuelPurchase.price.strRound(to: 2)
         
         let value = fuelPurchase.amount * fuelPurchase.price
         valueLabel.text = value.strRound(to: 2)
-        
-        // set up numeric keyboard to simplify providing data
-        amountTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
-        priceTextField.keyboardType = UIKeyboardType.numbersAndPunctuation
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -132,14 +128,15 @@ class PurchaseUpdateViewController: UIViewController {
 
     // MARK: - Methods
     func computeValueLabel() {
-        let amount = Float(amountTextField.text)
-        let price = Float(priceTextField.text)
+        
+        
+        let amount = Float(amountTextField.getValue())
+        let price = Float(priceTextField.getValue())
         
         let value = amount! * price!
         valueLabel.text = value.strRound(to: 2)
-        
     }
-    
+
     
     // MARK: - Actions
     

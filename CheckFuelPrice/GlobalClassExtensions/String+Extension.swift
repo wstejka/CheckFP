@@ -53,6 +53,11 @@ extension String {
         let end = index(start, offsetBy: range.upperBound - range.lowerBound)
         return self[Range(start ..< end)]
     }
+    subscript (r: CountableClosedRange<Int>) -> String {
+        let startIndex =  self.index(self.startIndex, offsetBy: r.lowerBound)
+        let endIndex = self.index(startIndex, offsetBy: r.upperBound - r.lowerBound)
+        return self[startIndex...endIndex]
+    }
 }
 
 
@@ -71,6 +76,7 @@ extension String {
 
 // Update for Swift 3 (Xcode 8):
 // https://gist.github.com/robnadin/2720534f91702c444b6b9bde0fdfe224
+// Cast Range<String.Index> to NSRange
 extension String {
     func nsRange(from range: Range<String.Index>) -> NSRange {
         let from = range.lowerBound.samePosition(in: utf16)

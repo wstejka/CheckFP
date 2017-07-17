@@ -243,7 +243,7 @@
                                     <constraint firstAttribute="width" constant="173" id="fBc-LN-TJa"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4E-xx-NKX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4E-xx-NKX" customClass="WSUITextField" customModule="CheckFuelPrice" customModuleProvider="target">
                                 <rect key="frame" x="239" y="372" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4cC-6r-hXm"/>
@@ -256,7 +256,7 @@
                                     <action selector="amountEditingDidEnd:" destination="bei-Od-qFr" eventType="editingDidEnd" id="oXa-UG-1Xx"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2rA-a9-Cfk">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2rA-a9-Cfk" customClass="WSUITextField" customModule="CheckFuelPrice" customModuleProvider="target">
                                 <rect key="frame" x="239" y="407" width="100" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

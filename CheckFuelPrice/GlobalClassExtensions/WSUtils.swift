@@ -28,3 +28,76 @@ func iterateEnum<T: Hashable>(_: T.Type) -> AnyIterator<T> {
 }
 
 
+// Custom UITextField class with "0.00" format
+class WSUITextField: UITextField {
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialSettings()
+        registerForNotifications()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialSettings()
+        registerForNotifications()
+    }
+    
+    private var valueBeforeChange : String = ""
+    let defaultValue : String = "0.00"
+    
+    private func initialSettings() {
+        self.keyboardType = UIKeyboardType.decimalPad
+        self.textAlignment = NSTextAlignment.right
+        self.text = defaultValue
+        self.placeholder = defaultValue
+        valueBeforeChange = defaultValue
+    }
+    
+    private func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange),
+                                               name: NSNotification.Name(rawValue: "UITextFieldTextDidChangeNotification"), object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidEndEditing),
+                                               name: NSNotification.Name(rawValue: "UITextFieldTextDidEndEditingNotification"), object: self)
+        
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func textDidChange() {
+        log.info("textDidChange = \(valueBeforeChange)")
+        
+        if text == "" {
+            valueBeforeChange = ""
+            return
+        }
+        if text == "." {
+            text = "0."
+        }
+        
+        guard let _ = Float(text!) else { return text = valueBeforeChange }
+        valueBeforeChange = text!
+    }
+    
+    @objc private func textDidEndEditing() {
+        log.info("textDidEndEditing = \(valueBeforeChange)")
+        
+        guard let _ = Float(text!) else {
+            text = defaultValue
+            valueBeforeChange = defaultValue
+            return
+        }
+        text = String(format:"%.2f", Float(text!)!)
+    }
+    
+    public func getValue() -> String {
+        
+        guard let _ = Float(text!) else { return defaultValue }
+        return text!
+    }
+}
+
+
