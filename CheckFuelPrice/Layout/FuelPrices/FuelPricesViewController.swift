@@ -8,10 +8,12 @@
 
 import UIKit
 
+// MARK: - Extension: UITableViewDelegate
 extension FuelPricesViewController: UITableViewDelegate {
     
 }
 
+// MARK: - Extension: UITableViewDataSource
 extension FuelPricesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -20,35 +22,28 @@ extension FuelPricesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let fuelPriceCell = self.tableView.dequeueReusableCell(withIdentifier: customTableViewCellName,
+        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: customTableViewCellName,
                                                                      for: indexPath) as? FuelPricesTableViewCell else {
             
             return UITableViewCell()
         }
         
-        let objectHandler = self.items[indexPath.row]
-        fuelPriceCell.highestPriceName.text = LabelDescriptions.highestPriceLabel.rawValue.localized(withDefaultValue: "")
-        fuelPriceCell.lowestPriceName.text = LabelDescriptions.lowestPriceLabel.rawValue.localized(withDefaultValue: "")
-        let highestValue = UserConfigurationManager.compute(fromValue: objectHandler.currentHighestPrice, fuelType: objectHandler.id)
-        let lowestValue = UserConfigurationManager.compute(fromValue: objectHandler.currentLowestPrice, fuelType: objectHandler.id)
+        let item = self.items[indexPath.row]
+        let highestValue = UserConfigurationManager.compute(fromValue: item.currentHighestPrice, fuelType: item.id)
+        let lowestValue = UserConfigurationManager.compute(fromValue: item.currentLowestPrice, fuelType: item.id)
         
-        fuelPriceCell.highestPriceValue.text = highestValue.strRound(to: 2)
-        fuelPriceCell.lowestPricesValue.text = lowestValue.strRound(to: 2)
-        fuelPriceCell.perDateLabel.text = Double(objectHandler.timestamp).timestampToString()
-        fuelPriceCell.fuelName.text = objectHandler.name.localized()
+        cell.highestPriceValue.text = highestValue.strRound(to: 2)
+        cell.lowestPricesValue.text = lowestValue.strRound(to: 2)
+        cell.fuelName.text = item.name.localized()
+        cell.perDateLabel.text = Double(item.timestamp).timestampToString()
         
-        if let image = UIImage(named: objectHandler.name) {
-            fuelPriceCell.fuelImage.image = image
-            fuelPriceCell.fuelImage.layer.cornerRadius = 10
-            fuelPriceCell.fuelImage.clipsToBounds = true
-        }
-        else
-        {
-            fuelPriceCell.fuelImage.image = nil
-        }
-          
-        return fuelPriceCell
+        let fuelTypeView = cell.fuelUIView.addXib(forType: FuelTypeView.self)
+        Utils.setupFuelType(type: item.id.rawValue, inView: fuelTypeView)
+        
+        return cell
     }
+
+
 }
 
 class FuelPricesViewController: UIViewController {
@@ -57,20 +52,22 @@ class FuelPricesViewController: UIViewController {
     // Firebase related variables
     var items : [FuelType] = []
     var refFuelTypes : DatabaseReference? = nil
-    var observerHandle : DatabaseHandle = 0
     
     enum LabelDescriptions : String {
         case highestPriceLabel = "highest"
         case lowestPriceLabel = "lowest"
-        case pricePerDay = "pricePerDay"
+        case appHeading = "AppHeading"
     }
     let customTableViewCellName = "FuelPricesTableViewCell"
     
-    // MARK: - properties
+    // MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableHeaderView: UIView!
-    @IBOutlet weak var pricePerDayLabel: UILabel!
-    
+
+    @IBOutlet weak var perDateLabel: UILabel!
+    @IBOutlet weak var lowestPriceName: UILabel!
+    @IBOutlet weak var highestPriceName: UILabel!
     
     // MARK: - UIViewController Lifecycle
     override func viewDidLoad() {
@@ -81,45 +78,31 @@ class FuelPricesViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        self.pricePerDayLabel.text = "AppHeading".localized().capitalizingFirstLetter() + ":"
-
         // Configure reference to firebase node
         self.refFuelTypes = Database.database().reference(withPath: FirebaseNode.fuelType.rawValue)
-        DispatchQueue.global().async {
-            // to avoid retain cycle let's pass weak reference to self
-            self.observerHandle = self.refFuelTypes!.observe(.value, with: { [weak self] snapshot in
-                guard let selfweak = self else {
-                    return
-                }
+
+        // Set up table header
+        highestPriceName.text = LabelDescriptions.highestPriceLabel.rawValue.localized(withDefaultValue: "")
+        lowestPriceName.text = LabelDescriptions.lowestPriceLabel.rawValue.localized(withDefaultValue: "")
+        perDateLabel.text = LabelDescriptions.appHeading.rawValue.localized() + ":"
                 
-                log.verbose("Updated: \(snapshot)")
-                var newItems: [FuelType] = []
-                
-                for item in snapshot.children {
-                    guard let fuelType = FuelType(snapshot: item as! DataSnapshot) else {
-                        continue
-                    }
-                    // ignore fuel types with zero/uninitialized value
-                    if fuelType.currentHighestPrice == 0.0 {
-                        continue
-                    }
-                    newItems.append(fuelType)
-                }
-                
-                selfweak.items = newItems
-                selfweak.tableView.reloadData()
-                
-            })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        startObserving()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if refFuelTypes != nil {
+            // remove observer
+            self.refFuelTypes!.removeAllObservers()
+            log.verbose("Observer for node \(FirebaseNode.fuelType.rawValue) removed")
         }
     }
     
     deinit {
         log.verbose("Enter")
-        if (self.refFuelTypes != nil) && (self.observerHandle > 0) {
-            // remove observer
-            self.refFuelTypes!.removeObserver(withHandle: self.observerHandle)
-            log.verbose("Observer for node \(FirebaseNode.fuelType.rawValue) removed")
-        }
+
     }
     
     // MARK: - Other methods
@@ -134,4 +117,32 @@ class FuelPricesViewController: UIViewController {
     }
     
 
+    func startObserving() {
+        log.verbose("")
+        
+        // to avoid retain cycle let's pass weak reference to self
+        self.refFuelTypes!.observe(.value, with: { [weak self] snapshot in
+            guard let selfweak = self else {
+                return
+            }
+            
+            log.verbose("Snapshot: \(snapshot)")
+            var newItems: [FuelType] = []
+            
+            for item in snapshot.children {
+                guard let fuelType = FuelType(snapshot: item as! DataSnapshot) else {
+                    continue
+                }
+                // ignore fuel types with zero/uninitialized value
+                if fuelType.currentHighestPrice == 0.0 {
+                    continue
+                }
+                newItems.append(fuelType)
+            }
+            
+            selfweak.items = newItems
+            selfweak.tableView.reloadData()
+            
+        })
+    }
 }

@@ -43,7 +43,7 @@ firstName = "Imię";
 lastName = "Nazwisko";
 phone = "Telefon";
 
-AppHeading = "aktualne ceny paliw";
+AppHeading = "Aktualne ceny paliw";
 unleaded95 = "Bezołowiowa 95";
 unleaded98 = "Bezołowiowa 98";
 diesel = "Diesel";

@@ -12,13 +12,10 @@ class FuelPricesTableViewCell: UITableViewCell {
 
     // REMARK: - Properties
     
-    @IBOutlet weak var fuelImage: UIImageView!
+    @IBOutlet weak var fuelUIView: UIView!
     @IBOutlet weak var fuelName: UILabel!
-    @IBOutlet weak var highestPriceName: UILabel!
     @IBOutlet weak var highestPriceValue: UILabel!
-    @IBOutlet weak var lowestPriceName: UILabel!
     @IBOutlet weak var lowestPricesValue: UILabel!
     @IBOutlet weak var perDateLabel: UILabel!
-
 
 }

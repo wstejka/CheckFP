@@ -160,8 +160,8 @@
                     </tableView>
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="RPb-ac-hiC" kind="presentation" identifier="PlaceHolder1" modalTransitionStyle="crossDissolve" id="VIm-2k-1CX"/>
                     </connections>
@@ -333,7 +333,7 @@
             <objects>
                 <navigationController storyboardIdentifier="PurchaseUpdateNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="RPb-ac-hiC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8dN-qJ-IaF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8dN-qJ-IaF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -43,7 +43,7 @@ firstName = "first name";
 lastName = "last name";
 phone = "phone";
 
-AppHeading = "current Fuel Prices";
+AppHeading = "Current fuel prices";
 unleaded95 = "Unleaded 95";
 unleaded98 = "Unleaded 98";
 diesel = "Diesel";

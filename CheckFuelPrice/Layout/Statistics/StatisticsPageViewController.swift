@@ -172,9 +172,11 @@ class StatisticsPageViewController: UIPageViewController {
                 }
                 
                 // Run this command on main queue as it affects UI
-                DispatchQueue.main.async {
-                    ActivitiIndicatorManager.instance().stop(with: .success)
-                }
+                DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(200), execute: {
+                    DispatchQueue.main.async {
+                        ActivitiIndicatorManager.instance().stop(with: .success)
+                    }
+                })
                 selfweak.items = newItems
                 selfweak.notifyAllChildrenAboutChange(type: type)
                 
