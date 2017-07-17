@@ -11,22 +11,22 @@
 struct FuelPurchase {
 
     var uid : String = ""
-    var amount : Float = 0.0
+    var amount : Double = 0.0
     var capacity : Int = FuelUnit.oneLiter.rawValue
     var fuelType : Int = Fuel.none.rawValue
     var humanReadableDate : String = ""
-    var price : Float = 0.0
+    var price : Double = 0.0
     var timestamp : Int = Int(Date().timeIntervalSince1970)
     var vatIncluded: Bool = true
-    var vatAmount: Float = 23.0
+    var vatAmount: Double = 23.0
     var position : String = ""
     
     init() {
     }
     
-    init(uid : String, amount : Float, capacity: Int, fuelType: Int,
-         humanReadableDate: String, price: Float, timestamp: Int,
-         vatIncluded: Bool, vatAmount: Float, position: String) {
+    init(uid : String, amount : Double, capacity: Int, fuelType: Int,
+         humanReadableDate: String, price: Double, timestamp: Int,
+         vatIncluded: Bool, vatAmount: Double, position: String) {
 
         self.uid = uid
         self.amount = amount
@@ -51,7 +51,7 @@ struct FuelPurchase {
         if let uid = purchaseConfiguration["uid"] as? String {
             self.uid = uid
         }
-        if let amount = purchaseConfiguration["amount"] as? Float {
+        if let amount = purchaseConfiguration["amount"] as? Double {
             self.amount = amount
         }
         if let capacity = purchaseConfiguration["capacity"] as? Int {
@@ -63,7 +63,7 @@ struct FuelPurchase {
         if let humanReadableDate = purchaseConfiguration["humanReadableDate"] as? String {
             self.humanReadableDate = humanReadableDate
         }
-        if let price = purchaseConfiguration["price"] as? Float {
+        if let price = purchaseConfiguration["price"] as? Double {
             self.price = price
         }
         if let timestamp = purchaseConfiguration["timestamp"] as? Int {
@@ -72,7 +72,7 @@ struct FuelPurchase {
         if let vatIncluded = purchaseConfiguration["vatIncluded"] as? Bool {
             self.vatIncluded = vatIncluded
         }
-        if let vatAmount = purchaseConfiguration["vatAmount"] as? Float {
+        if let vatAmount = purchaseConfiguration["vatAmount"] as? Double {
             self.vatAmount = vatAmount
         }
         if let position = purchaseConfiguration["position"] as? String {
@@ -82,14 +82,14 @@ struct FuelPurchase {
     
     func toAnyObject() -> Any {
         return [
-            "amount" : amount.round(to: 2),
+            "amount" : amount,
             "capacity" : capacity,
             "fuelType" : fuelType,
             "humanReadableDate" : humanReadableDate,
-            "price" : price.round(to: 2),
+            "price" : price,
             "timestamp" : timestamp,
             "vatIncluded" : vatIncluded,
-            "vatAmount" : vatAmount.round(to: 1),
+            "vatAmount" : vatAmount,
             "position" : position,
             "uid" : uid
         ]

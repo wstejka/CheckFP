@@ -148,9 +148,9 @@ class PurchaseUpdateViewController: UIViewController {
     @IBAction func rightButtonItemPressed(_ sender: UIBarButtonItem) {
 
         var value = amountTextField.text!
-        self.snapshot?.amount = Float(value)!
+        self.snapshot?.amount = Double(value)!
         value = priceTextField.text!
-        self.snapshot?.price = Float(value)!
+        self.snapshot?.price = Double(value)!
         self.snapshot?.timestamp = datePicker.date.getSimpleTimestamp()
         self.snapshot?.humanReadableDate = datePicker.date.toString()
         self.snapshot?.fuelType = pickerView.selectedRow(inComponent: 0) + 1

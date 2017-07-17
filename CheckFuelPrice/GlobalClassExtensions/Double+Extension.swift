@@ -30,3 +30,21 @@ extension Double {
     }
 }
 
+extension Double {
+    
+    func round(to places: Int) -> Double {
+        // First use string to format data accordingly
+        let roundedString = String(format: "%.\(places)f", self)
+        // And now cast it back to float
+        guard let rounded = Double(roundedString) else {
+            // could not cast value properly. Let's return original value
+            return self
+        }
+        return rounded
+    }
+
+    func strRound(to places: Int) -> String {
+        
+        return String(format: "%.\(places)f", self)
+    }
+}

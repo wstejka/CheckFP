@@ -65,11 +65,28 @@ class UserConfigurationManager {
     
     static func getUserConfig() -> UserConfig {
  
-        log.verbose("\(Thread.isMainThread)")
+//        log.verbose("\(Thread.isMainThread)")
         synchronized(self) {
             let _ = self.userConfig
         }
         return userConfig
+    }
+    
+    static func compute(fromValue value : Double) -> Double {
+    
+        let config = self.getUserConfig()
+        var vatValueFactor : Double = 1.0
+        if config.vatIncluded == 0 {
+            vatValueFactor = vatValueFactor + Double(config.vatAmount / 100)
+        }
+        var fuelCapacityFactor : Double = 1.0
+        let fuelUnit = FuelUnit(rawValue: config.capacity)
+        if fuelUnit == .thousandLiters {
+            fuelCapacityFactor = 1000.0
+        }
+        let computedValue = (value / fuelCapacityFactor) * vatValueFactor
+
+        return computedValue
     }
     
 }
