@@ -25,24 +25,37 @@ extension StatisticsTableViewController: UITableViewDataSource {
         }
         fuelPriceCell.timestamp.text = self.dateList[indexPath.row]
         let priceValue = self.priceList[indexPath.row]
-        fuelPriceCell.price.text = String(format: "%.2f", priceValue)
         
-        fuelPriceCell.priceWithVat.text =  String(format: "%.2f", priceValue * (1 + CountryVat.poland.rawValue/100))
-//        if indexPath.row % 2 == 0 {
-            fuelPriceCell.contentView.backgroundColor = .white
-//        }
-//        else {
-//            fuelPriceCell.contentView.backgroundColor = ThemesManager.instance().get(color: .lightBlue_v2)
-//        }
+        if UserConfigurationManager.getUserConfig().vatIncluded == false {
+            fuelPriceCell.price.text = ""
+            fuelPriceCell.priceWithVat.text = UserConfigurationManager.compute(fromValue: priceValue, includeVat: false).strRound(to: 2)
+        }
+        else {
+            fuelPriceCell.price.text = UserConfigurationManager.compute(fromValue: priceValue, includeVat: false).strRound(to: 2)
+            fuelPriceCell.priceWithVat.text = UserConfigurationManager.compute(fromValue: priceValue).strRound(to: 2)
+        }
+        fuelPriceCell.contentView.backgroundColor = .white
         
         return fuelPriceCell
     }
+    
 }
 
 class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol {
     
-    // MARK: - constants
+    // MARK: - Outlets
     
+    @IBOutlet weak var tableHeaderView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var wholesaleLabel: UILabel!
+    @IBOutlet weak var retailLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var rightLabelConstraint: NSLayoutConstraint!
+    @IBOutlet weak var descriptionLabelConstraint: NSLayoutConstraint!
+    
+    
+    // MARK: - constants
     
     var type: FuelName? {
         
@@ -87,31 +100,40 @@ class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol
         log.verbose("entered")
         self.tableView.dataSource = self
         
-        // Create table header view using the same tableCellView as for ordinary cell
-        let tableHeaderView = self.tableView.dequeueReusableCell(withIdentifier: customTableViewCellName) as? StatisticsTableViewCell
-        tableHeaderView?.contentView.backgroundColor = ThemesManager.get(color: .primary)
-        tableHeaderView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-        tableHeaderView?.timestamp.text = "timestamp".localized(withDefaultValue: "").capitalizingFirstLetter()
-        let priceName = "fuelPrice".localized(withDefaultValue: "").capitalizingFirstLetter()
-        tableHeaderView?.price.text = priceName
-        tableHeaderView?.priceWithVat.text = priceName + " (" + "withVat".localized(withDefaultValue: "") + ")"
-
-        self.tableView.tableHeaderView = tableHeaderView
-        
-        self.tableView.reloadData()
-        
+        initializeTableHeader()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // Added for debugging purpose
     deinit {
         log.verbose("")
-
     }
     
     // MARK: - Methods
+    
+    func initializeTableHeader() {
+        log.verbose("")
+        
+        self.tableView.tableHeaderView = self.tableHeaderView
+        self.tableHeaderView.backgroundColor = ThemesManager.get(color: .primary)
+        self.dateLabel.text = "timestamp".localized(withDefaultValue: "").capitalizingFirstLetter()
+
+        let priceName = "price".localized(withDefaultValue: "").capitalizingFirstLetter()
+        self.descriptionLabel.text = priceName
+        
+        if UserConfigurationManager.getUserConfig().vatIncluded == true {
+            self.wholesaleLabel.text = "wholesale".localized()
+            self.retailLabel.text = "retail".localized()
+            rightLabelConstraint.constant += 10
+            descriptionLabelConstraint.constant += 10
+        }
+        else {
+            self.wholesaleLabel.text = ""
+            self.retailLabel.text = "wholesale".localized()
+            if UserConfigurationManager.getUserConfig().capacity == FuelUnit.thousandLiters.rawValue {
+                rightLabelConstraint.constant += 10
+            }
+            descriptionLabelConstraint.constant = rightLabelConstraint.constant
+        }
+    }
 }

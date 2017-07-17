@@ -17,4 +17,5 @@ class StatisticsTableViewCell: UITableViewCell {
     @IBOutlet weak var priceWithVat: UILabel!
     
 
+    @IBOutlet weak var rightTableCellConstraint: NSLayoutConstraint!
 }

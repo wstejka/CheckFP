@@ -58,6 +58,9 @@ lowestPriceLabel = "najniższa cena";
 highest = "najwyższa";
 lowest = "najniższa";
 pricePerDay = "cena na dzień";
+price = "cena";
+wholesale = "hurt";
+retail = "detal";
 
 
 currentFuelPrices = "ceny paliw";

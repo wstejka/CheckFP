@@ -58,6 +58,10 @@ lowestPriceLabel = "lowest price";
 highest = "highest";
 lowest = "lowest";
 pricePerDay = "price per day";
+price = "price";
+wholesale = "wholesale";
+retail = "retail";
+
 
 currentFuelPrices = "Fuel prices";
 currentFuelPrice = "current fuel price";

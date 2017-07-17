@@ -30,7 +30,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
             priceList = []
             for item in fuelData! {
                 self.dateList.append(item.humanReadableDate)
-                self.priceList.append(item.price)
+                self.priceList.append(UserConfigurationManager.compute(fromValue: item.price).round(to: 2))
             }
             
             self.setChart(dataPoints: self.dateList, values: self.priceList)
@@ -40,7 +40,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
     var currentOrientation : UIInterfaceOrientation! = nil
     var chartXAxisLabelCounterDivider = 6
     
-    // MARK: - properties
+    // MARK: - Outlets
 
     @IBOutlet weak var barChartView: BarChartView!
 
