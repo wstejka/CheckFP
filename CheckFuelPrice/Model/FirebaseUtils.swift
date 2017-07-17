@@ -46,4 +46,71 @@ struct FirebaseUtils {
 
     static let defaultUserPhotoName = "photo.jpg"
     
+    // This factor is used to detemine price per one liter as suppliers provide information in 1000L
+    static let capacityDividerFactor = 1000.0
+    
+}
+
+// Important remark: DO NOT modify ordering of items as they must
+//                   match the IDs ordering on firebase
+enum Fuel : Int {
+    case none = 0
+    case unleaded95
+    case unleaded98
+    case diesel
+    case dieselIZ40
+    case dieselHeating
+    case lpg
+    
+    func getLocalizedText() -> String? {
+        
+        let handler = String(describing: self)
+        return handler.localized().capitalizingFirstLetter()
+    }
+    
+}
+// Important remark: DO NOT modify ordering of items as they must
+//                   match the IDs ordering on firebase
+enum FuelName : String {
+    case none           = "none"
+    case unleaded95     = "unleaded95"
+    case unleaded98     = "unleaded98"
+    case diesel         = "diesel"
+    case dieselIZ40     = "dieselIZ40"
+    case dieselHeating  = "dieselHeating"
+    case lpg            = "lpg"
+}
+
+enum TimeRanges : String {
+    case weekly     = "weekly"
+    case monthly    = "monthly"
+    case annually   = "annually"
+}
+
+enum Supplier : Int {
+    case none = 0
+    case lotos
+    case orlen
+    
+    
+    init?(withName: String?) {
+        
+        guard let name = withName else { return nil }
+        switch name.lowercased() {
+        case "none":
+            self = .none
+        case "lotos":
+            self = .lotos
+        case "orlen":
+            self = .orlen
+        default:
+            log.error("option \(name) not defined")
+            return nil
+        }
+    }
+}
+
+enum FuelUnit : Int {
+    case oneLiter
+    case thousandLiters
 }

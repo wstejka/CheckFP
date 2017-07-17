@@ -82,7 +82,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75d-Av-4dD">
-                                                    <rect key="frame" x="305" y="23.5" width="60" height="14.5"/>
+                                                    <rect key="frame" x="297" y="23.5" width="60" height="14.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="CYc-UY-unn"/>
                                                     </constraints>
@@ -91,7 +91,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aad-7g-lrV">
-                                                    <rect key="frame" x="205" y="23.5" width="60" height="14.5"/>
+                                                    <rect key="frame" x="197" y="23.5" width="60" height="14.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="j9i-63-MDG"/>
                                                     </constraints>
@@ -100,7 +100,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpf-CE-5dQ">
-                                                    <rect key="frame" x="66" y="34" width="129" height="11"/>
+                                                    <rect key="frame" x="66" y="34" width="121" height="11"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -123,7 +123,7 @@
                                                 <constraint firstItem="9xC-Bz-Mic" firstAttribute="top" secondItem="2nn-wp-LuQ" secondAttribute="topMargin" id="JAq-2H-sV0"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="tpf-CE-5dQ" secondAttribute="bottom" constant="8" id="Tol-Pr-Lf9"/>
                                                 <constraint firstItem="aad-7g-lrV" firstAttribute="leading" secondItem="tpf-CE-5dQ" secondAttribute="trailing" constant="10" id="VOH-dv-s0W"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="75d-Av-4dD" secondAttribute="trailing" constant="2" id="ZpO-57-MdO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="75d-Av-4dD" secondAttribute="trailing" constant="10" id="ZpO-57-MdO"/>
                                                 <constraint firstItem="9xC-Bz-Mic" firstAttribute="height" secondItem="2nn-wp-LuQ" secondAttribute="height" multiplier="0.65" id="e8r-Ye-sO9"/>
                                                 <constraint firstItem="75d-Av-4dD" firstAttribute="centerY" secondItem="2nn-wp-LuQ" secondAttribute="centerY" id="iLz-qh-zuQ"/>
                                                 <constraint firstItem="tpf-CE-5dQ" firstAttribute="leading" secondItem="Qcx-3m-Qm7" secondAttribute="leading" id="x2L-Dv-XlX"/>

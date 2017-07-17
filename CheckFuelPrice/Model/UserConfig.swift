@@ -12,7 +12,7 @@ struct UserConfig {
     var uid : String = ""
     var theme : Int = ThemesManager.Theme.basic.rawValue
     var supplier: Int = Supplier.none.rawValue
-    var vatIncluded: Int = 0
+    var vatIncluded: Bool = true
     var vatAmount: Float = 23.0
     var capacity : Int = FuelUnit.oneLiter.rawValue
     var unleaded95Margin: Float = 5.0
@@ -24,7 +24,7 @@ struct UserConfig {
     init() {
     }
     
-    init(theme : Int, supplier: Int, vatIncluded: Int, vatAmount: Float,
+    init(theme : Int, supplier: Int, vatIncluded: Bool, vatAmount: Float,
          capacity: Int, unleaded95Margin: Float, unleaded98Margin: Float, dieselMargin: Float,
          dieselPremiumMargin: Float, dieselHeatingMargin: Float) {
         
@@ -53,7 +53,7 @@ struct UserConfig {
         if let supplier = userConfiguration["supplier"] as? Int {
             self.supplier = supplier
         }
-        if let vatIncluded = userConfiguration["vatIncluded"] as? Int {
+        if let vatIncluded = userConfiguration["vatIncluded"] as? Bool {
             self.vatIncluded = vatIncluded
         }
         if let vatAmount = userConfiguration["vatAmount"] as? Float {

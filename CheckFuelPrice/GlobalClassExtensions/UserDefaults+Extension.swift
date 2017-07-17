@@ -15,7 +15,7 @@ extension DefaultsKeys {
     static let currentTheme = DefaultsKey<Int?>("currentTheme")
     static let currentSuplier = DefaultsKey<Int?>("currentSuplier")
     static let currentDefaultCapacity = DefaultsKey<Int?>("currentDefaultCapacity")
-    static let currentIncludeVat = DefaultsKey<Int?>("currentIncludeVat")
+    static let currentIncludeVat = DefaultsKey<Bool?>("currentIncludeVat")
     static let currentVatTaxAmount = DefaultsKey<Double?>("currentVatTaxAmount")
     static let currentUnleaded95Margin = DefaultsKey<Double?>("currentUnleaded95Margin")
     static let currentUnleaded98Margin = DefaultsKey<Double?>("currentUnleaded98Margin")
