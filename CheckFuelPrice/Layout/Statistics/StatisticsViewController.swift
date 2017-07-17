@@ -89,6 +89,8 @@ class StatisticsViewController: UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
+        self.navigationItem.title = "statistics".localized().capitalizingFirstLetter()
+        
         // Instantiate StatisticsPageViewController
         let statisticsPageVC = UIStoryboard(name: "Statistics", bundle: nil).instantiateViewController(withIdentifier: "StatisticsPageViewController") as! StatisticsPageViewController
         // Do all work to put StatisticsPageViewController object into container

@@ -444,6 +444,7 @@ class SettingsTableViewController: UITableViewController {
         log.verbose("")
 
         self.clearsSelectionOnViewWillAppear = true
+        self.navigationItem.title = "settings".localized().capitalizingFirstLetter()
         restoreDataFromDefaults()
     }
     

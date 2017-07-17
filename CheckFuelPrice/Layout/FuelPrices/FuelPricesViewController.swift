@@ -84,8 +84,11 @@ class FuelPricesViewController: UIViewController {
         // Set up table header
         highestPriceName.text = LabelDescriptions.highestPriceLabel.rawValue.localized(withDefaultValue: "")
         lowestPriceName.text = LabelDescriptions.lowestPriceLabel.rawValue.localized(withDefaultValue: "")
-        perDateLabel.text = LabelDescriptions.appHeading.rawValue.localized() + ":"
-                
+        perDateLabel.text = ""
+        tableView.allowsSelection = false
+        
+        self.navigationItem.title = "currentFuelPrices".localized().capitalizingFirstLetter()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

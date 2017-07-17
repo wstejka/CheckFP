@@ -46,8 +46,6 @@ class PurchaseUpdateViewController: UIViewController {
     
 
     @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var actionTextLabel: UILabel!
-
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var amountLabel: UILabel!
@@ -82,12 +80,12 @@ class PurchaseUpdateViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         if snapshot == nil {
-            actionTextLabel.text = "addNewPurchase".localized()
+            self.navigationItem.title = "addNew".localized().capitalizingFirstLetter()
             snapshot = FuelPurchase()
             snapshot?.fuelType = Fuel.unleaded95.rawValue
         }
         else {
-            actionTextLabel.text = "editExistingPurchase".localized()
+            self.navigationItem.title = "edit".localized().capitalizingFirstLetter()
         }
         guard let fuelPurchase = snapshot else { return }
         

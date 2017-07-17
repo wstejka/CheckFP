@@ -37,6 +37,9 @@ save = "zapisz";
 done = "gotowe";
 cancel = "anuluj";
 remove = "usuń";
+add = "dodaj";
+addNew = "dodaj nowy";
+
 
 // FuelUserParams
 firstName = "Imię";

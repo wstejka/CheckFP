@@ -200,6 +200,8 @@ class PurchasesTableViewController: UITableViewController {
         // Let's create some inset at the top of tableView using header
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
 
+        self.navigationItem.title = "purchases".localized().capitalizingFirstLetter()
+        
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
         

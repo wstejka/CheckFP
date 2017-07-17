@@ -182,14 +182,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXm-ZI-Mc4">
-                                <rect key="frame" x="48" y="86" width="231" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="kvA-Re-iBB">
-                                <rect key="frame" x="0.0" y="252" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="214" width="375" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="430-2Q-KXy"/>
                                 </constraints>
@@ -201,7 +195,7 @@
                                 </connections>
                             </datePicker>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZF-Zw-JqP">
-                                <rect key="frame" x="0.0" y="132" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="bBe-oH-Ofr"/>
                                 </constraints>
@@ -211,7 +205,7 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d3-BD-obW">
-                                <rect key="frame" x="124" y="372" width="100" height="30"/>
+                                <rect key="frame" x="141" y="340" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9r9-kz-1gb"/>
                                     <constraint firstAttribute="width" constant="100" id="I0g-C4-dIp"/>
@@ -221,13 +215,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTO-jn-ZWZ">
-                                <rect key="frame" x="124" y="407" width="100" height="30"/>
+                                <rect key="frame" x="141" y="375" width="100" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45m-Dm-wqL">
-                                <rect key="frame" x="239" y="463" width="100" height="18"/>
+                                <rect key="frame" x="256" y="431" width="100" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="3eg-qo-Nod"/>
                                 </constraints>
@@ -236,7 +230,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-Kn-fFb">
-                                <rect key="frame" x="169" y="452" width="173" height="1"/>
+                                <rect key="frame" x="186" y="420" width="173" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="buF-gE-U9r"/>
@@ -244,7 +238,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4E-xx-NKX" customClass="WSUITextField" customModule="CheckFuelPrice" customModuleProvider="target">
-                                <rect key="frame" x="239" y="372" width="100" height="30"/>
+                                <rect key="frame" x="256" y="340" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4cC-6r-hXm"/>
                                     <constraint firstAttribute="width" constant="100" id="Eek-sd-rfW"/>
@@ -257,7 +251,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2rA-a9-Cfk" customClass="WSUITextField" customModule="CheckFuelPrice" customModuleProvider="target">
-                                <rect key="frame" x="239" y="407" width="100" height="30"/>
+                                <rect key="frame" x="256" y="375" width="100" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -271,29 +265,26 @@
                             <constraint firstItem="kvA-Re-iBB" firstAttribute="leading" secondItem="jlv-YY-TpV" secondAttribute="leading" id="2Fg-JK-sfw"/>
                             <constraint firstItem="45m-Dm-wqL" firstAttribute="trailing" secondItem="2rA-a9-Cfk" secondAttribute="trailing" id="8Xm-01-ca3"/>
                             <constraint firstItem="2rA-a9-Cfk" firstAttribute="top" secondItem="Y4E-xx-NKX" secondAttribute="bottom" constant="5" id="A9z-WK-yHV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Y4E-xx-NKX" secondAttribute="trailing" constant="20" id="HL4-OX-oza"/>
-                            <constraint firstItem="EXm-ZI-Mc4" firstAttribute="top" secondItem="2J9-4N-ZCy" secondAttribute="bottom" constant="22" id="IXy-v8-jz6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y4E-xx-NKX" secondAttribute="trailing" constant="3" id="HL4-OX-oza"/>
                             <constraint firstItem="8ZF-Zw-JqP" firstAttribute="leading" secondItem="jlv-YY-TpV" secondAttribute="leading" id="L9q-yr-AKw"/>
-                            <constraint firstItem="8ZF-Zw-JqP" firstAttribute="top" secondItem="EXm-ZI-Mc4" secondAttribute="bottom" constant="25" id="LzL-2N-kxy"/>
                             <constraint firstItem="vTO-jn-ZWZ" firstAttribute="trailing" secondItem="3d3-BD-obW" secondAttribute="trailing" id="Mgg-GW-39G"/>
                             <constraint firstItem="45m-Dm-wqL" firstAttribute="top" secondItem="lY6-Kn-fFb" secondAttribute="bottom" constant="10" id="PUZ-pe-opg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2rA-a9-Cfk" secondAttribute="trailing" constant="20" id="ROM-td-E0j"/>
+                            <constraint firstItem="8ZF-Zw-JqP" firstAttribute="top" secondItem="2J9-4N-ZCy" secondAttribute="bottom" constant="30" id="Pj9-k5-cFb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2rA-a9-Cfk" secondAttribute="trailing" constant="3" id="ROM-td-E0j"/>
                             <constraint firstItem="2rA-a9-Cfk" firstAttribute="width" secondItem="Y4E-xx-NKX" secondAttribute="width" id="VZE-Dt-VBd"/>
                             <constraint firstItem="vTO-jn-ZWZ" firstAttribute="top" secondItem="2rA-a9-Cfk" secondAttribute="top" id="ZS9-At-WvG"/>
                             <constraint firstAttribute="trailing" secondItem="kvA-Re-iBB" secondAttribute="trailing" id="apy-dW-j4Y"/>
                             <constraint firstItem="Y4E-xx-NKX" firstAttribute="leading" secondItem="3d3-BD-obW" secondAttribute="trailing" constant="15" id="dss-48-ZhV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Y4E-xx-NKX" secondAttribute="trailing" constant="20" id="fc2-dB-3wA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lY6-Kn-fFb" secondAttribute="trailing" constant="17" id="nUj-in-Sn3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y4E-xx-NKX" secondAttribute="trailing" constant="3" id="fc2-dB-3wA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lY6-Kn-fFb" secondAttribute="trailing" id="nUj-in-Sn3"/>
                             <constraint firstItem="2rA-a9-Cfk" firstAttribute="height" secondItem="Y4E-xx-NKX" secondAttribute="height" id="q1J-1x-T6z"/>
                             <constraint firstItem="vTO-jn-ZWZ" firstAttribute="height" secondItem="3d3-BD-obW" secondAttribute="height" id="qNe-Dv-ogp"/>
                             <constraint firstItem="lY6-Kn-fFb" firstAttribute="top" secondItem="2rA-a9-Cfk" secondAttribute="bottom" constant="15" id="qdP-uG-KkB"/>
                             <constraint firstItem="kvA-Re-iBB" firstAttribute="top" secondItem="8ZF-Zw-JqP" secondAttribute="bottom" constant="20" id="qns-MU-l7e"/>
-                            <constraint firstItem="EXm-ZI-Mc4" firstAttribute="leading" secondItem="jlv-YY-TpV" secondAttribute="leadingMargin" constant="32" id="sxS-T6-e4e"/>
                             <constraint firstAttribute="trailing" secondItem="8ZF-Zw-JqP" secondAttribute="trailing" id="sxn-cv-Edk"/>
                             <constraint firstItem="3d3-BD-obW" firstAttribute="top" secondItem="Y4E-xx-NKX" secondAttribute="top" id="w8W-dt-S1V"/>
                             <constraint firstItem="vTO-jn-ZWZ" firstAttribute="width" secondItem="3d3-BD-obW" secondAttribute="width" id="xK3-rC-zp5"/>
-                            <constraint firstItem="Y4E-xx-NKX" firstAttribute="top" secondItem="kvA-Re-iBB" secondAttribute="bottom" constant="20" id="xN9-ES-Rpa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="EXm-ZI-Mc4" secondAttribute="trailing" constant="80" id="xu3-hR-zZf"/>
+                            <constraint firstItem="Y4E-xx-NKX" firstAttribute="top" secondItem="kvA-Re-iBB" secondAttribute="bottom" constant="26" id="xN9-ES-Rpa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vnd-kd-bVg">
@@ -312,7 +303,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="actionTextLabel" destination="EXm-ZI-Mc4" id="yyG-oF-5s5"/>
                         <outlet property="amountLabel" destination="3d3-BD-obW" id="GNH-kf-ozF"/>
                         <outlet property="amountTextField" destination="Y4E-xx-NKX" id="Qah-qz-PZ6"/>
                         <outlet property="datePicker" destination="kvA-Re-iBB" id="enH-HK-hgq"/>
@@ -333,7 +323,7 @@
             <objects>
                 <navigationController storyboardIdentifier="PurchaseUpdateNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="RPb-ac-hiC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8dN-qJ-IaF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8dN-qJ-IaF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -37,6 +37,8 @@ save = "save";
 done = "done";
 cancel = "cancel";
 remove = "remove";
+add = "add";
+addNew = "add new";
 
 // FuelUserParams
 firstName = "first name";
