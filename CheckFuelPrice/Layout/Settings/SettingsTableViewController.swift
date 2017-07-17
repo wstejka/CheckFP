@@ -17,7 +17,11 @@ extension SettingsTableViewController : HandleSettingSearchDelegate {
         
         let indexPath = IndexPath(row: option.row, section: option.section)
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
-        // clear text at searchBar
+        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+            DispatchQueue.main.async {
+                self.tableView.deselectRow(at: indexPath, animated: true)
+            }
+        }        // clear text at searchBar
         self.resultSearchController?.searchBar.text = ""
     }
 }
@@ -186,7 +190,7 @@ class SettingsTableViewController: UITableViewController {
     
     // VAT
     @IBOutlet weak var vatLabel: UILabel!
-    @IBOutlet weak var vatSegment: UISegmentedControl!
+    @IBOutlet weak var vatSwitch: UISwitch!
     
     // Tax amount
     @IBOutlet weak var taxAmountLabel: UILabel!
@@ -287,8 +291,8 @@ class SettingsTableViewController: UITableViewController {
             
             let userConfig = UserConfig(theme: Defaults[.currentTheme] ?? ThemesManager.Theme.basic.rawValue,
                                         supplier: Defaults[.currentSuplier] ?? Supplier.none.rawValue,
-                                        vatIncluded: self.vatSegment.selectedSegmentIndex,
-                                        vatAmount: self.taxAmountSlider.value,
+                                        vatIncluded: self.vatSwitch.isOn,
+                                        vatAmount: (self.vatSwitch.isOn ? self.taxAmountSlider.value : 0.0),
                                         capacity: self.priceUnitSegment.selectedSegmentIndex,
                                         unleaded95Margin: self.unleaded95Slider.value, unleaded98Margin: self.unleaded98Slider.value,
                                         dieselMargin: self.dieselSlider.value, dieselPremiumMargin: self.dieselPremiumSlider.value,
@@ -343,18 +347,13 @@ class SettingsTableViewController: UITableViewController {
     }
 
     // MARK: - Section: Theme
-    
-    @IBAction func themeButtonPressed(_ sender: UIButton) {
+        
+    @IBAction func vatSwitchChanged(_ sender: UISwitch) {
         log.verbose("")
-    }
-    
-    // MARK: - Section: fuel price settings
-    @IBAction func producerButtonPressed(_ sender: UIButton) {
-        log.verbose("")
-    }
-    
-    @IBAction func vatOptionSelected(_ sender: UISegmentedControl) {
-        log.verbose("")
+        
+        taxAmountValueLabel.isEnabled = sender.isOn
+        taxAmountSlider.isEnabled = sender.isOn
+        
     }
     
     @IBAction func taxAmountValueChanged(_ sender: UISlider) {
@@ -463,7 +462,7 @@ class SettingsTableViewController: UITableViewController {
         }
         
         priceUnitSegment.selectedSegmentIndex = Defaults[.currentDefaultCapacity] ?? 0
-        vatSegment.selectedSegmentIndex = Defaults[.currentIncludeVat] ?? 0
+        vatSwitch.isOn = Defaults[.currentIncludeVat] ?? true
         taxAmountSlider.value = Float(Defaults[.currentVatTaxAmount] ?? 0.0)
         
         unleaded95Slider.value = Float(Defaults[.currentUnleaded95Margin] ?? 0.0)
@@ -472,6 +471,7 @@ class SettingsTableViewController: UITableViewController {
         dieselPremiumSlider.value = Float(Defaults[.currentDieselSuperMargin] ?? 0.0)
         dieselHeatingSlider.value = Float(Defaults[.currentDieselHeatingMargin] ?? 0.0)
         
+        vatSwitchChanged(vatSwitch)
         taxAmountValueChanged(taxAmountSlider)
         unleaded95ValueChanged(unleaded95Slider)
         unleaded98ValueChanged(unleaded98Slider)

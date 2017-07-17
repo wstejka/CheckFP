@@ -140,26 +140,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0W5-MO-xG3">
-                                                    <rect key="frame" x="235" y="8" width="120" height="29"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="wpF-wL-LtQ"/>
-                                                    </constraints>
-                                                    <segments>
-                                                        <segment title="Yes"/>
-                                                        <segment title="No"/>
-                                                    </segments>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26L-te-xTv">
+                                                    <rect key="frame" x="306" y="6.5" width="51" height="31"/>
                                                     <connections>
-                                                        <action selector="vatOptionSelected:" destination="WYX-v8-9cF" eventType="valueChanged" id="Os6-eb-PRl"/>
+                                                        <action selector="vatSwitchChanged:" destination="WYX-v8-9cF" eventType="valueChanged" id="ODl-rW-Uia"/>
                                                     </connections>
-                                                </segmentedControl>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="c9h-pN-spw" firstAttribute="centerY" secondItem="SUi-fF-euW" secondAttribute="centerY" id="0o0-9Y-cTn"/>
-                                                <constraint firstItem="0W5-MO-xG3" firstAttribute="centerY" secondItem="SUi-fF-euW" secondAttribute="centerY" id="1O2-lY-DHe"/>
-                                                <constraint firstAttribute="trailing" secondItem="0W5-MO-xG3" secondAttribute="trailing" constant="20" id="9tS-8d-elB"/>
+                                                <constraint firstAttribute="trailing" secondItem="26L-te-xTv" secondAttribute="trailing" constant="20" id="EWB-pA-Yao"/>
                                                 <constraint firstItem="c9h-pN-spw" firstAttribute="width" secondItem="SUi-fF-euW" secondAttribute="width" multiplier="0.5" priority="500" id="pZS-Qe-Pbd"/>
                                                 <constraint firstItem="c9h-pN-spw" firstAttribute="leading" secondItem="SUi-fF-euW" secondAttribute="leadingMargin" constant="10" id="sZs-QV-JZm"/>
+                                                <constraint firstItem="26L-te-xTv" firstAttribute="centerY" secondItem="SUi-fF-euW" secondAttribute="centerY" id="vUO-Jy-a58"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -468,7 +461,7 @@
                         <outlet property="unleaded98Slider" destination="u6w-ce-OSe" id="oos-7p-BTP"/>
                         <outlet property="unleaded98ValueLabel" destination="fKN-DS-47E" id="WfH-l6-K7y"/>
                         <outlet property="vatLabel" destination="c9h-pN-spw" id="okV-nq-5Br"/>
-                        <outlet property="vatSegment" destination="0W5-MO-xG3" id="Lhn-SD-0c6"/>
+                        <outlet property="vatSwitch" destination="26L-te-xTv" id="Wwu-Zu-ayp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYW-Gl-3c8" userLabel="First Responder" sceneMemberID="firstResponder"/>
