@@ -61,6 +61,10 @@ extension PurchasesTableViewController {
         return currentDate?.humanReadableDate
     }
     
+    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 10.0
+    }
+    
 }
 
 // MARK: - Extension: Table view delegate
@@ -192,6 +196,9 @@ class PurchasesTableViewController: UITableViewController {
     // MARK: - UITableViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Let's create some inset at the top of tableView using header
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
 
         // Uncomment the following line to preserve selection between presentations
          self.clearsSelectionOnViewWillAppear = false

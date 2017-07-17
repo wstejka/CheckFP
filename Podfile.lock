@@ -160,7 +160,7 @@ DEPENDENCIES:
   - FirebaseUI (~> 4.0)
   - Floaty (~> 3.0.0)
   - HockeySDK (~> 4.1.5)
-  - ImagePicker (= 2.1.1)
+  - ImagePicker
   - Keys (from `Pods/CocoaPodsKeys`)
   - SDWebImage/WebP
   - SwiftyUserDefaults
@@ -201,6 +201,6 @@ SPEC CHECKSUMS:
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: 358f1712a61a0a0acf4d81cb452cf4abdbe4f5c2
+PODFILE CHECKSUM: bc449d0c2ab399c5a3b25b0c03851f69c5ec99e7
 
 COCOAPODS: 1.2.1
