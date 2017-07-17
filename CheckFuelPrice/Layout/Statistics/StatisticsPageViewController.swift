@@ -13,7 +13,7 @@ import EZLoadingActivity
 protocol StatisticsGenericProtocol {
     
     var type: FuelName? { get set }
-    var fuelData : [FuelPriceItem]? { get set}
+    var fuelData : [FuelPriceItem] { get set}
 }
 
 // MARK: - UIPageViewController lifecycle

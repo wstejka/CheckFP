@@ -22,15 +22,15 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
     
     var dateList : [String] = []
     var priceList : [Double] = []
-    var fuelData: [FuelPriceItem]?  {
+    var fuelData: [FuelPriceItem] = []  {
         
         didSet {
-            log.verbose("# of data \(fuelData?.count ?? 0)")
+            log.verbose("# of data \(fuelData.count)")
             dateList = []
             priceList = []
-            for item in fuelData! {
+            for item in fuelData {
                 self.dateList.append(item.humanReadableDate)
-                self.priceList.append(UserConfigurationManager.compute(fromValue: item.price).round(to: 2))
+                self.priceList.append(UserConfigurationManager.compute(fromValue: item.price, fuelType: item.fuelType).round(to: 2))
             }
             
             self.setChart(dataPoints: self.dateList, values: self.priceList)
@@ -50,7 +50,7 @@ class StatisticsGraphViewController: UIViewController, StatisticsGenericProtocol
         super.viewDidLoad()
 
         log.verbose("entered")
-        self.barChartView.noDataText = "" //"downloadingData".localized(withDefaultValue: "")
+        self.barChartView.noDataText = ""
         
     }
     

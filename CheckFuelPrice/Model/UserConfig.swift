@@ -15,11 +15,11 @@ struct UserConfig {
     var vatIncluded: Bool = true
     var vatAmount: Float = 23.0
     var capacity : Int = FuelUnit.oneLiter.rawValue
-    var unleaded95Margin: Float = 5.0
-    var unleaded98Margin: Float = 5.0
-    var dieselMargin: Float = 5.0
-    var dieselPremiumMargin: Float = 5.0
-    var dieselHeatingMargin: Float = 5.0
+    var unleaded95Margin: Float = 0.0
+    var unleaded98Margin: Float = 0.0
+    var dieselMargin: Float = 0.0
+    var dieselPremiumMargin: Float = 0.0
+    var dieselHeatingMargin: Float = 0.0
     
     init() {
     }

@@ -29,8 +29,8 @@ extension FuelPricesViewController: UITableViewDataSource {
         let objectHandler = self.items[indexPath.row]
         fuelPriceCell.highestPriceName.text = LabelDescriptions.highestPriceLabel.rawValue.localized(withDefaultValue: "")
         fuelPriceCell.lowestPriceName.text = LabelDescriptions.lowestPriceLabel.rawValue.localized(withDefaultValue: "")
-        let highestValue = UserConfigurationManager.compute(fromValue: objectHandler.currentHighestPrice)
-        let lowestValue = UserConfigurationManager.compute(fromValue: objectHandler.currentLowestPrice)
+        let highestValue = UserConfigurationManager.compute(fromValue: objectHandler.currentHighestPrice, fuelType: objectHandler.id)
+        let lowestValue = UserConfigurationManager.compute(fromValue: objectHandler.currentLowestPrice, fuelType: objectHandler.id)
         
         fuelPriceCell.highestPriceValue.text = highestValue.strRound(to: 2)
         fuelPriceCell.lowestPricesValue.text = lowestValue.strRound(to: 2)

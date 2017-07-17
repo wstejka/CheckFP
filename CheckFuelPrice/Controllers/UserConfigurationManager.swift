@@ -72,20 +72,38 @@ class UserConfigurationManager {
     }
     
     //! This method is used to compute prices depends on configuration settings
-    static func compute(fromValue value : Double, includeVat : Bool = true) -> Double {
+    static func compute(fromValue value : Double, fuelType: Fuel = .none, includeVat : Bool = true) -> Double {
     
         let config = self.getUserConfig()
+        var fuelMarginFactor : Double = 1.0
         var vatValueFactor : Double = 1.0
         if (includeVat == true) &&
             (config.vatIncluded == true) {
             vatValueFactor = vatValueFactor + Double(config.vatAmount / 100)
+            
+            var margin = 0.0
+            switch fuelType {
+            case .unleaded95:
+                margin = Double(config.unleaded95Margin)
+            case .unleaded98:
+                margin = Double(config.unleaded98Margin)
+            case .diesel:
+                margin = Double(config.dieselMargin)
+            case .dieselIZ40:
+                margin = Double(config.dieselPremiumMargin)
+            case .dieselHeating:
+                margin = Double(config.dieselHeatingMargin)
+            default:
+                margin = 0.0
+            }
+            fuelMarginFactor = Double(1.0 + (margin / 100))
         }
         var fuelCapacityFactor : Double = 1.0
         let fuelUnit = FuelUnit(rawValue: config.capacity)
         if fuelUnit == .oneLiter {
             fuelCapacityFactor = FirebaseUtils.capacityDividerFactor
         }
-        let computedValue = (value / fuelCapacityFactor) * vatValueFactor
+        let computedValue = (value / fuelCapacityFactor) * fuelMarginFactor * vatValueFactor
 
         return computedValue
     }

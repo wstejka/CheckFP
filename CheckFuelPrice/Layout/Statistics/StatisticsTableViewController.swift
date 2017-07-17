@@ -12,7 +12,7 @@ extension StatisticsTableViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         log.verbose("entered")
-        return dateList.count
+        return reversedFuelData.count
     }
 
 
@@ -23,16 +23,18 @@ extension StatisticsTableViewController: UITableViewDataSource {
                                                                         
             return UITableViewCell()
         }
-        fuelPriceCell.timestamp.text = self.dateList[indexPath.row]
-        let priceValue = self.priceList[indexPath.row]
+        let fuelPriceItem = reversedFuelData[indexPath.row]
+
+        fuelPriceCell.timestamp.text = fuelPriceItem.humanReadableDate
         
         if UserConfigurationManager.getUserConfig().vatIncluded == false {
             fuelPriceCell.price.text = ""
-            fuelPriceCell.priceWithVat.text = UserConfigurationManager.compute(fromValue: priceValue, includeVat: false).strRound(to: 2)
+            fuelPriceCell.priceWithVat.text = UserConfigurationManager.compute(fromValue: fuelPriceItem.price, includeVat: false).strRound(to: 2)
         }
         else {
-            fuelPriceCell.price.text = UserConfigurationManager.compute(fromValue: priceValue, includeVat: false).strRound(to: 2)
-            fuelPriceCell.priceWithVat.text = UserConfigurationManager.compute(fromValue: priceValue).strRound(to: 2)
+            fuelPriceCell.price.text = UserConfigurationManager.compute(fromValue: fuelPriceItem.price, includeVat: false).strRound(to: 2)
+            fuelPriceCell.priceWithVat.text = UserConfigurationManager.compute(fromValue: fuelPriceItem.price,
+                                                                               fuelType: fuelPriceItem.fuelType).strRound(to: 2)
         }
         fuelPriceCell.contentView.backgroundColor = .white
         
@@ -65,20 +67,13 @@ class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol
     }
     let customTableViewCellName = "Cell"
     
-    var dateList : [String] = []
-    var priceList : [Double] = []
+    var reversedFuelData : [FuelPriceItem] = []
     
-    var fuelData: [FuelPriceItem]?  {
+    var fuelData: [FuelPriceItem] = []  {
         
         didSet {
-            log.verbose("# of data \(fuelData?.count ?? 0)")
-            dateList = []
-            priceList = []
-            for item in fuelData!.reversed() {
-                self.dateList.append(item.humanReadableDate)
-                self.priceList.append(item.price)
-            }
-            
+            log.verbose("# of data \(fuelData.count)")
+            reversedFuelData = fuelData.reversed()
             if self.tableView != nil {
                 self.tableView.reloadData()
             }
