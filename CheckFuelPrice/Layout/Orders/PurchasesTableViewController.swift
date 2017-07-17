@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+// MARK: - Extension: PurchaseUpdateViewControllerDelegate
 extension PurchasesTableViewController : PurchaseUpdateViewControllerDelegate {
     
     func savedPurchase(snapshot: FuelPurchase) {
@@ -73,7 +73,7 @@ extension PurchasesTableViewController {
         }
         
         tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.section)
-        tableViewCell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
+        tableViewCell.collectionViewOffset = storedOffsets[indexPath.section] ?? 0
     }
     
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -82,7 +82,7 @@ extension PurchasesTableViewController {
             return
         }
         
-        storedOffsets[indexPath.row] = tableViewCell.collectionViewOffset
+        storedOffsets[indexPath.section] = tableViewCell.collectionViewOffset
     }
 }
 
@@ -129,6 +129,7 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Extension: UICollectionViewDelegate
 extension PurchasesTableViewController: UICollectionViewDelegate {
     
     func longPressGesture(sender: UILongPressGestureRecognizer) {
@@ -205,6 +206,7 @@ class PurchasesTableViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        
         if removeFirebaseRef == true {
             self.startObserving()
         }
