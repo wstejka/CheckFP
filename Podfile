@@ -23,6 +23,7 @@ target 'CheckFuelPrice' do
   pod 'ImagePicker' #, '2.1.1'
   pod 'SwiftyUserDefaults'
   pod 'SDWebImage/WebP'
+  pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x', :inhibit_warnings => true
 
 end
 

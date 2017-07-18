@@ -3,3 +3,5 @@
 //
 #import <Firebase/Firebase.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SVGKit/SVGKit.h>
+#import <SVGKit/SVGKImage.h>
