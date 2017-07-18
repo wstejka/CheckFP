@@ -11,20 +11,19 @@ import UIKit
 class StatisticsCollectionViewCell: UICollectionViewCell {
     
     // MARK: - properties
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var view: UIView!
     
     override var isSelected: Bool {
         didSet {
-            
-            if isSelected {
-                self.imageView.layer.borderColor = UIColor.white.cgColor
-                self.imageView.layer.borderWidth = 0.0
-            }
-            else {
-                self.imageView.layer.borderColor = UIColor.white.cgColor
-                self.imageView.layer.borderWidth = 5.0
-            }
-            
+
+//            view.shake(direction: ShakeDirection.Horizontal)
+//            if isSelected {
+//                self.view.layer.borderWidth = 0.0
+//            }
+//            else {
+//                self.view.layer.borderWidth = 5.0
+//            }
+//            self.view.layer.borderColor = UIColor.white.cgColor
         }
     }
     

@@ -15,7 +15,7 @@ protocol StatisticsViewControllerDelegate {
     func selectedFuel(name : FuelName)
 }
 
-// MARK: - UICollectionViewDataSource lifecycle
+// MARK: - extension : UICollectionViewDataSource
 extension StatisticsViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -24,12 +24,12 @@ extension StatisticsViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let fuelType = self.items[indexPath.row]
-        cell.imageView.image = UIImage(named: fuelType.name)
-        cell.imageView.layer.cornerRadius = 10
-        cell.imageView.clipsToBounds = true
         if indexPath.row != (selectedFuelName.hashValue - 1) {
             cell.isSelected = false
         }
+        
+        let fuelTypeView = cell.view.addXib(forType: FuelTypeView.self)
+        Utils.setupFuelType(type: fuelType.id.rawValue, inView: fuelTypeView)
         
         return cell
     }
@@ -37,9 +37,10 @@ extension StatisticsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
+    
 }
 
-// MARK: - UICollectionViewDelegate lifecycle
+// MARK: - extension : UICollectionViewDelegate
 
 extension StatisticsViewController: UICollectionViewDelegate {
     
@@ -51,16 +52,19 @@ extension StatisticsViewController: UICollectionViewDelegate {
             return
         }
         self.selectedFuelName = fuelName
-        collectionView.deselectAllItemsExcept(indexPath)
+        guard let cell = collectionView.cellForItem(at: indexPath) as? StatisticsCollectionViewCell else {
+            return
+        }
+        _ = cell.view.shake(direction: ShakeDirection.Vertical)
+        
     }
 
 }
 
-
 class StatisticsViewController: UIViewController {
     
     
-    // MARK: - constants
+    // MARK: - Consts/Vars
     var items : [FuelType] = []
     var refFuelTypes : DatabaseReference? = nil
     let defaultSection = 0
@@ -76,7 +80,8 @@ class StatisticsViewController: UIViewController {
         }
     }
     
-    // MARK: - properties
+    // MARK: - Outlets
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -88,6 +93,12 @@ class StatisticsViewController: UIViewController {
 
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        collectionView!.collectionViewLayout = layout
         
         self.navigationItem.title = "statistics".localized().capitalizingFirstLetter()
         
