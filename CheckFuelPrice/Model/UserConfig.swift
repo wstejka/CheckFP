@@ -84,7 +84,7 @@ struct UserConfig {
             "theme" : theme,
             "supplier" : supplier,
             "vatIncluded" : vatIncluded,
-            "vatAmount" : vatAmount.round(to: 1),
+            "vatAmount" : vatAmount.round(to: 0),
             "capacity" : capacity,
             "unleaded95Margin" : unleaded95Margin.round(to: 1),
             "unleaded98Margin" : unleaded98Margin.round(to: 1),

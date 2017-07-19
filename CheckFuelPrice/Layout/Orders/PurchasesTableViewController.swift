@@ -28,6 +28,11 @@ extension PurchasesTableViewController : PurchaseUpdateViewControllerDelegate {
         }
         fuelPurchase.uid = uid
         
+        if fuelPurchase.uid.isEmpty || fuelPurchase.position.isEmpty {
+            log.error("Incorrect data: \(fuelPurchase.uid)/\(fuelPurchase.position)")
+            return
+        }
+        
         // Create the FuelPurchase object provisioned with data provided by user
         purchaseRef?.child(fuelPurchase.uid).child(fuelPurchase.position).setValue(fuelPurchase.toAnyObject(), withCompletionBlock: { (error, dataRef) in
         })
@@ -62,6 +67,10 @@ extension PurchasesTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 10.0
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 10.0
     }
     

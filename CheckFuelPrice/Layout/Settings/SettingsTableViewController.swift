@@ -358,7 +358,7 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func taxAmountValueChanged(_ sender: UISlider) {
         log.verbose("")
-        taxAmountValueLabel.text = getFuelLabelTextFor(sender.value)
+        taxAmountValueLabel.text = sender.value.strRound(to: 0)
     }
 
     @IBAction func priceUnitValueChanged(_ sender: UISegmentedControl) {
@@ -418,7 +418,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func getFuelLabelTextFor(_ value : Float) -> String {
-        return String(format: "%.1f", value) + " %"
+        return value.strRound(to: 1)
     }
     
     func setupLayoutWith(userConfig : UserConfig) {
@@ -464,7 +464,7 @@ class SettingsTableViewController: UITableViewController {
         
         priceUnitSegment.selectedSegmentIndex = Defaults[.currentDefaultCapacity] ?? 0
         vatSwitch.isOn = Defaults[.currentIncludeVat] ?? true
-        taxAmountSlider.value = Float(Defaults[.currentVatTaxAmount] ?? 0.0)
+        taxAmountSlider.value = Float(Defaults[.currentVatTaxAmount]?.round(to: 0) ?? 0.0)
         
         unleaded95Slider.value = Float(Defaults[.currentUnleaded95Margin] ?? 0.0)
         unleaded98Slider.value = Float(Defaults[.currentUnleaded98Margin] ?? 0.0)
