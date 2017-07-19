@@ -105,7 +105,7 @@ capacity = "domyślna pojemność";
 
 theme = "motyw";
 fuelPriceSettings = "Ustawienia dla cen paliw";
-profitMarginPerFuelType = "Marże dla poszczególnych paliw";
+profitMarginPerFuelType = "Marże na poszczególne paliwa";
 
 doYouWantToSaveData = "Chcesz zapisać zmiany?";
 
