@@ -100,8 +100,13 @@ struct ThemesManager {
             log.verbose("Can't get Fuel object for \(forFuelType) type")
             return .white
         }
-        let staticFuelColors : [UIColor] = [.white, .flatGreenColorDark(), .flatSkyBlue(), .flatYellow(),
-                                            .flatNavyBlueColorDark(), .flatOrangeColorDark()]
+        
+        let staticFuelColors : [UIColor] = [.white,
+                                            .flatGreenColorDark(),
+                                            ThemesManager.get(color: ThemesManager.Color.primary),
+                                            ThemesManager.get(color: ThemesManager.Color.color2),
+                                            .flatNavyBlueColorDark(),
+                                            ThemesManager.get(color: ThemesManager.Color.color3)]
         
         if forFuelType > (staticFuelColors.count - 1) {
             log.verbose("Can't get color object for \(String(describing: fuelType))")
