@@ -12,6 +12,16 @@ import Floaty
 import ImagePicker
 import SwiftyUserDefaults
 
+
+extension UserProfilePersonalDataViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+}
+
 // MARK: - Extension ImagePickerDelegate
 extension UserProfilePersonalDataViewController : ImagePickerDelegate {
     
@@ -79,9 +89,17 @@ class UserProfilePersonalDataViewController: UITableViewController {
         super.viewDidLoad()
         
         // Set up placeholders for text fields
-        self.firstNameTextField.placeholder = "firstName".localized().capitalizingFirstLetter()
-        self.lastNameTextField.placeholder = "lastName".localized().capitalizingFirstLetter()
-        self.phoneTextField.placeholder = "phone".localized().capitalizingFirstLetter()
+        firstNameTextField.placeholder = "firstName".localized().capitalizingFirstLetter()
+        lastNameTextField.placeholder = "lastName".localized().capitalizingFirstLetter()
+        phoneTextField.placeholder = "phone".localized().capitalizingFirstLetter()
+        
+        // Set up keyboard
+        firstNameTextField.returnKeyType = .done
+        firstNameTextField.delegate = self
+        lastNameTextField.returnKeyType = .done
+        lastNameTextField.delegate = self
+        phoneTextField.returnKeyType = .done
+        phoneTextField.delegate = self
         
         // userPhotoImageView
         self.userPhotoImageView.image = UIImage(named: "male_big")
@@ -141,7 +159,8 @@ class UserProfilePersonalDataViewController: UITableViewController {
             imagePickerController.imageLimit = 1
             self.present(imagePickerController, animated: true, completion: nil)
         }
-        self.photoViewCell.contentView.addSubview(floaty)
+        floaty.sticky = true
+        self.photoViewCell.addSubview(floaty)
     }
     
     func startObserving()  {
