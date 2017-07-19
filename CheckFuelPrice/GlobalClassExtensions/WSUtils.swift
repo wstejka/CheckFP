@@ -45,6 +45,9 @@ class WSUITextField: UITextField {
     
     private var valueBeforeChange : String = ""
     let defaultValue : String = "0.00"
+    let firstLocaleSeparator = "."
+    let secondLocaleSeparator = ","
+
     
     private func initialSettings() {
         self.keyboardType = UIKeyboardType.decimalPad
@@ -59,6 +62,8 @@ class WSUITextField: UITextField {
                                                name: NSNotification.Name(rawValue: "UITextFieldTextDidChangeNotification"), object: self)
         NotificationCenter.default.addObserver(self, selector: #selector(textDidEndEditing),
                                                name: NSNotification.Name(rawValue: "UITextFieldTextDidEndEditingNotification"), object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidBeginEditing),
+                                               name: NSNotification.Name(rawValue: "UITextFieldTextDidBeginEditingNotification"), object: self)
         
         
     }
@@ -68,17 +73,21 @@ class WSUITextField: UITextField {
     }
     
     @objc private func textDidChange() {
-        log.info("textDidChange = \(valueBeforeChange)")
+        log.info("textDidChange = \(text!)")
         
         if text == "" {
             valueBeforeChange = ""
             return
         }
-        if text == "." {
-            text = "0."
+        
+        text = text?.replacingOccurrences(of: secondLocaleSeparator, with: firstLocaleSeparator)
+        if text == firstLocaleSeparator {
+            text = "0" + firstLocaleSeparator
         }
         
-        guard let _ = Float(text!) else { return text = valueBeforeChange }
+        guard let _ = Float(text!) else {
+            return text = valueBeforeChange
+        }
         valueBeforeChange = text!
     }
     
@@ -91,6 +100,20 @@ class WSUITextField: UITextField {
             return
         }
         text = String(format:"%.2f", Float(text!)!)
+        
+    }
+    
+    @objc private func textDidBeginEditing() {
+        log.info("textDidBeginEditing = \(text!)")
+        
+        guard let floatValue = Float(text!) else {
+            text = defaultValue
+            return
+        }
+        if floatValue == 0.0 {
+            text = ""
+        }
+        
     }
     
     public func getValue() -> String {
