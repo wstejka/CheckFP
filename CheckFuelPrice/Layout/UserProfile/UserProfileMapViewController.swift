@@ -55,6 +55,7 @@ extension UserProfileMapViewController: HandleMapSearchDelegate {
             annotation.subtitle = "\(city) \(state)"
         }
         mapView.addAnnotation(annotation)
+        mapView.selectAnnotation(annotation, animated: true)
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
         mapView.setRegion(region, animated: true)
