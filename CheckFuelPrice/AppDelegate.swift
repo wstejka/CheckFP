@@ -57,6 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // === Configure Theme ==== //
 //        Chameleon.setGlobalThemeUsingPrimaryColor(ThemesManager.get(color: .primary), withSecondaryColor: nil,
 //                                                  andContentStyle: UIContentStyle.light)
+        // cutomize general view
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = .white
+        navigationBarAppearace.barTintColor = ThemesManager.get(color: .primary)
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
         // === Configure Firebase ==== //
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true

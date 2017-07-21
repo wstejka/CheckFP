@@ -110,7 +110,7 @@ class StatisticsTableViewController: UIViewController, StatisticsGenericProtocol
         log.verbose("")
         
         self.tableView.tableHeaderView = self.tableHeaderView
-        self.tableHeaderView.backgroundColor = ThemesManager.get(color: .primary)
+        self.tableHeaderView.backgroundColor = UIColor.flatWhite() // ThemesManager.get(color: .primary)
         self.dateLabel.text = "timestamp".localized(withDefaultValue: "").capitalizingFirstLetter()
 
         let priceName = "price".localized(withDefaultValue: "").capitalizingFirstLetter()

@@ -23,6 +23,7 @@
 		9E1E7F121EF7ECAA008FC7F5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E7F111EF7ECAA008FC7F5 /* UserProfileViewController.swift */; };
 		9E1E7F151EF93F75008FC7F5 /* ThemesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E7F141EF93F75008FC7F5 /* ThemesManager.swift */; };
 		9E2E87341F08E20C0030E216 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E87331F08E20C0030E216 /* UserConfig.swift */; };
+		9E489B131F209A090020FAEC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E489B121F209A090020FAEC /* MapKit.framework */; };
 		9E4A034E1EF05A100016AB46 /* StatisticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034D1EF05A100016AB46 /* StatisticsCollectionViewCell.swift */; };
 		9E4A03501EF11FB80016AB46 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A034F1EF11FB80016AB46 /* UIImage+Extension.swift */; };
 		9E4A03521EF15E480016AB46 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4A03511EF15E480016AB46 /* UICollectionView+Extension.swift */; };
@@ -137,6 +138,7 @@
 		9E1E7F111EF7ECAA008FC7F5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = Layout/UserProfile/UserProfileViewController.swift; sourceTree = "<group>"; };
 		9E1E7F141EF93F75008FC7F5 /* ThemesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemesManager.swift; sourceTree = "<group>"; };
 		9E2E87331F08E20C0030E216 /* UserConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
+		9E489B121F209A090020FAEC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9E4A034D1EF05A100016AB46 /* StatisticsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9E4A034F1EF11FB80016AB46 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		9E4A03511EF15E480016AB46 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		9EA203601EA0C13A00F18A3A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EB2D1521F02587E00299547 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
+		9EEC3D9C1F20DE4600D216A6 /* CheckFuelPrice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckFuelPrice.entitlements; sourceTree = "<group>"; };
 		9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		9EF038691F0137F300670527 /* FirebaseConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConnectionManager.swift; sourceTree = "<group>"; };
 		9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = ../Carthage/Build/iOS/EZLoadingActivity.framework; sourceTree = "<group>"; };
@@ -219,6 +222,7 @@
 				9E1E7F041EF5AADF008FC7F5 /* Chameleon.framework in Frameworks */,
 				9E1C03A31EED4FCC0023BCED /* Charts.framework in Frameworks */,
 				9E5C842F1EA0CC5800C7DFA7 /* Kanna.framework in Frameworks */,
+				9E489B131F209A090020FAEC /* MapKit.framework in Frameworks */,
 				9E5C84311EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Frameworks */,
 				DF68B4CB5B09B6BC81243036 /* Pods_CheckFuelPrice.framework in Frameworks */,
 			);
@@ -237,6 +241,7 @@
 		2B9065AB8E5745C72E2EB926 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E489B121F209A090020FAEC /* MapKit.framework */,
 				58DF426AB05BE30C92185A92 /* Pods_CheckFuelPrice.framework */,
 			);
 			name = Frameworks;
@@ -563,6 +568,7 @@
 		9EA2031E1EA0BDBB00F18A3A /* CheckFuelPrice */ = {
 			isa = PBXGroup;
 			children = (
+				9EEC3D9C1F20DE4600D216A6 /* CheckFuelPrice.entitlements */,
 				9E4A1F611ED775880044F3DD /* Supporting files */,
 				9EA203551EA0BEF700F18A3A /* Internationalization */,
 				9E4A1F6F1EDB19370044F3DD /* Controllers */,
@@ -709,6 +715,14 @@
 						DevelopmentTeam = 49Y3335455;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					9EA2032F1EA0BDBC00F18A3A = {
 						CreatedOnToolsVersion = 8.3.1;
@@ -845,13 +859,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle,
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle,
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1112,6 +1126,7 @@
 					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
 				);
 				INFOPLIST_FILE = CheckFuelPrice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wstejka.ios.CheckFuelPrice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1148,6 +1163,7 @@
 					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
 				);
 				INFOPLIST_FILE = CheckFuelPrice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wstejka.ios.CheckFuelPrice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
