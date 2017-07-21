@@ -248,7 +248,7 @@ class SettingsTableViewController: UITableViewController {
         
         let searchBar = resultSearchController!.searchBar
         tableView.tableHeaderView?.addSubview(searchBar)
-        searchBar.sizeToFit()
+        tableView.tableHeaderView?.sizeToFit()
         
     }
     

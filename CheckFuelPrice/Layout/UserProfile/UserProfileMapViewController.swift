@@ -229,7 +229,7 @@ class UserProfileMapViewController: UIViewController {
         
         //        navigationItem.titleView = resultSearchController?.searchBar
         searchPlaceholderView.addSubview(searchBar)
-        searchBar.sizeToFit()
+        searchPlaceholderView.sizeToFit()
         searchBar.placeholder = "homeLocation".localized().capitalizingFirstLetter()
         
         // Configure the UISearchController appearance
