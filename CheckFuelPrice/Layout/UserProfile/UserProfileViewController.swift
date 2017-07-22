@@ -130,7 +130,6 @@ class UserProfileViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
 
-        self.navigationItem.title = "profile".localized().capitalizingFirstLetter()
     }
     deinit {
         log.info("")

@@ -17,7 +17,7 @@ selectPhoto ="wybierz zdjęcie";
 changePhoto ="zmień zdjęcie";
 
 // User's profile
-personalData = "dane osobowe";
+personalData = "profil"; //"dane osobowe";
 changePhoto = "zmień zdjęcie";
 coordinates = "współrzędne";
 singOut = "wyloguj";

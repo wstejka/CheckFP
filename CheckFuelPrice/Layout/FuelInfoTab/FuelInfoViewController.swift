@@ -54,7 +54,7 @@ extension FuelInfoViewController: UITableViewDataSource {
                     return UITableViewCell()
                 }
                 
-                imageLabel.text = description.localized(withDefaultValue: "")
+                imageLabel.text = description.localized(withDefaultValue: "").capitalizingFirstLetter()
                 imageView.image = UIImage(named: imageName)
                 
                 // Configure tap gesture for first image
