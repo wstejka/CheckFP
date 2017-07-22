@@ -21,6 +21,7 @@ personalData = "personal data";
 changePhoto = "change photo";
 coordinates = "coordinates";
 singOut = "sign out";
+profile = "profile";
 
 // General
 answerYes = "yes";

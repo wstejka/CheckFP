@@ -21,6 +21,8 @@ personalData = "dane osobowe";
 changePhoto = "zmień zdjęcie";
 coordinates = "współrzędne";
 singOut = "wyloguj";
+profile = "profil";
+
 
 // General
 answerYes = "tak";
