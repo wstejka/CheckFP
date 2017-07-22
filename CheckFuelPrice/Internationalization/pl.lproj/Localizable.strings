@@ -97,6 +97,9 @@ searchForPlaces = "znajdź miejsce";
 homeLocation = "ustaw miejsce zamieszkania";
 homeLocationQuestion = "czy chcesz ustawić ten punkt jako miejsce zamieszkania?";
 placeholder = "zastępczy";
+photoSaved = "Zdjęcie zapisane ...";
+savingPhoto = "Zapisywanie ...";
+
 
 // Settings
 fuelSupplier = "dostawca";

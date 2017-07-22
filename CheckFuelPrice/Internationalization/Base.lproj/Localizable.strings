@@ -94,6 +94,8 @@ searchForPlaces = "search for places";
 homeLocation = "set home location";
 homeLocationQuestion = "do you want to set this place as your home location?";
 placeholder = "placeholder";
+photoSaved = "Photo saved ...";
+savingPhoto = "Saving photo ...";
 
 // Settings
 fuelSupplier = "supplier";

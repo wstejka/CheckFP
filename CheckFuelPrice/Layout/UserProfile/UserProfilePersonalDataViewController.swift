@@ -41,6 +41,8 @@ extension UserProfilePersonalDataViewController : ImagePickerDelegate {
             log.error("Not authenticated user.")
             return
         }
+        progressBar.isHidden = false
+        updateHeaderLabelFor(error: nil, successText: "savingPhoto".localized(), failText: "", cleanText: false)
         
         // Create the file metadata
         let metadata = StorageMetadata()
@@ -51,8 +53,13 @@ extension UserProfilePersonalDataViewController : ImagePickerDelegate {
         let databaseRef = self.fbReferenceUser?.child(uid)
         newImageView.saveUser(with: storageRef, dbRef: databaseRef, progress: { (progress) in
             
-        }, final: { (error) in
+            self.progressBar.setProgress(Float(progress), animated: true)
             
+        }, final: { (error) in
+            self.progressBar.isHidden = true
+            self.updateHeaderLabelFor(error: error,
+                                      successText: "photoSaved".localized(),
+                                      failText: error.debugDescription)
         })
         
         imagePicker.dismiss(animated: true, completion: nil)
@@ -81,6 +88,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var userPhotoImageView: UIImageView!
     @IBOutlet weak var photoViewCell: UITableViewCell!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     
     // MARK: - UIViewController lifecycle
@@ -106,6 +114,9 @@ class UserProfilePersonalDataViewController: UITableViewController {
         self.userPhotoImageView.layer.cornerRadius = 20
         self.userPhotoImageView.layer.masksToBounds = true;
         self.userPhotoImageView.layer.borderWidth = 0;
+        
+        // show progress bar only for image upload event
+        self.progressBar.isHidden = true
         
         // tableView settings
         self.tableView.allowsSelection = false
@@ -249,22 +260,34 @@ class UserProfilePersonalDataViewController: UITableViewController {
             let ref = Database.database().reference(withPath: FirebaseNode.users.rawValue)
             ref.child(uid).setValue(fuelUser.toAnyObject(), withCompletionBlock: { (error, dataRef) in
                 
-                DispatchQueue.main.async {
-                    
-                    if error != nil {
-                        self.headerLabel.textColor = .red
-                        self.headerLabel.text = error.debugDescription
-                    }
-                    else {
-                        self.headerLabel.textColor = ThemesManager.get(color: .secondary)
-                        self.headerLabel.text = "dataSaved".localized().capitalizingFirstLetter()
-                    }
-                    
-                }
-                // Clear label after 2 secs
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.dispatchTimeDelay, execute: {
-                    self.headerLabel.text = ""
-                })
+
+                self.updateHeaderLabelFor(error: error,
+                                     successText: "dataSaved".localized().capitalizingFirstLetter(),
+                                     failText: error.debugDescription)
+            })
+        }
+    }
+
+    
+    func updateHeaderLabelFor(error : Error?, successText : String, failText: String, cleanText: Bool = true) {
+        log.info("")
+        
+        DispatchQueue.main.async {
+            
+            if error != nil {
+                self.headerLabel.textColor = .red
+                self.headerLabel.text = failText
+            }
+            else {
+                self.headerLabel.textColor = ThemesManager.get(color: .secondary)
+                self.headerLabel.text = successText
+            }
+            
+        }
+        if cleanText == true {
+            // Clear label after 2 secs
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + self.dispatchTimeDelay, execute: {
+                self.headerLabel.text = ""
             })
         }
     }
