@@ -669,7 +669,8 @@
 				9EA2031A1EA0BDBB00F18A3A /* Resources */,
 				9EA203191EA0BDBB00F18A3A /* Frameworks */,
 				9E5C84331EA0CC5800C7DFA7 /* Embed Frameworks */,
-				9E1E7F091EF67976008FC7F5 /* ShellScript */,
+				9E1E7F091EF67976008FC7F5 /* Run Script Fabric */,
+				9EEE32ED1F24C6C9002874E4 /* Run Script - Carthage */,
 				5FD25DF9D1FD3D677A7FF953 /* [CP] Embed Pods Frameworks */,
 				89CF1D1CFCE27674628E49B3 /* [CP] Copy Pods Resources */,
 			);
@@ -877,18 +878,33 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9E1E7F091EF67976008FC7F5 /* ShellScript */ = {
+		9E1E7F091EF67976008FC7F5 /* Run Script Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script Fabric";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run bd9827cffe79ef479d2580acfa51ace09e5c0f6b f6a92ed2c9f71d335b7b200c57277691d2f2fcc3e8e1017980b2c06c71e860d7";
+		};
+		9EEE32ED1F24C6C9002874E4 /* Run Script - Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script - Carthage";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
