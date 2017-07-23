@@ -10,6 +10,12 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseAuthUI
+import FirebaseGoogleAuthUI
+import FirebaseFacebookAuthUI
+import FirebaseTwitterAuthUI
+import FirebasePhoneAuthUI
+import TwitterKit
+import Keys
 
 
 // MARK: - FirebaseUI extension
@@ -51,13 +57,19 @@ extension MainTabBarViewController: FUIAuthDelegate {
             }
         }
     }
+    
+    func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
+
+        let authPicker = FUIAuthPickerViewController(authUI: authUI)
+        authPicker.view.backgroundColor = ThemesManager.get(color: .primary)
+        
+        return authPicker
+    }
 }
 
 // MARK: - Implementation
 class MainTabBarViewController: UITabBarController {
     
-
-
     // MARK: - UIView lifecycle
     
     override func viewDidLoad() {
@@ -80,8 +92,22 @@ class MainTabBarViewController: UITabBarController {
             counter += 1
         }
         
-        // Make this class delegate of
-        FUIAuth.defaultAuthUI()?.delegate = self
+        // ==== Use FIREBASE library to configure APIs
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI?.delegate = self
+        
+        // === Set up Twitter consumer's key and secret
+        let key = CheckFPKeys()
+        Twitter.sharedInstance().start(withConsumerKey:key.twitterConsumerKey, consumerSecret:key.twitterConsumerSecret)
+        
+        let providers: [FUIAuthProvider] = [
+            FUIGoogleAuth(),
+            FUIFacebookAuth(),
+            FUITwitterAuth(),
+            //            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
+        ]
+        
+        authUI?.providers = providers
         checkLoggedIn()
 
     }

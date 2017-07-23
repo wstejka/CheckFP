@@ -73,22 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Run UserConfigurationManager which keeps up-to-date the user's configuration
         _ = UserConfigurationManager.instance()
-        
-        // === Set up Twitter consumer's key and secret
-        let key = CheckFPKeys()
-        Twitter.sharedInstance().start(withConsumerKey:key.twitterConsumerKey, consumerSecret:key.twitterConsumerSecret)
-
-        // ==== Use FIREBASE library to configure APIs
-        let authUI = FUIAuth.defaultAuthUI()
-        let providers: [FUIAuthProvider] = [
-            FUIGoogleAuth(),
-            FUIFacebookAuth(),
-            FUITwitterAuth(),
-//            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
-            ]
-        
-        authUI?.providers = providers
-        
     
         return true
     }
