@@ -114,7 +114,7 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
         }
         cell.section = collectionView.tag
         cell.row = indexPath.row
-        cell.layer.cornerRadius = 10.0
+        cell.layer.cornerRadius = Utils.smallCornerRadius
         cell.backgroundColor = UIColor.flatWhite()
         
         let item = model[collectionView.tag][indexPath.row]

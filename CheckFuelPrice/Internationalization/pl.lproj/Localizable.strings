@@ -83,6 +83,7 @@ orders = "zamówienia";
 purchases = "zakupy";
 statistics = "statystyki";
 settings = "ustawienia";
+notifications = "notyfikacje";
 
 mainTab1Name = "dane";
 mainTab2Name = "statystyki";

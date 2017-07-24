@@ -111,7 +111,7 @@ class UserProfilePersonalDataViewController: UITableViewController {
         
         // userPhotoImageView
         self.userPhotoImageView.image = UIImage(named: "male_big")
-        self.userPhotoImageView.layer.cornerRadius = 20
+        self.userPhotoImageView.layer.cornerRadius = Utils.defaultCornerRadius
         self.userPhotoImageView.layer.masksToBounds = true;
         self.userPhotoImageView.layer.borderWidth = 0;
         

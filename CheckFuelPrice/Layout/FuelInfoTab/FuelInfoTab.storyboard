@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Cui-mn-Nus">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Cui-mn-Nus">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
                 <navigationController id="Cui-mn-Nus" customClass="GenericNavigationController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Fuel" image="Gas Station Logo" id="KGy-qN-i2n"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9vn-YN-wqS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9vn-YN-wqS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -59,13 +59,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoThirdCell" rowHeight="69" id="yIY-Bf-Rnf">
-                                        <rect key="frame" x="0.0" y="203" width="375" height="69"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelInfoThirdCell" rowHeight="47" id="yIY-Bf-Rnf">
+                                        <rect key="frame" x="0.0" y="203" width="375" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yIY-Bf-Rnf" id="mM9-nw-dg3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="46.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="rwB-Zj-WPc" kind="show" identifier="NotificationsSegue" id="q8x-Eh-cVv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -115,6 +118,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaV-cc-6cD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1922" y="-570"/>
+        </scene>
+        <!--Notifications-->
+        <scene sceneID="EXr-Bi-Swc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notifications" id="rwB-Zj-WPc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DvE-Ul-vkw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1519" y="-419"/>
         </scene>
         <!--FuelPrices-->
         <scene sceneID="8VG-4p-iMK">

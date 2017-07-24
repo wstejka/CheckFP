@@ -17,7 +17,7 @@ extension UIView
         }
 
         _ = self.addSubview(view)
-        let cornerRadius : CGFloat = 10.0
+        let cornerRadius : CGFloat = Utils.smallCornerRadius
         self.layer.cornerRadius = cornerRadius
         view.layer.cornerRadius = cornerRadius
 

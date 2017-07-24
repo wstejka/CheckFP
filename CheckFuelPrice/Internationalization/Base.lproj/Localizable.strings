@@ -80,6 +80,7 @@ orders = "my orders";
 purchases = "purchases";
 statistics = "statistics";
 settings = "settings";
+notifications = "notifications";
 
 mainTab1Name = "data";
 mainTab2Name = "statistics";

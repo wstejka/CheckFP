@@ -82,6 +82,9 @@
 		9EA2035C1EA0C11500F18A3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EA2035E1EA0C11500F18A3A /* Localizable.strings */; };
 		9EAC4BC01ECF0FA000F7B81B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */; };
 		9EB2D1531F02587E00299547 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB2D1521F02587E00299547 /* ZFRippleButton.swift */; };
+		9EDDE9971F25EF3B0087597E /* FuelInfoThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDDE9961F25EF3B0087597E /* FuelInfoThirdCell.xib */; };
+		9EDDE9991F25F0290087597E /* FuelInfoThirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDDE9981F25F0290087597E /* FuelInfoThirdTableViewCell.swift */; };
+		9EEE32FE1F251CA1002874E4 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EEE32FD1F251CA1002874E4 /* Notifications.storyboard */; };
 		9EF038661EFF0B0500670527 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */; };
 		9EF0386A1F0137F300670527 /* FirebaseConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF038691F0137F300670527 /* FirebaseConnectionManager.swift */; };
 		9EF1A2C71EFC6894008EDE98 /* EZLoadingActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */; };
@@ -202,7 +205,10 @@
 		9EA203601EA0C13A00F18A3A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EB2D1521F02587E00299547 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
+		9EDDE9961F25EF3B0087597E /* FuelInfoThirdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FuelInfoThirdCell.xib; sourceTree = "<group>"; };
+		9EDDE9981F25F0290087597E /* FuelInfoThirdTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelInfoThirdTableViewCell.swift; sourceTree = "<group>"; };
 		9EEC3D9C1F20DE4600D216A6 /* CheckFuelPrice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckFuelPrice.entitlements; sourceTree = "<group>"; };
+		9EEE32FD1F251CA1002874E4 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		9EF038651EFF0B0500670527 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		9EF038691F0137F300670527 /* FirebaseConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConnectionManager.swift; sourceTree = "<group>"; };
 		9EF1A2C61EFC6894008EDE98 /* EZLoadingActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZLoadingActivity.framework; path = ../Carthage/Build/iOS/EZLoadingActivity.framework; sourceTree = "<group>"; };
@@ -277,6 +283,7 @@
 		9E1C03901EE2BA160023BCED /* MainTab1 */ = {
 			isa = PBXGroup;
 			children = (
+				9EEE32FC1F251CA1002874E4 /* Notifications */,
 				9E4A1F871EDDF3070044F3DD /* FuelInfoTab */,
 				9E1C03891EE2B7B30023BCED /* FuelPrices */,
 				9E1C03911EE2BA9F0023BCED /* Statistics */,
@@ -433,6 +440,8 @@
 			children = (
 				9E9E7F261EE1A7AA0006414D /* CustomCell.xib */,
 				9E4A1F911EDE0C1D0044F3DD /* FuelInfoTopTableViewCell.swift */,
+				9EDDE9961F25EF3B0087597E /* FuelInfoThirdCell.xib */,
+				9EDDE9981F25F0290087597E /* FuelInfoThirdTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -640,6 +649,15 @@
 			name = AppDelegates;
 			sourceTree = "<group>";
 		};
+		9EEE32FC1F251CA1002874E4 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				9EEE32FD1F251CA1002874E4 /* Notifications.storyboard */,
+			);
+			name = Notifications;
+			path = Layout/Notifications;
+			sourceTree = "<group>";
+		};
 		9EF1A2CE1EFED3BF008EDE98 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -768,7 +786,9 @@
 				9E1C038B1EE2B7B30023BCED /* FuelPrices.storyboard in Resources */,
 				9E63CDEF1F180FC500941D54 /* FuelTypeView.xib in Resources */,
 				9E4A1FBD1EE0AC550044F3DD /* UserProfile.storyboard in Resources */,
+				9EEE32FE1F251CA1002874E4 /* Notifications.storyboard in Resources */,
 				9E1C039C1EE2BCD30023BCED /* Purchases.storyboard in Resources */,
+				9EDDE9971F25EF3B0087597E /* FuelInfoThirdCell.xib in Resources */,
 				9E4A1FBB1EE0AAEC0044F3DD /* Settings.storyboard in Resources */,
 				9E4A1F8C1EDDF45D0044F3DD /* FuelInfoTab.storyboard in Resources */,
 				9EA203271EA0BDBC00F18A3A /* Assets.xcassets in Resources */,
@@ -940,6 +960,7 @@
 				9E63CDE61F1603B300941D54 /* PurchasesTableViewCell.swift in Sources */,
 				9EA203201EA0BDBB00F18A3A /* AppDelegate.swift in Sources */,
 				9E63CDEA1F165BAC00941D54 /* FuelPurchase.swift in Sources */,
+				9EDDE9991F25F0290087597E /* FuelInfoThirdTableViewCell.swift in Sources */,
 				9E1E7F151EF93F75008FC7F5 /* ThemesManager.swift in Sources */,
 				9E63CDF11F180FEC00941D54 /* FuelTypeView.swift in Sources */,
 				9E4A1F5B1ED773210044F3DD /* FuelPriceItem.swift in Sources */,

@@ -65,4 +65,8 @@ class Utils {
         }
         
     }
+    
+    static let defaultCornerRadius : CGFloat = 20.0
+    static let smallCornerRadius : CGFloat = 8.0
+    
 }

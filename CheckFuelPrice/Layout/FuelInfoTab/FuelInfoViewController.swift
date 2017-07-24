@@ -27,18 +27,18 @@ extension FuelInfoViewController: UITableViewDataSource {
             guard let dataForCell = self.getTilesData[indexPath.row] else {
                 return UITableViewCell()
             }
-            guard let fuelInfoTopCell = self.dataTableView.dequeueReusableCell(withIdentifier: fuelInfoTableCellIdentifier,
+            guard let cell = self.dataTableView.dequeueReusableCell(withIdentifier: fuelInfoTableCellIdentifier,
                                                                                for: indexPath) as? FuelInfoTopTableViewCell else {
                                                                                 return UITableViewCell()
             }
             
             for imagePosition in dataForCell.keys {
                 
-                var imageLabel : UILabel = fuelInfoTopCell.leftImageDescriptionLabel
-                var imageView : UIImageView = fuelInfoTopCell.leftImage
+                var imageLabel : UILabel = cell.leftImageDescriptionLabel
+                var imageView : UIImageView = cell.leftImage
                 if imagePosition == .right {
-                    imageLabel = fuelInfoTopCell.rightImageDescriptionLabel
-                    imageView = fuelInfoTopCell.rightImage
+                    imageLabel = cell.rightImageDescriptionLabel
+                    imageView = cell.rightImage
                 }
 
                 guard let imageProperties = dataForCell[imagePosition] else {
@@ -62,21 +62,32 @@ extension FuelInfoViewController: UITableViewDataSource {
                                                                          action: selector)
                 imageView.isUserInteractionEnabled = true
                 imageView.addGestureRecognizer(imageGestureRecognizer)
-                imageView.layer.cornerRadius = 20
+                imageView.layer.cornerRadius = Utils.defaultCornerRadius
                 imageView.clipsToBounds = true
                 
             }
-            fuelInfoTopCell.separatorInset = UIEdgeInsets(top: 0, left: 10000, bottom: 0, right: 0)
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 2000, bottom: 0, right: 0)
             
-            return fuelInfoTopCell
+            return cell
         }
         else {
-            let cell = UITableViewCell()
+
+            guard let cell = self.dataTableView.dequeueReusableCell(withIdentifier: fuelInfoThirdTableViewCell,
+                                                                               for: indexPath) as? FuelInfoThirdTableViewCell else {
+                                                                                return UITableViewCell()
+            }
+            
             cell.accessoryType = .disclosureIndicator
+            cell.customImageView!.clipsToBounds = true
+            cell.customImageView?.image = UIImage(named: "bell")
+            cell.customImageView?.contentMode = .scaleAspectFill
+            cell.customTitle?.text = "notifications".localized().capitalizingFirstLetter()
+
             return cell
         }
         
     }
+    
     
     func currentFuelPricesImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
@@ -98,7 +109,9 @@ extension FuelInfoViewController: UITableViewDataSource {
         log.verbose("Enter")
         performSegue(withIdentifier: ViewSegue.SettingsSegue.rawValue, sender: nil)
     }
-
+    
+    
+    
 }
 
 // MARK: - UITableView Delegate methods
@@ -110,6 +123,12 @@ extension FuelInfoViewController: UITableViewDelegate {
             return false
         }
         return true
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == CustomCellId.fuelBottomRow.rawValue {
+            performSegue(withIdentifier: ViewSegue.NotificationsSegue.rawValue, sender: nil)
+        }
     }
     
 }
@@ -148,9 +167,11 @@ class FuelInfoViewController: UIViewController {
         case PurchasesSegue     = "PurchasesSegue"
         case StatisticsSegue    = "StatisticsSegue"
         case SettingsSegue      = "SettingsSegue"
+        case NotificationsSegue = "NotificationsSegue"
     }
     
     let fuelInfoTableCellIdentifier = "fuelInfoTableCellIdentifier"
+    let fuelInfoThirdTableViewCell = "FuelInfoThirdTableViewCell"
     
     
     let getTilesData = { () -> [Int : Dictionary<FuelInfoViewController.ImagePosition, [FuelInfoViewController.ImageProperties : Any]>] in
@@ -202,7 +223,10 @@ class FuelInfoViewController: UIViewController {
         // Register Xib
         let sectionHeaderNib = UINib(nibName: "CustomCell", bundle: nil)
         self.dataTableView.register(sectionHeaderNib, forCellReuseIdentifier: fuelInfoTableCellIdentifier)
-        
+
+        let sectionBottomNib = UINib(nibName: "FuelInfoThirdCell", bundle: nil)
+        self.dataTableView.register(sectionBottomNib, forCellReuseIdentifier: fuelInfoThirdTableViewCell)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -229,7 +253,6 @@ class FuelInfoViewController: UIViewController {
         if let lastSelectedRow = self.dataTableView.indexPathForSelectedRow {
             self.dataTableView.deselectRow(at: lastSelectedRow, animated: false)
         }
-        
     }
 
     // MARK: - Actions
