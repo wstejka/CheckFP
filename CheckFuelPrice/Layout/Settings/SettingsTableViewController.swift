@@ -250,6 +250,10 @@ class SettingsTableViewController: UITableViewController {
         tableView.tableHeaderView?.addSubview(searchBar)
         tableView.tableHeaderView?.sizeToFit()
         
+        // hide search bar until table is not scrolled up
+        var contentOffset = tableView.contentOffset
+        contentOffset.y += searchBar.frame.size.height
+        tableView.contentOffset = contentOffset
     }
     
     override func viewDidAppear(_ animated: Bool) {
