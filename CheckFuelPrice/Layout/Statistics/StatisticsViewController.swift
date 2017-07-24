@@ -57,6 +57,8 @@ extension StatisticsViewController: UICollectionViewDelegate {
         }
         _ = cell.view.shake(direction: ShakeDirection.Vertical)
         
+        self.navigationItem.title = fuelName.rawValue.localized()
+        
     }
 
 }
@@ -100,7 +102,7 @@ class StatisticsViewController: UIViewController {
         layout.minimumLineSpacing = 0
         collectionView!.collectionViewLayout = layout
         
-        self.navigationItem.title = "statistics".localized().capitalizingFirstLetter()
+        self.navigationItem.title = FuelName.unleaded95.rawValue.localized()
         
         // Instantiate StatisticsPageViewController
         let statisticsPageVC = UIStoryboard(name: "Statistics", bundle: nil).instantiateViewController(withIdentifier: "StatisticsPageViewController") as! StatisticsPageViewController
