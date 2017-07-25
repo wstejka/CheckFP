@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,10 +11,10 @@
         <!--Fuel-->
         <scene sceneID="DBQ-Rd-RYR">
             <objects>
-                <navigationController id="Cui-mn-Nus" customClass="GenericNavigationController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="Cui-mn-Nus" customClass="GenericNavigationController" customModule="Fuzee" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Fuel" image="Gas Station Logo" id="KGy-qN-i2n"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9vn-YN-wqS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9vn-YN-wqS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -30,7 +29,7 @@
         <!--Fuel Info View Controller-->
         <scene sceneID="jl5-4O-RDK">
             <objects>
-                <viewController id="zXf-HX-HLo" customClass="FuelInfoViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zXf-HX-HLo" customClass="FuelInfoViewController" customModule="Fuzee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hLP-vJ-hFh"/>
                         <viewControllerLayoutGuide type="bottom" id="zPE-s2-eQR"/>

@@ -137,7 +137,7 @@ class FuelInfoViewController: UIViewController {
 
 
     // MARK: - Constants
-    let predefinedNumberOfTableRow =  CustomCellId.elementsCount
+    let predefinedNumberOfTableRow =  3
     enum CustomCellId : Int {
         case fuelDataRow = 0
         case fuelSettingsRow

@@ -191,13 +191,13 @@
 		9E9E7F221EE16DC00006414D /* StatisticsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTabViewController.swift; sourceTree = "<group>"; };
 		9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericNavigationController.swift; sourceTree = "<group>"; };
 		9E9E7F261EE1A7AA0006414D /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
-		9EA2031C1EA0BDBB00F18A3A /* CheckFuelPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckFuelPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EA2031C1EA0BDBB00F18A3A /* Fuzee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuzee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA2031F1EA0BDBB00F18A3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EA203241EA0BDBB00F18A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9EA203261EA0BDBC00F18A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EA203291EA0BDBC00F18A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EA2032B1EA0BDBC00F18A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9EA203301EA0BDBC00F18A3A /* CheckFuelPriceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckFuelPriceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EA203301EA0BDBC00F18A3A /* FuzeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FuzeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA203341EA0BDBC00F18A3A /* CheckFuelPriceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFuelPriceTests.swift; sourceTree = "<group>"; };
 		9EA203361EA0BDBC00F18A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EA203401EA0BEA900F18A3A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -285,12 +285,12 @@
 		9E1C03901EE2BA160023BCED /* MainTab1 */ = {
 			isa = PBXGroup;
 			children = (
-				9EEE32FC1F251CA1002874E4 /* Notifications */,
 				9E4A1F871EDDF3070044F3DD /* FuelInfoTab */,
 				9E1C03891EE2B7B30023BCED /* FuelPrices */,
 				9E1C03911EE2BA9F0023BCED /* Statistics */,
 				9E4A1FB41EE0939D0044F3DD /* Settings */,
 				9E1C039A1EE2BCD30023BCED /* Purchases */,
+				9EEE32FC1F251CA1002874E4 /* Notifications */,
 			);
 			name = MainTab1;
 			sourceTree = "<group>";
@@ -560,7 +560,7 @@
 		9EA203131EA0BDBB00F18A3A = {
 			isa = PBXGroup;
 			children = (
-				9EA2031E1EA0BDBB00F18A3A /* CheckFuelPrice */,
+				9EA2031E1EA0BDBB00F18A3A /* Fuzee */,
 				9EA203331EA0BDBC00F18A3A /* CheckFuelPriceTests */,
 				9EA2031D1EA0BDBB00F18A3A /* Products */,
 				E293B49EBB814D67026EBEFD /* Pods */,
@@ -571,13 +571,13 @@
 		9EA2031D1EA0BDBB00F18A3A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9EA2031C1EA0BDBB00F18A3A /* CheckFuelPrice.app */,
-				9EA203301EA0BDBC00F18A3A /* CheckFuelPriceTests.xctest */,
+				9EA2031C1EA0BDBB00F18A3A /* Fuzee.app */,
+				9EA203301EA0BDBC00F18A3A /* FuzeeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9EA2031E1EA0BDBB00F18A3A /* CheckFuelPrice */ = {
+		9EA2031E1EA0BDBB00F18A3A /* Fuzee */ = {
 			isa = PBXGroup;
 			children = (
 				9EEC3D9C1F20DE4600D216A6 /* CheckFuelPrice.entitlements */,
@@ -589,6 +589,7 @@
 				9EA203571EA0BF3A00F18A3A /* AppDelegates */,
 				9EA203261EA0BDBC00F18A3A /* Assets.xcassets */,
 			);
+			name = Fuzee;
 			path = CheckFuelPrice;
 			sourceTree = "<group>";
 		};
@@ -689,9 +690,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9EA2031B1EA0BDBB00F18A3A /* CheckFuelPrice */ = {
+		9EA2031B1EA0BDBB00F18A3A /* Fuzee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9EA203391EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "CheckFuelPrice" */;
+			buildConfigurationList = 9EA203391EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "Fuzee" */;
 			buildPhases = (
 				9EDBA7891F27341C0069BCCE /* Run Script - Increment Build */,
 				383D47E1683A31E75E9AF365 /* [CP] Check Pods Manifest.lock */,
@@ -708,14 +709,14 @@
 			);
 			dependencies = (
 			);
-			name = CheckFuelPrice;
+			name = Fuzee;
 			productName = CheckFuelPrice;
-			productReference = 9EA2031C1EA0BDBB00F18A3A /* CheckFuelPrice.app */;
+			productReference = 9EA2031C1EA0BDBB00F18A3A /* Fuzee.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9EA2032F1EA0BDBC00F18A3A /* CheckFuelPriceTests */ = {
+		9EA2032F1EA0BDBC00F18A3A /* FuzeeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9EA2033C1EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "CheckFuelPriceTests" */;
+			buildConfigurationList = 9EA2033C1EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "FuzeeTests" */;
 			buildPhases = (
 				9EA2032C1EA0BDBC00F18A3A /* Sources */,
 				9EA2032D1EA0BDBC00F18A3A /* Frameworks */,
@@ -726,9 +727,9 @@
 			dependencies = (
 				9EA203321EA0BDBC00F18A3A /* PBXTargetDependency */,
 			);
-			name = CheckFuelPriceTests;
+			name = FuzeeTests;
 			productName = CheckFuelPriceTests;
-			productReference = 9EA203301EA0BDBC00F18A3A /* CheckFuelPriceTests.xctest */;
+			productReference = 9EA203301EA0BDBC00F18A3A /* FuzeeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -763,7 +764,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9EA203171EA0BDBB00F18A3A /* Build configuration list for PBXProject "CheckFuelPrice" */;
+			buildConfigurationList = 9EA203171EA0BDBB00F18A3A /* Build configuration list for PBXProject "Fuzee" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -778,8 +779,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9EA2031B1EA0BDBB00F18A3A /* CheckFuelPrice */,
-				9EA2032F1EA0BDBC00F18A3A /* CheckFuelPriceTests */,
+				9EA2031B1EA0BDBB00F18A3A /* Fuzee */,
+				9EA2032F1EA0BDBC00F18A3A /* FuzeeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1033,7 +1034,7 @@
 /* Begin PBXTargetDependency section */
 		9EA203321EA0BDBC00F18A3A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9EA2031B1EA0BDBB00F18A3A /* CheckFuelPrice */;
+			target = 9EA2031B1EA0BDBB00F18A3A /* Fuzee */;
 			targetProxy = 9EA203311EA0BDBC00F18A3A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1252,7 +1253,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = wstejka.com.CheckFuelPriceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CheckFuelPrice.app/CheckFuelPrice";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fuzee.app/Fuzee";
 			};
 			name = Debug;
 		};
@@ -1267,14 +1268,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = wstejka.com.CheckFuelPriceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CheckFuelPrice.app/CheckFuelPrice";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fuzee.app/Fuzee";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9EA203171EA0BDBB00F18A3A /* Build configuration list for PBXProject "CheckFuelPrice" */ = {
+		9EA203171EA0BDBB00F18A3A /* Build configuration list for PBXProject "Fuzee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9EA203371EA0BDBC00F18A3A /* Debug */,
@@ -1283,7 +1284,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9EA203391EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "CheckFuelPrice" */ = {
+		9EA203391EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "Fuzee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9EA2033A1EA0BDBC00F18A3A /* Debug */,
@@ -1292,7 +1293,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9EA2033C1EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "CheckFuelPriceTests" */ = {
+		9EA2033C1EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "FuzeeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9EA2033D1EA0BDBC00F18A3A /* Debug */,

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -15,7 +14,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="F7p-Bs-NuR">
             <objects>
-                <viewController id="r1K-AY-R92" customClass="UserProfileViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="r1K-AY-R92" customClass="UserProfileViewController" customModule="Fuzee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fdx-3B-JLx"/>
                         <viewControllerLayoutGuide type="bottom" id="Z3R-cd-daj"/>
@@ -53,7 +52,7 @@
         <!--User Profile Personal Data View Controller-->
         <scene sceneID="H9h-Yt-2os">
             <objects>
-                <tableViewController id="ycA-wb-qj2" customClass="UserProfilePersonalDataViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ycA-wb-qj2" customClass="UserProfilePersonalDataViewController" customModule="Fuzee" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="wpi-JK-R4m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +89,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="52Z-6E-qAK">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="52Z-6E-qAK">
                                                     <rect key="frame" x="26.5" y="8" width="160" height="160.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="52Z-6E-qAK" secondAttribute="height" id="FcP-zU-Z0U"/>
@@ -212,7 +211,7 @@
         <scene sceneID="yQ6-rM-oMH">
             <objects>
                 <navigationController storyboardIdentifier="UserProfileMapNavigationController" id="wCh-WN-Rsu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ltB-eN-t1I">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ltB-eN-t1I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -227,7 +226,7 @@
         <!--User Profile Map View Controller-->
         <scene sceneID="W5G-gD-hbs">
             <objects>
-                <viewController definesPresentationContext="YES" id="KUM-KD-G78" customClass="UserProfileMapViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" id="KUM-KD-G78" customClass="UserProfileMapViewController" customModule="Fuzee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KJA-0x-0Rp"/>
                         <viewControllerLayoutGuide type="bottom" id="fo6-G4-ebw"/>
@@ -277,7 +276,7 @@
         <!--Location Search Table-->
         <scene sceneID="L3o-Uz-Sj7">
             <objects>
-                <tableViewController storyboardIdentifier="LocationSearchTable" id="ybC-D3-uHF" customClass="LocationSearchTable" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LocationSearchTable" id="ybC-D3-uHF" customClass="LocationSearchTable" customModule="Fuzee" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Iz-l8-Oar">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -322,7 +321,7 @@
         <scene sceneID="IYI-Vl-Opx">
             <objects>
                 <navigationController storyboardIdentifier="UserProfilePersonalDataNavigationController" id="p0S-e5-e9m" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gBz-BW-JYa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gBz-BW-JYa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
