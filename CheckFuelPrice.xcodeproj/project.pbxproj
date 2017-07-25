@@ -82,6 +82,7 @@
 		9EA2035C1EA0C11500F18A3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EA2035E1EA0C11500F18A3A /* Localizable.strings */; };
 		9EAC4BC01ECF0FA000F7B81B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */; };
 		9EB2D1531F02587E00299547 /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB2D1521F02587E00299547 /* ZFRippleButton.swift */; };
+		9EDBA7881F27340D0069BCCE /* incrementBuild.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9EDBA7871F27340D0069BCCE /* incrementBuild.sh */; };
 		9EDDE9971F25EF3B0087597E /* FuelInfoThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDDE9961F25EF3B0087597E /* FuelInfoThirdCell.xib */; };
 		9EDDE9991F25F0290087597E /* FuelInfoThirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDDE9981F25F0290087597E /* FuelInfoThirdTableViewCell.swift */; };
 		9EEE32FE1F251CA1002874E4 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EEE32FD1F251CA1002874E4 /* Notifications.storyboard */; };
@@ -205,6 +206,7 @@
 		9EA203601EA0C13A00F18A3A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EB2D1521F02587E00299547 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
+		9EDBA7871F27340D0069BCCE /* incrementBuild.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = incrementBuild.sh; sourceTree = "<group>"; };
 		9EDDE9961F25EF3B0087597E /* FuelInfoThirdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FuelInfoThirdCell.xib; sourceTree = "<group>"; };
 		9EDDE9981F25F0290087597E /* FuelInfoThirdTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelInfoThirdTableViewCell.swift; sourceTree = "<group>"; };
 		9EEC3D9C1F20DE4600D216A6 /* CheckFuelPrice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheckFuelPrice.entitlements; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 		9E4A1F611ED775880044F3DD /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				9EDBA7861F27340D0069BCCE /* Scripts */,
 				9EA2033F1EA0BEA900F18A3A /* GlobalClassExtensions */,
 				9E5C84341EA0CD4200C7DFA7 /* Carthage Frameworks */,
 				9EA2032B1EA0BDBC00F18A3A /* Info.plist */,
@@ -649,6 +652,14 @@
 			name = AppDelegates;
 			sourceTree = "<group>";
 		};
+		9EDBA7861F27340D0069BCCE /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				9EDBA7871F27340D0069BCCE /* incrementBuild.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		9EEE32FC1F251CA1002874E4 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,6 +693,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EA203391EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "CheckFuelPrice" */;
 			buildPhases = (
+				9EDBA7891F27341C0069BCCE /* Run Script - Increment Build */,
 				383D47E1683A31E75E9AF365 /* [CP] Check Pods Manifest.lock */,
 				9EA203181EA0BDBB00F18A3A /* Sources */,
 				9EA2031A1EA0BDBB00F18A3A /* Resources */,
@@ -782,6 +794,7 @@
 				9E1E7F0C1EF7BC61008FC7F5 /* Login.storyboard in Resources */,
 				9EA2035C1EA0C11500F18A3A /* Localizable.strings in Resources */,
 				9E1C03931EE2BAC40023BCED /* Statistics.storyboard in Resources */,
+				9EDBA7881F27340D0069BCCE /* incrementBuild.sh in Resources */,
 				9EAC4BC01ECF0FA000F7B81B /* GoogleService-Info.plist in Resources */,
 				9E1C038B1EE2B7B30023BCED /* FuelPrices.storyboard in Resources */,
 				9E63CDEF1F180FC500941D54 /* FuelTypeView.xib in Resources */,
@@ -911,6 +924,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run bd9827cffe79ef479d2580acfa51ace09e5c0f6b f6a92ed2c9f71d335b7b200c57277691d2f2fcc3e8e1017980b2c06c71e860d7";
+		};
+		9EDBA7891F27341C0069BCCE /* Run Script - Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script - Increment Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Compilation\n$SRCROOT/CheckFuelPrice/Scripts/incrementBuild.sh";
 		};
 		9EEE32ED1F24C6C9002874E4 /* Run Script - Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
