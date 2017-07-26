@@ -13,6 +13,7 @@ class UserConfigurationManager {
     
     // MARK: Constants/Variable
     fileprivate static var userConfig = UserConfig()
+    fileprivate var configurationRef: DatabaseReference? = nil
     
     // MARK: Singleton lifecycle
     
@@ -37,18 +38,30 @@ class UserConfigurationManager {
     private init() {
         
         log.verbose("\(Thread.isMainThread)")
-
-        // Firebase uid
+        configurationRef = Database.database().reference(withPath: FirebaseNode.userSettings.rawValue)
+        refreshOnConnect()
+    }
+    
+    // MARK: - Methods
+    
+    func refreshOnConnect() {
+        log.verbose("")
+        
+        if configurationRef != nil {
+            configurationRef?.removeAllObservers()
+        }
+        startObserving()
+    }
+    
+    private func startObserving() {
+        log.verbose("")
         guard let uid = Auth.auth().currentUser?.uid else {
             log.error("This user is not authenticated.")
             return
         }
-        let connectedRef = Database.database().reference(withPath: FirebaseNode.userSettings.rawValue)
-        connectedRef.child(uid).observe(.value, with: { snapshot in
-
+        configurationRef?.child(uid).observe(.value, with: { snapshot in
+            
             DispatchQueue.global().async {
-                log.verbose("\(Thread.isMainThread)")
-                
                 synchronized(self) {
                     log.verbose("Current user's configuration \(snapshot)")
                     guard let userConfigFromSnapshot = UserConfig(snapshot: snapshot) else {
@@ -60,8 +73,6 @@ class UserConfigurationManager {
             }
         })
     }
-    
-    // MARK: - Methods
     
     static func getUserConfig() -> UserConfig {
  

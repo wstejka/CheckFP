@@ -35,7 +35,7 @@ extension MainTabBarViewController: FUIAuthDelegate {
             login()
         }else {
             // User is in! Here is where we code after signing in
-            // At the moment, we don't need to do anything here
+            UserConfigurationManager.instance().refreshOnConnect()
         }
     }
     
