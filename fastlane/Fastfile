@@ -11,7 +11,7 @@ platform :ios do
 
     # Fabric generated this lane for deployment to Crashlytics Beta
     # set 'export_method' to 'ad-hoc' if your Crashlytics Beta distribution uses ad-hoc provisioning
-    gym(scheme: 'FuelpredHockey', export_method: 'ad-hoc')
+    gym(scheme: 'FuelpredDistribution', export_method: 'ad-hoc')
 
     emails = values[:test_email] ? values[:test_email] : [ENV[NOTIFY_EMAIL_ADDRESS]] # You can list more emails here
     groups = values[:test_email] ? nil : nil # You can define groups on the web and reference them here
