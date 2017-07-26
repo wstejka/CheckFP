@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -14,7 +13,7 @@
         <!--Statistics Page View Controller-->
         <scene sceneID="M8M-tF-z5w">
             <objects>
-                <pageViewController storyboardIdentifier="StatisticsPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QFw-vz-ZVS" customClass="StatisticsPageViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="StatisticsPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="QFw-vz-ZVS" customClass="StatisticsPageViewController" customModule="Fuelpred" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="NMS-lD-ynK" kind="show" identifier="StatisticsGraphSegue" id="ls7-tG-wcL"/>
                         <segue destination="nAf-sF-b7c" kind="show" identifier="StatisticsTableSegue" id="xsI-3L-GLf"/>
@@ -27,7 +26,7 @@
         <!--Statistics Table View Controller-->
         <scene sceneID="hRF-ol-fap">
             <objects>
-                <viewController storyboardIdentifier="TableStatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nAf-sF-b7c" customClass="StatisticsTableViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableStatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nAf-sF-b7c" customClass="StatisticsTableViewController" customModule="Fuelpred" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="McG-AI-eFQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rk5-Iy-XzA"/>
@@ -90,7 +89,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="40" id="bBg-e7-SMt" customClass="StatisticsTableViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="40" id="bBg-e7-SMt" customClass="StatisticsTableViewCell" customModule="Fuelpred" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bBg-e7-SMt" id="0XB-pw-yKy">
@@ -173,7 +172,7 @@
         <!--Statistics Graph View Controller-->
         <scene sceneID="cKF-Pa-VxK">
             <objects>
-                <viewController storyboardIdentifier="GraphStatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NMS-lD-ynK" customClass="StatisticsGraphViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GraphStatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NMS-lD-ynK" customClass="StatisticsGraphViewController" customModule="Fuelpred" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UYz-cx-Dkn"/>
                         <viewControllerLayoutGuide type="bottom" id="omb-6A-6kg"/>
@@ -206,7 +205,7 @@
         <!--Statistics View Controller-->
         <scene sceneID="1uw-Ql-Vur">
             <objects>
-                <viewController id="uC4-TI-MHN" customClass="StatisticsViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uC4-TI-MHN" customClass="StatisticsViewController" customModule="Fuelpred" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BFr-nb-xZG"/>
                         <viewControllerLayoutGuide type="bottom" id="F9j-9K-MTl"/>
@@ -231,7 +230,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StatisticsCollectionViewCell" id="bcJ-h4-fAU" customClass="StatisticsCollectionViewCell" customModule="CheckFuelPrice" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StatisticsCollectionViewCell" id="bcJ-h4-fAU" customClass="StatisticsCollectionViewCell" customModule="Fuelpred" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="2" width="52" height="52"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
