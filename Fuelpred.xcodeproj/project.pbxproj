@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		253B111AB610F0F0242DFAD8 /* Pods_Fuelpred.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1E3B9165BD551FE9CD3C20 /* Pods_Fuelpred.framework */; };
 		9E1C038B1EE2B7B30023BCED /* FuelPrices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1C038A1EE2B7B30023BCED /* FuelPrices.storyboard */; };
 		9E1C038F1EE2B8140023BCED /* FuelPricesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1C038E1EE2B8140023BCED /* FuelPricesViewController.swift */; };
 		9E1C03931EE2BAC40023BCED /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1C03921EE2BAC40023BCED /* Statistics.storyboard */; };
@@ -94,7 +95,6 @@
 		9EF1A2CD1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CC1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift */; };
 		9EF1A2D01EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2CF1EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift */; };
 		9EF1A2D21EFEEE03008EDE98 /* FuelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF1A2D11EFEEE03008EDE98 /* FuelUser.swift */; };
-		F39594C9749C881D1C5796D5 /* Pods_Fuzee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774B725A7995A6CE50F006B6 /* Pods_Fuzee.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,9 +126,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E21FB8BA1D8A0B181376963 /* Pods-Fuelpred.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fuelpred.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fuelpred/Pods-Fuelpred.debug.xcconfig"; sourceTree = "<group>"; };
 		55289E13C7EBD12817AF1D69 /* Pods-CheckFuelPrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.debug.xcconfig"; sourceTree = "<group>"; };
 		58DF426AB05BE30C92185A92 /* Pods_CheckFuelPrice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckFuelPrice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		774B725A7995A6CE50F006B6 /* Pods_Fuzee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fuzee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97B1FE1A6EBE78B2EAA04C5E /* Pods-Fuelpred.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fuelpred.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fuelpred/Pods-Fuelpred.release.xcconfig"; sourceTree = "<group>"; };
 		9E1C038A1EE2B7B30023BCED /* FuelPrices.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FuelPrices.storyboard; sourceTree = "<group>"; };
 		9E1C038E1EE2B8140023BCED /* FuelPricesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelPricesViewController.swift; sourceTree = "<group>"; };
 		9E1C03921EE2BAC40023BCED /* Statistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Statistics.storyboard; path = CheckFuelPrice/Layout/Statistics/Statistics.storyboard; sourceTree = SOURCE_ROOT; };
@@ -192,13 +194,13 @@
 		9E9E7F221EE16DC00006414D /* StatisticsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTabViewController.swift; sourceTree = "<group>"; };
 		9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericNavigationController.swift; sourceTree = "<group>"; };
 		9E9E7F261EE1A7AA0006414D /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
-		9EA2031C1EA0BDBB00F18A3A /* Fuzee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuzee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EA2031C1EA0BDBB00F18A3A /* Fuelpred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuelpred.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA2031F1EA0BDBB00F18A3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EA203241EA0BDBB00F18A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9EA203261EA0BDBC00F18A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EA203291EA0BDBC00F18A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EA2032B1EA0BDBC00F18A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9EA203301EA0BDBC00F18A3A /* FuzeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FuzeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EA203301EA0BDBC00F18A3A /* FuelpredTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FuelpredTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA203341EA0BDBC00F18A3A /* CheckFuelPriceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFuelPriceTests.swift; sourceTree = "<group>"; };
 		9EA203361EA0BDBC00F18A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EA203401EA0BEA900F18A3A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		9EF1A2CF1EFED3FF008EDE98 /* UserProfilePersonalDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfilePersonalDataTableViewCell.swift; path = Layout/UserProfile/UserProfilePersonalDataTableViewCell.swift; sourceTree = "<group>"; };
 		9EF1A2D11EFEEE03008EDE98 /* FuelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelUser.swift; sourceTree = "<group>"; };
 		A52CB7FCF427E9BCA0F5A1DE /* Pods-Fuzee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fuzee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fuzee/Pods-Fuzee.debug.xcconfig"; sourceTree = "<group>"; };
+		CA1E3B9165BD551FE9CD3C20 /* Pods_Fuelpred.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fuelpred.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05FCF8D688022F0DEC47484 /* Pods-Fuzee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fuzee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fuzee/Pods-Fuzee.release.xcconfig"; sourceTree = "<group>"; };
 		E8EB5AF824A9D05627A8A166 /* Pods-CheckFuelPrice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckFuelPrice.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheckFuelPrice/Pods-CheckFuelPrice.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,7 +238,7 @@
 				9E5C842F1EA0CC5800C7DFA7 /* Kanna.framework in Frameworks */,
 				9E489B131F209A090020FAEC /* MapKit.framework in Frameworks */,
 				9E5C84311EA0CC5800C7DFA7 /* SwiftyBeaver.framework in Frameworks */,
-				F39594C9749C881D1C5796D5 /* Pods_Fuzee.framework in Frameworks */,
+				253B111AB610F0F0242DFAD8 /* Pods_Fuelpred.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +258,7 @@
 				9E489B121F209A090020FAEC /* MapKit.framework */,
 				58DF426AB05BE30C92185A92 /* Pods_CheckFuelPrice.framework */,
 				774B725A7995A6CE50F006B6 /* Pods_Fuzee.framework */,
+				CA1E3B9165BD551FE9CD3C20 /* Pods_Fuelpred.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -564,8 +568,8 @@
 		9EA203131EA0BDBB00F18A3A = {
 			isa = PBXGroup;
 			children = (
-				9EA2031E1EA0BDBB00F18A3A /* Fuzee */,
-				9EA203331EA0BDBC00F18A3A /* CheckFuelPriceTests */,
+				9EA2031E1EA0BDBB00F18A3A /* Fuelpred */,
+				9EA203331EA0BDBC00F18A3A /* FuelpredTests */,
 				9EA2031D1EA0BDBB00F18A3A /* Products */,
 				E293B49EBB814D67026EBEFD /* Pods */,
 				2B9065AB8E5745C72E2EB926 /* Frameworks */,
@@ -575,13 +579,13 @@
 		9EA2031D1EA0BDBB00F18A3A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9EA2031C1EA0BDBB00F18A3A /* Fuzee.app */,
-				9EA203301EA0BDBC00F18A3A /* FuzeeTests.xctest */,
+				9EA2031C1EA0BDBB00F18A3A /* Fuelpred.app */,
+				9EA203301EA0BDBC00F18A3A /* FuelpredTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9EA2031E1EA0BDBB00F18A3A /* Fuzee */ = {
+		9EA2031E1EA0BDBB00F18A3A /* Fuelpred */ = {
 			isa = PBXGroup;
 			children = (
 				9EEC3D9C1F20DE4600D216A6 /* CheckFuelPrice.entitlements */,
@@ -593,16 +597,17 @@
 				9EA203571EA0BF3A00F18A3A /* AppDelegates */,
 				9EA203261EA0BDBC00F18A3A /* Assets.xcassets */,
 			);
-			name = Fuzee;
+			name = Fuelpred;
 			path = CheckFuelPrice;
 			sourceTree = "<group>";
 		};
-		9EA203331EA0BDBC00F18A3A /* CheckFuelPriceTests */ = {
+		9EA203331EA0BDBC00F18A3A /* FuelpredTests */ = {
 			isa = PBXGroup;
 			children = (
 				9EA203341EA0BDBC00F18A3A /* CheckFuelPriceTests.swift */,
 				9EA203361EA0BDBC00F18A3A /* Info.plist */,
 			);
+			name = FuelpredTests;
 			path = CheckFuelPriceTests;
 			sourceTree = "<group>";
 		};
@@ -689,6 +694,8 @@
 				E8EB5AF824A9D05627A8A166 /* Pods-CheckFuelPrice.release.xcconfig */,
 				A52CB7FCF427E9BCA0F5A1DE /* Pods-Fuzee.debug.xcconfig */,
 				D05FCF8D688022F0DEC47484 /* Pods-Fuzee.release.xcconfig */,
+				0E21FB8BA1D8A0B181376963 /* Pods-Fuelpred.debug.xcconfig */,
+				97B1FE1A6EBE78B2EAA04C5E /* Pods-Fuelpred.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -696,9 +703,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9EA2031B1EA0BDBB00F18A3A /* Fuzee */ = {
+		9EA2031B1EA0BDBB00F18A3A /* Fuelpred */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9EA203391EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "Fuzee" */;
+			buildConfigurationList = 9EA203391EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "Fuelpred" */;
 			buildPhases = (
 				383D47E1683A31E75E9AF365 /* [CP] Check Pods Manifest.lock */,
 				9EDBA7891F27341C0069BCCE /* Run Script - Increment Build */,
@@ -715,14 +722,14 @@
 			);
 			dependencies = (
 			);
-			name = Fuzee;
+			name = Fuelpred;
 			productName = CheckFuelPrice;
-			productReference = 9EA2031C1EA0BDBB00F18A3A /* Fuzee.app */;
+			productReference = 9EA2031C1EA0BDBB00F18A3A /* Fuelpred.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9EA2032F1EA0BDBC00F18A3A /* FuzeeTests */ = {
+		9EA2032F1EA0BDBC00F18A3A /* FuelpredTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9EA2033C1EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "FuzeeTests" */;
+			buildConfigurationList = 9EA2033C1EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "FuelpredTests" */;
 			buildPhases = (
 				9EA2032C1EA0BDBC00F18A3A /* Sources */,
 				9EA2032D1EA0BDBC00F18A3A /* Frameworks */,
@@ -733,9 +740,9 @@
 			dependencies = (
 				9EA203321EA0BDBC00F18A3A /* PBXTargetDependency */,
 			);
-			name = FuzeeTests;
+			name = FuelpredTests;
 			productName = CheckFuelPriceTests;
-			productReference = 9EA203301EA0BDBC00F18A3A /* FuzeeTests.xctest */;
+			productReference = 9EA203301EA0BDBC00F18A3A /* FuelpredTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -770,7 +777,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9EA203171EA0BDBB00F18A3A /* Build configuration list for PBXProject "Fuzee" */;
+			buildConfigurationList = 9EA203171EA0BDBB00F18A3A /* Build configuration list for PBXProject "Fuelpred" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -785,8 +792,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9EA2031B1EA0BDBB00F18A3A /* Fuzee */,
-				9EA2032F1EA0BDBC00F18A3A /* FuzeeTests */,
+				9EA2031B1EA0BDBB00F18A3A /* Fuelpred */,
+				9EA2032F1EA0BDBC00F18A3A /* FuelpredTests */,
 			);
 		};
 /* End PBXProject section */
@@ -838,7 +845,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Fuzee-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Fuelpred-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -851,7 +858,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Fuzee/Pods-Fuzee-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Fuelpred/Pods-Fuelpred-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -890,7 +897,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fuzee/Pods-Fuzee-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fuelpred/Pods-Fuelpred-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		89CF1D1CFCE27674628E49B3 /* [CP] Copy Pods Resources */ = {
@@ -899,7 +906,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Fuzee/Pods-Fuzee-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Fuelpred/Pods-Fuelpred-resources.sh",
 				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
 				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
 				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle,
@@ -915,7 +922,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fuzee/Pods-Fuzee-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fuelpred/Pods-Fuelpred-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9E1E7F091EF67976008FC7F5 /* Run Script Fabric */ = {
@@ -1040,7 +1047,7 @@
 /* Begin PBXTargetDependency section */
 		9EA203321EA0BDBC00F18A3A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9EA2031B1EA0BDBB00F18A3A /* Fuzee */;
+			target = 9EA2031B1EA0BDBB00F18A3A /* Fuelpred */;
 			targetProxy = 9EA203311EA0BDBC00F18A3A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1172,7 +1179,7 @@
 		};
 		9EA2033A1EA0BDBC00F18A3A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A52CB7FCF427E9BCA0F5A1DE /* Pods-Fuzee.debug.xcconfig */;
+			baseConfigurationReference = 0E21FB8BA1D8A0B181376963 /* Pods-Fuelpred.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1212,7 +1219,7 @@
 		};
 		9EA2033B1EA0BDBC00F18A3A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D05FCF8D688022F0DEC47484 /* Pods-Fuzee.release.xcconfig */;
+			baseConfigurationReference = 97B1FE1A6EBE78B2EAA04C5E /* Pods-Fuelpred.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1259,7 +1266,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = wstejka.com.CheckFuelPriceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fuzee.app/Fuzee";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fuelpred.app/Fuelpred";
 			};
 			name = Debug;
 		};
@@ -1274,14 +1281,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = wstejka.com.CheckFuelPriceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fuzee.app/Fuzee";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fuelpred.app/Fuelpred";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9EA203171EA0BDBB00F18A3A /* Build configuration list for PBXProject "Fuzee" */ = {
+		9EA203171EA0BDBB00F18A3A /* Build configuration list for PBXProject "Fuelpred" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9EA203371EA0BDBC00F18A3A /* Debug */,
@@ -1290,7 +1297,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9EA203391EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "Fuzee" */ = {
+		9EA203391EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "Fuelpred" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9EA2033A1EA0BDBC00F18A3A /* Debug */,
@@ -1299,7 +1306,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9EA2033C1EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "FuzeeTests" */ = {
+		9EA2033C1EA0BDBC00F18A3A /* Build configuration list for PBXNativeTarget "FuelpredTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9EA2033D1EA0BDBC00F18A3A /* Debug */,
