@@ -52,7 +52,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>195</string>
+	<string>198</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -70,7 +70,7 @@
 	<key>FacebookAppID</key>
 	<string>782161628627909</string>
 	<key>FacebookDisplayName</key>
-	<string>Check Fuel Price</string>
+	<string>Fuzee</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
