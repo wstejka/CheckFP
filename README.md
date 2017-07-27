@@ -10,17 +10,17 @@ Here you go high level architecture of my solution:
 
 [![N|Solid](https://cldup.com/xAOyeufh3t.png)]()
 
-  1. Web scraping
-  2. Python daemon authenticate to Firebase project via email\password
-  3. Python daemon updates Firebase database once it identifies any changes in data on source web sites
-  4. User authenticates to Firebase only for the first time or when sing out and switched the profile. Authentication can be done in one of most pupular and convienient ways: using social network (facebook, twiter, google+) or email/password
-  5. App uploads needed data on demand and stay in-sync throughout observers.
-  6. App uploads/downloads files from/to Firebase storage
+1. Web scraping
+   2. Python daemon authenticates to Firebase project via email \ password
+   3. Python daemon updates Firebase database as soon as it notices any changes in data on source web sites
+   4. User authenticates to Firebase only for the first time or when signs out and switched to the other profile. Authentication can be done in one of most  convienient ways: using social network (facebook, twiter, google +) or email / password
+   5. App uploads needed data on demand and are in-sync throughout observers.
+   6. App uploads / downloads files from / to Firebase storage
 
 
 # Remarks
-- The application is isolated from colecting data. It makes it is highly resistant to any changes in structure of data in data source web sites
-- even though app is offline it still has an access to previously downloaded data using firebase persitency mechanism
+- The application is isolated from collecting data. It makes it highly resistant to any changes in the structure of data in data source web sites
+- even though the app is offline it still has an access to data previously downloaded using firebase persistency and reliability mechanism
 
 # Features list, framework and techniques used in app:
 
@@ -31,7 +31,7 @@ Here you go high level architecture of my solution:
 	- programmatically
 	- programmatically from pre-defined View/xib
 
-- Creating contraints:
+- Creating constraints:
 	- using Auto-layout
 	- programmatically
 	- with outleted constraints
