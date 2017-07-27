@@ -10,12 +10,13 @@ Here you go high level architecture of my solution:
 
 [![N|Solid](https://cldup.com/xAOyeufh3t.png)]()
 
+
 1. Web scraping
-   2. Python daemon authenticates to Firebase project via email \ password
-   3. Python daemon updates Firebase database as soon as it notices any changes in data on source web sites
-   4. User authenticates to Firebase only for the first time or when signs out and switched to the other profile. Authentication can be done in one of most  convienient ways: using social network (facebook, twiter, google +) or email / password
-   5. App uploads needed data on demand and are in-sync throughout observers.
-   6. App uploads / downloads files from / to Firebase storage
+2. Python daemon authenticates to Firebase project via email \ password
+3. Python daemon updates Firebase database as soon as it notices any changes in data on source web sites
+4. User authenticates to Firebase only for the first time or when signs out and switched to the other profile. Authentication can be done in one of most  convienient ways: using social network (facebook, twiter, google +) or email / password
+5. App uploads needed data on demand and are in-sync throughout observers.
+6. App uploads / downloads files from / to Firebase storage
 
 
 # Remarks
