@@ -1,6 +1,6 @@
 # Check fuel price
 
-[![N|Solid](https://cldup.com/J9sZWjpgof.png)]()
+[![N|Solid](https://cldup.com/a06I-yFNUk.png)]()
 
 Check Fuel Price aka Fuelpred is my private project created to present plenty techniques of developing applications on mobile ios platform. The app's code is written in Swift while backend one (which is used for provisioning data) is in Python.
 
@@ -8,7 +8,7 @@ Check Fuel Price aka Fuelpred is my private project created to present plenty te
 
 Here you go high level architecture of my solution:
 
-[![N|Solid](https://cldup.com/RpgUOEbodt.png)]()
+[![N|Solid](https://cldup.com/xAOyeufh3t.png)]()
 
 
 1. Web scraping
