@@ -8,7 +8,7 @@ Check Fuel Price aka Fuelpred is my private project created to present plenty te
 
 Here you go high level architecture of my solution:
 
-[![N|Solid](https://cldup.com/xAOyeufh3t.png)]()
+[![N|Solid](https://cldup.com/RpgUOEbodt.png)]()
 
 
 1. Web scraping
