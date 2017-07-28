@@ -23,7 +23,7 @@ Here you go high level architecture of my solution:
 - The application is isolated from collecting data. It makes it highly resistant to any changes in the structure of data in data source web sites
 - even though the app is offline it still has an access to data previously downloaded using firebase persistency and reliability mechanism
 
-# Features list, framework and techniques used in app:
+# Features list, frameworks and techniques used in app:
 
 #### Frontend/presentation layer:
 
