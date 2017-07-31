@@ -43,7 +43,7 @@ Here you go high level architecture of my solution:
 
 - Collections
 - Tab bars with multiple views
-- progress bar
+- Progress bar
 
 - Building Complex View 
 	- nesting Container View one in another
@@ -52,9 +52,9 @@ Here you go high level architecture of my solution:
 
 - Transition betweenn Views
 	- push with storyboards
-	- push programatically
+	- push programmatically
 	- modal with storyboards
-	- modal programamtically
+	- modal programmatically
 	- segue
 	- unwinding
 
@@ -90,7 +90,7 @@ Here you go high level architecture of my solution:
 
 - Firebase features used in app: 
 	- Authentication: Facebook, Twitter, Google+, email/password
-	- Database: structuring db, defining rules
+	- Database: structuring DB, defining rules
 	- Storage: defining rules
 	- Push Notification (TODO)
 
