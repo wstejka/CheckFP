@@ -206,7 +206,6 @@
 		9EA203401EA0BEA900F18A3A /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		9EA2035D1EA0C11500F18A3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EA2035F1EA0C12000F18A3A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9EA203601EA0C13A00F18A3A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EAC4BBF1ECF0FA000F7B81B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EB2D1521F02587E00299547 /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		9EDBA7871F27340D0069BCCE /* incrementBuild.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = incrementBuild.sh; sourceTree = "<group>"; };
@@ -784,7 +783,6 @@
 				en,
 				Base,
 				pl,
-				cs,
 			);
 			mainGroup = 9EA203131EA0BDBB00F18A3A;
 			productRefGroup = 9EA2031D1EA0BDBB00F18A3A /* Products */;
@@ -1083,7 +1081,6 @@
 			children = (
 				9EA2035D1EA0C11500F18A3A /* Base */,
 				9EA2035F1EA0C12000F18A3A /* pl */,
-				9EA203601EA0C13A00F18A3A /* cs */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
