@@ -20,6 +20,7 @@ import FirebaseTwitterAuthUI
 import FirebasePhoneAuthUI
 import Keys
 import Floaty
+import SwiftyUserDefaults
 
 // MARK: public constants
 let log = SwiftyBeaver.self
@@ -69,7 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Run FirebaseConnectionManager which keeps the firebase connection status
         _ = FirebaseConnectionManager.instance()
-        
+        // By default set authentication status as false; It will be set up in next step
+        Defaults[.isAuthenticated] = false
         
         // Run UserConfigurationManager which keeps up-to-date the user's configuration
         _ = UserConfigurationManager.instance()

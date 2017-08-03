@@ -16,6 +16,7 @@ import FirebaseTwitterAuthUI
 import FirebasePhoneAuthUI
 import TwitterKit
 import Keys
+import SwiftyUserDefaults
 
 
 // MARK: - FirebaseUI extension
@@ -32,7 +33,7 @@ extension MainTabBarViewController: FUIAuthDelegate {
         log.verbose("Authorization status: \(error == nil ? "Success" : "Fail")")
         if error != nil {
             //Problem signing in
-            login()
+//            login()
         }else {
             // User is in! Here is where we code after signing in
             UserConfigurationManager.instance().refreshOnConnect()
@@ -51,10 +52,12 @@ extension MainTabBarViewController: FUIAuthDelegate {
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
                 // User is signed in.
+                Defaults[.isAuthenticated] = true
             } else {
                 // No user is signed in.
-                self.login()
+                Defaults[.isAuthenticated] = false
             }
+            log.verbose("Authenication status=\(Defaults[.isAuthenticated] ?? false)")
         }
     }
     

@@ -101,11 +101,16 @@ class UserProfileViewController: UIViewController {
 //         .photo : [.name : "photo", .photo : "camera", .color : ThemesManager.Colors.orange],
          .coordinates : [.name : "coordinates", .photo : "location", .color : ThemesManager.Color.color2],
          .singOut : [.name : "singOut", .photo : "logout", .color : ThemesManager.Color.color3]]
+
+    let unauthenticatedProfileOptionsArray : [ProfileOption : [ProfileOptionProperty : Any]] =
+        [.personalData : [.name : "signIn", .photo : "login", .color : ThemesManager.Color.color3]]
+
     
     enum ProfileOption : Int {
         case personalData
         case coordinates
         case singOut
+        case signIn
     }
     
     enum ProfileOptionProperty : Int {

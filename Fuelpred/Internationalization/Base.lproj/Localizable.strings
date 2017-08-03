@@ -21,6 +21,7 @@ personalData = "profile"; //"personal data";
 changePhoto = "change photo";
 coordinates = "coordinates";
 singOut = "sign out";
+singIn = "sign in";
 profile = "profile";
 
 // General
