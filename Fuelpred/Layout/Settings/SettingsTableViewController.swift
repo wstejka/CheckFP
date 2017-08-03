@@ -233,6 +233,10 @@ class SettingsTableViewController: UITableViewController {
         // Create Save button in top navigation bar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self,
                                                                  action: #selector(saveBarButtonTapped))
+        // disable saving data if user is not authenticated
+        if Defaults[.isAuthenticated] == false {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
         
         // Instantiate search table view controller
         guard let searchTableViewController = storyboard!.instantiateViewController(withIdentifier: "SettingsSearchTableViewController") as? SettingsSearchTableViewController else {
@@ -241,7 +245,6 @@ class SettingsTableViewController: UITableViewController {
         }
         searchTableViewController.sectionsConfig = sectionsConfig
         searchTableViewController.delegate = self
-//        searchTableView.view.layer.opacity = 0.9
         
         self.resultSearchController = UISearchController(searchResultsController: searchTableViewController)
         resultSearchController?.searchResultsUpdater = searchTableViewController

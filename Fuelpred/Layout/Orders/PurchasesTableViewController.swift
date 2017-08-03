@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 // MARK: - Extension: PurchaseUpdateViewControllerDelegate
 extension PurchasesTableViewController : PurchaseUpdateViewControllerDelegate {
@@ -217,6 +218,10 @@ class PurchasesTableViewController: UITableViewController {
         // Uncomment the following line to display "+" button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
                                                                  target: self, action: #selector(addButtonPressed))
+        // disable saving data if user is not authenticated
+        if Defaults[.isAuthenticated] == false {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
         
         // Set up reference to purchase node
         purchaseRef = Database.database().reference(withPath: FirebaseNode.fuelPurchase.rawValue)
