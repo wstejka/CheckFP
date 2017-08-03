@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GjM-Uj-s9d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GjM-Uj-s9d">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="aQK-Vm-sbi">
             <objects>
-                <tabBarController id="GjM-Uj-s9d" customClass="MainTabBarViewController" customModule="CheckFuelPrice" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="GjM-Uj-s9d" customClass="MainTabBarViewController" customModule="Fuelpred" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="jtF-Pe-OKf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -21,11 +21,69 @@
                     <connections>
                         <segue destination="YbY-7v-Njt" kind="relationship" relationship="viewControllers" id="MXJ-DG-YYD"/>
                         <segue destination="8eg-AK-gJd" kind="relationship" relationship="viewControllers" id="8Io-r3-S5l"/>
+                        <segue destination="kOI-N5-VNh" kind="presentation" identifier="AppDescriptionViewControllerSegue" modalTransitionStyle="flipHorizontal" id="nun-EG-g5U"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2f-Ai-xqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1288" y="-419"/>
+        </scene>
+        <!--App Description View Controller-->
+        <scene sceneID="0PU-TE-1Ch">
+            <objects>
+                <viewController id="kOI-N5-VNh" customClass="AppDescriptionViewController" customModule="Fuelpred" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TjS-Bg-keY"/>
+                        <viewControllerLayoutGuide type="bottom" id="RVr-9W-93p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6ps-Pw-RT3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iS-cU-Sez">
+                                <rect key="frame" x="26" y="50" width="323" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="pup-Mv-dvJ">
+                                <rect key="frame" x="26" y="114" width="323" height="453"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Q6-b9-09u">
+                                <rect key="frame" x="162" y="607" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="nKC-kT-T9t"/>
+                                </constraints>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="kOI-N5-VNh" eventType="touchUpInside" id="rLn-1S-llT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3iS-cU-Sez" firstAttribute="leading" secondItem="6ps-Pw-RT3" secondAttribute="leadingMargin" constant="10" id="2rV-oU-Zff"/>
+                            <constraint firstItem="6Q6-b9-09u" firstAttribute="top" secondItem="pup-Mv-dvJ" secondAttribute="bottom" constant="40" id="PGI-bn-DyB"/>
+                            <constraint firstItem="pup-Mv-dvJ" firstAttribute="top" secondItem="3iS-cU-Sez" secondAttribute="bottom" constant="40" id="aZ7-GJ-ink"/>
+                            <constraint firstItem="RVr-9W-93p" firstAttribute="top" secondItem="6Q6-b9-09u" secondAttribute="bottom" constant="30" id="aaZ-n7-kUD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3iS-cU-Sez" secondAttribute="trailing" constant="10" id="flY-fk-akR"/>
+                            <constraint firstItem="3iS-cU-Sez" firstAttribute="top" secondItem="TjS-Bg-keY" secondAttribute="bottom" constant="30" id="ry4-Mc-7V6"/>
+                            <constraint firstItem="pup-Mv-dvJ" firstAttribute="leading" secondItem="6ps-Pw-RT3" secondAttribute="leadingMargin" constant="10" id="xw2-sP-f3j"/>
+                            <constraint firstItem="6Q6-b9-09u" firstAttribute="centerX" secondItem="6ps-Pw-RT3" secondAttribute="centerX" id="yEj-00-CZc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pup-Mv-dvJ" secondAttribute="trailing" constant="10" id="ye5-LF-MLr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="pup-Mv-dvJ" id="cgm-Sm-542"/>
+                        <outlet property="headerLabel" destination="3iS-cU-Sez" id="7Fh-ae-Zg3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O6w-zP-CIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-447" y="-885"/>
         </scene>
         <!--FuelInfoTab-->
         <scene sceneID="kLJ-g8-YhO">

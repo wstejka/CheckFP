@@ -71,6 +71,7 @@
 		9E8015181F07ED4E007403E5 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */; };
 		9E82AC781F04F4F700A9FBEE /* UserProfileMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82AC771F04F4F700A9FBEE /* UserProfileMapViewController.swift */; };
 		9E82AC7A1F0517D600A9FBEE /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82AC791F0517D600A9FBEE /* LocationSearchTable.swift */; };
+		9E98A64E1F33A7920069BD5C /* AppDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E98A64D1F33A7920069BD5C /* AppDescriptionViewController.swift */; };
 		9E9E7F201EE157370006414D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */; };
 		9E9E7F251EE171CB0006414D /* GenericNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */; };
 		9E9E7F271EE1A7AA0006414D /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E9E7F261EE1A7AA0006414D /* CustomCell.xib */; };
@@ -190,6 +191,7 @@
 		9E8015171F07ED4E007403E5 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = Layout/Settings/SettingsTableViewController.swift; sourceTree = "<group>"; };
 		9E82AC771F04F4F700A9FBEE /* UserProfileMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileMapViewController.swift; path = Layout/UserProfile/UserProfileMapViewController.swift; sourceTree = "<group>"; };
 		9E82AC791F0517D600A9FBEE /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationSearchTable.swift; path = Layout/UserProfile/LocationSearchTable.swift; sourceTree = "<group>"; };
+		9E98A64D1F33A7920069BD5C /* AppDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDescriptionViewController.swift; path = Layout/Main/AppDescriptionViewController.swift; sourceTree = "<group>"; };
 		9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarViewController.swift; path = Layout/Main/MainTabBarViewController.swift; sourceTree = "<group>"; };
 		9E9E7F221EE16DC00006414D /* StatisticsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTabViewController.swift; sourceTree = "<group>"; };
 		9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericNavigationController.swift; path = Layout/Main/GenericNavigationController.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 			children = (
 				9E9E7F1F1EE157370006414D /* MainTabBarViewController.swift */,
 				9E9E7F241EE171CB0006414D /* GenericNavigationController.swift */,
+				9E98A64D1F33A7920069BD5C /* AppDescriptionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -990,6 +993,7 @@
 				9EF038661EFF0B0500670527 /* UIApplication+Extension.swift in Sources */,
 				9EA203411EA0BEA900F18A3A /* String+Extension.swift in Sources */,
 				9EF1A2CD1EFED3A8008EDE98 /* UserProfilePersonalDataViewController.swift in Sources */,
+				9E98A64E1F33A7920069BD5C /* AppDescriptionViewController.swift in Sources */,
 				9E1C03A11EE4447F0023BCED /* FuelPricesTableViewCell.swift in Sources */,
 				9EF1A2CB1EFCE227008EDE98 /* ActivitiIndicatorManager.swift in Sources */,
 				9E634E8D1EEEFF08008AA6AD /* StatisticsViewController.swift in Sources */,

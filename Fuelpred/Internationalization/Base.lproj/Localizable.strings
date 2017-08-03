@@ -117,3 +117,21 @@ doYouWantToSaveData = "Do want to save data?";
 selectOption = "Select option";
 addNewPurchase = "Add new purchase";
 editExistingPurchase = "Edit existing purchase";
+
+// First startup
+firstStartupHeader = "Welcome!";
+firstStartupDescription = "Thank you for choosing our application. Before you start you must be aware that all features are free but some of them need an authentication. There are a couple ways you can authenticate yourself. Please, just choose the one suits to you the best.
+
+
+
+Here you go the list of features you can use when you are already authenticated:
+
+- Settings
+- Purchases
+- User's profile
+- Localization
+
+
+Have a good fun!
+";
+

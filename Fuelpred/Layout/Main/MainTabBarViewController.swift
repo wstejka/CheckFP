@@ -47,12 +47,24 @@ class MainTabBarViewController: UITabBarController {
             // increment counter
             counter += 1
         }
-        
         checkLoggedIn()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        showOnFirstStartup()
+        
+    }
+    
+    func showOnFirstStartup() {
+        log.verbose("")
+
+        if Defaults[.isNotFirstStartup] == true {
+            return
+        }
+        Defaults[.isNotFirstStartup] = true
+        performSegue(withIdentifier: "AppDescriptionViewControllerSegue", sender: nil)
     }
     
     func checkLoggedIn() {

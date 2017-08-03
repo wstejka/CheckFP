@@ -122,3 +122,19 @@ selectOption = "Wybierz opcję";
 addNewPurchase = "Dodaj nowy zakup";
 editExistingPurchase = "Zmień istniejący zakup";
 
+// First startup
+firstStartupHeader = "Witaj!";
+firstStartupDescription = "Dziękujemy, że wybrałeś naszą aplikację. Wszystkie funkcje są darmowe, ale niektóre z nich wymagają autentykacji. Istnieje kilka sposobów, aby się zalogować. Wybierz proszę ten, który najbardziej Ci odpowiada.
+
+
+
+Poniżej lista funkcji, które są dostępne gdy się już zalogujesz:
+
+- Ustawienia
+- Zapisywanie zakupów
+- Profil użytkownika
+- Współrzędne
+
+
+Miłego użytkowania!
+";
