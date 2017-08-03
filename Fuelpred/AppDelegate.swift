@@ -73,6 +73,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // By default set authentication status as false; It will be set up in next step
         Defaults[.isAuthenticated] = false
         
+        // ====== Set up authentication stuff at the startup so that it can be used later in app
+        // ==== Use FirebaseUI library to configure APIs
+        let authUI = FUIAuth.defaultAuthUI()
+        
+        // === Set up Twitter consumer's key and secret
+        let key = CheckFPKeys()
+        Twitter.sharedInstance().start(withConsumerKey:key.twitterConsumerKey, consumerSecret:key.twitterConsumerSecret)
+        
+        let providers: [FUIAuthProvider] = [
+            FUIGoogleAuth(),
+            FUIFacebookAuth(),
+            FUITwitterAuth(),
+            //            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
+        ]
+        
+        authUI?.providers = providers
+        
         // Run UserConfigurationManager which keeps up-to-date the user's configuration
         _ = UserConfigurationManager.instance()
     

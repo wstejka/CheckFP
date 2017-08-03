@@ -7,26 +7,42 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
+import Firebase
+import FirebaseAuth
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
+import FirebaseFacebookAuthUI
+import FirebaseTwitterAuthUI
+import FirebasePhoneAuthUI
+import TwitterKit
+import Keys
 
+// MARK: - UITableViewDataSource extension
 extension UserProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return profileOptionsArray.count
+        return ((Defaults[.isAuthenticated] == true) ? profileOptionsArray.count : unauthenticatedProfileOptionsArray.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
+        var optionsArray = unauthenticatedProfileOptionsArray
+        if Defaults[.isAuthenticated] == true {
+            optionsArray = profileOptionsArray
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        }
+        
         guard let profileOption = ProfileOption(rawValue: indexPath.row),
-            let descriptionNode = self.profileOptionsArray[profileOption],
+            let descriptionNode = optionsArray[profileOption],
             let descriptionText = descriptionNode[ProfileOptionProperty.name] as? String,
             let imageName = descriptionNode[ProfileOptionProperty.photo] as? String,
             let color = descriptionNode[ProfileOptionProperty.color] as? ThemesManager.Color else {
                 log.error("")
                 return cell
         }
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         
         // Let's add objects to UIView programmatically !!
         // Remark: Much more efficient and easy way is to use the storyboard and it's features ...
@@ -70,6 +86,7 @@ extension UserProfileViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate extension
 extension UserProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {        
@@ -77,18 +94,62 @@ extension UserProfileViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        log.verbose("didSelectRowAtIndex: \(indexPath.row), type: \(ProfileOption.singOut.rawValue)")
+        log.verbose("didSelectRowAtIndex: \(indexPath.row)")
         
-        if indexPath.row == ProfileOption.personalData.rawValue {
-            self.processPersonalData()
+        if Defaults[.isAuthenticated] == true {
+                
+            if indexPath.row == ProfileOption.personalData.rawValue {
+                self.processPersonalData()
+            }
+            if indexPath.row == ProfileOption.coordinates.rawValue {
+                self.processCoordinates()
+            }
+            else if indexPath.row == ProfileOption.singOut.rawValue {
+                self.processSignOut()
+            }
+            self.tableView.deselectRow(at: indexPath, animated: true)
         }
-        if indexPath.row == ProfileOption.coordinates.rawValue {
-            self.processCoordinates()
+        else {
+            if indexPath.row == ProfileOption.personalData.rawValue {
+                self.processSignIn()
+            }
         }
-        else if indexPath.row == ProfileOption.singOut.rawValue {
-            self.processSignOut()
+    }
+    
+}
+
+// MARK: - FUIAuthDelegate extension
+extension UserProfileViewController : FUIAuthDelegate {
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        
+        log.verbose("Authorization status: \(error == nil ? "Success" : "Fail")")
+        if error == nil {
+            // User is signed in.
+            Defaults[.isAuthenticated] = true
+            // User is in! Here is where we code after signing in
+            UserConfigurationManager.instance().refreshOnConnect()
+            // refresh table
+            self.tableView.reloadData()
         }
-        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
+        
+        log.verbose("")
+        let authPicker = FUIAuthPickerViewController(authUI: authUI)
+        authPicker.view.backgroundColor = ThemesManager.get(color: .primary)
+        
+        return authPicker
+    }
+    
+    // MARK: - Authentication related
+    func login() {
+        log.verbose("")
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI?.delegate = self
+        let authViewController = authUI?.authViewController()
+        self.present(authViewController!, animated: true, completion: nil)
     }
     
 }
@@ -126,8 +187,9 @@ class UserProfileViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
+    var stateDidChangeListenerHandle : AuthStateDidChangeListenerHandle? = nil
     
-    // MARK: UIViewController lifecycle
+    // MARK: - UIViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,6 +198,13 @@ class UserProfileViewController: UIViewController {
         self.tableView.delegate = self
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     deinit {
         log.info("")
     }
@@ -175,8 +244,12 @@ class UserProfileViewController: UIViewController {
         let signoutAction = UIAlertAction(title : "answerYes".localized().capitalizingFirstLetter(), style : UIAlertActionStyle.default){
             (action) in
             log.verbose("Yes")
-            self.performSegue(withIdentifier: self.signOutSegueName, sender: nil)
-            
+//            self.performSegue(withIdentifier: self.signOutSegueName, sender: nil)
+            // Sign out
+            try! Auth.auth().signOut()
+            Defaults[.isAuthenticated] = false
+            // refresh table
+            self.tableView.reloadData()
         }
         let ignoreAction = UIAlertAction(title: "answerNo".localized().capitalizingFirstLetter(),
                                          style: UIAlertActionStyle.default, handler: { action in
@@ -188,4 +261,10 @@ class UserProfileViewController: UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func processSignIn() {
+        log.verbose("entered")
+        login()
+    }
+    
 }

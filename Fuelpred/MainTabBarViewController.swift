@@ -19,59 +19,12 @@ import Keys
 import SwiftyUserDefaults
 
 
-// MARK: - FirebaseUI extension
-extension MainTabBarViewController: FUIAuthDelegate {
-    
-    /** @fn authUI:didSignInWithUser:error:
-     @brief Message sent after the sign in process has completed to report the signed in user or
-     error encountered.
-     @param authUI The @c FUIAuth instance sending the message.
-     @param user The signed in user if the sign in attempt was successful.
-     @param error The error that occurred during sign in, if any.
-     */
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        log.verbose("Authorization status: \(error == nil ? "Success" : "Fail")")
-        if error != nil {
-            //Problem signing in
-//            login()
-        }else {
-            // User is in! Here is where we code after signing in
-            UserConfigurationManager.instance().refreshOnConnect()
-        }
-    }
-    
-    // MARK: - Authentication related
-    func login() {
-        let authUI = FUIAuth.defaultAuthUI()
-        let authViewController = authUI?.authViewController()
-        self.present(authViewController!, animated: true, completion: nil)
-    }
-    
-    func checkLoggedIn() {
-        
-        Auth.auth().addStateDidChangeListener { auth, user in
-            if user != nil {
-                // User is signed in.
-                Defaults[.isAuthenticated] = true
-            } else {
-                // No user is signed in.
-                Defaults[.isAuthenticated] = false
-            }
-            log.verbose("Authenication status=\(Defaults[.isAuthenticated] ?? false)")
-        }
-    }
-    
-    func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
-
-        let authPicker = FUIAuthPickerViewController(authUI: authUI)
-        authPicker.view.backgroundColor = ThemesManager.get(color: .primary)
-        
-        return authPicker
-    }
-}
-
 // MARK: - Implementation
 class MainTabBarViewController: UITabBarController {
+    
+    
+    // MARK: - Vars/Consts
+    var stateDidChangeListenerHandle : AuthStateDidChangeListenerHandle? = nil
     
     // MARK: - UIView lifecycle
     
@@ -95,26 +48,23 @@ class MainTabBarViewController: UITabBarController {
             counter += 1
         }
         
-        // ==== Use FIREBASE library to configure APIs
-        let authUI = FUIAuth.defaultAuthUI()
-        authUI?.delegate = self
-        
-        // === Set up Twitter consumer's key and secret
-        let key = CheckFPKeys()
-        Twitter.sharedInstance().start(withConsumerKey:key.twitterConsumerKey, consumerSecret:key.twitterConsumerSecret)
-        
-        let providers: [FUIAuthProvider] = [
-            FUIGoogleAuth(),
-            FUIFacebookAuth(),
-            FUITwitterAuth(),
-            //            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
-        ]
-        
-        authUI?.providers = providers
         checkLoggedIn()
-
     }
     
-
-
+    func checkLoggedIn() {
+        
+        stateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                // User is signed in.
+                Defaults[.isAuthenticated] = true
+                // User is in! Here is where we code after signing in
+                UserConfigurationManager.instance().refreshOnConnect()
+            }
+            log.verbose("Authenication status=\(Defaults[.isAuthenticated] ?? false)")
+            // This is first place accessed in app and we put it here just for one reason: to determine user is authenticated or not
+            // Let's deregister from this event after receiving information
+            Auth.auth().removeStateDidChangeListener(self.stateDidChangeListenerHandle!)
+            log.verbose("Deregister from FIRAuthStateDidChangeListenerHandle event")
+        }
+    }
 }
