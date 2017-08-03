@@ -230,12 +230,14 @@ class FuelInfoViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         log.verbose("")
         AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
         deselectHighlightedRow()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         log.verbose("")
         AppUtility.lockOrientation([.portrait,.landscapeLeft,.landscapeRight])
     }

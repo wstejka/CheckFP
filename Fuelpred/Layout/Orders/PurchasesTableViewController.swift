@@ -229,7 +229,7 @@ class PurchasesTableViewController: UITableViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
+        super.viewDidAppear(animated)
         if removeFirebaseRef == true {
             self.startObserving()
         }
@@ -237,7 +237,7 @@ class PurchasesTableViewController: UITableViewController {
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-
+        super.viewDidDisappear(animated)
         if (self.purchaseRef != nil) &&
             (removeFirebaseRef == true) {
             purchaseRef?.removeAllObservers()

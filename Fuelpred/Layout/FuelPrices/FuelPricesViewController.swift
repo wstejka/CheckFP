@@ -92,10 +92,12 @@ class FuelPricesViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         startObserving()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         if refFuelTypes != nil {
             // remove observer
             self.refFuelTypes!.removeAllObservers()

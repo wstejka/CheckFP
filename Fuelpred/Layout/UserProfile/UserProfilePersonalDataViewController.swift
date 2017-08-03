@@ -130,10 +130,13 @@ class UserProfilePersonalDataViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.startObserving()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
         log.verbose("")
   
         if fbReferenceUser != nil {

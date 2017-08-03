@@ -260,6 +260,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         log.verbose("")
         if removeFirebaseRef == true {
             startObserving()
@@ -269,6 +270,8 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         log.verbose("")
+        super.viewDidDisappear(animated)
+
         // we don't want to remove reference for pushed views created on the top of this one
         if (userConfigRef != nil) &&
             (removeFirebaseRef == true) {

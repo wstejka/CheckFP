@@ -133,12 +133,15 @@ class UserProfileMapViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         log.verbose("")
         startObserving()
         
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
         log.verbose("")
         if userDatabaseRef != nil {
             userDatabaseRef?.removeAllObservers()

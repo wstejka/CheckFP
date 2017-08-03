@@ -51,6 +51,10 @@ class MainTabBarViewController: UITabBarController {
         checkLoggedIn()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func checkLoggedIn() {
         
         stateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener { auth, user in
