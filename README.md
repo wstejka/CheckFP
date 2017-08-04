@@ -42,6 +42,7 @@ Here you go high level architecture of my solution:
 	- dynamic
 
 - Collections
+- SearchBar (integrated with UITableView)
 - Tab bars with multiple views
 - Progress bar
 
@@ -71,6 +72,7 @@ Here you go high level architecture of my solution:
 
 - Fixed orientation for certain View
 
+- MapKit: coordinate, regions, 
 
 ####  Backend:
 
