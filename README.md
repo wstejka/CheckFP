@@ -72,7 +72,7 @@ Here you go high level architecture of my solution:
 
 - Fixed orientation for certain View
 
-- MapKit: coordinate, regions, 
+- MapKit: coordinates, regions, spans
 
 ####  Backend:
 
