@@ -40,5 +40,3 @@ else
 	git config --unset https.proxy
 fi
 
-#git config --global http.proxy http_proxy=http://135.245.192.7:8000
-
