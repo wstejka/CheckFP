@@ -120,7 +120,7 @@ Other
 
 ```sh
 $ git clone https://github.com/wstejka/CheckFP.git
-$ pods install
+$ pod install
 $ carthage update --platform iOS
 ```
 ### Roadmap
