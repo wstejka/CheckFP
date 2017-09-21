@@ -51,12 +51,12 @@ extension String {
                                             upper: min(length, max(0, r.upperBound))))
         let start = index(startIndex, offsetBy: range.lowerBound)
         let end = index(start, offsetBy: range.upperBound - range.lowerBound)
-        return self[Range(start ..< end)]
+        return String(self[Range(start ..< end)])
     }
     subscript (r: CountableClosedRange<Int>) -> String {
         let startIndex =  self.index(self.startIndex, offsetBy: r.lowerBound)
         let endIndex = self.index(startIndex, offsetBy: r.upperBound - r.lowerBound)
-        return self[startIndex...endIndex]
+        return String(self[startIndex...endIndex])
     }
 }
 
@@ -81,8 +81,8 @@ extension String {
     func nsRange(from range: Range<String.Index>) -> NSRange {
         let from = range.lowerBound.samePosition(in: utf16)
         let to = range.upperBound.samePosition(in: utf16)
-        return NSRange(location: utf16.distance(from: utf16.startIndex, to: from),
-                       length: utf16.distance(from: from, to: to))
+        return NSRange(location: utf16.distance(from: utf16.startIndex, to: from!),
+                       length: utf16.distance(from: from!, to: to!))
     }
     
     func range(from nsRange: NSRange) -> Range<String.Index>? {

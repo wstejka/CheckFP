@@ -87,7 +87,7 @@ extension UserProfileMapViewController : MKMapViewDelegate {
         return pinView
     }
     
-    func getDirections(){
+    @objc func getDirections(){
         
         if let selectedPin = selectedPin {
             let mapItem = MKMapItem(placemark: selectedPin)

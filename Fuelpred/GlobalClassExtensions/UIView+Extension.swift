@@ -49,10 +49,8 @@ public enum ShakeDirection: Int {
     }
 }
 
-private struct DefaultValues {
-    static let numberOfTimes = 5
-    static let totalDuration: Float = 0.5
-}
+fileprivate let numberOfTimes = 5
+fileprivate let totalDuration: Float = 0.5
 
 extension UIView {
     
@@ -66,7 +64,7 @@ extension UIView {
      - parameter totalDuration: Total duration to do the shakes, default is 0.5 seconds
      - parameter completion:    Optional completion closure
      */
-    public func shake(direction: ShakeDirection, numberOfTimes: Int = DefaultValues.numberOfTimes, totalDuration: Float = DefaultValues.totalDuration, completion: (() -> Void)? = nil) -> UIView? {
+    public func shake(direction: ShakeDirection, numberOfTimes: Int = 5, totalDuration: Float = 0.5, completion: (() -> Void)? = nil) -> UIView? {
         if UIAccessibilityIsVoiceOverRunning() {
             return self
         } else {

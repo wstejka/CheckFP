@@ -146,7 +146,7 @@ extension PurchasesTableViewController: UICollectionViewDataSource {
 // MARK: - Extension: UICollectionViewDelegate
 extension PurchasesTableViewController: UICollectionViewDelegate {
     
-    func longPressGesture(sender: UILongPressGestureRecognizer) {
+    @objc func longPressGesture(sender: UILongPressGestureRecognizer) {
         
         
         guard let cell = sender.view as? PurchasesCollectionViewCell else {
@@ -288,7 +288,7 @@ class PurchasesTableViewController: UITableViewController {
         
     }
 
-    func addButtonPressed(tapGestureRecognizer : UITapGestureRecognizer) {
+    @objc func addButtonPressed(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("")
         processEdit(cell: nil)
     }

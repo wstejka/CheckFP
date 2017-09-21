@@ -32,8 +32,8 @@ extension SettingsSearchTableViewController: UISearchResultsUpdating {
             let attributedString = NSMutableAttributedString(string: item.text,
                                                              attributes: [:])
             
-            attributedString.setAttributes([NSForegroundColorAttributeName : ThemesManager.get(color: .primary),
-                                            NSFontAttributeName : UIFont.boldSystemFont(ofSize: 18.0)],
+            attributedString.setAttributes([NSAttributedStringKey.foregroundColor : ThemesManager.get(color: .primary),
+                                            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 18.0)],
                                            range: String().nsRange(from: matchingSubstringRange!))
             var itemCopy = item
             itemCopy.attributedText = attributedString

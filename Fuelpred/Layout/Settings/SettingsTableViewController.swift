@@ -283,7 +283,7 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Actions
     
-    func saveBarButtonTapped() {
+    @objc func saveBarButtonTapped() {
         log.verbose("")
         
         // Firebase uid

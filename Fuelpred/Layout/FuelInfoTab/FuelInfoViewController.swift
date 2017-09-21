@@ -89,23 +89,23 @@ extension FuelInfoViewController: UITableViewDataSource {
     }
     
     
-    func currentFuelPricesImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
+    @objc func currentFuelPricesImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
         performSegue(withIdentifier: ViewSegue.FuelPricesSegue.rawValue, sender: nil)
     }
 
-    func purchasesImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
+    @objc func purchasesImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
         performSegue(withIdentifier: ViewSegue.PurchasesSegue.rawValue, sender: nil)
 
     }
     
-    func statisticsImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
+    @objc func statisticsImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
         performSegue(withIdentifier: ViewSegue.StatisticsSegue.rawValue, sender: nil)
     }
 
-    func settingsImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
+    @objc func settingsImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
         performSegue(withIdentifier: ViewSegue.SettingsSegue.rawValue, sender: nil)
     }

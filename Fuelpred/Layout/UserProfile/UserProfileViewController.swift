@@ -81,7 +81,7 @@ extension UserProfileViewController: UITableViewDataSource {
         return cell
     }
 
-    func buttonAction(sender: UIButton!) {
+    @objc func buttonAction(sender: UIButton!) {
         log.verbose("Button tapped: \(sender.description)")
     }
 }
