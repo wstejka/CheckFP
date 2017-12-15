@@ -91,7 +91,11 @@ extension FuelInfoViewController: UITableViewDataSource {
     
     @objc func currentFuelPricesImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         log.verbose("Enter")
-        performSegue(withIdentifier: ViewSegue.FuelPricesSegue.rawValue, sender: nil)
+        
+        let fuelPricesView = FuelPricesWireFrame.createFuelPriceView()
+        if let sourceView = self.navigationController {
+            sourceView.pushViewController(fuelPricesView, animated: true)
+        }
     }
 
     @objc func purchasesImageTapped(tapGestureRecognizer : UITapGestureRecognizer) {

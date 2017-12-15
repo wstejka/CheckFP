@@ -165,7 +165,8 @@ class UserProfilePersonalDataViewController: UITableViewController {
             configuration.mainColor = .white
             
             let imagePickerController = ImagePickerController()
-            imagePickerController.configuration = configuration
+            // TODO: 3rd party framework issue
+//            imagePickerController.configuration = configuration
             imagePickerController.bottomContainer.backgroundColor = ThemesManager.get(color: .primary)
             imagePickerController.bottomContainer.doneButton.backgroundColor = ThemesManager.get(color: .primary)
             

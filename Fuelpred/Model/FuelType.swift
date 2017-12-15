@@ -60,3 +60,15 @@ struct FuelType {
     }
 
 }
+
+//! This object is passed to View by Presenter
+//  We cannot pass Model (FuelType) object directly
+struct FuelTypeViewModel {
+    let currentHighestPrice : String
+    let currentLowestPrice : String
+    let fuelName : String
+    let perDateLabel : String
+}
+
+typealias FuelPricesCompletionHandler = ([FuelType]) -> Void
+
