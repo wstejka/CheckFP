@@ -21,6 +21,7 @@ protocol FuelPricesWireFrameProtocol: class
 
 protocol FuelPricesPresenterProtocol: class
 {
+    
     var view: FuelPricesViewProtocol? { get set }
     var interactor: FuelPricesInteractorInputProtocol? { get set }
     var wireFrame: FuelPricesWireFrameProtocol? { get set }
@@ -33,6 +34,8 @@ protocol FuelPricesPresenterProtocol: class
     func didSelectRowAt(_ indexPath: IndexPath)
     func viewDidLoad()
     func viewWillAppear()
+
+    func configure(_ view: UIView, forItem: FuelTypeViewModel)    
 }
 
 protocol FuelPricesInteractorOutputProtocol: class

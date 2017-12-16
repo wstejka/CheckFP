@@ -68,6 +68,7 @@ struct FuelTypeViewModel {
     let currentLowestPrice : String
     let fuelName : String
     let perDateLabel : String
+    let fuelType : FuelType
 }
 
 typealias FuelPricesCompletionHandler = ([FuelType]) -> Void

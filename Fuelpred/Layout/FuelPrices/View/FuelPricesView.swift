@@ -11,8 +11,8 @@ class FuelPricesView: UIViewController
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableHeader: UIView!
     
-    @IBOutlet weak var lowestPriceDescription: UILabel!
-    @IBOutlet weak var highestPriceDescription: UILabel!
+    @IBOutlet weak var lowestPriceHeaderDescription: UILabel!
+    @IBOutlet weak var highestPriceHeaderDescription: UILabel!
 
     var presenter: FuelPricesPresenterProtocol?
     var items : [FuelTypeViewModel] = []
@@ -22,8 +22,8 @@ class FuelPricesView: UIViewController
         tableView.dataSource = self
         tableView.delegate = self
         
-        lowestPriceDescription.text = presenter?.lowestPriceDescription
-        highestPriceDescription.text = presenter?.highestPriceDescription
+        lowestPriceHeaderDescription.text = presenter?.lowestPriceDescription
+        highestPriceHeaderDescription.text = presenter?.highestPriceDescription
         navigationItem.title = presenter?.viewTitle
         
         presenter?.viewDidLoad()
@@ -72,6 +72,8 @@ extension FuelPricesView : UITableViewDataSource {
         cell.perDateLabel.text = fuel.perDateLabel
         cell.lowestPricesValue.text = fuel.currentLowestPrice
         cell.highestPriceValue.text = fuel.currentHighestPrice
+        
+        presenter?.configure(cell.fuelUIView, forItem: fuel)
         
         return cell
     }

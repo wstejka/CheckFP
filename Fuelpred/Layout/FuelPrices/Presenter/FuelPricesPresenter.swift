@@ -7,6 +7,7 @@ import Foundation
 
 class FuelPricesPresenter: FuelPricesPresenterProtocol
 {
+
     weak var view: FuelPricesViewProtocol?
     var interactor: FuelPricesInteractorInputProtocol?
     var wireFrame: FuelPricesWireFrameProtocol?
@@ -23,15 +24,22 @@ class FuelPricesPresenter: FuelPricesPresenterProtocol
     
     func didSelectRowAt(_ indexPath: IndexPath) {
         // TODO: Invoke method on Wireframe
+        // On this View there is nothing to show yet, at least at that moment
     }
     
     func viewDidLoad() {
         interactor?.initiate()
     }
+
     func viewWillAppear() {
         interactor?.startObserving()
     }
     
+    func configure(_ view: UIView, forItem: FuelTypeViewModel) {
+        
+        let fuelTypeView = view.addXib(forType: FuelTypeView.self)
+        Utils.setupFuelType(type: forItem.fuelType.id.rawValue, inView: fuelTypeView)
+    }
 }
 
 extension FuelPricesPresenter : FuelPricesInteractorOutputProtocol {
@@ -46,12 +54,12 @@ extension FuelPricesPresenter : FuelPricesInteractorOutputProtocol {
             let lowestValueText = lowestValue.strRound(to: 2)
             let fuelName = fuelType.name.localized()
             let perDateText = Double(fuelType.timestamp).timestampToString()
-
             
             let fuelTypeViewModel = FuelTypeViewModel(currentHighestPrice: highestValueText,
                                                       currentLowestPrice: lowestValueText,
                                                       fuelName: fuelName,
-                                                      perDateLabel: perDateText)
+                                                      perDateLabel: perDateText,
+                                                      fuelType : fuelType)
             return fuelTypeViewModel
         }))
     }
