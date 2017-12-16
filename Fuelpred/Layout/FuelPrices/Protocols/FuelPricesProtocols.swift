@@ -34,6 +34,7 @@ protocol FuelPricesPresenterProtocol: class
     func didSelectRowAt(_ indexPath: IndexPath)
     func viewDidLoad()
     func viewWillAppear()
+    func viewDidDisappear()
 
     func configure(_ view: UIView, forItem: FuelTypeViewModel)    
 }
@@ -52,6 +53,7 @@ protocol FuelPricesInteractorInputProtocol: class
     // PRESENTER -> INTERACTOR
     func initiate()
     func startObserving()
+    func stopObserving()
 }
 
 protocol FuelPricesRemoteDataManagerInputProtocol: class
@@ -59,7 +61,7 @@ protocol FuelPricesRemoteDataManagerInputProtocol: class
     // INTERACTOR -> DATAMANAGER
     func initiate()
     func startObserving(_ completion : @escaping FuelPricesCompletionHandler)
-
+    func stopObserving()
 }
 
 

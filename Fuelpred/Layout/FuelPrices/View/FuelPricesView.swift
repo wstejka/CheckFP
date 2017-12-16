@@ -33,6 +33,15 @@ class FuelPricesView: UIViewController
         super.viewWillAppear(animated)
         presenter?.viewWillAppear()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        presenter?.viewDidDisappear()
+    }
+    
+    deinit {
+        log.verbose("The memory successfully deallocated")
+    }
 }
 
 extension FuelPricesView : FuelPricesViewProtocol {

@@ -39,6 +39,11 @@ class FuelPricesRemoteDataManager: FuelPricesRemoteDataManagerInputProtocol
             
             completion(items)
         })
+    }
     
+    func stopObserving() {
+        // remove observer
+        self.refFuelTypes?.removeAllObservers()
+        log.verbose("Observer removed")
     }
 }

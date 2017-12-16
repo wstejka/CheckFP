@@ -35,6 +35,10 @@ class FuelPricesPresenter: FuelPricesPresenterProtocol
         interactor?.startObserving()
     }
     
+    func viewDidDisappear() {
+        interactor?.stopObserving()
+    }
+    
     func configure(_ view: UIView, forItem: FuelTypeViewModel) {
         
         let fuelTypeView = view.addXib(forType: FuelTypeView.self)

@@ -20,4 +20,7 @@ class FuelPricesInteractor: FuelPricesInteractorInputProtocol
             self?.presenter?.didReceiveItems(items)
         })
     }
+    func stopObserving() {
+        remoteDatamanager?.stopObserving()
+    }
 }
